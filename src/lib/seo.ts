@@ -2,9 +2,23 @@ import type { Metadata } from 'next';
 import { getSite } from '@/lib/content';
 import { locales, type Locale } from '@/i18n/routing';
 
-export const SITE_URL = (
-  process.env.NEXT_PUBLIC_SITE_URL ?? 'https://athr.studio'
-).replace(/\/$/, '');
+/**
+ * The canonical origin. An env var set but left empty (easy to do in the
+ * Vercel dashboard) must fall back too — `??` alone let '' through and
+ * `new URL('')` failed the whole build. A bare domain gets https:// added.
+ */
+function resolveSiteUrl(fallback = 'https://athr.studio'): string {
+  const raw = (process.env.NEXT_PUBLIC_SITE_URL ?? '').trim();
+  if (!raw) return fallback;
+  const candidate = /^https?:\/\//i.test(raw) ? raw : `https://${raw}`;
+  try {
+    return new URL(candidate).toString().replace(/\/$/, '');
+  } catch {
+    return fallback;
+  }
+}
+
+export const SITE_URL = resolveSiteUrl();
 
 export const siteUrl = (path = '') => `${SITE_URL}${path.startsWith('/') ? path : `/${path}`}`;
 
