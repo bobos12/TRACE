@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="../../_shared/fonts.css"><link rel="stylesheet" href="../../_shared/tokens.css"><link rel="stylesheet" href="../../_shared/bundle.css"><script src="../../_shared/react.production.min.js"></script><script src="../../_shared/react-dom.production.min.js"></script><script src="../../_shared/bundle.js"></script><style>body{min-width:1280px}</style><meta charset="utf-8"><title>Brand applications — ATHR</title>
+<style>
+  .pg { padding: 48px; display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px; }
+  .tile { background: var(--surface-raised); box-shadow: inset 0 0 0 1px var(--line); padding: 24px; display: flex; flex-direction: column; gap: 16px; }
+  .tile .eyebrow { color: var(--ink-muted); }
+  .t4 { grid-column: span 4; } .t5 { grid-column: span 5; } .t7 { grid-column: span 7; } .t8 { grid-column: span 8; } .t3 { grid-column: span 3; } .t6 { grid-column: span 6; }
+  .tabs { display: flex; flex-direction: column; gap: 0; border: 1px solid var(--line); border-radius: 8px 8px 0 0; overflow: hidden; }
+  .tabstrip { display: flex; gap: 2px; background: var(--surface-sunken); padding: 8px 8px 0; }
+  .btab { display: flex; align-items: center; gap: 8px; padding: 8px 12px; font-size: 12px; background: var(--surface-raised); border-radius: 6px 6px 0 0; width: 200px; }
+  .btab.off { background: transparent; color: var(--ink-muted); }
+  .fav { width: 16px; height: 16px; display: grid; place-items: center; background: #0F0F0D; border-radius: 3px; }
+  .icons { display: flex; gap: 20px; align-items: flex-end; }
+  .ic { display: flex; flex-direction: column; align-items: center; gap: 8px; font-size: 11px; color: var(--ink-muted); }
+  .app { width: 88px; height: 88px; border-radius: 20px; display: grid; place-items: center; background: #0F0F0D; }
+  .app.lt { background: #F4F1E9; box-shadow: inset 0 0 0 1px var(--line); }
+  .av { width: 88px; height: 88px; border-radius: 50%; display: grid; place-items: center; background: #0F0F0D; }
+  .cards { display: flex; gap: 20px; }
+  .bc { width: 252px; height: 144px; padding: 18px; display: flex; flex-direction: column; box-shadow: 0 0 0 1px var(--line), var(--shadow-float); position: relative; }
+  .bc.dk { background: #0F0F0D; color: #F2EEE4; --ink: #F2EEE4; --vermilion: #FF5A33; clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 0 100%); }
+  .bc.lt { background: #FBFAF6; color: #14130F; --ink: #14130F; --vermilion: #E0461F; --ink-muted: #5C584E; --line: #D6CFBE; }
+  .bc .n { margin-top: auto; font-size: 13px; font-weight: 600; }
+  .bc .r { font-size: 10px; color: var(--ink-muted); }
+  .bc .c { font-family: var(--font-mono); font-size: 9px; line-height: 14px; color: var(--ink-muted); margin-top: 8px; }
+  .bc .ar { font-family: var(--font-arabic); font-size: 12px; font-weight: 600; }
+  .sig { font-size: 13px; line-height: 20px; border-inline-start: 2px solid var(--line); padding-inline-start: 16px; }
+  .sig b { display: block; }
+  .sig .m { font-family: var(--font-mono); font-size: 11px; color: var(--ink-muted); }
+  .clear { position: relative; display: grid; place-items: center; padding: 28px; background: repeating-linear-gradient(45deg, transparent 0 6px, var(--nuqta-soft) 6px 7px); outline: 1px dashed var(--nuqta); outline-offset: -1px; }
+  .clear span.lbl { position: absolute; top: 6px; left: 8px; font-family: var(--font-mono); font-size: 9px; color: var(--nuqta); letter-spacing: .1em; }
+  .rules { margin: 0; padding: 0; list-style: none; font-size: 13px; line-height: 20px; color: var(--ink-muted); display: flex; flex-direction: column; gap: 6px; }
+  .rules li { display: flex; gap: 8px; align-items: baseline; }
+</style></head>
+<body>
+<div class="pg">
+  <div class="tile t5"><div class="eyebrow">FAVICON ◆ 16 · 32 PX</div>
+    <div class="tabs"><div class="tabstrip"><div class="btab"><span class="fav" data-sym="16" data-fav></span>ATHR — Software studio</div><div class="btab off"><span class="fav" style="background:var(--line)"></span>Inbox</div></div><div style="height:40px;background:var(--surface-raised)"></div></div>
+    <div class="icons"><div class="ic"><span class="fav" style="width:32px;height:32px;border-radius:6px" data-sym="22" data-fav></span>32px</div><div class="ic"><span class="fav" data-sym="11" data-fav></span>16px</div></div>
+  </div>
+  <div class="tile t7"><div class="eyebrow">APP ICON ◆ SOCIAL AVATAR</div>
+    <div class="icons"><div class="ic"><span class="app" data-sym="44" data-fav></span>Dark (default)</div><div class="ic"><span class="app lt" data-sym="44" data-accent></span>Light</div><div class="ic"><span class="av" data-sym="36" data-fav></span>Avatar</div><div class="ic"><span class="app" style="width:56px;height:56px;border-radius:13px" data-sym="28" data-fav></span>Small</div></div>
+    <ul class="rules"><li><span data-n></span>The symbol takes 50% of the icon; the OS supplies the corner radius.</li><li><span data-n></span>Carbon ground, vermilion nuqtas. Never on a gradient or a photo.</li></ul>
+  </div>
+  <div class="tile t8"><div class="eyebrow">BUSINESS CARDS ◆ 85 × 48 MM</div>
+    <div class="cards">
+      <div class="bc dk"><span data-logo="wordmark" data-size="16"></span><span class="n">Ahmed Sharaf</span><span class="r" style="color:#A7A193">Founder · Engineering</span></div>
+      <div class="bc lt"><div style="display:flex;justify-content:space-between"><span class="c" style="margin:0">ahmed@athr.studio<br>+966 5X XXX XXXX<br>athr.studio</span><span data-const="ATHR" data-size="9"></span></div><div class="ar" dir="rtl" style="margin-top:auto">أحمد شرف — المؤسس</div></div>
+    </div>
+  </div>
+  <div class="tile t4"><div class="eyebrow">EMAIL SIGNATURE</div>
+    <div class="sig"><b>Ahmed Sharaf</b><span class="at-muted">Founder · ATHR</span><div class="m">athr.studio ◆ Riyadh · Cairo</div></div>
+    <ul class="rules"><li><span data-n></span>Text only. No logo image, no banners.</li></ul>
+  </div>
+  <div class="tile t6"><div class="eyebrow">CLEAR SPACE ◆ MINIMUM SIZE</div>
+    <div class="clear"><span class="lbl">1 NUQTA CLUSTER ON EVERY SIDE</span><span data-logo="wordmark" data-size="44"></span></div>
+    <ul class="rules"><li><span data-n></span>Clear space = the width of the nuqta cluster, on all sides.</li><li><span data-n></span>Wordmark min 72px / 18mm wide; below that use the symbol.</li></ul>
+  </div>
+  <div class="tile t6"><div class="eyebrow">DON'T</div>
+    <ul class="rules"><li><span data-n="ink"></span>Don't recolor the nuqtas in a client's brand colour — that's what the constellation is for.</li><li><span data-n="ink"></span>Don't set أثر in another font or with the font's own round dots.</li><li><span data-n="ink"></span>Don't move the cluster off the TH / ث, add effects, outlines or gradients.</li><li><span data-n="ink"></span>Don't stack the Arabic above the Latin; the bilingual lockup is always side by side, Latin first in LTR contexts, Arabic first in RTL.</li></ul>
+  </div>
+</div>
+<script>
+  var A = window.Athr, h = React.createElement;
+  document.querySelectorAll('[data-sym]').forEach(function (el) { ReactDOM.createRoot(el).render(h(A.Logo, { variant: 'symbol', size: +el.dataset.sym, tone: el.dataset.accent != null ? 'accent' : undefined, style: el.dataset.fav != null ? { '--vermilion': '#FF5A33' } : { color: '#14130F', '--vermilion': '#E0461F' } })); });
+  document.querySelectorAll('[data-logo]').forEach(function (el) { ReactDOM.createRoot(el).render(h(A.Logo, { variant: el.dataset.logo, size: +el.dataset.size })); });
+  document.querySelectorAll('[data-const]').forEach(function (el) { ReactDOM.createRoot(el).render(h(A.Constellation, { seed: el.dataset.const, size: +el.dataset.size, quiet: true })); });
+  document.querySelectorAll('[data-n]').forEach(function (el) { ReactDOM.createRoot(el).render(h(A.Nuqta, { size: 7, tone: el.dataset.n || 'mark' })); });
+</script>
+<button id="athr-theme" aria-label="Switch light/dark" style="position:fixed;right:16px;bottom:16px;z-index:99;height:36px;padding:0 14px;border-radius:4px;border:1px solid var(--line-strong);background:var(--surface-raised);color:var(--ink);font:500 13px var(--font-sans);cursor:pointer">Light / Dark</button>
+<script>(function(){var r=document.documentElement,b=document.getElementById('athr-theme');if(location.hash==='#dark')r.setAttribute('data-theme','dark');b.onclick=function(){r.setAttribute('data-theme',r.getAttribute('data-theme')==='dark'?'light':'dark')};})();</script>
+</body>
+</html>

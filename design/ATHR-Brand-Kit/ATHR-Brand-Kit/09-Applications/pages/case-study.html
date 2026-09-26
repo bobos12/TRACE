@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="../../_shared/fonts.css"><link rel="stylesheet" href="../../_shared/tokens.css"><link rel="stylesheet" href="../../_shared/bundle.css"><script src="../../_shared/react.production.min.js"></script><script src="../../_shared/react-dom.production.min.js"></script><script src="../../_shared/bundle.js"></script><style>body{min-width:1280px}</style><meta charset="utf-8"><title>Case study — ATHR</title>
+<style>
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 32px; }
+  .top { background: var(--graphite); color: #F2EEE4; --ink: #F2EEE4; --line: #2E2D28; --vermilion: #FF5A33; padding: 72px 0 0; }
+  .top .meta { display: flex; justify-content: space-between; align-items: flex-start; }
+  .top h1 { margin: 64px 0 0; max-width: 14ch; }
+  .top .ar { font-family: var(--font-arabic); font-size: 26px; line-height: 1.6; color: #A7A193; margin-top: 16px; }
+  .facts { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 64px; border-top: 1px solid #2E2D28; }
+  .facts div { padding: 24px 24px 32px 0; }
+  .facts div + div { padding-inline-start: 24px; border-inline-start: 1px solid #2E2D28; }
+  .facts b { display: block; font-family: var(--font-mono); font-size: 44px; line-height: 48px; font-weight: 500; letter-spacing: -.04em; }
+  .facts span { font-size: 13px; color: #A7A193; }
+  .body { display: grid; grid-template-columns: 3fr 9fr; gap: 32px; padding: 80px 0; border-bottom: 1px solid var(--line); }
+  .side { display: flex; flex-direction: column; gap: 20px; font-size: 13px; }
+  .side dt { color: var(--ink-muted); font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase; }
+  .side dd { margin: 4px 0 0; }
+  .chap { max-width: 64ch; }
+  .chap .eyebrow { color: var(--ink-muted); }
+  .chap h2 { margin: 12px 0 20px; }
+  .chap p { margin: 0 0 16px; }
+  .ba { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--line); border: 1px solid var(--line); margin: 40px 0; }
+  .ba > div { background: var(--surface-raised); padding: 28px; display: flex; flex-direction: column; gap: 12px; min-height: 220px; }
+  .ba .after { background: var(--surface); }
+  .ba ul { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; color: var(--ink-muted); }
+  .ba li { display: flex; gap: 10px; align-items: baseline; }
+  .ba .after li { color: var(--ink); }
+  .pull { font-size: 30px; line-height: 38px; font-weight: 500; letter-spacing: -.015em; margin: 40px 0; padding-inline-start: 28px; position: relative; }
+  .pull::before { content: ""; position: absolute; inset-inline-start: 0; top: 12px; width: 10px; height: 10px; background: var(--vermilion); transform: rotate(45deg); }
+  .pull cite { display: block; margin-top: 12px; font-size: 13px; font-style: normal; color: var(--ink-muted); letter-spacing: 0; }
+</style></head>
+<body>
+<header class="top"><div class="wrap">
+  <div class="meta"><div class="eyebrow">CASE STUDY ◆ 03 — LOGISTICS · SAUDI ARABIA</div><span data-const="Nakheel Logistics" data-size="22"></span></div>
+  <h1 class="display-xl">Nakheel Logistics<span class="at-stop"></span></h1>
+  <div class="ar" dir="rtl">من مجموعة واتساب إلى بوابة تشغيل واحدة</div>
+  <div class="facts"><div><b>6 min</b><span>to dispatch a shipment, from 40</span></div><div><b>11</b><span>branches on one system</span></div><div><b>0</b><span>lost delivery notes in 6 months</span></div><div><b>16 wks</b><span>from first visit to launch</span></div></div>
+</div></header>
+<div class="wrap">
+  <section class="body">
+    <dl class="side"><div><dt>Client</dt><dd>Nakheel Logistics, Riyadh</dd></div><div><dt>What we built</dt><dd>Operations portal, driver app, ERP sync</dd></div><div><dt>Languages</dt><dd>Arabic, English</dd></div><div><dt>Stack</dt><dd>Next.js, React Native, Postgres</dd></div><div><dt>Their mark</dt><dd><span data-const="Nakheel Logistics" data-size="12"></span></dd></div></dl>
+    <div class="chap">
+      <div class="eyebrow">01 ◆ WHAT WE FOUND</div>
+      <h2 class="display-md">Dispatch ran on memory.</h2>
+      <p class="body-lg">Eleven branches shared one WhatsApp group and three spreadsheets. It worked because Khalid, the dispatch lead, remembered everything. When he went on leave, dispatch time tripled.</p>
+      <p class="body-lg at-muted">We spent two weeks in the Riyadh and Dammam warehouses. We didn't find a software problem; we found a handoff problem that software could hold.</p>
+      <div class="ba">
+        <div><div class="eyebrow at-muted">BEFORE</div><ul><li><span data-n="muted"></span>Orders pasted into WhatsApp, re-typed into Excel</li><li><span data-n="muted"></span>Drivers called in to confirm delivery</li><li><span data-n="muted"></span>Invoices built by hand at month end</li></ul></div>
+        <div class="after"><div class="eyebrow at-muted">AFTER</div><ul><li><span data-n></span>Orders arrive from the ERP, routed by rule</li><li><span data-n></span>Drivers photograph the signed note in the app</li><li><span data-n></span>Invoices draft themselves; finance approves in one tap</li></ul></div>
+      </div>
+      <p class="pull">"It feels like the system was built by someone who worked here."<cite>Khalid Al-Harbi, Head of Dispatch</cite></p>
+    </div>
+  </section>
+</div>
+<script>
+  var A = window.Athr, h = React.createElement;
+  document.querySelectorAll('[data-const]').forEach(function (el) { ReactDOM.createRoot(el).render(h(A.Constellation, { seed: el.dataset.const, size: +el.dataset.size, quiet: true })); });
+  document.querySelectorAll('[data-n]').forEach(function (el) { ReactDOM.createRoot(el).render(h(A.Nuqta, { size: 8, tone: el.dataset.n || 'mark' })); });
+</script>
+<button id="athr-theme" aria-label="Switch light/dark" style="position:fixed;right:16px;bottom:16px;z-index:99;height:36px;padding:0 14px;border-radius:4px;border:1px solid var(--line-strong);background:var(--surface-raised);color:var(--ink);font:500 13px var(--font-sans);cursor:pointer">Light / Dark</button>
+<script>(function(){var r=document.documentElement,b=document.getElementById('athr-theme');if(location.hash==='#dark')r.setAttribute('data-theme','dark');b.onclick=function(){r.setAttribute('data-theme',r.getAttribute('data-theme')==='dark'?'light':'dark')};})();</script>
+</body>
+</html>

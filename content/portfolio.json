@@ -1,0 +1,1386 @@
+{
+  "_note": "kind = \"client\" (delivered for a named client), \"product\" (built in-house by ATHR) or \"concept\" (an ATHR design piece, not real work). The six concept entries at the end are PLACEHOLDERS: their clients, numbers and quotes are invented to show the format, and the site labels them as concepts wherever they appear. The real projects above them carry no results and no quotes on purpose - no verified metrics exist for them, and inventing any would be worse than showing none.",
+  "projects": [
+    {
+      "slug": "future-earth-energy",
+      "kind": "client",
+      "featured": true,
+      "spotlight": true,
+      "cover": "/images/portfolio/future-earth-energy.jpg",
+      "gallery": [
+        "/images/portfolio/future-earth-energy-2.jpg",
+        "/images/portfolio/future-earth-energy-3.jpg"
+      ],
+      "services": [
+        "websites-web-apps"
+      ],
+      "stack": [
+        "React",
+        "Next.js",
+        "Tailwind CSS"
+      ],
+      "links": {
+        "live": "https://future-earth-showcase.vercel.app/ar"
+      },
+      "en": {
+        "client": "Future Earth Energy Systems",
+        "sector": "Renewable energy",
+        "country": "Saudi Arabia",
+        "title": "A bilingual corporate site for a certified solar contractor",
+        "summary": "EPC services, megawatt-scale installations and technical partnerships, in Arabic and English.",
+        "challenge": "A certified solar and energy-storage contractor in Riyadh had to read as credible to industrial buyers in two languages — and turn that credibility into enquiries rather than admiration.",
+        "solution": "A bilingual corporate site built around the evidence. The EPC services are stated plainly, the completed megawatt-scale rooftop and ground-mounted installations get a gallery of their own, and the certifications and technical partnerships — Huawei, Schneider Electric — sit where a buyer looks for them first. Every section routes to an enquiry.",
+        "capabilities": [
+          "Corporate website",
+          "Bilingual EN / AR",
+          "Project gallery",
+          "Lead capture"
+        ],
+        "results": []
+      },
+      "ar": {
+        "client": "فيوتشر إيرث لأنظمة الطاقة",
+        "sector": "الطاقة المتجددة",
+        "country": "السعودية",
+        "title": "موقع مؤسسي ثنائي اللغة لمقاول طاقة شمسية معتمد",
+        "summary": "خدمات الـEPC ومشاريع بمقياس الميغاواط وشراكات تقنية، بالعربية والإنجليزية.",
+        "challenge": "كان على مقاول معتمد للطاقة الشمسية وتخزين الطاقة في الرياض أن يبدو جديرًا بالثقة أمام المشترين الصناعيين بلغتين — وأن يحوّل هذه الثقة إلى طلبات لا إلى إعجاب.",
+        "solution": "موقع مؤسسي ثنائي اللغة مبني على الدليل. خدمات الـEPC معروضة بوضوح، وللمشاريع المنفّذة بمقياس الميغاواط على الأسطح وعلى الأرض معرضها الخاص، وتقع الشهادات والشراكات التقنية — هواوي وشنايدر إلكتريك — حيث يبحث عنها المشتري أولًا. وكل قسم ينتهي بطلب تواصل.",
+        "capabilities": [
+          "موقع مؤسسي",
+          "عربي / إنجليزي",
+          "معرض المشاريع",
+          "استقبال الطلبات"
+        ],
+        "results": []
+      },
+      "category": "company-website"
+    },
+    {
+      "slug": "whatsapp-crm",
+      "kind": "product",
+      "featured": true,
+      "spotlight": true,
+      "_note": "Cover and gallery are the product's marketing renders (wahtsapp-crm/out/: behance-cover, showcase-*, slide-platform-map, feature-customer-profile, hero-light), cropped to 16:10. They are built from the app's own source with a demo tenant (\"Marina Interiors\"), so every name and number on them is demo data, and the case study says so. Renders with headline metric call-outs were left out on purpose.",
+      "cover": "/images/portfolio/whatsapp-crm-cover.jpg",
+      "gallery": [
+        "/images/portfolio/whatsapp-crm-2.jpg",
+        "/images/portfolio/whatsapp-crm-3.jpg",
+        "/images/portfolio/whatsapp-crm-4.jpg",
+        "/images/portfolio/whatsapp-crm-5.jpg",
+        "/images/portfolio/whatsapp-crm-6.jpg",
+        "/images/portfolio/whatsapp-crm-7.jpg",
+        "/images/portfolio/whatsapp-crm-8.jpg",
+        "/images/portfolio/whatsapp-crm-9.jpg"
+      ],
+      "services": [
+        "saas-products",
+        "business-systems",
+        "automation",
+        "dashboards-admin"
+      ],
+      "stack": [
+        "Next.js",
+        "Node.js",
+        "PostgreSQL",
+        "Redis",
+        "WhatsApp"
+      ],
+      "links": {},
+      "en": {
+        "client": "WhatsApp CRM",
+        "sector": "Business software",
+        "title": "A WhatsApp CRM that turns conversations into sales",
+        "summary": "One shared inbox for the whole team, with an AI assistant, a sales pipeline, automations and broadcasts — all built around WhatsApp.",
+        "challenge": "Businesses in the Gulf sell on WhatsApp. But one phone, several staff and no record of who said what means leads go cold, customers wait, and nobody can see the pipeline.",
+        "solution": "A complete business platform built around the company’s WhatsApp line. The team works every conversation from one shared inbox. An AI assistant answers from the company’s own knowledge base, qualifies the lead and hands it to a person at the right moment. Contacts, tags, deals and tasks live in one CRM; trigger-based automations route new leads and send follow-ups; broadcasts go out in bulk with delivery and read tracking; and a dashboard shows management what is happening today. The screens shown use a demo workspace, not a customer’s data.",
+        "capabilities": [
+          "Shared team inbox",
+          "AI assistant",
+          "Sales pipeline",
+          "Automations",
+          "Broadcasts",
+          "Analytics"
+        ],
+        "results": []
+      },
+      "ar": {
+        "client": "واتساب CRM",
+        "sector": "برمجيات الأعمال",
+        "title": "نظام CRM على واتساب يحوّل المحادثات إلى مبيعات",
+        "summary": "صندوق وارد مشترك للفريق كله، مع مساعد ذكاء اصطناعي ومسار مبيعات وأتمتة وحملات رسائل — كلها مبنية حول واتساب.",
+        "challenge": "الشركات في الخليج تبيع عبر واتساب. لكن هاتفًا واحدًا وعدة موظفين وغياب أي سجل لمن قال ماذا يعني أن العملاء المحتملين يبردون، والعملاء ينتظرون، ولا أحد يرى مسار المبيعات.",
+        "solution": "منصة أعمال متكاملة مبنية حول رقم واتساب الخاص بالشركة. يعمل الفريق على كل محادثة من صندوق وارد مشترك واحد. ويجيب مساعد ذكاء اصطناعي من قاعدة معرفة الشركة نفسها، ويؤهّل العميل، ثم يسلّمه لموظف في الوقت المناسب. العملاء والوسوم والصفقات والمهام في نظام CRM واحد؛ والأتمتة القائمة على المحفّزات توزّع العملاء الجدد وترسل رسائل المتابعة؛ وحملات الرسائل تُرسل بالجملة مع تتبّع التسليم والقراءة؛ ولوحة تحكم تُري الإدارة ما يحدث اليوم. الشاشات المعروضة تستخدم مساحة عمل تجريبية، لا بيانات عميل حقيقي.",
+        "capabilities": [
+          "صندوق وارد مشترك",
+          "مساعد ذكاء اصطناعي",
+          "مسار المبيعات",
+          "الأتمتة",
+          "حملات الرسائل",
+          "التحليلات"
+        ],
+        "results": []
+      },
+      "category": "saas"
+    },
+    {
+      "slug": "eye-clinic-system",
+      "kind": "client",
+      "featured": true,
+      "spotlight": true,
+      "cover": "/images/portfolio/eye-clinic-system.jpg",
+      "gallery": [],
+      "services": [
+        "clinic-management",
+        "business-systems"
+      ],
+      "stack": [
+        "React",
+        "Node.js",
+        "Express",
+        "MongoDB"
+      ],
+      "links": {
+        "source": "https://github.com/bobos12/CLINIC-MANGMENT"
+      },
+      "en": {
+        "client": "Al Nokhba Eye Clinic",
+        "sector": "Healthcare",
+        "title": "Patient records, visits and prescriptions in one system",
+        "summary": "A clinic management system for Al Nokhba: patient records, visit tracking, examinations, prescriptions and role-based access.",
+        "challenge": "An ophthalmology clinic runs on records that have to be found in seconds and handed between reception, the examination room and the prescription — with different people allowed to see different things.",
+        "solution": "A MERN application that covers the whole visit: the patient record, the visit history, the examination, and the prescription that comes out of it. Access is role-based, so each role sees only what it needs, and authentication and validation are enforced on the server rather than in the screen.",
+        "capabilities": [
+          "Clinic system",
+          "Patient records",
+          "Prescriptions",
+          "Role-based access"
+        ],
+        "results": []
+      },
+      "ar": {
+        "client": "عيادة النخبة للعيون",
+        "sector": "رعاية صحية",
+        "title": "ملفات المرضى والزيارات والوصفات في نظام واحد",
+        "summary": "نظام إدارة عيادة للنخبة: ملفات المرضى وتتبّع الزيارات والفحوصات والوصفات وصلاحيات حسب الدور.",
+        "challenge": "تقوم عيادة العيون على ملفات يجب الوصول إليها في ثوانٍ وتنتقل بين الاستقبال وغرفة الفحص والوصفة — مع اختلاف ما يُسمح لكل شخص برؤيته.",
+        "solution": "تطبيق MERN يغطي الزيارة كاملة: ملف المريض، وسجل الزيارات، والفحص، والوصفة الناتجة عنه. الصلاحيات مبنية على الأدوار فلا يرى كل دور إلا ما يخصّه، والمصادقة والتحقق من البيانات يجريان في الخادم لا في الواجهة.",
+        "capabilities": [
+          "نظام عيادات",
+          "ملفات المرضى",
+          "الوصفات الطبية",
+          "صلاحيات حسب الدور"
+        ],
+        "results": []
+      },
+      "_note": "Visuals from Al Nokhba are pending. Drop 2400×1500 JPGs in public/images/portfolio/ as eye-clinic-system-2.jpg, -3.jpg … and list them in \"gallery\"; replace \"cover\" the same way. Confirm the Arabic client name.",
+      "category": "business-system"
+    },
+    {
+      "slug": "dryussif",
+      "kind": "client",
+      "featured": true,
+      "spotlight": true,
+      "cover": "/images/portfolio/dryussif.jpg",
+      "gallery": [
+        "/images/portfolio/dryussif-3.jpg",
+        "/images/portfolio/dryussif-2.jpg"
+      ],
+      "services": [
+        "websites-web-apps"
+      ],
+      "stack": [
+        "WordPress"
+      ],
+      "links": {
+        "live": "https://dryussif.id/"
+      },
+      "en": {
+        "client": "Dr. Yussif Al-Shammari",
+        "sector": "Healthcare",
+        "country": "Saudi Arabia",
+        "title": "A personal website for a consultant eye surgeon",
+        "summary": "His credentials, his specialties — laser vision correction, cataract, corneal transplant — and one clear way to book, in Arabic.",
+        "challenge": "A consultant ophthalmologist needed patients to find him, understand what he treats and trust him before the first visit — without the site reading like a hospital directory.",
+        "solution": "An Arabic personal website that leads with the doctor himself: his qualifications and roles, why patients choose him, then each treatment explained in plain language — laser vision correction, cataract surgery and lens implants, implantable lenses, corneal transplant and chronic dry eye. His media appearances and articles follow, and every section ends at booking, with WhatsApp one tap away.",
+        "capabilities": [
+          "Personal website",
+          "Arabic / RTL",
+          "Treatment pages",
+          "Appointment booking"
+        ],
+        "results": []
+      },
+      "ar": {
+        "client": "د. يوسف الشمري",
+        "sector": "رعاية صحية",
+        "country": "السعودية",
+        "title": "موقع شخصي لاستشاري طب وجراحة العيون",
+        "summary": "مؤهلاته وتخصصاته — تصحيح النظر بالليزر والماء الأبيض وزراعة القرنية — وطريق واضح واحد للحجز، بالعربية.",
+        "challenge": "احتاج استشاري طب وجراحة العيون أن يجده المرضى، ويفهموا ما يعالجه، ويثقوا به قبل الزيارة الأولى — دون أن يبدو الموقع كدليل مستشفى.",
+        "solution": "موقع شخصي عربي يبدأ بالطبيب نفسه: مؤهلاته ومناصبه، ولماذا يختاره المرضى، ثم كل علاج مشروح بلغة واضحة — تصحيح النظر بالليزر، والماء الأبيض وزراعة العدسات، والعدسات الداخلية، وزراعة القرنية، وجفاف العين المزمن. تليها لقاءاته الإعلامية ومقالاته، وكل قسم ينتهي بالحجز، وواتساب على بعد لمسة.",
+        "capabilities": [
+          "موقع شخصي",
+          "عربي / RTL",
+          "صفحات العلاجات",
+          "حجز المواعيد"
+        ],
+        "results": []
+      },
+      "category": "personal-website"
+    },
+    {
+      "slug": "fateen-website",
+      "kind": "client",
+      "featured": false,
+      "spotlight": true,
+      "group": "fateen",
+      "services": [
+        "websites-web-apps"
+      ],
+      "cover": "/images/portfolio/fateen-mark.jpg",
+      "gallery": [],
+      "stack": [
+        "WordPress"
+      ],
+      "links": {
+        "live": "https://fateenksa.com/"
+      },
+      "en": {
+        "client": "Fateen",
+        "sector": "Marketing",
+        "country": "Saudi Arabia",
+        "title": "The main website for a Saudi marketing agency",
+        "summary": "Services, portfolio, clients, official credentials and answers to real questions — the agency’s home online, in Arabic.",
+        "challenge": "A marketing agency’s own website is the first thing its prospects judge it by. It had to present six service lines, the agency’s work and the registrations of a licensed Saudi business in one place.",
+        "solution": "An Arabic company website built around proof: the service lines laid out one by one, the portfolio and client partners, the agency’s official registrations shown where a cautious buyer looks for them, answers to the questions prospects actually ask, and call and WhatsApp buttons that stay on screen.",
+        "capabilities": [
+          "Company website",
+          "Arabic / RTL",
+          "Portfolio",
+          "Lead capture"
+        ],
+        "results": []
+      },
+      "ar": {
+        "client": "فطين",
+        "sector": "التسويق الرقمي",
+        "country": "السعودية",
+        "title": "الموقع الرئيسي لوكالة تسويق سعودية",
+        "summary": "الخدمات والأعمال والعملاء والاعتمادات الرسمية وإجابات الأسئلة الحقيقية — بيت الوكالة على الإنترنت، بالعربية.",
+        "challenge": "موقع وكالة التسويق هو أول ما يحكم به عملاؤها المحتملون عليها. وكان عليه أن يعرض ستة خطوط خدمة، وأعمال الوكالة، وتسجيلات منشأة سعودية مرخّصة في مكان واحد.",
+        "solution": "موقع شركة عربي مبني على الدليل: خطوط الخدمة معروضة واحدًا واحدًا، والأعمال وشركاء النجاح، والتسجيلات الرسمية للوكالة حيث يبحث عنها المشتري الحذر، وإجابات الأسئلة التي يطرحها العملاء فعلًا، وأزرار الاتصال وواتساب ثابتة على الشاشة.",
+        "capabilities": [
+          "موقع شركة",
+          "عربي / RTL",
+          "معرض الأعمال",
+          "استقبال الطلبات"
+        ],
+        "results": []
+      },
+      "category": "company-website"
+    },
+    {
+      "slug": "fateen-real-estate",
+      "kind": "client",
+      "featured": false,
+      "spotlight": false,
+      "group": "fateen",
+      "services": [
+        "websites-web-apps"
+      ],
+      "cover": "/images/portfolio/fateen-real-estate.jpg",
+      "gallery": [
+        "/images/portfolio/fateen-real-estate-2.jpg",
+        "/images/portfolio/fateen-real-estate-3.jpg"
+      ],
+      "stack": [],
+      "links": {
+        "live": "https://fateenksa.com/RealState/"
+      },
+      "en": {
+        "client": "Fateen",
+        "sector": "Marketing",
+        "country": "Saudi Arabia",
+        "title": "A landing page for the agency’s real estate line",
+        "summary": "The campaigns, landing pages, video and design the agency delivers for Saudi property companies — shown, not described.",
+        "challenge": "Property buyers take longer to decide, and developers are wary of agencies. The agency needed a page that proves its real estate record rather than one that talks about it.",
+        "solution": "A focused Arabic landing page that shows instead of claims: the property companies the agency works with, the ad platforms it runs campaigns on, real campaign screenshots with their figures as reported by the ad accounts, landing-page, video and design samples — and WhatsApp and call buttons at every step.",
+        "capabilities": [
+          "Landing page",
+          "Arabic / RTL",
+          "Work showcase",
+          "Lead capture"
+        ],
+        "results": []
+      },
+      "ar": {
+        "client": "فطين",
+        "sector": "التسويق الرقمي",
+        "country": "السعودية",
+        "title": "صفحة هبوط لخط التسويق العقاري في الوكالة",
+        "summary": "الحملات وصفحات الهبوط والفيديو والتصاميم التي تنفّذها الوكالة لشركات العقار السعودية — معروضة لا موصوفة.",
+        "challenge": "مشتري العقار يأخذ وقتًا أطول ليقرّر، والمطوّرون حذرون من الوكالات. احتاجت الوكالة صفحة تُثبت سجلّها العقاري بدل أن تتحدث عنه.",
+        "solution": "صفحة هبوط عربية مركّزة تُري بدل أن تدّعي: شركات العقار التي تعمل معها الوكالة، والمنصات الإعلانية التي تدير عليها الحملات، ولقطات حقيقية من الحملات بأرقامها كما وردت من حسابات الإعلانات، ونماذج صفحات الهبوط والفيديو والتصاميم — وأزرار واتساب والاتصال في كل خطوة.",
+        "capabilities": [
+          "صفحة هبوط",
+          "عربي / RTL",
+          "عرض الأعمال",
+          "استقبال الطلبات"
+        ],
+        "results": []
+      },
+      "category": "landing-page"
+    },
+    {
+      "slug": "fateen-ads",
+      "kind": "client",
+      "featured": false,
+      "spotlight": false,
+      "group": "fateen",
+      "services": [
+        "websites-web-apps"
+      ],
+      "cover": "/images/portfolio/fateen-ads.jpg",
+      "gallery": [
+        "/images/portfolio/fateen-ads-2.jpg",
+        "/images/portfolio/fateen-ads-3.jpg"
+      ],
+      "stack": [],
+      "links": {
+        "live": "https://fateenksa.com/ads/"
+      },
+      "en": {
+        "client": "Fateen",
+        "sector": "Marketing",
+        "country": "Saudi Arabia",
+        "title": "The landing page behind the agency’s own ads",
+        "summary": "Where the agency’s paid campaigns send their traffic — built to turn a click into a consultation.",
+        "challenge": "Paid traffic is expensive, and a visitor from an ad decides in seconds. The agency needed a page built for exactly that visitor.",
+        "solution": "A fast Arabic landing page with one job. A clear headline and a free-consultation offer above the fold, the agency’s official credentials straight after, the platforms it works with — Google, Meta, Snapchat, TikTok, Salla and Zid — its client logos, six service lines, an FAQ written around real objections, and WhatsApp and call buttons fixed on screen. Light and dark themes included.",
+        "capabilities": [
+          "Landing page",
+          "Arabic / RTL",
+          "Conversion design",
+          "Dark mode"
+        ],
+        "results": []
+      },
+      "ar": {
+        "client": "فطين",
+        "sector": "التسويق الرقمي",
+        "country": "السعودية",
+        "title": "صفحة الهبوط خلف إعلانات الوكالة نفسها",
+        "summary": "حيث ترسل حملات الوكالة الممولة زوّارها — مبنية لتحويل النقرة إلى طلب استشارة.",
+        "challenge": "زيارات الإعلانات مكلفة، والزائر القادم من إعلان يقرّر في ثوانٍ. احتاجت الوكالة صفحة مبنية لهذا الزائر تحديدًا.",
+        "solution": "صفحة هبوط عربية سريعة لها مهمة واحدة. عنوان واضح وعرض استشارة مجانية في أول الشاشة، ثم الاعتمادات الرسمية للوكالة مباشرة، والمنصات التي تعمل معها — جوجل وميتا وسناب شات وتيك توك وسلة وزد — وشعارات عملائها، وستة خطوط خدمة، وأسئلة شائعة مكتوبة حول الاعتراضات الحقيقية، وأزرار واتساب والاتصال ثابتة على الشاشة. مع وضعين فاتح وداكن.",
+        "capabilities": [
+          "صفحة هبوط",
+          "عربي / RTL",
+          "تصميم للتحويل",
+          "الوضع الداكن"
+        ],
+        "results": []
+      },
+      "category": "landing-page"
+    },
+    {
+      "slug": "fateen-web-development",
+      "kind": "client",
+      "featured": false,
+      "spotlight": false,
+      "cover": "/images/portfolio/fateen-web-development.jpg",
+      "gallery": [
+        "/images/portfolio/fateen-web-development-2.jpg",
+        "/images/portfolio/fateen-web-development-3.jpg"
+      ],
+      "services": [
+        "websites-web-apps"
+      ],
+      "stack": [
+        "React",
+        "CSS"
+      ],
+      "links": {
+        "live": "https://fateenksa.com/web-development/"
+      },
+      "en": {
+        "client": "Fateen",
+        "sector": "Marketing",
+        "country": "Saudi Arabia",
+        "title": "A landing page for the agency’s web development line",
+        "summary": "A landing page for an agency’s web development line, written to turn visitors into qualified leads.",
+        "challenge": "A Saudi digital marketing agency needed one page to sell a single service line — websites, online stores and landing pages — clearly enough that the lead arrives already knowing what it wants.",
+        "solution": "A conversion-focused Arabic landing page: the services broken down so a visitor can see which one they need, trust signals and credentials placed exactly where the doubt appears, and WhatsApp and phone calls-to-action repeated down the page rather than parked at the bottom.",
+        "capabilities": [
+          "Landing page",
+          "Arabic / RTL",
+          "Conversion design",
+          "Lead capture"
+        ],
+        "results": []
+      },
+      "ar": {
+        "client": "فطين",
+        "sector": "التسويق الرقمي",
+        "country": "السعودية",
+        "title": "صفحة هبوط لخط تطوير المواقع في الوكالة",
+        "summary": "صفحة هبوط لخدمة تطوير المواقع لدى وكالة، مكتوبة لتحويل الزائر إلى عميل محتمل مؤهَّل.",
+        "challenge": "احتاجت وكالة تسويق رقمي سعودية إلى صفحة واحدة تبيع خط خدمة واحدًا — المواقع والمتاجر وصفحات الهبوط — بوضوح يجعل العميل يصل وهو يعرف ما يريد.",
+        "solution": "صفحة هبوط عربية مبنية للتحويل: الخدمات مفصَّلة ليعرف الزائر أيها يخصّه، وإشارات الثقة والاعتمادات موضوعة تمامًا حيث يظهر التردد، وأزرار واتساب والهاتف مكرّرة على طول الصفحة لا مركونة في أسفلها.",
+        "capabilities": [
+          "صفحة هبوط",
+          "عربي / RTL",
+          "تصميم للتحويل",
+          "استقبال الطلبات"
+        ],
+        "results": []
+      },
+      "group": "fateen",
+      "category": "landing-page"
+    },
+    {
+      "slug": "elite-gpt",
+      "kind": "product",
+      "featured": false,
+      "spotlight": true,
+      "inDevelopment": true,
+      "cover": "/images/portfolio/elite-gpt.jpg",
+      "gallery": [
+        "/images/portfolio/elite-gpt-2.jpg"
+      ],
+      "services": [
+        "custom-software",
+        "saas-products"
+      ],
+      "stack": [
+        "React",
+        "MongoDB",
+        "Hugging Face",
+        "SCSS"
+      ],
+      "links": {
+        "live": "https://elitegpt.vercel.app/",
+        "source": "https://github.com/bobos12/ELITE-GPT"
+      },
+      "en": {
+        "client": "ELITE GPT",
+        "sector": "Legal tech",
+        "title": "An AI legal assistant, available around the clock",
+        "summary": "A legal assistant that answers questions about your rights, guides you through common legal issues and helps draft basic documents.",
+        "challenge": "Ordinary legal questions — what your rights are, what a basic document needs to say — usually mean finding a lawyer first. Most people simply never ask them.",
+        "solution": "A chat assistant built on a Hugging Face model with a knowledge base spanning several areas of law. It answers questions about rights and common legal situations and helps draft basic legal documents, in an interface anyone can use without being walked through it. Still in development.",
+        "capabilities": [
+          "AI assistant",
+          "Chat interface",
+          "Document drafting",
+          "Knowledge base"
+        ],
+        "results": []
+      },
+      "ar": {
+        "client": "إيليت جي بي تي",
+        "sector": "التقنيات القانونية",
+        "title": "مساعد قانوني بالذكاء الاصطناعي، متاح على مدار الساعة",
+        "summary": "مساعد قانوني يجيب عن أسئلتك حول حقوقك، ويرشدك في المسائل القانونية الشائعة، ويساعدك في صياغة المستندات الأساسية.",
+        "challenge": "الأسئلة القانونية العادية — ما حقوقك، وما الذي يجب أن يتضمّنه مستند أساسي — تعني عادةً البحث عن محامٍ أولًا. ولهذا لا يسألها أكثر الناس أصلًا.",
+        "solution": "مساعد محادثة مبني على نموذج من Hugging Face مع قاعدة معرفة تغطي عدة مجالات قانونية. يجيب عن الأسئلة المتعلقة بالحقوق والمسائل القانونية الشائعة، ويساعد في صياغة المستندات القانونية الأساسية، بواجهة يستخدمها أي شخص دون شرح. ولا يزال قيد التطوير.",
+        "capabilities": [
+          "مساعد ذكاء اصطناعي",
+          "واجهة محادثة",
+          "صياغة المستندات",
+          "قاعدة معرفة"
+        ],
+        "results": []
+      },
+      "category": "saas"
+    },
+    {
+      "slug": "lamabooking",
+      "kind": "product",
+      "featured": false,
+      "spotlight": true,
+      "cover": "/images/portfolio/lamabooking.jpg",
+      "gallery": [],
+      "services": [
+        "business-systems",
+        "custom-software"
+      ],
+      "stack": [
+        "React",
+        "Node.js",
+        "Express",
+        "MongoDB",
+        "JWT"
+      ],
+      "links": {
+        "source": "https://github.com/bobos12/booooooooking"
+      },
+      "en": {
+        "client": "LamaBooking",
+        "sector": "Hospitality",
+        "title": "Hotel search, booking and an admin panel",
+        "summary": "A full-stack booking application: search with real-time availability, secure accounts, and an admin panel behind it.",
+        "challenge": "A booking product has two sides that must stay in step — guests searching for what is actually free, and staff changing listings, rooms and reservations behind them.",
+        "solution": "A MERN application with a REST API on Node and Express, JWT authentication for accounts, and a MongoDB layer with validation. Guests search against real-time availability; the admin panel manages listings, rooms and reservations against the same data, so the two sides can never drift apart.",
+        "capabilities": [
+          "Booking system",
+          "Admin panel",
+          "REST API",
+          "Authentication"
+        ],
+        "results": []
+      },
+      "ar": {
+        "client": "لاما بوكينج",
+        "sector": "الضيافة",
+        "title": "بحث عن الفنادق وحجز ولوحة إدارة",
+        "summary": "تطبيق حجوزات متكامل: بحث بتوافر لحظي، وحسابات آمنة، ولوحة إدارة خلفه.",
+        "challenge": "لمنتج الحجوزات وجهان يجب أن يبقيا متّسقين — ضيوف يبحثون عمّا هو متاح فعلًا، وموظفون يعدّلون العروض والغرف والحجوزات خلفهم.",
+        "solution": "تطبيق MERN مع واجهة REST على Node وExpress، ومصادقة JWT للحسابات، وطبقة بيانات على MongoDB مع تحقق. يبحث الضيوف مقابل توافر لحظي، وتدير لوحة الإدارة العروض والغرف والحجوزات على البيانات نفسها، فلا يفترق الوجهان أبدًا.",
+        "capabilities": [
+          "نظام حجوزات",
+          "لوحة إدارة",
+          "واجهة REST",
+          "المصادقة"
+        ],
+        "results": []
+      },
+      "category": "booking-website"
+    },
+    {
+      "slug": "bayanjw",
+      "kind": "client",
+      "featured": false,
+      "spotlight": false,
+      "category": "company-website",
+      "cover": "/images/portfolio/bayanjw.jpg",
+      "gallery": [
+        "/images/portfolio/bayanjw-2.jpg",
+        "/images/portfolio/bayanjw-3.jpg"
+      ],
+      "services": [
+        "websites-web-apps"
+      ],
+      "stack": [],
+      "links": {
+        "live": "https://bayanjw.com/"
+      },
+      "en": {
+        "client": "Bayan Gold Bullion & Refining",
+        "sector": "Precious metals",
+        "country": "Saudi Arabia",
+        "title": "A bilingual website for a Saudi gold bullion factory",
+        "summary": "999.9 fine gold bullion and metal refining, shown with the process, the hallmark and the gallery a buyer looks for — in Arabic and English.",
+        "challenge": "Buying gold is a question of trust. A bullion and refining factory in Al-Ahsa needed its purity, its process and its registration to be visible before a buyer ever has to ask.",
+        "solution": "A bilingual company website built around proof: the three pillars of the business, the quality journey from inspection to delivery, the quality standards and official hallmark, the commercial registration one click away, a bullion gallery and a one-minute film — with WhatsApp enquiries on every screen.",
+        "capabilities": [
+          "Company website",
+          "Bilingual EN / AR",
+          "Product gallery",
+          "WhatsApp enquiries"
+        ],
+        "results": []
+      },
+      "ar": {
+        "client": "بيان للسبائك والتصفية",
+        "sector": "المعادن الثمينة",
+        "country": "السعودية",
+        "title": "موقع ثنائي اللغة لمصنع سبائك ذهب سعودي",
+        "summary": "سبائك ذهب بنقاء 999.9 وتصفية المعادن، معروضة مع مراحل الجودة والختم والمعرض الذي يبحث عنه المشتري — بالعربية والإنجليزية.",
+        "challenge": "شراء الذهب مسألة ثقة. احتاج مصنع سبائك وتصفية في الأحساء أن تظهر درجة نقائه ومراحل عمله وسجلّه التجاري قبل أن يسأل المشتري عنها.",
+        "solution": "موقع شركة ثنائي اللغة مبني على الدليل: ركائز المصنع الثلاث، ورحلة الجودة من الاستلام والفحص إلى التسليم، ومعايير الجودة والختم الرسمي، والسجل التجاري على بعد نقرة، ومعرض السبائك، وفيلم تعريفي في دقيقة — مع استفسارات واتساب في كل شاشة.",
+        "capabilities": [
+          "موقع شركة",
+          "عربي / إنجليزي",
+          "معرض المنتجات",
+          "استفسارات واتساب"
+        ],
+        "results": []
+      }
+    },
+    {
+      "slug": "cartest-auto",
+      "kind": "client",
+      "featured": false,
+      "spotlight": false,
+      "cover": "/images/portfolio/cartest-auto.jpg",
+      "gallery": [
+        "/images/portfolio/cartest-auto-2.jpg",
+        "/images/portfolio/cartest-auto-3.jpg"
+      ],
+      "services": [
+        "websites-web-apps"
+      ],
+      "stack": [
+        "HTML",
+        "CSS",
+        "JavaScript"
+      ],
+      "links": {
+        "live": "https://www.cartest-auto.com/"
+      },
+      "en": {
+        "client": "Car Test",
+        "sector": "Automotive",
+        "country": "Saudi Arabia",
+        "title": "A service site for a European car specialist in Riyadh",
+        "summary": "Maintenance, diagnostics and repair across sixteen premium brands, with booking one tap away.",
+        "challenge": "Owners of European cars choose a workshop on trust. The site had to show exactly what is serviced, for which brands, and make booking immediate — for an Arabic-speaking audience that judges a workshop by how it presents itself.",
+        "solution": "An Arabic-first site with the service catalogue laid out plainly — maintenance, diagnostics, repairs — and coverage stated across sixteen premium European brands. The design is deliberately quiet and high-trust, and the booking and contact calls-to-action stay within reach on every screen.",
+        "capabilities": [
+          "Arabic website",
+          "Service catalogue",
+          "Booking CTAs"
+        ],
+        "results": []
+      },
+      "ar": {
+        "client": "كار تست",
+        "sector": "السيارات",
+        "country": "السعودية",
+        "title": "موقع خدمات لمركز صيانة سيارات أوروبية في الرياض",
+        "summary": "صيانة وفحص وإصلاح لستة عشر علامة فاخرة، والحجز على بعد نقرة.",
+        "challenge": "أصحاب السيارات الأوروبية يختارون الورشة بالثقة. كان على الموقع أن يوضّح ما يُخدَم بالضبط، ولأي علامات، وأن يجعل الحجز فوريًا — أمام جمهور عربي يحكم على الورشة من طريقة تقديمها لنفسها.",
+        "solution": "موقع عربي أولًا مع دليل خدمات معروض بوضوح — صيانة وفحص وإصلاح — وتغطية معلنة لستة عشر علامة أوروبية فاخرة. التصميم هادئ عن قصد ويبعث على الثقة، ويبقى الحجز والتواصل في متناول اليد على كل شاشة.",
+        "capabilities": [
+          "موقع عربي",
+          "دليل الخدمات",
+          "أزرار الحجز"
+        ],
+        "results": []
+      },
+      "category": "company-website"
+    },
+    {
+      "slug": "albadar-oud-store",
+      "kind": "client",
+      "featured": false,
+      "spotlight": false,
+      "cover": "/images/portfolio/albadar-oud-store.jpg",
+      "gallery": [
+        "/images/portfolio/albadar-oud-store-2.jpg",
+        "/images/portfolio/albadar-oud-store-3.jpg"
+      ],
+      "services": [
+        "websites-web-apps"
+      ],
+      "stack": [
+        "Salla"
+      ],
+      "links": {
+        "live": "https://albadar-oud.com/"
+      },
+      "en": {
+        "client": "Albadar Oud",
+        "sector": "E-commerce",
+        "country": "Saudi Arabia",
+        "title": "An Arabic storefront for a Saudi oud house",
+        "summary": "Agarwood, oud oils, musk and incense — a full catalogue, cart and checkout on Salla.",
+        "challenge": "Fragrance is bought by eye and by reputation. The store had to present grades of oud and incense online the way the shop presents them in person, to Gulf shoppers, in Arabic.",
+        "solution": "A branded Salla storefront carrying the full catalogue — agarwood, oud oils, musk blends, perfumes and incense accessories — browsable by category with best-sellers and featured collections. Right-to-left throughout, a gallery for every product, and Salla’s cart and secure checkout behind it.",
+        "capabilities": [
+          "E-commerce",
+          "Salla storefront",
+          "RTL Arabic",
+          "Checkout"
+        ],
+        "results": []
+      },
+      "ar": {
+        "client": "البدر للعود",
+        "sector": "التجارة الإلكترونية",
+        "country": "السعودية",
+        "title": "متجر عربي لبيت عود سعودي",
+        "summary": "عود ودهن عود ومسك وبخور — كتالوج كامل وسلة وإتمام شراء على سلة.",
+        "challenge": "العطر يُشترى بالعين وبالسمعة. كان على المتجر أن يعرض أنواع العود والبخور على الإنترنت كما يعرضها المحل على أرض الواقع، لمتسوّق خليجي، بالعربية.",
+        "solution": "متجر على منصة سلة بهوية خاصة يحمل الكتالوج كاملًا — العود ودهن العود وخلطات المسك والعطور ومستلزمات البخور — يمكن تصفّحه حسب الفئة مع الأكثر مبيعًا والمجموعات المميّزة. الاتجاه من اليمين إلى اليسار في كل مكان، ومعرض صور لكل منتج، وسلة الشراء والدفع الآمن من منصة سلة خلفه.",
+        "capabilities": [
+          "تجارة إلكترونية",
+          "متجر سلة",
+          "عربي RTL",
+          "إتمام الشراء"
+        ],
+        "results": []
+      },
+      "category": "online-store"
+    },
+    {
+      "slug": "abu-mayar-store",
+      "kind": "client",
+      "featured": false,
+      "spotlight": false,
+      "cover": "/images/portfolio/abu-mayar-store.jpg",
+      "gallery": [
+        "/images/portfolio/abu-mayar-store-2.jpg",
+        "/images/portfolio/abu-mayar-store-3.jpg"
+      ],
+      "services": [
+        "websites-web-apps"
+      ],
+      "stack": [
+        "Salla"
+      ],
+      "links": {
+        "live": "https://abu-mayar-lilthabayih-sa.com/"
+      },
+      "en": {
+        "client": "Abu Mayar",
+        "sector": "E-commerce",
+        "country": "Saudi Arabia",
+        "title": "A wild game store with butchering to order",
+        "summary": "Premium wild game cuts, custom slaughtering at checkout, instalment payments and delivery across the Kingdom.",
+        "challenge": "Selling wild game online means selling a service as much as a product: the customer chooses the cut, and how it is slaughtered and butchered, before anything ships.",
+        "solution": "A Salla storefront with a category-driven catalogue of premium cuts, custom slaughtering and cutting requests captured at checkout, Tabby and Tamara instalment payments for larger orders, and free delivery across the Kingdom — right-to-left in Arabic throughout.",
+        "capabilities": [
+          "E-commerce",
+          "Salla storefront",
+          "Custom orders",
+          "Instalment payments"
+        ],
+        "results": []
+      },
+      "ar": {
+        "client": "أبو ميار",
+        "sector": "التجارة الإلكترونية",
+        "country": "السعودية",
+        "title": "متجر ذبائح برية مع الذبح حسب الطلب",
+        "summary": "قطعيات برية فاخرة، وذبح حسب الطلب عند الشراء، ودفع بالتقسيط، وتوصيل لكل المملكة.",
+        "challenge": "بيع الذبائح البرية على الإنترنت بيعُ خدمة بقدر ما هو بيع منتج: يختار العميل القطعية وطريقة الذبح والتقطيع قبل أن يُشحن شيء.",
+        "solution": "متجر على منصة سلة بكتالوج مبني على الفئات للقطعيات الفاخرة، مع طلبات الذبح والتقطيع المخصّصة تُلتقط عند إتمام الشراء، وخياري تابي وتمارا للتقسيط في الطلبات الكبيرة، وتوصيل مجاني لكل المملكة — بالعربية ومن اليمين إلى اليسار في كل مكان.",
+        "capabilities": [
+          "تجارة إلكترونية",
+          "متجر سلة",
+          "طلبات مخصّصة",
+          "الدفع بالتقسيط"
+        ],
+        "results": []
+      },
+      "category": "online-store"
+    },
+    {
+      "slug": "najm-alithar-travel",
+      "kind": "client",
+      "featured": false,
+      "spotlight": false,
+      "cover": "/images/portfolio/najm-alithar-travel.jpg",
+      "gallery": [
+        "/images/portfolio/najm-alithar-travel-2.jpg",
+        "/images/portfolio/najm-alithar-travel-3.jpg"
+      ],
+      "services": [
+        "websites-web-apps"
+      ],
+      "stack": [
+        "HTML",
+        "CSS",
+        "JavaScript"
+      ],
+      "links": {
+        "live": "https://najmalithar.org/"
+      },
+      "en": {
+        "client": "Najm Al-Ithar Travel",
+        "sector": "Travel",
+        "country": "Saudi Arabia",
+        "title": "An Arabic booking site for a licensed travel agency",
+        "summary": "Umrah packages, religious trips and tourism travel — with every enquiry going straight to WhatsApp or the phone.",
+        "challenge": "A licensed agency in Al-Ahsa needed the three things travellers check before they book — the licence, the trips, and what those trips actually look like — in one Arabic site that ends in a message rather than a form.",
+        "solution": "A right-to-left Arabic site organised by trip type: Umrah, religious travel to the holy sites, and tourism inside and outside the Kingdom. The Ministry of Commerce and Tourism licensing is shown up front, the gallery uses real photographs taken by the team and their guests, and every package leads to a WhatsApp or phone enquiry.",
+        "capabilities": [
+          "Arabic website",
+          "RTL layout",
+          "Trip packages",
+          "WhatsApp enquiries"
+        ],
+        "results": []
+      },
+      "ar": {
+        "client": "نجم الإيثار للسفر والسياحة",
+        "sector": "السفر والسياحة",
+        "country": "السعودية",
+        "title": "موقع عربي للحجز لوكالة سفر مرخّصة",
+        "summary": "باقات عمرة ورحلات دينية وسياحة — وكل استفسار يذهب مباشرة إلى واتساب أو الهاتف.",
+        "challenge": "احتاجت وكالة مرخّصة في الأحساء إلى ثلاثة أشياء يتحقق منها المسافر قبل الحجز — الترخيص، والرحلات، وكيف تبدو هذه الرحلات فعلًا — في موقع عربي واحد ينتهي برسالة لا بنموذج.",
+        "solution": "موقع عربي بالاتجاه من اليمين إلى اليسار منظَّم حسب نوع الرحلة: العمرة، والرحلات الدينية إلى المشاعر، والسياحة داخل المملكة وخارجها. يظهر ترخيص وزارة التجارة والسياحة في المقدمة، ويستخدم المعرض صورًا حقيقية التقطها الفريق والضيوف، وكل باقة تقود إلى استفسار عبر واتساب أو الهاتف.",
+        "capabilities": [
+          "موقع عربي",
+          "تخطيط RTL",
+          "باقات الرحلات",
+          "استفسارات واتساب"
+        ],
+        "results": []
+      },
+      "category": "booking-website"
+    },
+    {
+      "slug": "fancystays",
+      "kind": "client",
+      "featured": false,
+      "spotlight": false,
+      "category": "booking-website",
+      "cover": "/images/portfolio/fancystays.jpg",
+      "gallery": [
+        "/images/portfolio/fancystays-2.jpg",
+        "/images/portfolio/fancystays-3.jpg"
+      ],
+      "services": [
+        "websites-web-apps"
+      ],
+      "stack": [],
+      "links": {
+        "live": "https://www.fancystays.net/"
+      },
+      "en": {
+        "client": "Fancy Stays",
+        "sector": "Hospitality",
+        "country": "UAE",
+        "title": "A booking website for luxury holiday homes in Dubai",
+        "summary": "Holiday homes with Burj Khalifa and sea views, searched by date and party size and booked from one site.",
+        "challenge": "A holiday-home operator in Dubai needed a website of its own, where guests can see each home and its views, check the dates and book the stay.",
+        "solution": "An English booking website led by the views that sell the homes — the Burj Khalifa, the fountain and the sea. Guests search by arrival, departure, adults and children, browse each property with its amenities and gallery, and can book their stay from any page.",
+        "capabilities": [
+          "Booking website",
+          "Availability search",
+          "Property pages",
+          "Photo gallery"
+        ],
+        "results": []
+      },
+      "ar": {
+        "client": "فانسي ستايز",
+        "sector": "الضيافة",
+        "country": "الإمارات",
+        "title": "موقع حجز لبيوت عطلات فاخرة في دبي",
+        "summary": "بيوت عطلات بإطلالات على برج خليفة والبحر، يُبحث فيها بالتاريخ وعدد الضيوف وتُحجز من موقع واحد.",
+        "challenge": "احتاجت شركة بيوت عطلات في دبي موقعًا خاصًا بها، يرى فيه الضيف كل بيت وإطلالته، ويتحقق من التواريخ، ويحجز إقامته.",
+        "solution": "موقع حجز بالإنجليزية تتقدمه الإطلالات التي تبيع البيوت — برج خليفة والنافورة والبحر. يبحث الضيف بتاريخ الوصول والمغادرة وعدد البالغين والأطفال، ويتصفح كل عقار بمرافقه ومعرض صوره، ويحجز إقامته من أي صفحة.",
+        "capabilities": [
+          "موقع حجز",
+          "البحث عن التوفر",
+          "صفحات العقارات",
+          "معرض الصور"
+        ],
+        "results": []
+      }
+    },
+    {
+      "slug": "aatakunited",
+      "kind": "client",
+      "featured": false,
+      "spotlight": false,
+      "category": "landing-page",
+      "cover": "/images/portfolio/aatakunited.jpg",
+      "gallery": [
+        "/images/portfolio/aatakunited-2.jpg",
+        "/images/portfolio/aatakunited-3.jpg"
+      ],
+      "services": [
+        "websites-web-apps"
+      ],
+      "stack": [],
+      "links": {
+        "live": "https://aatakunited.com/"
+      },
+      "en": {
+        "client": "Aatak United Real Estate",
+        "sector": "Real estate",
+        "country": "Saudi Arabia",
+        "title": "A sales page for a ready-to-move residential project",
+        "summary": "Aatak 12 in Al-Rayyan, Jeddah: every unit with its area, price and floor plan, a video tour and the location — ending in a booked viewing.",
+        "challenge": "A Jeddah developer with finished, ready-to-transfer apartments needed buyers to see the units, understand the prices and book a viewing.",
+        "solution": "An Arabic landing page written the way buyers in Jeddah talk: a virtual tour of the project, each unit with its area, price, floor plan and interior photos, a full project gallery, the location on Google Maps, Snapchat coverage from the site, and a lead form and WhatsApp buttons for every unit.",
+        "capabilities": [
+          "Landing page",
+          "Arabic / RTL",
+          "Unit listings",
+          "Lead capture"
+        ],
+        "results": []
+      },
+      "ar": {
+        "client": "أتاك المتحدة العقارية",
+        "sector": "عقارات",
+        "country": "السعودية",
+        "title": "صفحة مبيعات لمشروع سكني جاهز للإفراغ",
+        "summary": "مشروع آتاك 12 في حي الريان بجدة: كل وحدة بمساحتها وسعرها ومخططها، وجولة بالفيديو والموقع — وصولًا إلى حجز موعد المعاينة.",
+        "challenge": "احتاج مطوّر في جدة لديه شقق جاهزة للإفراغ أن يرى المشترون الوحدات، ويفهموا الأسعار، ويحجزوا موعد معاينة.",
+        "solution": "صفحة هبوط عربية مكتوبة بلغة المشتري في جدة: جولة افتراضية داخل المشروع، وكل وحدة بمساحتها وسعرها ومخططها وصورها الداخلية، ومعرض كامل للمشروع، والموقع على خرائط جوجل، وتغطية سناب شات من الموقع، ونموذج تسجيل وأزرار واتساب لكل وحدة.",
+        "capabilities": [
+          "صفحة هبوط",
+          "عربي / RTL",
+          "عرض الوحدات",
+          "استقبال الطلبات"
+        ],
+        "results": []
+      }
+    },
+    {
+      "slug": "basmah-jomah",
+      "kind": "client",
+      "featured": false,
+      "spotlight": false,
+      "category": "landing-page",
+      "cover": "/images/portfolio/basmah-jomah.jpg",
+      "gallery": [
+        "/images/portfolio/basmah-jomah-2.jpg",
+        "/images/portfolio/basmah-jomah-3.jpg"
+      ],
+      "services": [
+        "websites-web-apps"
+      ],
+      "stack": [],
+      "links": {
+        "live": "https://basmah-jomah.com/"
+      },
+      "en": {
+        "client": "Basmah Jomah",
+        "sector": "Publishing",
+        "title": "A landing page for a book on school leadership",
+        "summary": "The launch page for “A School Principal’s Diaries” — what is inside, who it is for, and one clear way to order a copy.",
+        "challenge": "An author needed her book to reach the teachers, students and parents it was written for — and turn their interest into orders.",
+        "solution": "An Arabic landing page that sells the book the way it is written: its three parts — teachers, students, parents — each explained, the readers it speaks to, a look inside the book and its gallery, and an order button that stays with the reader down the page, with WhatsApp one tap away.",
+        "capabilities": [
+          "Landing page",
+          "Arabic / RTL",
+          "Book launch",
+          "Order capture"
+        ],
+        "results": []
+      },
+      "ar": {
+        "client": "أ. بسمة جمعة",
+        "sector": "النشر",
+        "title": "صفحة هبوط لكتاب في الإدارة المدرسية",
+        "summary": "صفحة إطلاق كتاب «يوميات مديرة مدرسة» — ما بداخله، ولمن هو، وطريق واضح واحد لطلب نسختك.",
+        "challenge": "احتاجت كاتبة أن يصل كتابها إلى المعلمين والطلاب وأولياء الأمور الذين كُتب لهم — وأن يتحول اهتمامهم إلى طلبات.",
+        "solution": "صفحة هبوط عربية تبيع الكتاب بالطريقة التي كُتب بها: أجزاؤه الثلاثة — المعلمات والطالبات وأولياء الأمور — مشروحة واحدًا واحدًا، والقرّاء الذين يخاطبهم، ونظرة من داخل الكتاب ومعرضه، وزر طلب يرافق القارئ على طول الصفحة، وواتساب على بعد لمسة.",
+        "capabilities": [
+          "صفحة هبوط",
+          "عربي / RTL",
+          "إطلاق كتاب",
+          "استقبال الطلبات"
+        ],
+        "results": []
+      }
+    },
+    {
+      "slug": "retal-residence",
+      "kind": "client",
+      "featured": false,
+      "spotlight": false,
+      "cover": "/images/portfolio/retal-residence.jpg",
+      "gallery": [
+        "/images/portfolio/retal-residence-2.jpg",
+        "/images/portfolio/retal-residence-3.jpg"
+      ],
+      "services": [
+        "websites-web-apps"
+      ],
+      "stack": [
+        "React",
+        "Vite"
+      ],
+      "links": {
+        "live": "https://retal-residence-landing.vercel.app/"
+      },
+      "en": {
+        "client": "Retal Residence",
+        "sector": "Real estate",
+        "country": "Saudi Arabia",
+        "title": "A bilingual landing page for an ultra-premium compound",
+        "summary": "Seven residence types, clubhouse facilities and neighbourhood highlights — all built around scheduling a visit.",
+        "challenge": "An ultra-premium residential compound in Al Khobar needed one page that could carry its standard in both Arabic and English: seven residence types, the clubhouse, the neighbourhood — and end in a scheduled visit rather than a phone number at the bottom.",
+        "solution": "A bilingual landing page with an English/Arabic toggle and full right-to-left support. Each residence type — apartments, town villas and executive villas — has its floor plan and specifications; the fifty-plus amenities are shown as a set rather than a list; the neighbourhood is placed by its landmarks. Schedule-a-visit and WhatsApp enquiry flows stay in reach the whole way down.",
+        "capabilities": [
+          "Landing page",
+          "Bilingual EN / AR",
+          "RTL layout",
+          "Enquiry flows"
+        ],
+        "results": []
+      },
+      "ar": {
+        "client": "ريتال ريزيدنس",
+        "sector": "عقارات",
+        "country": "السعودية",
+        "title": "صفحة هبوط ثنائية اللغة لمجمّع سكني فاخر",
+        "summary": "سبعة أنماط سكنية ومرافق النادي ومعالم الحي — كلها مبنية حول حجز زيارة.",
+        "challenge": "احتاج مجمّع سكني فاخر في الخبر إلى صفحة واحدة تنقل مستواه بالعربية والإنجليزية معًا: سبعة أنماط سكنية، والنادي، والحي — وتنتهي بزيارة محجوزة لا برقم هاتف في الأسفل.",
+        "solution": "صفحة هبوط ثنائية اللغة مع مبدّل بين العربية والإنجليزية ودعم كامل للاتجاه من اليمين إلى اليسار. لكل نمط سكني — شقق وفلل تاون وفلل تنفيذية — مخططه ومواصفاته، وتُعرض المرافق الخمسون وما فوقها كمجموعة لا كقائمة، ويُحدَّد موقع الحي بمعالمه. ويبقى حجز الزيارة والتواصل عبر واتساب في متناول اليد على طول الصفحة.",
+        "capabilities": [
+          "صفحة هبوط",
+          "عربي / إنجليزي",
+          "تخطيط RTL",
+          "مسارات الاستفسار"
+        ],
+        "results": []
+      },
+      "category": "landing-page"
+    },
+    {
+      "slug": "nakheel-logistics",
+      "kind": "concept",
+      "placeholder": true,
+      "featured": false,
+      "spotlight": false,
+      "year": 2026,
+      "cover": "/images/portfolio/logistics-portal.jpg",
+      "gallery": [
+        "/images/ui/dashboard-light.png",
+        "/images/ui/mobile-home-en-light.png",
+        "/images/ui/dashboard-dark.png"
+      ],
+      "services": [
+        "business-systems",
+        "mobile-apps",
+        "apis-integrations"
+      ],
+      "stack": [
+        "Next.js",
+        "React Native",
+        "PostgreSQL"
+      ],
+      "en": {
+        "client": "Nakheel Logistics",
+        "sector": "Logistics",
+        "country": "Saudi Arabia",
+        "title": "From a WhatsApp group to one operations portal",
+        "summary": "An operations portal, driver app and ERP sync for 11 branches.",
+        "challenge": "Dispatch ran on a WhatsApp group and three spreadsheets that only one person understood.",
+        "solution": "Two weeks of discovery in the warehouses, then a portal, a driver app and an ERP sync shipped every two weeks.",
+        "capabilities": [],
+        "results": [
+          {
+            "value": "6 min",
+            "label": "to dispatch, from 40"
+          },
+          {
+            "value": "11",
+            "label": "branches on one system"
+          },
+          {
+            "value": "0",
+            "label": "lost delivery notes"
+          }
+        ],
+        "quote": {
+          "text": "It feels like the system was built by someone who worked here.",
+          "by": "Head of Dispatch"
+        }
+      },
+      "ar": {
+        "client": "نخيل للخدمات اللوجستية",
+        "sector": "لوجستيات",
+        "country": "السعودية",
+        "title": "من مجموعة واتساب إلى بوابة تشغيل واحدة",
+        "summary": "بوابة تشغيل وتطبيق للسائقين ومزامنة مع الـERP لأحد عشر فرعًا.",
+        "challenge": "كان التوزيع يُدار عبر مجموعة واتساب وثلاثة جداول لا يفهمها إلا شخص واحد.",
+        "solution": "أسبوعان داخل المستودعات، ثم بوابة وتطبيق للسائقين ومزامنة مع الـERP تُسلَّم كل أسبوعين.",
+        "capabilities": [],
+        "results": [
+          {
+            "value": "٦ د",
+            "label": "زمن التوزيع بعد ٤٠ دقيقة"
+          },
+          {
+            "value": "١١",
+            "label": "فرعًا على نظام واحد"
+          },
+          {
+            "value": "٠",
+            "label": "إيصالات مفقودة"
+          }
+        ],
+        "quote": {
+          "text": "يبدو النظام وكأن من بناه كان يعمل معنا.",
+          "by": "رئيس قسم التوزيع"
+        }
+      }
+    },
+    {
+      "slug": "sadeem-clinics",
+      "kind": "concept",
+      "placeholder": true,
+      "featured": false,
+      "spotlight": false,
+      "year": 2026,
+      "cover": "/images/portfolio/clinic-booking.jpg",
+      "gallery": [
+        "/images/ui/mobile-approve-ar-light.png",
+        "/images/ui/dashboard-dark.png"
+      ],
+      "services": [
+        "clinic-management",
+        "mobile-apps"
+      ],
+      "stack": [
+        "Next.js",
+        "Supabase",
+        "WhatsApp API"
+      ],
+      "en": {
+        "client": "Sadeem Clinics",
+        "sector": "Healthcare",
+        "country": "Egypt",
+        "title": "Booking that speaks the patient's language",
+        "summary": "Online booking, patient records and WhatsApp reminders for a clinic group.",
+        "challenge": "Phone-only bookings, paper files and a 30% no-show rate.",
+        "solution": "Arabic-first booking, a shared patient record across branches, and automated WhatsApp reminders.",
+        "capabilities": [],
+        "results": [
+          {
+            "value": "−42%",
+            "label": "no-shows"
+          },
+          {
+            "value": "3",
+            "label": "branches, one record"
+          },
+          {
+            "value": "70%",
+            "label": "bookings online"
+          }
+        ]
+      },
+      "ar": {
+        "client": "عيادات سديم",
+        "sector": "رعاية صحية",
+        "country": "مصر",
+        "title": "حجز يتكلّم لغة المريض",
+        "summary": "حجز إلكتروني وملفات مرضى وتذكيرات واتساب لمجموعة عيادات.",
+        "challenge": "حجوزات بالهاتف فقط، وملفات ورقية، ونسبة تغيّب ٣٠٪.",
+        "solution": "حجز بالعربية أولًا، وملف مريض موحّد بين الفروع، وتذكيرات تلقائية عبر واتساب.",
+        "capabilities": [],
+        "results": [
+          {
+            "value": "−٤٢٪",
+            "label": "في حالات التغيّب"
+          },
+          {
+            "value": "٣",
+            "label": "فروع بملف واحد"
+          },
+          {
+            "value": "٧٠٪",
+            "label": "من الحجوزات إلكترونيًا"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "masar-realty",
+      "kind": "concept",
+      "placeholder": true,
+      "featured": false,
+      "spotlight": false,
+      "year": 2025,
+      "cover": "/images/portfolio/realty-app.jpg",
+      "gallery": [
+        "/images/ui/mobile-home-en-light.png",
+        "/images/ui/mobile-splash-dark.png"
+      ],
+      "services": [
+        "mobile-apps",
+        "dashboards-admin"
+      ],
+      "stack": [
+        "React Native",
+        "Node.js"
+      ],
+      "en": {
+        "client": "Masar Realty",
+        "sector": "Real estate",
+        "country": "UAE",
+        "title": "A broker app agents open 40 times a day",
+        "summary": "Listings, leads and deal tracking for a brokerage's agents.",
+        "challenge": "Leads lived in personal phones and were lost when agents left.",
+        "solution": "A mobile app for agents and a dashboard for managers, with every lead owned by the company.",
+        "capabilities": [],
+        "results": [
+          {
+            "value": "40×",
+            "label": "daily opens per agent"
+          },
+          {
+            "value": "+23%",
+            "label": "leads converted"
+          }
+        ]
+      },
+      "ar": {
+        "client": "مسار العقارية",
+        "sector": "عقارات",
+        "country": "الإمارات",
+        "title": "تطبيق يفتحه الوسطاء ٤٠ مرة يوميًا",
+        "summary": "العقارات والعملاء المحتملون ومتابعة الصفقات لوسطاء الشركة.",
+        "challenge": "كان العملاء المحتملون في هواتف الوسطاء الشخصية ويضيعون برحيلهم.",
+        "solution": "تطبيق للوسطاء ولوحة تحكّم للمديرين، وكل عميل محتمل ملك للشركة.",
+        "capabilities": [],
+        "results": [
+          {
+            "value": "٤٠×",
+            "label": "مرات الفتح يوميًا"
+          },
+          {
+            "value": "+٢٣٪",
+            "label": "تحويل العملاء"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "qahwa-house-website",
+      "kind": "concept",
+      "placeholder": true,
+      "featured": false,
+      "spotlight": false,
+      "year": 2025,
+      "cover": "/images/portfolio/corporate-website.jpg",
+      "gallery": [
+        "/images/ui/website-home-en-light.png"
+      ],
+      "services": [
+        "websites-web-apps"
+      ],
+      "stack": [
+        "Next.js",
+        "Sanity"
+      ],
+      "en": {
+        "client": "Qahwa House",
+        "sector": "Food & beverage",
+        "country": "Saudi Arabia",
+        "title": "A brand website that sells beans, not buzzwords",
+        "summary": "Corporate site and online store for a specialty coffee roaster.",
+        "challenge": "An outdated site with no online ordering.",
+        "solution": "A fast bilingual site with a store the team manages themselves.",
+        "capabilities": [],
+        "results": [
+          {
+            "value": "2.1s",
+            "label": "load on 4G"
+          },
+          {
+            "value": "+60%",
+            "label": "online orders"
+          }
+        ]
+      },
+      "ar": {
+        "client": "بيت القهوة",
+        "sector": "الأغذية والمشروبات",
+        "country": "السعودية",
+        "title": "موقع يبيع القهوة لا الشعارات",
+        "summary": "موقع الشركة ومتجر إلكتروني لمحمصة قهوة مختصة.",
+        "challenge": "موقع قديم بلا طلبات إلكترونية.",
+        "solution": "موقع سريع ثنائي اللغة ومتجر يديره الفريق بنفسه.",
+        "capabilities": [],
+        "results": [
+          {
+            "value": "٢٫١ث",
+            "label": "التحميل على 4G"
+          },
+          {
+            "value": "+٦٠٪",
+            "label": "الطلبات الإلكترونية"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "wared-foods",
+      "kind": "concept",
+      "placeholder": true,
+      "featured": false,
+      "spotlight": false,
+      "year": 2025,
+      "cover": "/images/portfolio/bilingual-website.jpg",
+      "gallery": [
+        "/images/ui/website-home-ar-dark.png"
+      ],
+      "services": [
+        "websites-web-apps",
+        "automation"
+      ],
+      "stack": [
+        "Next.js",
+        "Make"
+      ],
+      "en": {
+        "client": "Wared Foods",
+        "sector": "Distribution",
+        "country": "Saudi Arabia",
+        "title": "A B2B ordering site with automated invoicing",
+        "summary": "Wholesale ordering and automated invoices for a food distributor.",
+        "challenge": "Orders by phone, invoices typed by hand.",
+        "solution": "A bilingual B2B storefront with invoices generated and sent automatically.",
+        "capabilities": [],
+        "results": [
+          {
+            "value": "−9 h",
+            "label": "admin work per week"
+          }
+        ]
+      },
+      "ar": {
+        "client": "وارد للأغذية",
+        "sector": "التوزيع",
+        "country": "السعودية",
+        "title": "موقع طلبات للشركات مع فوترة تلقائية",
+        "summary": "طلبات الجملة وفواتير تلقائية لموزّع أغذية.",
+        "challenge": "طلبات بالهاتف وفواتير تُكتب يدويًا.",
+        "solution": "متجر ثنائي اللغة للشركات مع فواتير تُنشأ وتُرسل تلقائيًا.",
+        "capabilities": [],
+        "results": [
+          {
+            "value": "−٩ س",
+            "label": "عمل إداري أسبوعيًا"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "athr-case-platform",
+      "kind": "concept",
+      "placeholder": true,
+      "featured": false,
+      "spotlight": false,
+      "year": 2026,
+      "cover": "/images/portfolio/case-study-platform.jpg",
+      "gallery": [
+        "/images/ui/case-study-light.png"
+      ],
+      "services": [
+        "saas-products",
+        "custom-software"
+      ],
+      "stack": [
+        "Next.js",
+        "PostgreSQL"
+      ],
+      "en": {
+        "client": "Your next project",
+        "sector": "SaaS",
+        "country": "GCC",
+        "title": "Replace this card with a real project",
+        "summary": "Use your strongest real work here — or one of your own products.",
+        "challenge": "",
+        "solution": "",
+        "capabilities": [],
+        "results": []
+      },
+      "ar": {
+        "client": "مشروعك القادم",
+        "sector": "SaaS",
+        "country": "الخليج",
+        "title": "استبدل هذه البطاقة بمشروع حقيقي",
+        "summary": "ضع هنا أقوى أعمالك الحقيقية — أو أحد منتجاتك الخاصة.",
+        "challenge": "",
+        "solution": "",
+        "capabilities": [],
+        "results": []
+      }
+    }
+  ]
+}

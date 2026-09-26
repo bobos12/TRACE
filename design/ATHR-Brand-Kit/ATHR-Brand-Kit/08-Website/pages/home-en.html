@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="../../_shared/fonts.css"><link rel="stylesheet" href="../../_shared/tokens.css"><link rel="stylesheet" href="../../_shared/bundle.css"><script src="../../_shared/react.production.min.js"></script><script src="../../_shared/react-dom.production.min.js"></script><script src="../../_shared/bundle.js"></script><style>body{min-width:1440px}</style><meta charset="utf-8"><title>Website — ATHR</title>
+<style>
+  .wrap { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+  .hero { position: relative; padding: 120px 0 96px; border-bottom: 1px solid var(--line); }
+  .hero-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 32px; align-items: end; }
+  .hero h1 { grid-column: 1 / span 9; margin: 24px 0 0; font-size: 128px; line-height: .9; letter-spacing: -.045em; font-weight: 600; }
+  .hero h1 .ln2 { color: var(--ink-muted); }
+  .hero-ar { grid-column: 10 / span 3; font-family: var(--font-arabic); font-size: 30px; line-height: 1.55; font-weight: 600; text-align: right; color: var(--ink); }
+  .hero-foot { display: grid; grid-template-columns: repeat(12, 1fr); gap: 32px; margin-top: 72px; align-items: start; }
+  .hero-foot p { grid-column: 1 / span 5; margin: 0; }
+  .hero-foot .acts { grid-column: 7 / span 6; display: flex; gap: 12px; justify-content: flex-end; }
+  .trace { position: absolute; left: 0; right: 0; bottom: -1px; height: 1px; }
+  .trace i { position: absolute; bottom: -4px; width: 9px; height: 9px; background: var(--vermilion); transform: rotate(45deg); }
+  .sec { padding: 96px 0; border-bottom: 1px solid var(--line); }
+  .sec-head { display: grid; grid-template-columns: repeat(12, 1fr); gap: 32px; margin-bottom: 56px; }
+  .sec-head .eyebrow { grid-column: 1 / span 3; color: var(--ink-muted); padding-top: 12px; }
+  .sec-head h2 { grid-column: 4 / span 8; margin: 0; }
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--ink); }
+  .step { padding: 28px 32px 8px 0; display: flex; flex-direction: column; gap: 14px; }
+  .step + .step { padding-inline-start: 32px; border-inline-start: 1px solid var(--line); }
+  .step .num { font-family: var(--font-mono); font-size: 13px; color: var(--ink-muted); display: flex; align-items: center; gap: 10px; }
+  .step h3 { margin: 0; font-size: 28px; line-height: 34px; font-weight: 600; letter-spacing: -.015em; }
+  .step p { margin: 0; color: var(--ink-muted); }
+  .work { display: grid; grid-template-columns: 7fr 5fr; gap: 32px; }
+  .case { position: relative; display: flex; flex-direction: column; justify-content: space-between; min-height: 520px; padding: 36px; background: var(--graphite); color: #F2EEE4; --cut: 36px; }
+  .case.alt { background: var(--sand); color: var(--carbon); min-height: 244px; }
+  .case .eyebrow { opacity: .75; display: flex; align-items: center; gap: 10px; }
+  .case h3 { margin: 0; font-size: 44px; line-height: 1.02; letter-spacing: -.025em; font-weight: 600; max-width: 12ch; }
+  .case.alt h3 { font-size: 28px; }
+  .case .facts { display: flex; gap: 48px; font-family: var(--font-mono); }
+  .case .facts b { display: block; font-size: 40px; line-height: 44px; font-weight: 500; letter-spacing: -.03em; }
+  .case .facts span { font-size: 12px; opacity: .7; }
+  .case .con { position: absolute; top: 36px; right: 36px; }
+  .case i.at-const-i { background: currentColor; }
+  .stack { display: flex; flex-direction: column; gap: 32px; }
+  .svc { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 1px solid var(--line); }
+  .svc div { padding: 24px 24px 24px 0; border-bottom: 1px solid var(--line); }
+  .svc div:not(:nth-child(4n+1)) { padding-inline-start: 24px; border-inline-start: 1px solid var(--line); }
+  .svc h4 { margin: 0 0 6px; font-size: 18px; font-weight: 600; }
+  .svc p { margin: 0; font-size: 14px; line-height: 22px; color: var(--ink-muted); }
+  .ar-band { background: var(--carbon); color: #F2EEE4; padding: 96px 0; }
+  .ar-band .wrap { display: grid; grid-template-columns: repeat(12, 1fr); gap: 32px; align-items: end; }
+  .ar-band h2 { grid-column: 5 / span 8; margin: 0; font-family: var(--font-arabic); font-size: 72px; line-height: 1.3; font-weight: 600; text-align: right; }
+  .ar-band p { grid-column: 1 / span 4; margin: 0; color: #A7A193; font-size: 17px; line-height: 1.9; font-family: var(--font-arabic); text-align: right; }
+  .cta { padding: 128px 0; }
+  .cta .wrap { display: grid; grid-template-columns: repeat(12, 1fr); gap: 32px; align-items: end; }
+  .cta h2 { grid-column: 1 / span 8; margin: 0; }
+  .cta .acts { grid-column: 9 / span 4; display: flex; flex-direction: column; gap: 16px; align-items: flex-start; }
+  .foot { border-top: 1px solid var(--line); padding: 32px 0 48px; }
+  .foot .wrap { display: flex; justify-content: space-between; align-items: center; color: var(--ink-muted); font-size: 13px; }
+</style></head>
+<body>
+<div id="nav"></div>
+<section class="hero"><div class="wrap">
+  <div class="eyebrow at-muted">SOFTWARE STUDIO ◆ RIYADH · CAIRO</div>
+  <div class="hero-grid">
+    <h1>Every business<br>leaves a mark<span class="at-stop"></span><br><span class="ln2">We build the software that carries it.</span></h1>
+    <div class="hero-ar" dir="rtl">لكل عمل أثر.<br>نحن نبني التقنية التي تحمله.</div>
+  </div>
+  <div class="hero-foot">
+    <p class="body-lg at-muted">Websites, platforms, mobile apps and internal systems — designed around how your business actually works, not around a template.</p>
+    <div class="acts" id="hero-acts"></div>
+  </div>
+</div><div class="trace"><i style="left:61.8%"></i></div></section>
+
+<section class="sec"><div class="wrap">
+  <div class="sec-head"><div class="eyebrow">01 ◆ HOW WE WORK</div><h2 class="display-lg">We understand your business. We build around it. We leave a mark<span class="at-stop"></span></h2></div>
+  <div class="steps">
+    <div class="step"><div class="num"><span data-nuqta></span>01 — Understand</div><h3>Two weeks inside your business</h3><p>We sit with the people who do the work, map how it moves, and find the three places where software changes the most.</p></div>
+    <div class="step"><div class="num">02 — Build around it</div><h3>Shaped to your workflow</h3><p>Your terms, your approvals, your language — Arabic and English from day one. We build the system your team would have designed if they wrote code.</p></div>
+    <div class="step"><div class="num">03 — Leave a mark</div><h3>Measured, then handed over</h3><p>We ship, measure what changed, and hand over the code, the docs and the keys. It stays yours after we're gone.</p></div>
+  </div>
+</div></section>
+
+<section class="sec"><div class="wrap">
+  <div class="sec-head"><div class="eyebrow">02 ◆ SELECTED WORK</div><h2 class="display-lg">Each one carries its own mark<span class="at-stop"></span></h2></div>
+  <div class="work">
+    <article class="case at-cut"><span class="con" data-const="Nakheel Logistics" data-size="16" data-dark="1"></span>
+      <div><div class="eyebrow">CASE 03 ◆ LOGISTICS · KSA</div></div>
+      <div><h3>Nakheel Logistics: from WhatsApp to one portal</h3>
+        <div class="facts" style="margin-top:36px"><div><b>6 min</b><span>dispatch, down from 40</span></div><div><b>0</b><span>lost delivery notes since launch</span></div><div><b>11</b><span>branches, one system</span></div></div></div></article>
+    <div class="stack">
+      <article class="case alt at-cut"><span class="con" data-const="Sadeem Clinics" data-size="12"></span><div class="eyebrow">CASE 02 ◆ HEALTHCARE · EG</div><h3>Sadeem Clinics: booking that speaks Egyptian Arabic</h3></article>
+      <article class="case alt at-cut" style="background:var(--surface-raised);color:var(--ink);box-shadow:inset 0 0 0 1px var(--line)"><span class="con" data-const="Masar Realty" data-size="12"></span><div class="eyebrow">CASE 01 ◆ REAL ESTATE · UAE</div><h3>Masar Realty: a broker app agents open 40 times a day</h3></article>
+    </div>
+  </div>
+</div></section>
+
+<section class="sec"><div class="wrap">
+  <div class="sec-head"><div class="eyebrow">03 ◆ WHAT WE BUILD</div><h2 class="display-md">Anything with a login, a workflow or a customer on the other side.</h2></div>
+  <div class="svc">
+    <div><h4>Websites</h4><p>Bilingual, fast, and written like a person runs the company.</p></div>
+    <div><h4>Web platforms &amp; SaaS</h4><p>Multi-tenant products, billing, roles, the dull parts done right.</p></div>
+    <div><h4>Mobile apps</h4><p>iOS and Android from one codebase, RTL-native.</p></div>
+    <div><h4>Internal systems</h4><p>Portals, dashboards and admin tools that replace spreadsheets.</p></div>
+    <div><h4>Automations &amp; APIs</h4><p>Connect the ERP, the CRM, WhatsApp and the bank.</p></div>
+    <div><h4>AI where it earns it</h4><p>Assistants and search over your own documents — measured, not demoed.</p></div>
+    <div><h4>Design systems</h4><p>Like this one: the rules your next ten products inherit.</p></div>
+    <div><h4>Care &amp; retainers</h4><p>We stay on after launch, or hand over cleanly. Your choice.</p></div>
+  </div>
+</div></section>
+
+<section class="ar-band" dir="rtl"><div class="wrap">
+  <h2>نفهم عملك.<br>نبني حوله.<br>ونترك أثرًا<span class="at-stop"></span></h2>
+  <p>كل شركة مختلفة، وكل حل يجب أن يحمل بصمتها. نصمم ونبني المواقع والتطبيقات والأنظمة الداخلية بالعربية والإنجليزية منذ اليوم الأول.</p>
+</div></section>
+
+<section class="cta"><div class="wrap">
+  <h2 class="display-xl">Tell us how your business works<span class="at-stop"></span></h2>
+  <div class="acts"><p class="at-muted" style="margin:0">A 30-minute call. No deck, no pitch. We'll tell you honestly whether software is the answer.</p><span id="cta-btn"></span></div>
+</div></section>
+<footer class="foot"><div class="wrap"><span id="foot-logo"></span><span>Riyadh · Cairo — hello@athr.studio</span><span class="eyebrow">© 2026 ATHR</span></div></footer>
+<script>
+  var A = window.Athr, h = React.createElement, F = React.Fragment;
+  function mount(id, el) { var n = document.getElementById(id); if (n) ReactDOM.createRoot(n).render(el); }
+  mount('nav', h(A.NavBar, { links: [{ label: 'Work', current: true }, 'Services', 'Approach', 'Studio', 'Journal'], lang: 'عربي', cta: 'Start a project' }));
+  mount('hero-acts', h(F, null, h(A.Button, { size: 'lg' }, 'See the work'), h(A.Button, { variant: 'primary', size: 'lg', iconEnd: 'arrow-right' }, 'Start a project')));
+  mount('cta-btn', h(A.Button, { variant: 'primary', size: 'lg', iconEnd: 'arrow-right' }, 'Book the call'));
+  mount('foot-logo', h(A.Logo, { variant: 'bilingual', size: 22 }));
+  document.querySelectorAll('[data-nuqta]').forEach(function (el) { ReactDOM.createRoot(el).render(h(A.Nuqta, { size: 9 })); });
+  document.querySelectorAll('[data-const]').forEach(function (el) { ReactDOM.createRoot(el).render(h(A.Constellation, { seed: el.dataset.const, size: +el.dataset.size, quiet: true, style: el.dataset.dark ? { '--ink': '#F2EEE4' } : null })); });
+</script>
+<button id="athr-theme" aria-label="Switch light/dark" style="position:fixed;right:16px;bottom:16px;z-index:99;height:36px;padding:0 14px;border-radius:4px;border:1px solid var(--line-strong);background:var(--surface-raised);color:var(--ink);font:500 13px var(--font-sans);cursor:pointer">Light / Dark</button>
+<script>(function(){var r=document.documentElement,b=document.getElementById('athr-theme');if(location.hash==='#dark')r.setAttribute('data-theme','dark');b.onclick=function(){r.setAttribute('data-theme',r.getAttribute('data-theme')==='dark'?'light':'dark')};})();</script>
+</body>
+</html>

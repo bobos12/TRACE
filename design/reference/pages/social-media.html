@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="../_shared/fonts.css"><link rel="stylesheet" href="../_shared/tokens.css"><link rel="stylesheet" href="../_shared/bundle.css"><script src="../_shared/react.production.min.js"></script><script src="../_shared/react-dom.production.min.js"></script><script src="../_shared/bundle.js"></script><style>body{min-width:1440px}</style><meta charset="utf-8"><title>Social — ATHR</title>
+<style>
+  body { background: var(--surface-sunken); }
+  .row { display: flex; gap: 24px; padding: 48px; justify-content: center; align-items: flex-start; }
+  .post { width: 300px; height: 300px; flex: none; position: relative; overflow: hidden; display: flex; flex-direction: column; padding: 24px; }
+  .story { width: 270px; height: 480px; flex: none; position: relative; overflow: hidden; display: flex; flex-direction: column; padding: 24px; }
+  .dk { background: #0F0F0D; color: #F2EEE4; --ink: #F2EEE4; --vermilion: #FF5A33; --line: #2E2D28; }
+  .lt { background: #F4F1E9; color: #14130F; --ink: #14130F; --vermilion: #E0461F; --line: #D6CFBE; }
+  .vm { background: #E0461F; color: #0F0F0D; --ink: #0F0F0D; }
+  .sd { background: #D8D1C0; color: #0F0F0D; --ink: #0F0F0D; --line: #B9B1A0; }
+  .k { font-family: var(--font-mono); font-size: 9.5px; letter-spacing: .14em; opacity: .75; display: flex; justify-content: space-between; }
+  .big { margin-top: auto; font-size: 34px; line-height: 1; font-weight: 600; letter-spacing: -.03em; }
+  .ar { font-family: var(--font-arabic); font-size: 30px; line-height: 1.45; font-weight: 600; text-align: right; margin-top: auto; }
+  .num { font-family: var(--font-mono); font-size: 92px; line-height: .9; font-weight: 500; letter-spacing: -.05em; margin-top: auto; }
+  .sm { font-size: 13px; line-height: 18px; margin-top: 10px; opacity: .8; }
+  .bl { position: absolute; left: 24px; right: 24px; bottom: 58px; height: 1px; background: currentColor; opacity: .3; }
+  .tri { position: absolute; top: 0; right: 0; border-style: solid; border-width: 0 40px 40px 0; border-color: transparent #F4F1E9 transparent transparent; }
+</style></head>
+<body>
+<div class="row">
+  <div class="post dk"><div class="k"><span>ATHR</span><span>01/05</span></div><div class="big">Software should fit the business. Not the other way round<span class="at-stop"></span></div></div>
+  <div class="post lt" dir="rtl"><div class="k" dir="ltr"><span data-logo="arabic" data-size="22"></span><span>٠٢</span></div><div class="ar">لكل عمل أثر.<br>نحن نبني التقنية<br>التي تحمله<span class="at-stop"></span></div></div>
+  <div class="post sd"><span class="tri"></span><div class="k"><span>CASE ◆ NAKHEEL</span><span data-const="Nakheel Logistics" data-size="10"></span></div><div class="num">40→6</div><div class="sm">Minutes to dispatch a shipment, before and after the portal.</div></div>
+  <div class="story dk"><div class="k"><span data-logo="symbol" data-size="18"></span><span>STUDIO NOTES</span></div>
+    <div class="big" style="font-size:30px">We don't start with a stack. We start with a Tuesday in your warehouse<span class="at-stop"></span></div>
+    <div class="sm" style="margin-top:20px">Swipe up — how our discovery sprint works</div></div>
+</div>
+<script>
+  var A = window.Athr, h = React.createElement;
+  document.querySelectorAll('[data-logo]').forEach(function (el) { ReactDOM.createRoot(el).render(h(A.Logo, { variant: el.dataset.logo, size: +el.dataset.size })); });
+  document.querySelectorAll('[data-const]').forEach(function (el) { ReactDOM.createRoot(el).render(h(A.Constellation, { seed: el.dataset.const, size: +el.dataset.size, quiet: true })); });
+</script>
+<button id="athr-theme" aria-label="Switch light/dark" style="position:fixed;right:16px;bottom:16px;z-index:99;height:36px;padding:0 14px;border-radius:4px;border:1px solid var(--line-strong);background:var(--surface-raised);color:var(--ink);font:500 13px var(--font-sans);cursor:pointer">Light / Dark</button>
+<script>(function(){var r=document.documentElement,b=document.getElementById('athr-theme');if(location.hash==='#dark')r.setAttribute('data-theme','dark');b.onclick=function(){r.setAttribute('data-theme',r.getAttribute('data-theme')==='dark'?'light':'dark')};})();</script>
+</body>
+</html>

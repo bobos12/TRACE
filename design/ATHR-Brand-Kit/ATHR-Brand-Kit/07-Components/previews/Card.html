@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="../../_shared/fonts.css"><link rel="stylesheet" href="../../_shared/tokens.css"><link rel="stylesheet" href="../../_shared/bundle.css"><script src="../../_shared/react.production.min.js"></script><script src="../../_shared/react-dom.production.min.js"></script><script src="../../_shared/bundle.js"></script><meta charset="utf-8"><title>Card — preview</title></head>
+<body>
+<div id="root" class="at-col"></div>
+<script>
+  var A = window.Athr, h = React.createElement, F = React.Fragment;
+  ReactDOM.createRoot(document.getElementById('root')).render(h('div', {style:{display:'grid',gridTemplateColumns:'repeat(3,minmax(0,1fr))',gap:24}},
+    h(A.Card, {eyebrow:'Invoices', title:'24 waiting on approval', action: h(A.Badge, {tone:'warning'}, 'Due Thursday'), footer: h(F, null, h('span', {className:'at-muted', style:{fontSize:13}}, 'Oldest: 6 days'), h(A.Button, {size:'sm'}, 'Review'))}, 'Approvals route to finance, then the branch manager.'),
+    h(A.Card, {cut:true, eyebrow: h(F, null, h(A.Nuqta, {size:8}), 'Case study 03'), title:'Nakheel Logistics'}, 'Three spreadsheets and a WhatsApp group became one operations portal. Dispatch time fell from 40 minutes to 6.'),
+    h(A.Card, {inverse:true, eyebrow:'Discovery sprint', title:'Two weeks inside your business', footer: h(A.Button, {variant:'primary', size:'sm', iconEnd:'arrow-right'}, 'Book it')}, 'Before we quote a line of code, we map how the work actually moves.')));
+</script>
+<button id="athr-theme" aria-label="Switch light/dark" style="position:fixed;right:16px;bottom:16px;z-index:99;height:36px;padding:0 14px;border-radius:4px;border:1px solid var(--line-strong);background:var(--surface-raised);color:var(--ink);font:500 13px var(--font-sans);cursor:pointer">Light / Dark</button>
+<script>(function(){var r=document.documentElement,b=document.getElementById('athr-theme');if(location.hash==='#dark')r.setAttribute('data-theme','dark');b.onclick=function(){r.setAttribute('data-theme',r.getAttribute('data-theme')==='dark'?'light':'dark')};})();</script>
+</body>
+</html>

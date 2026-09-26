@@ -1,0 +1,17 @@
+{
+  "_note": "PLACEHOLDERS — replace every value before launch. Numbers in E.164 without spaces.",
+  "whatsapp": "+966500000000",
+  "phone": "+966500000000",
+  "phoneDisplay": "+966 50 000 0000",
+  "phoneSecondary": "+201000000000",
+  "phoneSecondaryDisplay": "+20 10 0000 0000",
+  "email": "hello@athr.studio",
+  "hours": { "en": "Sun–Thu, 9:00–18:00 (KSA)", "ar": "الأحد–الخميس، ٩:٠٠–١٨:٠٠ (توقيت السعودية)" },
+  "responseTime": { "en": "We reply within one working hour.", "ar": "نرد خلال ساعة عمل واحدة." },
+  "cities": { "en": ["Riyadh", "Cairo"], "ar": ["الرياض", "القاهرة"] },
+  "whatsappMessage": {
+    "en": "Hi ATHR, I'd like to talk about a project.",
+    "ar": "مرحبًا أثر، أودّ مناقشة مشروع معكم."
+  },
+  "social": { "linkedin": "https://www.linkedin.com/company/REPLACE", "x": "https://x.com/REPLACE", "instagram": "https://instagram.com/REPLACE", "behance": "" }
+}

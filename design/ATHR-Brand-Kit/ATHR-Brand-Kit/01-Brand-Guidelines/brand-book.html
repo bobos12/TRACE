@@ -1,0 +1,586 @@
+<!doctype html><html lang="en" data-theme="light"><head><meta charset="utf-8"><title>ATHR — Brand guidelines</title>
+<link rel="stylesheet" href="../_shared/fonts.css"><link rel="stylesheet" href="../_shared/tokens.css"><link rel="stylesheet" href="../_shared/bundle.css">
+<script src="../_shared/react.production.min.js"></script><script src="../_shared/react-dom.production.min.js"></script><script src="../_shared/bundle.js"></script>
+<style>
+@page { size: A4; margin: 16mm 16mm 18mm; }
+body { font-size: 10.5pt; line-height: 1.6; background: #fff; }
+.cover { height: 263mm; background: #0F0F0D; color: #F2EEE4; --ink:#F2EEE4; --vermilion:#FF5A33; margin: -16mm -16mm 0; padding: 22mm; display: flex; flex-direction: column; page-break-after: always; position: relative; overflow: hidden; }
+.cover .t { margin-top: auto; font-size: 60pt; line-height: .95; letter-spacing: -.035em; font-weight: 600; }
+.cover .s { font-family: var(--font-arabic); font-size: 20pt; color: #A7A193; margin-top: 8mm; }
+.cover .m { font-family: var(--font-mono); font-size: 8pt; letter-spacing: .14em; color: #A7A193; display: flex; justify-content: space-between; margin-top: 14mm; border-top: 1px solid #2E2D28; padding-top: 5mm; }
+.cover .blk { position: absolute; right: 0; top: 0; width: 70mm; height: 90mm; background: #FF5A33; clip-path: polygon(0 0,100% 0,100% 100%,0 100%); }
+.toc { page-break-after: always; padding-top: 20mm; }
+.toc ol { list-style: none; padding: 0; margin: 10mm 0 0; columns: 1; }
+.toc li { display: flex; gap: 8mm; padding: 3.2mm 0; border-bottom: 1px solid var(--line); font-size: 14pt; }
+.toc li span { font-family: var(--font-mono); font-size: 10pt; color: var(--ink-muted); width: 10mm; padding-top: 1mm; }
+.sec { page-break-before: always; }
+.sec h1 { margin: 3mm 0 7mm; font-size: 34pt; }
+h2 { font-size: 15pt; margin: 9mm 0 3mm; letter-spacing: -.01em; }
+h3 { font-size: 12pt; margin: 6mm 0 2mm; }
+p, li { color: var(--ink); } ul { padding-inline-start: 5mm; }
+blockquote { margin: 6mm 0; padding: 0 0 0 6mm; border-inline-start: 2px solid var(--vermilion); font-size: 14pt; line-height: 1.4; font-weight: 500; }
+table { width: 100%; border-collapse: collapse; margin: 4mm 0; font-size: 9.5pt; page-break-inside: auto; } tr { page-break-inside: avoid; }
+th { text-align: start; font-family: var(--font-mono); font-size: 7.5pt; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-muted); border-bottom: 1px solid var(--ink); padding: 2mm 3mm 2mm 0; font-weight: 500; }
+td { border-bottom: 1px solid var(--line); padding: 2.2mm 3mm 2.2mm 0; vertical-align: top; }
+code { font-family: var(--font-mono); font-size: .88em; background: var(--surface-sunken); padding: 0 1mm; border-radius: 2px; }
+figure { margin: 6mm 0; page-break-inside: avoid; } figure img { width: 100%; display: block; border: 1px solid var(--line); }
+figcaption { font-family: var(--font-mono); font-size: 7.5pt; letter-spacing: .08em; color: var(--ink-muted); margin-top: 2mm; text-transform: uppercase; }
+.sws { display: grid; grid-template-columns: 1fr 1fr; gap: 3mm 6mm; }
+.sw { display: grid; grid-template-columns: 16mm 1fr; column-gap: 3mm; page-break-inside: avoid; font-size: 8.5pt; line-height: 1.45; }
+.sw .chip { grid-row: span 3; display: flex; height: 14mm; border: 1px solid var(--line); } .sw .chip i { flex: 1; }
+.sw code { background: none; padding: 0; color: var(--ink-muted); } .sw span { color: var(--ink-muted); }
+.ts { display: grid; grid-template-columns: 38mm 1fr; gap: 4mm; padding: 3mm 0; border-bottom: 1px solid var(--line); align-items: baseline; page-break-inside: avoid; }
+.ts .meta { display: flex; flex-direction: column; font-size: 8.5pt; } .ts code { background: none; padding: 0; color: var(--ink-muted); }
+.note { color: var(--ink-muted); font-size: 9pt; }
+</style></head><body>
+<div class="cover"><div class="blk"></div><span id="cl"></span><div class="t">Brand guidelines<br>&amp; design system<span class="at-stop"></span></div><div class="s">دليل الهوية ونظام التصميم</div>
+<div class="m"><span>ATHR / أثر</span><span>VERSION 1.0 — SEPTEMBER 2026</span></div></div>
+<div class="toc"><div class="eyebrow at-muted">CONTENTS</div><ol><li><span>01</span>Overview</li><li><span>02</span>Brand strategy</li><li><span>03</span>Creative directions</li><li><span>04</span>Logo</li><li><span>05</span>The signature</li><li><span>06</span>Colour</li><li><span>07</span>Typography</li><li><span>08</span>Motion</li><li><span>09</span>Voice</li><li><span>10</span>Taglines</li><li><span>11</span>Website</li><li><span>12</span>Digital product</li><li><span>13</span>Applications</li></ol></div>
+<section class="sec"><div class="eyebrow at-muted">01 ◆ OVERVIEW</div><h1 class="display-md">Overview<span class="at-stop"></span></h1><p>ATHR (أثر) is a software studio for businesses in Egypt, Saudi Arabia and the wider Gulf. The whole identity rests on one observation about the name: <strong>ث is ت with one more dot.</strong> Arabic letters share skeletons; the dots decide which letter you are reading. ATHR builds the shared skeleton well and places the mark that makes it someone's own. Everything below — the logo, the rhombus, the cut corner, the client constellations — is that idea applied.</p>
+<blockquote>
+<p>Every business has its own identity. ATHR builds the technology around it — and leaves a mark.</p>
+</blockquote>
+<h2>The five things that make it ATHR</h2>
+<ol>
+<li><strong>The nuqta cluster.</strong> Three rhombic dots, arranged as over ث, sit over the TH in <code>ATHR</code> and over the ث in <code>أثر</code>. Same mark, same sound, both scripts. Arranged ∴ they also read as "therefore" — consequence, effect, another meaning of أثر. Use the SVGs in <code>assets/Logos/</code> or the <code>Logo</code> component; never rebuild it.</li>
+<li><strong>The nuqta</strong> — one vermilion rhombus. It is the active marker (nav, tabs, sidebar), the bullet, the timeline event, and the <strong>full stop of display lines</strong> (<code>&lt;span class="at-stop"&gt;</code>). One per view region.</li>
+<li><strong>The cut</strong> — a single 45° chamfer on the trailing top corner (<code>.at-cut</code>), the angle of the nuqta's side. Primary buttons, featured and case-study cards, the app icon, proposal pages. Never on every card.</li>
+<li><strong>The constellation</strong> — a 3×3 lattice of nuqtas. ATHR's own is the ث arrangement; every client gets their own, generated from their name (<code>Constellation seed="…"</code>). It marks their portal, proposal, case study and handover.</li>
+<li><strong>Carbon, paper, vermilion.</strong> A warm monochrome with one inked accent — the red that early Arabic manuscripts used for the dots and vowel marks.</li>
+</ol>
+<h2>Colour</h2>
+<p>Build UI with the semantic tokens; the primitives (<code>carbon</code>, <code>graphite</code>, <code>ash</code>, <code>sand</code>, <code>paper</code>, <code>chalk</code>) are for identity work. Two themes: <strong>Paper</strong> (light, the default) and <strong>Carbon</strong> (dark). Both are complete — every screen ships in both.</p>
+<ul>
+<li>Text: <code>ink</code> on <code>surface</code>, <code>surface-raised</code>, <code>surface-sunken</code>; secondary in <code>ink-muted</code>; placeholders only in <code>ink-faint</code>. On an inverted band use <code>surface-inverse</code> with <code>ink-inverse</code>.</li>
+<li><code>vermilion</code> is graphic only — logo nuqtas, the signature rhombus, cover and social blocks (3:1+). It is never body text on paper.</li>
+<li><code>nuqta</code> is the interactive accent: primary button fill (label in <code>on-nuqta</code>), links, selected states on <code>nuqta-soft</code>. It never means error.</li>
+<li>Status: <code>success</code> (blue-teal, off the red–green axis), <code>warning</code> (ochre), <code>danger</code> (crimson-rose, deliberately apart from the brand red) — each on its <code>-soft</code> ground, always with an icon or a word.</li>
+<li>Borders: <code>line</code> for dividers and card edges; <code>line-strong</code> for every control edge (3:1+). Focus is the <code>focus-ring</code> shadow: a 2px ground gap, then 2px of <code>ink</code> — never the accent, so focus never looks like an error or a selection.</li>
+<li>Proportion on any page: ~70% ground, ~25% ink, ≤5% vermilion/nuqta. If the accent is more than a mark, it's too much.</li>
+</ul>
+<h2>Type</h2>
+<ul>
+<li><strong>Instrument Sans</strong> (Latin, variable 400–700) for display and UI; <strong>IBM Plex Sans Arabic</strong> for Arabic; <strong>IBM Plex Mono</strong> for numbers, codes and eyebrows. The <code>sans</code> stack falls through to Plex Arabic, so mixed strings render correctly in either direction.</li>
+<li>Display (<code>display-xl/lg/md</code>) is tight, large and short, and may end with the vermilion nuqta instead of a full stop. Product text uses <code>heading-1…3</code>, <code>body</code>, <code>body-sm</code>, <code>label</code>.</li>
+<li>Arabic runs one step larger and much looser than Latin (<code>ar-body</code> 16/1.85), is never letter-spaced and never condensed.</li>
+<li>Eyebrows are mono, uppercase, tracked <code>0.12em</code>, and use ◆ as the separator: <code>CASE STUDY ◆ 03</code>.</li>
+<li>Sentence case everywhere except eyebrows. Numbers in tables and KPIs are mono with tabular figures.</li>
+</ul>
+<h2>Space, shape, layout</h2>
+<ul>
+<li>The nuqta is the unit: 1 nuqta = 4px, every gap a whole number of nuqtas (<code>space-1</code> … <code>space-32</code>).</li>
+<li>Corners are nearly square: <code>radius-sm</code> (2px) for inputs and badges, <code>radius-md</code> (4px) for buttons, cards and modals, <code>radius-lg</code> only for mobile sheets. Only avatars and the switch track are round.</li>
+<li>Borders do the work; <code>shadow-float</code> only for things that float (menus, toasts, modals).</li>
+<li>12-column grid, 32px gutter, <code>container-max</code> 1280px; reading text never wider than <code>measure</code>. Marketing pages are editorial: big type, hairline rules, asymmetric columns — not stacks of cards.</li>
+<li>Every component uses logical properties; set <code>dir="rtl"</code> and layouts, arrows, the cut and the nav marker mirror themselves.</li>
+</ul>
+<h2>Motion</h2>
+<p>Fast and deliberate — the press of a mark, not a float. <code>duration-press</code> for active states, <code>duration-quick</code> + <code>ease-mark</code> for hover and indicators, <code>duration-trace</code> + <code>ease-trace</code> for lines drawing and panels forming, <code>duration-reveal</code> only on marketing pages. Signature moves: the nuqta <strong>stamp</strong> (scales down onto the page), the <strong>trace</strong> (a vermilion line runs out, e.g. under a toast), the <strong>forming</strong> loader (three nuqtas assembling ث). Honour <code>prefers-reduced-motion</code>; nothing loops except loaders.</p>
+<h2>Iconography</h2>
+<p><code>assets/Icons/</code> and the <code>Icon</code> component: 24px grid, 1.5px stroke, square caps, mitred joins, <code>currentColor</code>. Status icons (info, success, error) are built on the rhombus; alert is a triangle. No emoji, no filled icon sets, no illustrations of people or gadgets. Imagery, when used, is documentary photography of real work — warehouses, clinics, counters — warm, natural light, desaturated ~15%, never stock handshakes or glowing code.</p>
+<h2>Voice</h2>
+<p>Confident, plain, specific. Short sentences. Talk about the client's business before our technology. Numbers over adjectives ("40 minutes to 6", not "dramatically faster"). "We" for ATHR, "you" for the client. English and Arabic are written, not translated — Arabic in clear Modern Standard, warm, never bureaucratic. Banned: revolutionize, cutting-edge, empower, seamless, next-generation, leverage, solutions (as a noun on its own), exclamation marks. See the Voice and Taglines sections.</p>
+<h2>Using the components</h2>
+<p><code>components/bundle.js</code> exposes <code>window.Athr</code> (React 18). One <code>primary</code> Button per view. Status always pairs colour with a word or icon. Client portals put the client's <code>Constellation</code> and name at the top of the <code>Sidebar</code> and "Built by ATHR" at its foot — the product is theirs; the mark is ours. The Pages group shows the system applied: Directions, Website, Dashboard, Mobile app, Proposal, Social, Case study, Brand applications.</p></section><section class="sec"><div class="eyebrow at-muted">02 ◆ BRAND STRATEGY</div><h1 class="display-md">Brand strategy<span class="at-stop"></span></h1>
+<h2>Core idea</h2>
+<p><strong>The dot that makes it yours.</strong> In Arabic, ب ت ث share one skeleton — the <em>rasm</em>. What makes ث a ث is the three dots placed above it. Businesses are the same: most need similar software skeletons (accounts, orders, approvals, dashboards). What makes a system <em>theirs</em> is how it's shaped around their people, their language and their workflow. ATHR builds the skeleton properly and places the mark.</p>
+<h2>Brand essence</h2>
+<p><strong>أثر — the mark that remains.</strong> A trace, an imprint, an effect, what's left after you've gone. For ATHR it has three concrete readings:</p>
+<table>
+<thead>
+<tr>
+<th>Meaning</th>
+<th>What it asks of ATHR</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Trace — we study how work actually moves</td>
+<td>Discovery before design; we visit before we quote</td>
+</tr>
+<tr>
+<td>Imprint — the result is uniquely theirs</td>
+<td>Custom, bilingual, shaped to the workflow; no templates</td>
+</tr>
+<tr>
+<td>Effect — it changes something measurable</td>
+<td>We measure before and after, and say the number</td>
+</tr>
+</tbody>
+</table>
+<h2>Positioning</h2>
+<p>For businesses in Egypt and the Gulf that have outgrown spreadsheets, WhatsApp groups and off-the-shelf tools, <strong>ATHR is the software studio that learns how your business works and builds the system around it</strong> — in Arabic and English, measured by what it changes. Unlike agencies that sell templates or dev shops that sell hours, ATHR sells a result that carries the client's own mark.</p>
+<p><strong>Proof points:</strong> two-week discovery inside the business · Arabic and English from day one · fixed price per phase, stop any time and keep the code · every project measured and handed over.</p>
+<h2>Personality</h2>
+<table>
+<thead>
+<tr>
+<th>ATHR is</th>
+<th>…which means</th>
+<th>ATHR is not</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Precise</td>
+<td>Exact numbers, exact corners, 4px grid</td>
+<td>Cold or clinical</td>
+</tr>
+<tr>
+<td>Human</td>
+<td>Talks about people and Tuesdays in the warehouse</td>
+<td>Chummy, emoji, "rockstars"</td>
+</tr>
+<tr>
+<td>Confident</td>
+<td>Says what we'd do and why</td>
+<td>Loud, superlative</td>
+</tr>
+<tr>
+<td>Crafted</td>
+<td>Details that survive a second look</td>
+<td>Ornamental</td>
+</tr>
+<tr>
+<td>Bilingual by nature</td>
+<td>Both scripts designed together</td>
+<td>"Arabic version coming soon"</td>
+</tr>
+<tr>
+<td>International</td>
+<td>Belongs next to studios in London or Berlin</td>
+<td>Generic "Middle East IT company"</td>
+</tr>
+</tbody>
+</table>
+<h2>Visual keywords</h2>
+<p>Imprint · Rhombus · Cut · Lattice · Ink on paper · Hairline · Editorial · Quiet with one mark · Measured</p>
+<h2>Design principles</h2>
+<ol>
+<li><strong>Mark, don't decorate.</strong> Every brand element marks something — a selection, a result, an ending, an owner. If it marks nothing, remove it.</li>
+<li><strong>One mark per place.</strong> One vermilion nuqta per view region; one primary action; one inverse card per row.</li>
+<li><strong>Both scripts, one system.</strong> Arabic is designed, not translated: its own sizes, its own leading, mirrored layout.</li>
+<li><strong>Structure before style.</strong> Grids, rules and type carry the page; colour is the last 5%.</li>
+<li><strong>Theirs, not ours.</strong> Client products lead with the client's name and constellation; ATHR signs small at the foot.</li>
+<li><strong>Measured.</strong> Every claim has a number, every layout has a unit.</li>
+</ol></section><section class="sec"><div class="eyebrow at-muted">03 ◆ CREATIVE DIRECTIONS</div><h1 class="display-md">Creative directions<span class="at-stop"></span></h1>
+<p>Six directions were explored; the <strong>Directions</strong> page shows each one drawn. Every direction answers the same eight questions.</p>
+<h2>A · The Nuqta — النقطة ◆ chosen as the mark</h2>
+<ol>
+<li><strong>Concept</strong> — ث is ت plus a mark. The brand is the mark.</li>
+<li><strong>Metaphor</strong> — the three dots of ث; also ∴, "therefore": consequence, effect.</li>
+<li><strong>Why ATHR</strong> — the only concept that is bilingual by construction: the cluster sits over the same sound (TH / ث) in both scripts.</li>
+<li><strong>Construction</strong> — three squares rotated 45° (calligraphic nuqtas are rhombic), laid on a diagonal lattice with a gap of 0.36 × the half-diagonal. Latin: centred over the T–H pair, one cluster-height above cap height. Arabic: replaces the font's own dots on a dotless ٮ.</li>
+<li><strong>Type</strong> — Instrument Sans SemiBold, +36 units tracking; IBM Plex Sans Arabic SemiBold.</li>
+<li><strong>Favicon / app icon</strong> — the cluster alone on carbon; legible at 16px because the three rhombi never merge.</li>
+<li><strong>Black &amp; white</strong> — fully works; the colour version only inks the dots vermilion.</li>
+<li><strong>System</strong> — becomes the nuqta (single rhombus), the loader (dots forming ث) and the constellation lattice.</li>
+</ol>
+<h2>B · The Baseline — السطر ◆ borrowed</h2>
+<ol>
+<li>Arabic sits on a line that continues after the word. 2. A line that keeps going after the work ends. 3. Continuity, legacy. 4. Wordmark on a hairline that runs past the R and ends in a nuqta. 5. Same Latin face. 6. Fails as an icon (a line is not a shape). 7. Works. 8. <strong>Kept as</strong> the editorial hairline in proposals and documents — a rule that ends in a vermilion nuqta.</li>
+</ol>
+<h2>C · The Cut — الأثر المطبوع ◆ borrowed</h2>
+<ol>
+<li>An impression is the absence left by pressure. 2. A corner pressed out at 45°. 3. The imprint as subtraction, not ornament. 4. Chamfer = 1 nuqta-angle, sized to the element (10px buttons, 20–36px cards). 5. Any. 6. The app icon keeps a cut corner on print, and the OS rounds it on screens. 7. Works. 8. <strong>Kept as</strong> the UI signature on primary buttons, featured cards, proposal pages. Too generic alone to be the logo.</li>
+</ol>
+<h2>D · The Trail — الأثر المتحرك ◆ motion only</h2>
+<ol>
+<li>Before → after. 2. A rhombus leaving a trail as it settles into a square. 3. Transformation. 4. Five steps of rotation and opacity. 5. Any. 6. Unreadable at icon size. 7. Loses its meaning without opacity. 8. <strong>Kept as</strong> motion logic: the loader, page transitions, the toast trace.</li>
+</ol>
+<h2>E · The Constellation — البصمة ◆ chosen as the system</h2>
+<ol>
+<li>Every solution leaves its own mark. 2. A 3×3 lattice where each client's name lights a different arrangement. 3. Customisation made visible, without a fingerprint. 4. Nine rhombic cells; 3–5 filled, one vermilion; deterministic from the name. ATHR's own = ث. 5. Mono labels. 6. Works as a client portal favicon. 7. Works. 8. Client portals, case studies, proposal covers, handover certificates, empty states.</li>
+</ol>
+<h2>F · The Seal — الختم ◆ parked</h2>
+<ol>
+<li>A khatam certifies and leaves an imprint. 2. A square seal with the cluster and ATHR · أثر. 3. Authorship. 4. Double-ruled square. 5. Tracked caps. 6. Too detailed at 16px. 7. Works. 8. <strong>Kept for one use:</strong> the handover certificate. Pulls toward heritage and bureaucracy as a primary identity.</li>
+</ol>
+<h2>Phase 3 — Selection</h2>
+<p><strong>A + E, with C and B as supporting gestures.</strong> The nuqta cluster is the mark; the constellation is how the mark multiplies for clients; the cut and the baseline give the UI and documents an ownable signature without adding a single decorative element. D survives as motion; F as one artefact.</p><figure><img src="../02-Visual-Directions/renders/visual-directions-light.png" style=""><figcaption>The six directions, drawn. A and E chosen; B and C borrowed.</figcaption></figure></section><section class="sec"><div class="eyebrow at-muted">04 ◆ LOGO</div><h1 class="display-md">Logo<span class="at-stop"></span></h1>
+<p>All files are in <code>assets/Logos/</code> (single-ink or two-ink SVG; ink <code>#14130F</code>, reverse <code>#F4F1E9</code>, nuqtas <code>#E0461F</code> on paper and <code>#FF5A33</code> on carbon). The <code>Logo</code> component draws the same outlines live.</p>
+<table>
+<thead>
+<tr>
+<th>Asset</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>athr-wordmark.svg</code> — primary</td>
+<td>Website header, product footers, English documents</td>
+</tr>
+<tr>
+<td><code>athr-arabic.svg</code></td>
+<td>Arabic header and documents; RTL contexts</td>
+</tr>
+<tr>
+<td><code>athr-bilingual.svg</code> — secondary</td>
+<td>Proposals, signage, footers, business cards, events</td>
+</tr>
+<tr>
+<td><code>athr-symbol.svg</code> (+ <code>-accent</code>, <code>-mono</code>, <code>-reverse</code>)</td>
+<td>Favicon, avatar, loaders, small spaces, embossing</td>
+</tr>
+<tr>
+<td><code>app-icon-dark.svg</code> / <code>app-icon-light.svg</code></td>
+<td>App stores and home screens (dark is default)</td>
+</tr>
+<tr>
+<td><code>favicon.svg</code>, <code>social-avatar.svg</code></td>
+<td>Browser tab; every social platform</td>
+</tr>
+<tr>
+<td><code>*-mono.svg</code>, <code>*-reverse*.svg</code></td>
+<td>One-colour print, engraving, carbon grounds</td>
+</tr>
+</tbody>
+</table>
+<p><strong>No separate monogram.</strong> The symbol already is one: three nuqtas that read as ث, as ∴, and — pointing up — as the apex of the A.</p>
+<h2>Construction</h2>
+<ul>
+<li>Nuqta = square rotated 45°. Gap between nuqtas = 0.36 × half-diagonal, so the cluster reads as three marks down to 16px.</li>
+<li>Latin: cluster centred on the T–H pair; gap to cap height = 1.5 × the half-diagonal.</li>
+<li>Arabic: set on the dotless form (ٮ) so the brand cluster replaces the font's round dots exactly where ث's dots sit. The hamza on أ stays.</li>
+<li>Bilingual: Latin, a 30%-ink divider, Arabic at 95% — Latin first in LTR, Arabic first in RTL. Never stacked.</li>
+</ul>
+<h2>Rules</h2>
+<ul>
+<li>Clear space = the width of the nuqta cluster on all sides. Minimum: wordmark 72px / 18mm wide; below that, the symbol.</li>
+<li>Colour: ink + vermilion on paper; paper + bright vermilion on carbon; one ink for print. No other colourways, no gradients, no outlines, no shadows, no photos behind it.</li>
+<li>Never retype the name, move the cluster, round the nuqtas, or put a client colour on them — that's what the constellation is for.</li>
+</ul><figure><img src="../07-Components/renders/Logo-light.png" style=""><figcaption>Wordmark, Arabic wordmark, symbol; bilingual lockup and mono versions</figcaption></figure><figure><img src="../07-Components/renders/Logo-dark.png" style=""><figcaption>On carbon</figcaption></figure><figure><img src="../09-Applications/renders/brand-applications-light.png" style=""><figcaption>Favicon, app icon, avatar, cards, clear space, misuse</figcaption></figure></section><section class="sec"><div class="eyebrow at-muted">05 ◆ THE SIGNATURE</div><h1 class="display-md">The signature<span class="at-stop"></span></h1>
+<p>Someone should be able to see a single element and think <em>that's ATHR</em>. That element is <strong>the nuqta placed with intent</strong> — and it has four forms:</p>
+<table>
+<thead>
+<tr>
+<th>Form</th>
+<th>Where</th>
+<th>Rule</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>The full stop</strong></td>
+<td>Display headlines, slide titles, social posts: "We build around it◆"</td>
+<td>Only on display sizes; only once per view; <code>at-stop</code></td>
+</tr>
+<tr>
+<td><strong>The marker</strong></td>
+<td>Active nav, tab, sidebar item, selected radio, current step, timeline event</td>
+<td>Marks <em>the one thing</em> that is current or chosen</td>
+</tr>
+<tr>
+<td><strong>The cut</strong></td>
+<td>Primary button, featured/case cards, proposal page corners, app icon</td>
+<td>Trailing top corner, 45°; mirrors in RTL</td>
+</tr>
+<tr>
+<td><strong>The constellation</strong></td>
+<td>Client portals, case studies, proposal covers, handovers, empty states</td>
+<td>One arrangement per client, generated from the name, never reused</td>
+</tr>
+</tbody>
+</table>
+<p>Together they tell the brand story without words: we study the skeleton, we build it, and we place the mark that makes it someone's.</p>
+<h2>The editorial baseline</h2>
+<p>In documents a hairline in <code>ink</code> runs across a section and ends in a vermilion nuqta — the line that continues after the word. Use it once per page, under a section's first paragraph or above a timeline.</p><figure><img src="../07-Components/renders/Nuqta-light.png" style=""><figcaption>The nuqta and the full stop</figcaption></figure><figure><img src="../07-Components/renders/Constellation-light.png" style=""><figcaption>Client constellations — one per client, generated from the name</figcaption></figure></section><section class="sec"><div class="eyebrow at-muted">06 ◆ COLOUR</div><h1 class="display-md">Colour<span class="at-stop"></span></h1>
+<p>Four palettes were tested before choosing.</p>
+<table>
+<thead>
+<tr>
+<th>Direction</th>
+<th>Palette</th>
+<th>Verdict</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Ink &amp; vermilion</strong> ◆ chosen</td>
+<td>carbon <code>#0F0F0D</code>, paper <code>#F4F1E9</code>, sand <code>#D8D1C0</code>, vermilion <code>#E0461F</code></td>
+<td>Timeless, warm, owns one colour. The red has a reason: early Arabic manuscripts inked dots and vowel marks in red.</td>
+</tr>
+<tr>
+<td>Charcoal &amp; oxide</td>
+<td>charcoal, ivory, oxidised copper</td>
+<td>Premium but reads "craft brewery"; weak in dashboards</td>
+</tr>
+<tr>
+<td>Desert &amp; signal</td>
+<td>clay, sand, one electric green</td>
+<td>Too literal-regional; green collides with success</td>
+</tr>
+<tr>
+<td>Monochrome editorial</td>
+<td>pure black/white, no accent</td>
+<td>Elegant in print, lifeless in product; no way to mark state</td>
+</tr>
+</tbody>
+</table>
+<h2>Roles</h2>
+<ul>
+<li><strong>Carbon</strong> — authority; the dark theme, covers, app icon.</li>
+<li><strong>Paper</strong> — calm, warm reading ground; never pure white.</li>
+<li><strong>Sand / ash</strong> — relief blocks, secondary chart series, image mats.</li>
+<li><strong>Vermilion</strong> — the mark. Graphic only, ≤5% of any surface.</li>
+<li><strong>Nuqta</strong> (<code>#B8330F</code> / <code>#FF6B47</code>) — the accessible, interactive version of vermilion.</li>
+<li><strong>Status</strong> — blue-teal success, ochre warning, crimson-rose danger; never confused with the brand red because danger always carries an icon and sits in its own hue family.</li>
+</ul>
+<p>Charts: series 1 <code>ink</code>, series 2 <code>ash</code>/<code>line-strong</code>, highlight a single point in <code>vermilion</code>. No rainbow palettes.</p><h2>Every token</h2><p class="note">Each chip shows Paper (light) then Carbon (dark).</p><div class="sws"><div class="sw"><div class="chip"><i style="background:#0F0F0D"></i><i style="background:#0F0F0D"></i></div><b>carbon</b><code>#0F0F0D · #0F0F0D</code><span>Brand black. The dark theme's ground, the app icon, the reverse logo's field. Pair with paper.</span></div><div class="sw"><div class="chip"><i style="background:#1A1A17"></i><i style="background:#1A1A17"></i></div><b>graphite</b><code>#1A1A17 · #1A1A17</code><span>Raised black: dark cards, the proposal cover band, case-study data panels.</span></div><div class="sw"><div class="chip"><i style="background:#5C584E"></i><i style="background:#5C584E"></i></div><b>ash</b><code>#5C584E · #5C584E</code><span>Warm grey for secondary marks on paper (4-tone illustration, chart gridline labels).</span></div><div class="sw"><div class="chip"><i style="background:#D8D1C0"></i><i style="background:#D8D1C0"></i></div><b>sand</b><code>#D8D1C0 · #D8D1C0</code><span>Warm neutral block: cover relief, chart secondary series on paper, imagery mats.</span></div><div class="sw"><div class="chip"><i style="background:#F4F1E9"></i><i style="background:#F4F1E9"></i></div><b>paper</b><code>#F4F1E9 · #F4F1E9</code><span>Brand off-white. The light theme's ground; ink sits on it at 16:1.</span></div><div class="sw"><div class="chip"><i style="background:#FBFAF6"></i><i style="background:#FBFAF6"></i></div><b>chalk</b><code>#FBFAF6 · #FBFAF6</code><span>Lightest paper: raised cards and inputs in the light theme.</span></div><div class="sw"><div class="chip"><i style="background:#E0461F"></i><i style="background:#FF5A33"></i></div><b>vermilion</b><code>#E0461F · #FF5A33</code><span>The mark's ink — the three nuqtas of the logo, the signature rhombus, a full-stop nuqta, cover blocks. Graphic only (3:1+ on surface in both themes); never body text on paper — use nuqta for that.</span></div><div class="sw"><div class="chip"><i style="background:#F4F1E9"></i><i style="background:#0F0F0D"></i></div><b>surface</b><code>#F4F1E9 · #0F0F0D</code><span>Page background. Ink, ink-muted, ink-faint and nuqta text all read on it.</span></div><div class="sw"><div class="chip"><i style="background:#FBFAF6"></i><i style="background:#1A1A17"></i></div><b>surface-raised</b><code>#FBFAF6 · #1A1A17</code><span>Cards, inputs, menus, table rows at rest.</span></div><div class="sw"><div class="chip"><i style="background:#EAE6DB"></i><i style="background:#0A0A08"></i></div><b>surface-sunken</b><code>#EAE6DB · #0A0A08</code><span>Wells: code blocks, table header, the sidebar ground, skeleton loaders. Ink and ink-muted read on it.</span></div><div class="sw"><div class="chip"><i style="background:#0F0F0D"></i><i style="background:#F4F1E9"></i></div><b>surface-inverse</b><code>#0F0F0D · #F4F1E9</code><span>Inverted bands (a dark section on a light page, the tooltip). Text on it is ink-inverse.</span></div><div class="sw"><div class="chip"><i style="background:#D6CFBE"></i><i style="background:#2E2D28"></i></div><b>line</b><code>#D6CFBE · #2E2D28</code><span>Hairlines: dividers, card and table borders. Decorative only — never the only edge of a control.</span></div><div class="sw"><div class="chip"><i style="background:#878070"></i><i style="background:#726D61"></i></div><b>line-strong</b><code>#878070 · #726D61</code><span>Control borders (inputs, checkboxes, secondary buttons): 3:1+ on surface and surface-raised in both themes.</span></div><div class="sw"><div class="chip"><i style="background:#14130F"></i><i style="background:#F2EEE4"></i></div><b>ink</b><code>#14130F · #F2EEE4</code><span>Primary text and icons, on surface, surface-raised and surface-sunken (14:1+ in both themes).</span></div><div class="sw"><div class="chip"><i style="background:#5C584E"></i><i style="background:#A7A193"></i></div><b>ink-muted</b><code>#5C584E · #A7A193</code><span>Secondary text, metadata, table headers — on any surface (5.6:1+).</span></div><div class="sw"><div class="chip"><i style="background:#6E695D"></i><i style="background:#8E887A"></i></div><b>ink-faint</b><code>#6E695D · #8E887A</code><span>Placeholders and disabled labels, on surface and surface-raised only (4.8:1+).</span></div><div class="sw"><div class="chip"><i style="background:#F2EEE4"></i><i style="background:#14130F"></i></div><b>ink-inverse</b><code>#F2EEE4 · #14130F</code><span>Text and icons on surface-inverse and on carbon/paper bands.</span></div><div class="sw"><div class="chip"><i style="background:#B8330F"></i><i style="background:#FF6B47"></i></div><b>nuqta</b><code>#B8330F · #FF6B47</code><span>Interactive accent: the primary button fill, links, active tab and nav indicators, selected rows' marker. As text, on surface, surface-raised and nuqta-soft (4.6:1+).</span></div><div class="sw"><div class="chip"><i style="background:#F8DED4"></i><i style="background:#3A1810"></i></div><b>nuqta-soft</b><code>#F8DED4 · #3A1810</code><span>Tinted ground behind nuqta text: a selected row, an active nav item, a 'new' badge.</span></div><div class="sw"><div class="chip"><i style="background:#FFFFFF"></i><i style="background:#0F0F0D"></i></div><b>on-nuqta</b><code>#FFFFFF · #0F0F0D</code><span>Label and icon colour on a nuqta fill (the primary button): 6:1 light, 6.8:1 dark.</span></div><div class="sw"><div class="chip"><i style="background:#1B6470"></i><i style="background:#5FC0CF"></i></div><b>success</b><code>#1B6470 · #5FC0CF</code><span>Done, live, passing. A blue-teal, off the red–green axis so it never relies on hue against danger. As text on surface or success-soft; always with a check icon or word.</span></div><div class="sw"><div class="chip"><i style="background:#D6ECEE"></i><i style="background:#0E2A2E"></i></div><b>success-soft</b><code>#D6ECEE · #0E2A2E</code><span>Ground for success badges and banners.</span></div><div class="sw"><div class="chip"><i style="background:#8A5300"></i><i style="background:#E0A54A"></i></div><b>warning</b><code>#8A5300 · #E0A54A</code><span>Needs attention, not broken. Text on surface or warning-soft; always with the alert icon.</span></div><div class="sw"><div class="chip"><i style="background:#F5E6CC"></i><i style="background:#33240C"></i></div><b>warning-soft</b><code>#F5E6CC · #33240C</code><span>Ground for warning badges and banners.</span></div><div class="sw"><div class="chip"><i style="background:#A3123A"></i><i style="background:#FF7A9A"></i></div><b>danger</b><code>#A3123A · #FF7A9A</code><span>Errors and destructive actions. A crimson-rose kept apart from the brand vermilion: never use nuqta or vermilion to mean error. Text on surface or danger-soft; always with an icon or word.</span></div><div class="sw"><div class="chip"><i style="background:#F6DCE2"></i><i style="background:#3A1020"></i></div><b>danger-soft</b><code>#F6DCE2 · #3A1020</code><span>Ground for error banners, invalid-field hints, destructive confirmations.</span></div></div></section><section class="sec"><div class="eyebrow at-muted">07 ◆ TYPOGRAPHY</div><h1 class="display-md">Typography<span class="at-stop"></span></h1>
+<h2>Chosen pairing — Instrument Sans + IBM Plex Sans Arabic + IBM Plex Mono</h2>
+<p>Instrument Sans is a precise grotesk with humane details (open apertures, a slightly calligraphic R and a) — technical but not cold, and far less common than Inter or Poppins. IBM Plex Sans Arabic was drawn for interfaces: open counters, moderate contrast, clear dots, a naskh-derived skeleton without calligraphic flourish — modern, not "traditional Arabic company". Plex Mono shares its engineering heritage, so the numbers in a dashboard feel like part of the same family as the Arabic text beside them.</p>
+<h2>Pairings considered</h2>
+<table>
+<thead>
+<tr>
+<th>Pairing</th>
+<th>Why it works</th>
+<th>Why not first</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Instrument Sans + Plex Sans Arabic + Plex Mono</strong> ◆</td>
+<td>Distinctive Latin, UI-grade Arabic, one engineering family for data</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Readex Pro (single family, Arabic + Latin)</td>
+<td>Perfect script harmony, geometric</td>
+<td>Latin looks rounded and "friendly-app"; weaker display voice</td>
+</tr>
+<tr>
+<td>Space Grotesk + Noto Kufi Arabic</td>
+<td>Strong technical display</td>
+<td>Kufi is heavy in running Arabic text; Space Grotesk is overused</td>
+</tr>
+<tr>
+<td>Instrument Serif + Noto Naskh Arabic (editorial accent)</td>
+<td>Beautiful in proposals and case-study pull quotes</td>
+<td>Reads heritage in product; reserved as an optional editorial accent</td>
+</tr>
+</tbody>
+</table>
+<h2>Rules</h2>
+<ul>
+<li>Mixing scripts in a line: set it in <code>sans</code>; the stack falls to Plex Arabic for Arabic glyphs. For whole Arabic blocks use <code>arabic</code> and the <code>ar-*</code> styles.</li>
+<li>Arabic headlines: <code>ar-display</code> at ~0.6× the Latin display size and 1.3 line height.</li>
+<li>Numerals: Western digits in product UI for both languages (easier data entry); Arabic-Indic digits only in Arabic marketing copy.</li>
+</ul><h2>Type scale</h2><div class="specs"><div class="ts"><div class="meta"><b>display-xl</b><code>96px / 0.92 · 600</code></div><div class="display-xl"  style="font-size:min(96px,52px);">We build around it.</div></div><div class="ts"><div class="meta"><b>display-lg</b><code>64px / 0.98 · 600</code></div><div class="display-lg"  style="font-size:min(64px,52px);">Every business leaves a mark.</div></div><div class="ts"><div class="meta"><b>display-md</b><code>44px / 1.05 · 600</code></div><div class="display-md"  style="">Built for how Nakheel actually works.</div></div><div class="ts"><div class="meta"><b>heading-1</b><code>32px / 40px · 600</code></div><div class="heading-1"  style="">Operations overview</div></div><div class="ts"><div class="meta"><b>heading-2</b><code>24px / 32px · 600</code></div><div class="heading-2"  style="">What we changed</div></div><div class="ts"><div class="meta"><b>heading-3</b><code>18px / 26px · 600</code></div><div class="heading-3"  style="">Invoices waiting on approval</div></div><div class="ts"><div class="meta"><b>body-lg</b><code>18px / 30px · 400</code></div><div class="body-lg"  style="">We spent two weeks inside the warehouse before we wrote a line of code.</div></div><div class="ts"><div class="meta"><b>body</b><code>15px / 24px · 400</code></div><div class="body"  style="">Approvals now take one tap instead of three emails.</div></div><div class="ts"><div class="meta"><b>body-sm</b><code>13px / 20px · 400</code></div><div class="body-sm"  style="">Updated 4 minutes ago by Sara</div></div><div class="ts"><div class="meta"><b>label</b><code>13px / 16px · 500</code></div><div class="label"  style="">Project name</div></div><div class="ts"><div class="meta"><b>ar-display</b><code>56px / 1.3 · 600</code></div><div class="ar-display" dir=rtl style="font-size:min(56px,52px);">نبني حول عملك.</div></div><div class="ts"><div class="meta"><b>ar-heading</b><code>28px / 1.6 · 600</code></div><div class="ar-heading" dir=rtl style="">ما الذي غيّرناه</div></div><div class="ts"><div class="meta"><b>ar-body</b><code>16px / 1.85 · 400</code></div><div class="ar-body" dir=rtl style="">قضينا أسبوعين داخل المستودع قبل أن نكتب سطرًا واحدًا من الكود.</div></div><div class="ts"><div class="meta"><b>ar-label</b><code>14px / 1.5 · 500</code></div><div class="ar-label" dir=rtl style="">اسم المشروع</div></div><div class="ts"><div class="meta"><b>eyebrow</b><code>11px / 16px · 500</code></div><div class="eyebrow"  style="">CASE STUDY ◆ 03</div></div><div class="ts"><div class="meta"><b>data</b><code>14px / 20px · 500</code></div><div class="data"  style="">SAR 1,284,500</div></div><div class="ts"><div class="meta"><b>code</b><code>13px / 20px · 400</code></div><div class="code"  style="">POST /v1/orders/approve</div></div></div></section><section class="sec"><div class="eyebrow at-muted">08 ◆ MOTION</div><h1 class="display-md">Motion<span class="at-stop"></span></h1>
+<p>Motion is the mark being made. Minimal, fast, purposeful.</p>
+<table>
+<thead>
+<tr>
+<th>Move</th>
+<th>What it does</th>
+<th>Tokens</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Stamp</strong></td>
+<td>A nuqta arrives slightly large and presses down into place — confirms an action</td>
+<td><code>duration-trace</code>, <code>ease-mark</code></td>
+</tr>
+<tr>
+<td><strong>Trace</strong></td>
+<td>A hairline draws from start to end; the toast timer runs out along its base</td>
+<td><code>duration-trace</code>, <code>ease-trace</code></td>
+</tr>
+<tr>
+<td><strong>Form</strong></td>
+<td>Panels and modals appear with a short clip-reveal, as if being cut out</td>
+<td><code>duration-trace</code>, <code>ease-mark</code></td>
+</tr>
+<tr>
+<td><strong>Assemble</strong></td>
+<td>The loader: three nuqtas taking turns to form ث</td>
+<td>1.2s loop</td>
+</tr>
+<tr>
+<td><strong>Press</strong></td>
+<td>Buttons move 1px down on press</td>
+<td><code>duration-press</code></td>
+</tr>
+<tr>
+<td><strong>Move</strong></td>
+<td>Tab and nav markers slide to the new item</td>
+<td><code>duration-quick</code></td>
+</tr>
+</tbody>
+</table>
+<p>Rules: nothing bounces, nothing floats, no parallax, no scroll-jacking. Marketing reveals may use <code>duration-reveal</code> once per section. Respect reduced-motion.</p></section><section class="sec"><div class="eyebrow at-muted">09 ◆ VOICE</div><h1 class="display-md">Voice<span class="at-stop"></span></h1>
+<p><strong>Confident, intelligent, clear, human, direct.</strong> We sound like the people who will actually build the thing.</p>
+<table>
+<thead>
+<tr>
+<th>Instead of</th>
+<th>Write</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Revolutionizing the digital landscape</td>
+<td>We replace the spreadsheet your team is afraid to touch.</td>
+</tr>
+<tr>
+<td>Cutting-edge innovative solutions</td>
+<td>A portal, a driver app and a sync with your ERP.</td>
+</tr>
+<tr>
+<td>Empowering businesses through next-gen technology</td>
+<td>Your branch managers approve invoices from their phones.</td>
+</tr>
+<tr>
+<td>We are passionate about excellence</td>
+<td>We measure dispatch time before and after. It went from 40 minutes to 6.</td>
+</tr>
+<tr>
+<td>Seamless, end-to-end digital transformation</td>
+<td>We start in your warehouse, not in our codebase.</td>
+</tr>
+</tbody>
+</table>
+<h2>Rules</h2>
+<ul>
+<li>Lead with their business, then our work, then the technology (if at all).</li>
+<li>Specific over impressive: names, numbers, days of the week.</li>
+<li>Short sentences. One idea each. Full stop — or the nuqta.</li>
+<li>Admit limits: "Sometimes the answer isn't software. We'll say so."</li>
+<li>Buttons are verb + object. Errors say what happened and what to do.</li>
+</ul>
+<h2>Arabic</h2>
+<p>Written in clear Modern Standard Arabic, warm and direct — not a translation of the English and not government prose. Use نحن and أنتم/أنت consistently; prefer short verbal sentences. Egyptian or Gulf dialect only in social copy aimed at that market.</p>
+<blockquote>
+<p>نفهم عملك. نبني حوله. ونترك أثرًا.</p>
+</blockquote></section><section class="sec"><div class="eyebrow at-muted">10 ◆ TAGLINES</div><h1 class="display-md">Taglines<span class="at-stop"></span></h1>
+<p><strong>Primary line:</strong> <em>Every business leaves a mark. We build the software that carries it.</em> — لكل عمل أثر. نحن نبني التقنية التي تحمله.</p>
+<p><strong>Short sign-off:</strong> <em>Built around you.</em> — مبنيّ حولك.</p>
+<h2>Explorations</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Tagline</th>
+<th>Angle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Built around you.</td>
+<td>Customisation</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Software that leaves a mark.</td>
+<td>Impact</td>
+</tr>
+<tr>
+<td>3</td>
+<td>The mark that makes it yours.</td>
+<td>Imprint (the ث idea)</td>
+</tr>
+<tr>
+<td>4</td>
+<td>We build what your business already knows.</td>
+<td>Understanding</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Your workflow, written in code.</td>
+<td>Customisation</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Made for one business at a time.</td>
+<td>Craft</td>
+</tr>
+<tr>
+<td>7</td>
+<td>We understand. We build. We leave a mark.</td>
+<td>Method</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Therefore, ATHR. (∴)</td>
+<td>Consequence — for posters and events</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Not a template. A trace.</td>
+<td>Positioning</td>
+</tr>
+<tr>
+<td>10</td>
+<td>The system your team would have built.</td>
+<td>Partnership</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Measured by what it changes.</td>
+<td>Effect</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Software, shaped by the business.</td>
+<td>Transformation</td>
+</tr>
+<tr>
+<td>13</td>
+<td>What remains after launch.</td>
+<td>Legacy</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Your business, in both languages.</td>
+<td>Bilingual</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Precisely yours.</td>
+<td>Craft + identity</td>
+</tr>
+<tr>
+<td>16</td>
+<td>Start with the business. End with a mark.</td>
+<td>Method</td>
+</tr>
+<tr>
+<td>17</td>
+<td>We leave the code. You keep the mark.</td>
+<td>Handover</td>
+</tr>
+<tr>
+<td>18</td>
+<td>Every solution, its own signature.</td>
+<td>System</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Arabic lines:</strong> نترك أثرًا · مبنيّ حول عملك · أثرٌ يبقى · لكل مشروع بصمته · نفهم ثم نبني</p>
+<p>Recommendation: use #1 as the everyday sign-off, the primary line on the website and proposals, #3 when explaining the logo, #8 only as a poster headline.</p></section><section class="sec"><div class="eyebrow at-muted">11 ◆ WEBSITE</div><h1 class="display-md">Website<span class="at-stop"></span></h1>
+<p>See the <strong>Website</strong> page. The site is an editorial document, not a template.</p>
+<ul>
+<li><strong>Hero:</strong> one sentence set huge in <code>display-xl</code>, the second half in <code>ink-muted</code>, ending in the nuqta; the Arabic line set beside it, not beneath it. No 3D object, no illustration, no code screenshot. A single hairline closes the hero with a nuqta placed on it — the trace.</li>
+<li><strong>Structure:</strong> numbered sections (<code>01 ◆ HOW WE WORK</code>) on a 12-column grid with the heading offset to column 4 — asymmetry instead of centred stacks.</li>
+<li><strong>How we work:</strong> three columns under an ink rule: Understand → Build around it → Leave a mark.</li>
+<li><strong>Work:</strong> large case panels with the cut corner, each carrying the client's constellation and three hard numbers.</li>
+<li><strong>Services:</strong> a ruled 4×2 index, not icon cards.</li>
+<li><strong>Arabic band:</strong> a full carbon section in Arabic — both languages present on the English home page, and vice versa.</li>
+<li><strong>CTA:</strong> "Tell us how your business works." One button.</li>
+<li><strong>Motion:</strong> headline lines rise 8px and fade once; the hero hairline traces in; nothing else moves until the user does.</li>
+<li><strong>Arabic site:</strong> mirrored layout (<code>dir="rtl"</code>), Arabic wordmark in the nav, <code>ar-*</code> styles, same components.</li>
+</ul><figure><img src="../08-Website/renders/home-en-light.png" style="height:230mm;object-fit:cover;object-position:top"><figcaption>Home — English</figcaption></figure><figure><img src="../08-Website/renders/home-ar-dark.png" style="height:230mm;object-fit:cover;object-position:top"><figcaption>Home — Arabic, dark theme</figcaption></figure></section><section class="sec"><div class="eyebrow at-muted">12 ◆ DIGITAL PRODUCT</div><h1 class="display-md">Digital product<span class="at-stop"></span></h1>
+<p>The same system runs from the marketing site to the software ATHR ships for clients.</p>
+<ul>
+<li><strong>Client first.</strong> Portals show the client's constellation and name at the top of the <code>Sidebar</code>; ATHR signs "Built by ATHR" at the foot. If the client has its own brand, swap <code>nuqta</code>/<code>vermilion</code> for their accent in a third theme — structure, type and spacing stay.</li>
+<li><strong>Density.</strong> Dashboards use <code>body</code> 15px, tables <code>body-sm</code> rows at 44px, KPIs in <code>Stat</code> with mono numbers. Page padding <code>space-8</code>, card gaps <code>space-4</code>.</li>
+<li><strong>States.</strong> Selected = <code>nuqta-soft</code> + a nuqta rule. Status = Badge with a word. Empty = <code>EmptyState</code> written as a first step. Loading = the forming loader or skeletons.</li>
+<li><strong>Forms.</strong> Labels above, hints below, errors that explain. Western digits in inputs; <code>prefix</code> for currency (SAR, EGP, AED).</li>
+<li><strong>Mobile.</strong> 16px gutter, <code>radius-lg</code> sheets, a tab bar where the current tab carries the nuqta above its icon; RTL is a first-class layout, not a mirror applied at the end.</li>
+<li><strong>Dark mode</strong> is a full theme (Carbon), not an inversion: surfaces step up in warmth, the accent brightens, and <code>on-nuqta</code> becomes carbon.</li>
+</ul><figure><img src="../09-Applications/renders/saas-dashboard-light.png" style=""><figcaption>Client portal dashboard</figcaption></figure><figure><img src="../09-Applications/renders/mobile-app-dark.png" style=""><figcaption>Mobile app — English and Arabic</figcaption></figure></section><section class="sec"><div class="eyebrow at-muted">13 ◆ APPLICATIONS</div><h1 class="display-md">Applications<span class="at-stop"></span></h1><p>The identity applied to the documents and channels ATHR uses every week.</p><figure><img src="../09-Applications/renders/business-proposal-light.png" style=""><figcaption>Proposal — cover, approach, investment</figcaption></figure><figure><img src="../09-Applications/renders/social-media-light.png" style=""><figcaption>Social posts and story</figcaption></figure><figure><img src="../09-Applications/renders/case-study-light.png" style="height:240mm;object-fit:cover;object-position:top"><figcaption>Case study</figcaption></figure></section>
+<script>ReactDOM.createRoot(document.getElementById('cl')).render(React.createElement(Athr.Logo,{variant:'bilingual',size:44}));</script>
+</body></html>

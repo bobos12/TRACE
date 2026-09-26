@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="../_shared/fonts.css"><link rel="stylesheet" href="../_shared/tokens.css"><link rel="stylesheet" href="../_shared/bundle.css"><script src="../_shared/react.production.min.js"></script><script src="../_shared/react-dom.production.min.js"></script><script src="../_shared/bundle.js"></script><style>body{min-width:1280px}</style><meta charset="utf-8"><title>Directions — ATHR</title>
+<style>
+  .pg { padding: 56px 56px 64px; }
+  .pg-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 48px; margin-bottom: 40px; }
+  .pg-head h1 { margin: 12px 0 0; }
+  .pg-head p { max-width: 420px; margin: 0; color: var(--ink-muted); }
+  .dirs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+  .dir { background: var(--surface); display: flex; flex-direction: column; min-height: 470px; position: relative; }
+  .dir.pick { background: var(--surface-raised); }
+  .art { height: 232px; display: grid; place-items: center; border-bottom: 1px solid var(--line); overflow: hidden; position: relative; }
+  .art svg { display: block; }
+  .txt { padding: 24px 28px 28px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+  .txt h3 { margin: 0; font-size: 22px; line-height: 28px; font-weight: 600; letter-spacing: -.01em; }
+  .txt h3 span { font-family: var(--font-arabic); font-weight: 500; color: var(--ink-muted); font-size: 17px; margin-inline-start: 8px; }
+  .txt p { margin: 0; font-size: 14px; line-height: 22px; color: var(--ink-muted); }
+  .verdict { margin-top: auto; padding-top: 14px; border-top: 1px solid var(--line); font-size: 13px; line-height: 20px; display: flex; gap: 10px; align-items: baseline; }
+  .verdict b { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase; font-weight: 500; white-space: nowrap; }
+  .pick .verdict b { color: var(--nuqta); }
+  .tag { position: absolute; top: 16px; inset-inline-end: 16px; }
+  .ink { fill: var(--ink); } .verm { fill: var(--vermilion); } .mut { fill: var(--ink-muted); } .ln { stroke: var(--ink); } .lnm { stroke: var(--vermilion); } .sand { fill: var(--line-strong); }
+  .w { font-family: var(--font-sans); font-weight: 600; }
+</style></head>
+<body>
+<div class="pg">
+  <div class="pg-head">
+    <div><div class="eyebrow at-muted">PHASE 2 ◆ CREATIVE DIRECTIONS</div><h1 class="display-lg">Six ways to leave a mark<span class="at-stop"></span></h1></div>
+    <p>Each direction reads أثر differently: as a dot, a line, a pressure, a trail, a system, a seal. Two survive — the nuqta as the mark, the constellation as the system — and borrow the cut and the baseline from their neighbours.</p>
+  </div>
+  <div class="dirs">
+    <!-- A -->
+    <section class="dir pick"><span class="tag" data-badge="Chosen — mark"></span>
+      <div class="art"><div data-logo="wordmark" data-size="70"></div></div>
+      <div class="txt"><h3>A · The Nuqta<span>النقطة</span></h3>
+        <p>ث is ت with one more dot. The letters share a skeleton; the dots decide which letter it is. Three rhombic nuqtas sit over the TH in ATHR and over the ث in أثر — the same mark, over the same sound, in both scripts. Arranged ∴, they also read as the logician's "therefore": consequence, effect — another meaning of أثر.</p>
+        <div class="verdict"><b>Chosen</b> The only idea that is bilingual by construction, not by translation. Scales from a 16px favicon to a building sign.</div></div></section>
+    <!-- B -->
+    <section class="dir">
+      <div class="art"><svg width="320" height="120" viewBox="0 0 320 120"><text class="w ink" x="20" y="78" font-size="62" letter-spacing="2">ATHR</text><line class="lnm" x1="20" y1="86" x2="300" y2="86" stroke-width="3"/><rect class="verm" x="296" y="82" width="8" height="8" transform="rotate(45 300 86)"/></svg></div>
+      <div class="txt"><h3>B · The Baseline<span>السطر</span></h3>
+        <p>Arabic is written on a line that keeps going after the word ends. The wordmark stands on a baseline that runs past the R and ends in a single dot — the work continues after we leave.</p>
+        <div class="verdict"><b>Borrowed</b> Too close to a signature-underline cliché as a logo; kept as the editorial hairline in documents and proposals.</div></div></section>
+    <!-- C -->
+    <section class="dir">
+      <div class="art"><svg width="220" height="170" viewBox="0 0 220 170"><path class="ink" d="M30 20H160L190 50V150H30Z"/><text class="w" x="48" y="132" font-size="34" fill="var(--surface)">ATHR</text><path class="verm" d="M160 20L190 50H160Z"/></svg></div>
+      <div class="txt"><h3>C · The Cut<span>الأثر المطبوع</span></h3>
+        <p>An impression is what's missing after pressure. One corner of every ATHR surface is pressed out at 45° — the angle of the nuqta's side. The brand is the absence, not an added ornament.</p>
+        <div class="verdict"><b>Borrowed</b> Weak as a standalone logo (any chamfered box). Strong as a UI signature: primary buttons, feature cards, the app icon.</div></div></section>
+    <!-- D -->
+    <section class="dir">
+      <div class="art"><svg width="300" height="120" viewBox="0 0 300 120"><g><rect class="ink" x="30" y="45" width="30" height="30" opacity=".12" transform="rotate(45 45 60)"/><rect class="ink" x="80" y="45" width="30" height="30" opacity=".25" transform="rotate(45 95 60)"/><rect class="ink" x="130" y="45" width="30" height="30" opacity=".45" transform="rotate(34 145 60)"/><rect class="ink" x="180" y="45" width="30" height="30" opacity=".7" transform="rotate(18 195 60)"/><rect class="verm" x="230" y="45" width="30" height="30"/></g></svg></div>
+      <div class="txt"><h3>D · The Trail<span>الأثر المتحرك</span></h3>
+        <p>A form leaving a trail as it becomes another form: the rhombus settles into a square, before → after. Business transformation as a single gesture.</p>
+        <div class="verdict"><b>Motion only</b> Reads as "fintech arrow" when static. Lives on as the loader and page-transition logic.</div></div></section>
+    <!-- E -->
+    <section class="dir pick"><span class="tag" data-badge="Chosen — system"></span>
+      <div class="art"><div style="display:flex;gap:36px;align-items:center"><span data-const="ATHR" data-size="18"></span><span data-const="Nakheel Logistics" data-size="18"></span><span data-const="Sadeem Clinics" data-size="18"></span></div></div>
+      <div class="txt"><h3>E · The Constellation<span>البصمة</span></h3>
+        <p>A 3×3 lattice of nuqtas. ATHR's own mark is the ث arrangement; every client project gets its own arrangement, generated once from its name and never reused. Their portal, their case study, their proposal cover carry it.</p>
+        <div class="verdict"><b>Chosen</b> "Every solution leaves its own mark" made literal without a fingerprint. One grammar, unlimited marks.</div></div></section>
+    <!-- F -->
+    <section class="dir">
+      <div class="art"><svg width="180" height="180" viewBox="0 0 180 180"><rect class="ln" x="14" y="14" width="152" height="152" fill="none" stroke-width="6"/><rect class="ln" x="28" y="28" width="124" height="124" fill="none" stroke-width="1.5"/><g transform="translate(90 92)"><rect class="verm" x="-14" y="-38" width="28" height="28" transform="rotate(45 0 -24)"/><rect class="ink" x="-37" y="-15" width="28" height="28" transform="rotate(45 -23 -1)"/><rect class="ink" x="9" y="-15" width="28" height="28" transform="rotate(45 23 -1)"/></g><text x="90" y="140" text-anchor="middle" class="w ink" font-size="13" letter-spacing="5">ATHR · أثر</text></svg></div>
+      <div class="txt"><h3>F · The Seal<span>الختم</span></h3>
+        <p>A khatam: the seal that leaves an imprint and certifies the work. Square, heavy-bordered, bilingual. Strong on stationery, handover documents and a "built by ATHR" footer.</p>
+        <div class="verdict"><b>Parked</b> Pulls toward heritage and bureaucracy. Kept for one use: the handover certificate.</div></div></section>
+  </div>
+</div>
+<script>
+  var A = window.Athr, h = React.createElement;
+  document.querySelectorAll('[data-logo]').forEach(function (el) { ReactDOM.createRoot(el).render(h(A.Logo, { variant: el.dataset.logo, size: +el.dataset.size })); });
+  document.querySelectorAll('[data-const]').forEach(function (el) { ReactDOM.createRoot(el).render(h(A.Constellation, { seed: el.dataset.const, size: +el.dataset.size })); });
+  document.querySelectorAll('[data-badge]').forEach(function (el) { ReactDOM.createRoot(el).render(h(A.Badge, { tone: 'accent', dot: true }, el.dataset.badge)); });
+</script>
+<button id="athr-theme" aria-label="Switch light/dark" style="position:fixed;right:16px;bottom:16px;z-index:99;height:36px;padding:0 14px;border-radius:4px;border:1px solid var(--line-strong);background:var(--surface-raised);color:var(--ink);font:500 13px var(--font-sans);cursor:pointer">Light / Dark</button>
+<script>(function(){var r=document.documentElement,b=document.getElementById('athr-theme');if(location.hash==='#dark')r.setAttribute('data-theme','dark');b.onclick=function(){r.setAttribute('data-theme',r.getAttribute('data-theme')==='dark'?'light':'dark')};})();</script>
+</body>
+</html>

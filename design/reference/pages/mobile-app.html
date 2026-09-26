@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="../_shared/fonts.css"><link rel="stylesheet" href="../_shared/tokens.css"><link rel="stylesheet" href="../_shared/bundle.css"><script src="../_shared/react.production.min.js"></script><script src="../_shared/react-dom.production.min.js"></script><script src="../_shared/bundle.js"></script><style>body{min-width:1280px}</style><meta charset="utf-8"><title>Mobile app — ATHR</title>
+<style>
+  body { background: var(--surface-sunken); }
+  .stage { display: flex; gap: 40px; justify-content: center; align-items: flex-start; padding: 56px 40px; }
+  .phone { width: 360px; height: 760px; border-radius: 44px; padding: 10px; background: var(--carbon); box-shadow: 0 0 0 1px var(--line), var(--shadow-float); flex: none; }
+  .scr { position: relative; height: 100%; border-radius: 34px; overflow: hidden; background: var(--surface); display: flex; flex-direction: column; }
+  .sb { height: 44px; display: flex; justify-content: space-between; align-items: center; padding: 0 28px; font-family: var(--font-mono); font-size: 12px; font-weight: 500; }
+  .pad { padding: 8px 20px 0; display: flex; flex-direction: column; gap: 16px; flex: 1; overflow: hidden; }
+  .hd { display: flex; justify-content: space-between; align-items: center; }
+  h2 { margin: 0; font-size: 28px; line-height: 32px; font-weight: 600; letter-spacing: -.02em; }
+  .big { background: var(--surface-inverse); color: var(--ink-inverse); padding: 20px; --cut: 22px; display: flex; flex-direction: column; gap: 14px; }
+  .big .v { font-family: var(--font-mono); font-size: 40px; line-height: 44px; font-weight: 500; letter-spacing: -.03em; }
+  .big .l { font-size: 13px; opacity: .72; }
+  .list { display: flex; flex-direction: column; border-top: 1px solid var(--line); }
+  .it { display: flex; align-items: center; gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+  .it .m { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+  .it .m b { font-size: 15px; font-weight: 500; } .it .m span { font-size: 12.5px; color: var(--ink-muted); }
+  .it .n { font-family: var(--font-mono); font-size: 13px; }
+  .tabbar { height: 76px; display: flex; justify-content: space-around; align-items: flex-start; padding-top: 10px; border-top: 1px solid var(--line); background: var(--surface-raised); }
+  .tb { display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: 11px; color: var(--ink-muted); position: relative; }
+  .tb.on { color: var(--ink); }
+  .tb.on::before { content: ""; position: absolute; top: -14px; width: 8px; height: 8px; background: var(--vermilion); transform: rotate(45deg); }
+  .sheet { position: absolute; left: 0; right: 0; bottom: 0; background: var(--surface-raised); border-radius: var(--radius-lg) var(--radius-lg) 0 0; box-shadow: var(--shadow-float); padding: 12px 20px 28px; display: flex; flex-direction: column; gap: 16px; }
+  .grab { width: 36px; height: 4px; border-radius: 2px; background: var(--line-strong); align-self: center; }
+  .dim { position: absolute; inset: 0; background: var(--scrim); }
+  .rtl { font-family: var(--font-arabic); }
+  .rtl h2 { font-size: 26px; line-height: 1.5; }
+  .cap { text-align: center; margin-top: 16px; }
+  .splash { --ink: #F2EEE4; --vermilion: #FF5A33; background: var(--carbon); align-items: center; justify-content: center; gap: 28px; }
+</style></head>
+<body>
+<div class="stage" id="root"></div>
+<script>
+  var A = window.Athr, h = React.createElement, F = React.Fragment;
+  function Phone(p) { return h('div', null, h('div', { className: 'phone' }, h('div', { className: 'scr ' + (p.cls || ''), dir: p.dir, lang: p.dir === 'rtl' ? 'ar' : 'en' }, p.children)), h('div', { className: 'cap eyebrow at-muted' }, p.cap)); }
+  function SB() { return h('div', { className: 'sb', dir: 'ltr' }, h('span', null, '9:41'), h('span', null, '5G ▮▮▮')); }
+  function Tabs(p) { return h('div', { className: 'tabbar' }, p.items.map(function (t, i) { return h('div', { key: i, className: 'tb' + (i === 0 ? ' on' : '') }, h(A.Icon, { name: t[0], size: 22 }), t[1]); })); }
+  function Row(p) { return h('div', { className: 'it' }, h(A.Constellation, { seed: p.s, size: 7, quiet: true }), h('div', { className: 'm' }, h('b', null, p.t), h('span', null, p.d)), h('span', { className: 'n' }, p.n)); }
+  ReactDOM.createRoot(document.getElementById('root')).render(h(F, null,
+    h(Phone, { cap: 'LAUNCH', cls: 'splash' }, h(A.Logo, { variant: 'symbol', size: 64 }), h('div', { style: { color: '#F2EEE4' } }, h(A.Logo, { variant: 'bilingual', size: 26 })), h('div', { style: { position: 'absolute', bottom: 48 } }, h(A.Loader, { size: 9 }))),
+    h(Phone, { cap: 'HOME — ENGLISH' }, h(SB), h('div', { className: 'pad' },
+      h('div', { className: 'hd' }, h(A.Constellation, { seed: 'Nakheel Logistics', size: 9 }), h('button', { className: 'at-icon-btn', 'aria-label': 'Notifications' }, h(A.Icon, { name: 'bell' }))),
+      h('div', null, h('div', { className: 'eyebrow at-muted' }, 'THURSDAY 24 SEP'), h('h2', { style: { marginTop: 6 } }, 'Morning, Sara', h('span', { className: 'at-stop' }))),
+      h('div', { className: 'big at-cut' }, h('span', { className: 'l' }, 'Invoices waiting on you'), h('span', { className: 'v' }, '24'), h(A.Button, { variant: 'primary', iconEnd: 'arrow-right', style: { alignSelf: 'flex-start' } }, 'Review now')),
+      h('div', { className: 'list' }, h(Row, { s: 'Almarai Retail', t: 'Almarai Retail', d: 'Riyadh → Dammam · delivered', n: '48.2K' }), h(Row, { s: 'Sadeem Clinics', t: 'Sadeem Clinics', d: 'Jeddah → Makkah · in transit', n: '12.9K' }), h(Row, { s: 'Wared Foods', t: 'Wared Foods', d: 'Riyadh → Qassim · delayed', n: '31.4K' }))),
+      h(Tabs, { items: [['dashboard', 'Home'], ['layers', 'Shipments'], ['file', 'Invoices'], ['user', 'Me']] })),
+    h(Phone, { cap: 'APPROVE — ARABIC', dir: 'rtl' }, h(SB), h('div', { className: 'pad rtl' },
+      h('div', { className: 'hd' }, h('h2', null, 'الفواتير'), h(A.Badge, { tone: 'warning', dot: true }, '٦ متأخرة')),
+      h(A.Tabs, { items: [{ label: 'بانتظارك', count: 24 }, { label: 'معتمدة' }, { label: 'مرفوضة' }] }),
+      h('div', { className: 'list' }, h(Row, { s: 'Wared', t: 'وارد للأغذية', d: 'فاتورة ‎#1042 · الرياض', n: '31,400' }), h(Row, { s: 'Qahwa', t: 'بيت القهوة', d: 'فاتورة ‎#1043 · جدة', n: '2,140' }), h(Row, { s: 'Masar', t: 'مسار العقارية', d: 'فاتورة ‎#1044 · الخبر', n: '6,780' }))),
+      h('div', { className: 'dim' }),
+      h('div', { className: 'sheet rtl' }, h('span', { className: 'grab' }), h('div', { className: 'ar-heading', style: { fontSize: 22 } }, 'اعتماد ٢٤ فاتورة؟'), h('p', { className: 'at-muted', style: { margin: 0, fontSize: 15, lineHeight: 1.8 } }, 'إجماليها ٣١٢٬٤٨٠ ريال، وتنتقل بعد ذلك إلى مديري الفروع.'), h(A.Button, { variant: 'primary', size: 'lg', style: { width: '100%' } }, 'اعتماد الكل'), h(A.Button, { variant: 'ghost', style: { width: '100%' } }, 'ليس الآن')))));
+</script>
+<button id="athr-theme" aria-label="Switch light/dark" style="position:fixed;right:16px;bottom:16px;z-index:99;height:36px;padding:0 14px;border-radius:4px;border:1px solid var(--line-strong);background:var(--surface-raised);color:var(--ink);font:500 13px var(--font-sans);cursor:pointer">Light / Dark</button>
+<script>(function(){var r=document.documentElement,b=document.getElementById('athr-theme');if(location.hash==='#dark')r.setAttribute('data-theme','dark');b.onclick=function(){r.setAttribute('data-theme',r.getAttribute('data-theme')==='dark'?'light':'dark')};})();</script>
+</body>
+</html>

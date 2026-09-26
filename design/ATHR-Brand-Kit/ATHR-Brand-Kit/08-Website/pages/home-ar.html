@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="../../_shared/fonts.css"><link rel="stylesheet" href="../../_shared/tokens.css"><link rel="stylesheet" href="../../_shared/bundle.css"><script src="../../_shared/react.production.min.js"></script><script src="../../_shared/react-dom.production.min.js"></script><script src="../../_shared/bundle.js"></script><style>body{min-width:1440px}</style><meta charset="utf-8"><title>الموقع — أثر</title>
+<style>
+  body { font-family: var(--font-arabic); }
+  .wrap { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+  .eyebrow-ar { font-family: var(--font-arabic); font-size: 13px; font-weight: 500; color: var(--ink-muted); display: flex; align-items: center; gap: 10px; }
+  .hero { position: relative; padding: 112px 0 96px; border-bottom: 1px solid var(--line); }
+  .hero-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 32px; align-items: end; }
+  .hero h1 { grid-column: 1 / span 9; margin: 28px 0 0; font-size: 104px; line-height: 1.22; font-weight: 700; letter-spacing: 0; }
+  .hero h1 .ln2 { color: var(--ink-muted); font-weight: 600; }
+  .hero-en { grid-column: 10 / span 3; font-family: var(--font-sans); direction: ltr; text-align: left; font-size: 26px; line-height: 1.2; font-weight: 600; letter-spacing: -.02em; }
+  .hero-foot { display: grid; grid-template-columns: repeat(12, 1fr); gap: 32px; margin-top: 64px; align-items: start; }
+  .hero-foot p { grid-column: 1 / span 5; margin: 0; font-size: 19px; line-height: 1.9; color: var(--ink-muted); }
+  .hero-foot .acts { grid-column: 7 / span 6; display: flex; gap: 12px; justify-content: flex-end; }
+  .trace { position: absolute; left: 0; right: 0; bottom: -1px; height: 1px; }
+  .trace i { position: absolute; bottom: -4px; width: 9px; height: 9px; background: var(--vermilion); transform: rotate(45deg); }
+  .sec { padding: 96px 0; border-bottom: 1px solid var(--line); }
+  .sec-head { display: grid; grid-template-columns: repeat(12, 1fr); gap: 32px; margin-bottom: 56px; }
+  .sec-head .eyebrow-ar { grid-column: 1 / span 3; padding-top: 18px; align-self: start; }
+  .sec-head h2 { grid-column: 4 / span 8; margin: 0; font-size: 52px; line-height: 1.35; font-weight: 700; }
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--ink); }
+  .step { padding: 28px 0 8px 32px; display: flex; flex-direction: column; gap: 12px; }
+  .step + .step { padding-inline-start: 32px; border-inline-start: 1px solid var(--line); }
+  .step .num { font-family: var(--font-mono); font-size: 13px; color: var(--ink-muted); display: flex; align-items: center; gap: 10px; }
+  .step h3 { margin: 0; font-size: 26px; line-height: 1.5; font-weight: 600; }
+  .step p { margin: 0; color: var(--ink-muted); font-size: 16px; line-height: 1.9; }
+  .work { display: grid; grid-template-columns: 7fr 5fr; gap: 32px; }
+  .case { position: relative; display: flex; flex-direction: column; justify-content: space-between; min-height: 520px; padding: 36px; background: var(--graphite); color: #F2EEE4; --cut: 36px; }
+  .case.alt { background: var(--sand); color: var(--carbon); min-height: 244px; }
+  .case .eyebrow-ar { color: inherit; opacity: .75; }
+  .case h3 { margin: 0; font-size: 40px; line-height: 1.35; font-weight: 700; max-width: 14ch; }
+  .case.alt h3 { font-size: 26px; line-height: 1.45; }
+  .case .facts { display: flex; gap: 48px; }
+  .case .facts b { display: block; font-family: var(--font-mono); font-size: 40px; line-height: 44px; font-weight: 500; letter-spacing: -.03em; direction: ltr; text-align: right; }
+  .case .facts span { font-size: 13px; opacity: .7; }
+  .case .con { position: absolute; top: 36px; left: 36px; }
+  .stack { display: flex; flex-direction: column; gap: 32px; }
+  .svc { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); }
+  .svc div { padding: 24px 0 24px 24px; border-bottom: 1px solid var(--line); }
+  .svc div:not(:nth-child(4n+1)) { padding-inline-start: 24px; border-inline-start: 1px solid var(--line); }
+  .svc h4 { margin: 0 0 6px; font-size: 19px; font-weight: 600; }
+  .svc p { margin: 0; font-size: 15px; line-height: 1.8; color: var(--ink-muted); }
+  .en-band { background: var(--carbon); color: #F2EEE4; padding: 96px 0; }
+  .en-band .wrap { display: grid; grid-template-columns: repeat(12, 1fr); gap: 32px; align-items: end; direction: ltr; }
+  .en-band h2 { grid-column: 1 / span 8; margin: 0; font-family: var(--font-sans); font-size: 88px; line-height: .95; font-weight: 600; letter-spacing: -.04em; }
+  .en-band p { grid-column: 9 / span 4; margin: 0; color: #A7A193; font-family: var(--font-sans); font-size: 17px; line-height: 1.6; }
+  .cta { padding: 128px 0; }
+  .cta .wrap { display: grid; grid-template-columns: repeat(12, 1fr); gap: 32px; align-items: end; }
+  .cta h2 { grid-column: 1 / span 8; margin: 0; font-size: 80px; line-height: 1.25; font-weight: 700; }
+  .cta .acts { grid-column: 9 / span 4; display: flex; flex-direction: column; gap: 16px; align-items: flex-start; }
+  .foot { border-top: 1px solid var(--line); padding: 32px 0 48px; }
+  .foot .wrap { display: flex; justify-content: space-between; align-items: center; color: var(--ink-muted); font-size: 14px; }
+</style></head>
+<body>
+<div id="nav"></div>
+<section class="hero"><div class="wrap">
+  <div class="eyebrow-ar"><span data-nuqta></span>استوديو برمجيات · الرياض · القاهرة</div>
+  <div class="hero-grid">
+    <h1>لكل عمل أثر<span class="at-stop"></span><br><span class="ln2">ونحن نبني التقنية التي تحمله.</span></h1>
+    <div class="hero-en" lang="en">Every business leaves a mark. We build the software that carries it.</div>
+  </div>
+  <div class="hero-foot">
+    <p>مواقع ومنصّات وتطبيقات وأنظمة داخلية — نصمّمها حول طريقة عمل شركتك الحقيقية، لا حول قالب جاهز.</p>
+    <div class="acts" id="hero-acts"></div>
+  </div>
+</div><div class="trace"><i style="right:61.8%"></i></div></section>
+
+<section class="sec"><div class="wrap">
+  <div class="sec-head"><div class="eyebrow-ar">٠١ ◆ طريقتنا</div><h2>نفهم عملك. نبني حوله. ونترك أثرًا<span class="at-stop"></span></h2></div>
+  <div class="steps">
+    <div class="step"><div class="num"><span data-nuqta></span>01 — نفهم</div><h3>أسبوعان داخل شركتك</h3><p>نجلس مع من يؤدّون العمل فعلًا، نرسم كيف تتحرّك المهام، ونحدّد الأماكن الثلاثة التي تُحدث فيها البرمجيات أكبر فرق.</p></div>
+    <div class="step"><div class="num">02 — نبني حوله</div><h3>مصمَّم على طريقة عملك</h3><p>مصطلحاتكم، مسارات الاعتماد عندكم، لغتكم — بالعربية والإنجليزية من اليوم الأول.</p></div>
+    <div class="step"><div class="num">03 — نترك أثرًا</div><h3>نقيس، ثم نسلّم</h3><p>نُطلق، ونقيس ما تغيّر، ونسلّمكم الكود والتوثيق والمفاتيح. يبقى ملكًا لكم بعد رحيلنا.</p></div>
+  </div>
+</div></section>
+
+<section class="sec"><div class="wrap">
+  <div class="sec-head"><div class="eyebrow-ar">٠٢ ◆ أعمال مختارة</div><h2>لكل مشروع بصمته الخاصة<span class="at-stop"></span></h2></div>
+  <div class="work">
+    <article class="case at-cut"><span class="con" data-const="Nakheel Logistics" data-size="16" data-dark="1"></span>
+      <div class="eyebrow-ar">دراسة حالة ٠٣ ◆ لوجستيات · السعودية</div>
+      <div><h3>نخيل للخدمات اللوجستية: من واتساب إلى بوابة واحدة</h3>
+        <div class="facts" style="margin-top:36px"><div><b>6 min</b><span>زمن التوزيع بعد أن كان ٤٠ دقيقة</span></div><div><b>0</b><span>إيصالات تسليم مفقودة</span></div><div><b>11</b><span>فرعًا على نظام واحد</span></div></div></div></article>
+    <div class="stack">
+      <article class="case alt at-cut"><span class="con" data-const="Sadeem Clinics" data-size="12"></span><div class="eyebrow-ar">دراسة حالة ٠٢ ◆ رعاية صحية · مصر</div><h3>عيادات سديم: حجز يتكلّم لهجة عملائه</h3></article>
+      <article class="case alt at-cut" style="background:var(--surface-raised);color:var(--ink);box-shadow:inset 0 0 0 1px var(--line)"><span class="con" data-const="Masar Realty" data-size="12"></span><div class="eyebrow-ar">دراسة حالة ٠١ ◆ عقارات · الإمارات</div><h3>مسار العقارية: تطبيق يفتحه الوسطاء ٤٠ مرة يوميًا</h3></article>
+    </div>
+  </div>
+</div></section>
+
+<section class="sec"><div class="wrap">
+  <div class="sec-head"><div class="eyebrow-ar">٠٣ ◆ ماذا نبني</div><h2 style="font-size:40px">كل ما فيه تسجيل دخول، أو مسار عمل، أو عميل على الطرف الآخر.</h2></div>
+  <div class="svc">
+    <div><h4>المواقع</h4><p>ثنائية اللغة، سريعة، ومكتوبة كأن إنسانًا يدير الشركة.</p></div>
+    <div><h4>المنصّات وأنظمة SaaS</h4><p>منتجات متعددة المستأجرين، فوترة، صلاحيات — والتفاصيل المملّة بإتقان.</p></div>
+    <div><h4>تطبيقات الجوال</h4><p>iOS وAndroid من قاعدة كود واحدة، بدعم كامل للاتجاه من اليمين.</p></div>
+    <div><h4>الأنظمة الداخلية</h4><p>بوابات ولوحات تحكّم وأدوات إدارة تحلّ محلّ الجداول.</p></div>
+    <div><h4>الأتمتة والـ APIs</h4><p>نربط الـ ERP والـ CRM وواتساب والبنك.</p></div>
+    <div><h4>الذكاء الاصطناعي حيث يستحق</h4><p>مساعدون وبحث في مستنداتكم — نقيسه، لا نستعرضه.</p></div>
+    <div><h4>أنظمة التصميم</h4><p>مثل هذا النظام: القواعد التي ترثها منتجاتكم القادمة.</p></div>
+    <div><h4>الرعاية والدعم</h4><p>نبقى بعد الإطلاق، أو نسلّم بوضوح. القرار لكم.</p></div>
+  </div>
+</div></section>
+
+<section class="en-band" lang="en"><div class="wrap">
+  <h2>We understand your business. We build around it<span class="at-stop"></span></h2>
+  <p>Every company is different, and every solution should carry its mark. Arabic and English from day one.</p>
+</div></section>
+
+<section class="cta"><div class="wrap">
+  <h2>أخبرنا كيف يعمل عملك<span class="at-stop"></span></h2>
+  <div class="acts"><p class="at-muted" style="margin:0;font-size:16px;line-height:1.9">مكالمة ٣٠ دقيقة. بلا عروض تقديمية. وسنخبرك بصدق إن كانت البرمجيات هي الحل.</p><span id="cta-btn"></span></div>
+</div></section>
+<footer class="foot"><div class="wrap"><span id="foot-logo"></span><span>الرياض · القاهرة — hello@athr.studio</span><span class="eyebrow" dir="ltr">© 2026 ATHR</span></div></footer>
+<script>
+  var A = window.Athr, h = React.createElement, F = React.Fragment;
+  function mount(id, el) { var n = document.getElementById(id); if (n) ReactDOM.createRoot(n).render(el); }
+  mount('nav', h('div', { dir: 'rtl' }, h(A.NavBar, { arabic: true, links: [{ label: 'أعمالنا', current: true }, 'خدماتنا', 'طريقتنا', 'الاستوديو', 'المدوّنة'], lang: 'EN', cta: 'ابدأ مشروعك' })));
+  mount('hero-acts', h(F, null, h(A.Button, { size: 'lg' }, 'شاهد أعمالنا'), h(A.Button, { variant: 'primary', size: 'lg', iconEnd: 'arrow-right' }, 'ابدأ مشروعك')));
+  mount('cta-btn', h(A.Button, { variant: 'primary', size: 'lg', iconEnd: 'arrow-right' }, 'احجز المكالمة'));
+  mount('foot-logo', h(A.Logo, { variant: 'arabic', size: 30 }));
+  document.querySelectorAll('[data-nuqta]').forEach(function (el) { ReactDOM.createRoot(el).render(h(A.Nuqta, { size: 9 })); });
+  document.querySelectorAll('[data-const]').forEach(function (el) { ReactDOM.createRoot(el).render(h(A.Constellation, { seed: el.dataset.const, size: +el.dataset.size, quiet: true, style: el.dataset.dark ? { '--ink': '#F2EEE4' } : null })); });
+</script>
+<button id="athr-theme" aria-label="Switch light/dark" style="position:fixed;right:16px;bottom:16px;z-index:99;height:36px;padding:0 14px;border-radius:4px;border:1px solid var(--line-strong);background:var(--surface-raised);color:var(--ink);font:500 13px var(--font-sans);cursor:pointer">Light / Dark</button>
+<script>(function(){var r=document.documentElement,b=document.getElementById('athr-theme');if(location.hash==='#dark')r.setAttribute('data-theme','dark');b.onclick=function(){r.setAttribute('data-theme',r.getAttribute('data-theme')==='dark'?'light':'dark')};})();</script>
+</body>
+</html>

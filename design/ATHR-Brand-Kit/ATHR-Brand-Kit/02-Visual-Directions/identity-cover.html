@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="../_shared/fonts.css"><link rel="stylesheet" href="../_shared/tokens.css"><link rel="stylesheet" href="../_shared/bundle.css"><script src="../_shared/react.production.min.js"></script><script src="../_shared/react-dom.production.min.js"></script><script src="../_shared/bundle.js"></script>
+<meta charset="utf-8">
+<title>ATHR</title>
+<style>
+  html, body { margin:0; height:100%; }
+  body { background:var(--surface); color:var(--ink); font-family:var(--font-sans); overflow:hidden; }
+  .cover { position:relative; height:288px; overflow:hidden; }
+  .art { position:absolute; top:0; left:480px; width:480px; height:288px; overflow:hidden; }
+  .art svg { display:block; width:480px; height:288px; }
+  .inv { fill:var(--surface-inverse); }
+  .verm { fill:var(--vermilion); }
+  .sand { fill:var(--sand); }
+  .mark { fill:var(--vermilion); }
+  .cut { fill:var(--surface); }
+  .words { position:absolute; left:var(--space-8); bottom:var(--space-8); max-width:440px; }
+  .name { margin:0; font-size:120px; line-height:.9; font-weight:600; letter-spacing:-.04em; color:var(--ink); }
+  .tag { margin:var(--space-3) 0 0 6px; font-size:14px; line-height:20px; color:var(--ink-muted); }
+</style>
+</head>
+<body>
+<div class="cover">
+<div class="art" aria-hidden="true">
+<svg viewBox="0 0 480 288" width="480" height="288">
+<!--
+  blocks      surface-inverse slab 224×256 with a space-8 cut on its top-right corner, bleeding off the bottom (carbon on paper, paper on carbon) · vermilion 224×136 bled off the top and right · sand 96×112 bled off the bottom — ≈40% of 960×288
+  arrangement one tall inverse slab with two satellites, gutters space-4, radius-0 corners; the cut is the brand's 45° chamfer
+  pattern     a nuqta lattice at a space-8 pitch cut into the slab in the ground colour, with three vermilion nuqtas placed in the ث arrangement — the identity's own constellation (row: literal motif)
+  scales      pitch space-8 (32px); gutters space-4; corners radius-0; cut space-8
+-->
+<path class="inv" d="M16 32H208L240 64V288H16Z"/>
+<rect class="verm" x="256" y="-8" width="232" height="136" rx="0"/>
+<rect class="sand" x="256" y="144" width="96" height="152" rx="0"/>
+<path class="cut" d="M48 69L51 72L48 75L45 72Z"/><path class="cut" d="M48 101L51 104L48 107L45 104Z"/><path class="cut" d="M48 133L51 136L48 139L45 136Z"/><path class="cut" d="M48 165L51 168L48 171L45 168Z"/><path class="cut" d="M48 197L51 200L48 203L45 200Z"/><path class="cut" d="M48 229L51 232L48 235L45 232Z"/><path class="cut" d="M48 261L51 264L48 267L45 264Z"/><path class="cut" d="M80 69L83 72L80 75L77 72Z"/><path class="cut" d="M80 101L83 104L80 107L77 104Z"/><path class="cut" d="M80 133L83 136L80 139L77 136Z"/><path class="cut" d="M80 197L83 200L80 203L77 200Z"/><path class="cut" d="M80 229L83 232L80 235L77 232Z"/><path class="cut" d="M80 261L83 264L80 267L77 264Z"/><path class="cut" d="M112 69L115 72L112 75L109 72Z"/><path class="cut" d="M112 101L115 104L112 107L109 104Z"/><path class="cut" d="M112 165L115 168L112 171L109 168Z"/><path class="cut" d="M112 197L115 200L112 203L109 200Z"/><path class="cut" d="M112 229L115 232L112 235L109 232Z"/><path class="cut" d="M112 261L115 264L112 267L109 264Z"/><path class="cut" d="M144 69L147 72L144 75L141 72Z"/><path class="cut" d="M144 101L147 104L144 107L141 104Z"/><path class="cut" d="M144 133L147 136L144 139L141 136Z"/><path class="cut" d="M144 197L147 200L144 203L141 200Z"/><path class="cut" d="M144 229L147 232L144 235L141 232Z"/><path class="cut" d="M144 261L147 264L144 267L141 264Z"/><path class="cut" d="M176 69L179 72L176 75L173 72Z"/><path class="cut" d="M176 101L179 104L176 107L173 104Z"/><path class="cut" d="M176 133L179 136L176 139L173 136Z"/><path class="cut" d="M176 165L179 168L176 171L173 168Z"/><path class="cut" d="M176 197L179 200L176 203L173 200Z"/><path class="cut" d="M176 229L179 232L176 235L173 232Z"/><path class="cut" d="M176 261L179 264L176 267L173 264Z"/><path class="cut" d="M208 69L211 72L208 75L205 72Z"/><path class="cut" d="M208 101L211 104L208 107L205 104Z"/><path class="cut" d="M208 133L211 136L208 139L205 136Z"/><path class="cut" d="M208 165L211 168L208 171L205 168Z"/><path class="cut" d="M208 197L211 200L208 203L205 200Z"/><path class="cut" d="M208 229L211 232L208 235L205 232Z"/><path class="cut" d="M208 261L211 264L208 267L205 264Z"/><path class="mark" d="M144 153L159 168L144 183L129 168Z"/><path class="mark" d="M80 153L95 168L80 183L65 168Z"/><path class="mark" d="M112 121L127 136L112 151L97 136Z"/>
+</svg>
+</div>
+<div class="words">
+<h1 class="name">ATHR</h1>
+<p class="tag">Every business leaves a mark. We build the software that carries it.</p>
+</div>
+</div>
+<button id="athr-theme" aria-label="Switch light/dark" style="position:fixed;right:16px;bottom:16px;z-index:99;height:36px;padding:0 14px;border-radius:4px;border:1px solid var(--line-strong);background:var(--surface-raised);color:var(--ink);font:500 13px var(--font-sans);cursor:pointer">Light / Dark</button>
+<script>(function(){var r=document.documentElement,b=document.getElementById('athr-theme');if(location.hash==='#dark')r.setAttribute('data-theme','dark');b.onclick=function(){r.setAttribute('data-theme',r.getAttribute('data-theme')==='dark'?'light':'dark')};})();</script>
+</body>
+</html>

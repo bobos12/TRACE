@@ -1,0 +1,143 @@
+import { Link } from '@/i18n/navigation';
+import type { Locale } from '@/i18n/routing';
+import { getLocalServices, getSite } from '@/lib/content';
+import { contact } from '@/lib/contact';
+import { Logo } from '@/components/brand/Logo';
+import { Container } from '@/components/ui/Container';
+import { CallButton, WhatsAppButton } from '@/components/contact/ContactButtons';
+import { ThemeToggle } from './ThemeToggle';
+import { LangSwitch } from './LangSwitch';
+
+function Column({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <div className="flex flex-col gap-3">
+      <h3 className="eyebrow text-ink-faint">{title}</h3>
+      <ul className="flex flex-col gap-2">{children}</ul>
+    </div>
+  );
+}
+
+function FooterLink({ href, children }: { href: string; children: React.ReactNode }) {
+  return (
+    <li>
+      <Link
+        href={href}
+        className="body-sm text-ink-muted transition-colors duration-[160ms] ease-mark hover:text-ink"
+      >
+        {children}
+      </Link>
+    </li>
+  );
+}
+
+export function Footer({ locale }: { locale: Locale }) {
+  const site = getSite(locale);
+  const services = getLocalServices(locale);
+  const ui = site.ui;
+  const socials = Object.entries(contact.social).filter(
+    ([, url]) => url && !url.includes('REPLACE'),
+  );
+
+  return (
+    <footer className="border-t border-line bg-surface">
+      <Container className="flex flex-col gap-16 py-16">
+        {/* Top row — logo, tagline, the two contact actions. */}
+        <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between">
+          <div className="flex max-w-[44ch] flex-col gap-5">
+            <Logo variant="bilingual" height={34} />
+            <p className="body text-ink-muted">{site.footer.tagline}</p>
+          </div>
+          <div className="flex flex-wrap items-center gap-3">
+            <WhatsAppButton placement="footer" context={ui.footerCompany}>
+              {site.cta.whatsapp}
+            </WhatsAppButton>
+            <CallButton placement="footer" showNumber>
+              {site.cta.call}
+            </CallButton>
+          </div>
+        </div>
+
+        {/* Link columns. */}
+        <div className="grid grid-cols-2 gap-x-8 gap-y-10 border-t border-line pt-10 md:grid-cols-4">
+          <Column title={ui.footerServices ?? 'Services'}>
+            {services.map((s) => (
+              <FooterLink key={s.slug} href={`/services/${s.slug}`}>
+                {s.title}
+              </FooterLink>
+            ))}
+          </Column>
+
+          <Column title={ui.footerWork ?? 'Work'}>
+            <FooterLink href="/work">{site.work.cta}</FooterLink>
+            <FooterLink href="/services">{site.services.cta}</FooterLink>
+          </Column>
+
+          <Column title={ui.footerCompany ?? 'Company'}>
+            <FooterLink href="/about">{ui.about}</FooterLink>
+            <FooterLink href="/contact">{ui.contact}</FooterLink>
+          </Column>
+
+          <div className="flex flex-col gap-3">
+            <h3 className="eyebrow text-ink-faint">{ui.contact}</h3>
+            <ul className="flex flex-col gap-2 body-sm text-ink-muted">
+              <li>
+                <a href={`mailto:${contact.email}`} className="hover:text-ink">
+                  {contact.email}
+                </a>
+              </li>
+              <li dir="ltr" className="font-mono text-start">
+                {contact.phoneDisplay}
+              </li>
+              <li dir="ltr" className="font-mono text-start">
+                {contact.phoneSecondaryDisplay}
+              </li>
+              <li>{contact.hours[locale]}</li>
+              {/* TODO: add the Saudi commercial registration number — KSA clients look for it. */}
+            </ul>
+            {socials.length ? (
+              <ul className="mt-2 flex gap-3">
+                {socials.map(([name, url]) => (
+                  <li key={name}>
+                    <a
+                      href={url}
+                      target="_blank"
+                      rel="noopener"
+                      className="body-sm capitalize text-ink-muted hover:text-ink"
+                    >
+                      {name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            ) : null}
+          </div>
+        </div>
+
+        {/* Bottom row. */}
+        <div className="flex flex-col gap-4 border-t border-line pt-8 md:flex-row md:items-center md:justify-between">
+          <p className="body-sm text-ink-faint">
+            {contact.cities[locale].join(' · ')} — {site.footer.rights}
+          </p>
+          <div className="flex flex-wrap items-center gap-4">
+            <Link href="/privacy" className="body-sm text-ink-muted hover:text-ink">
+              {site.footer.privacy}
+            </Link>
+            <Link href="/terms" className="body-sm text-ink-muted hover:text-ink">
+              {site.footer.terms}
+            </Link>
+            <LangSwitch label={site.nav.lang} className="h-auto px-0" />
+            <ThemeToggle
+              labels={{
+                light: ui.themeLight ?? 'Light',
+                dark: ui.themeDark ?? 'Dark',
+                toggle: ui.themeToggle ?? 'Theme',
+              }}
+            />
+          </div>
+        </div>
+      </Container>
+    </footer>
+  );
+}
+
+export default Footer;

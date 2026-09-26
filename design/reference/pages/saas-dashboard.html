@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="../_shared/fonts.css"><link rel="stylesheet" href="../_shared/tokens.css"><link rel="stylesheet" href="../_shared/bundle.css"><script src="../_shared/react.production.min.js"></script><script src="../_shared/react-dom.production.min.js"></script><script src="../_shared/bundle.js"></script><style>body{min-width:1440px}</style><meta charset="utf-8"><title>Dashboard — ATHR</title>
+<style>
+  #root { display: flex; height: 1010px; }
+  .main { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+  .top { height: var(--topbar-height); display: flex; align-items: center; gap: 16px; padding: 0 32px; border-bottom: 1px solid var(--line); }
+  .crumbs { font-size: 13px; color: var(--ink-muted); display: flex; gap: 8px; align-items: center; flex: 1; }
+  .crumbs b { color: var(--ink); font-weight: 500; }
+  .search { width: 320px; }
+  .content { padding: 32px; display: flex; flex-direction: column; gap: 24px; overflow: hidden; }
+  .title-row { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; }
+  .title-row h1 { margin: 6px 0 0; }
+  .kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .split { display: grid; grid-template-columns: 2fr 1fr; gap: 16px; }
+  .chart { height: 180px; }
+  .chart .bar { fill: var(--line); } .chart .bar.hi { fill: var(--ink); } .chart .axis { stroke: var(--line); } .chart text { fill: var(--ink-muted); font-family: var(--font-mono); font-size: 10px; }
+  .chart .mk { fill: var(--vermilion); }
+  .feed { display: flex; flex-direction: column; gap: 14px; font-size: 14px; }
+  .feed div { display: flex; gap: 12px; align-items: flex-start; }
+  .feed .t { font-family: var(--font-mono); font-size: 11px; color: var(--ink-muted); margin-inline-start: auto; white-space: nowrap; }
+  .feed .at-nuqta { margin-top: 8px; }
+</style></head>
+<body>
+<div id="root"></div>
+<script>
+  var A = window.Athr, h = React.createElement, F = React.Fragment;
+  var bars = [42, 55, 48, 61, 58, 72, 66, 80, 77, 91, 86, 104];
+  var months = ['O','N','D','J','F','M','A','M','J','J','A','S'];
+  function Chart() {
+    var max = 110, W = 620, H = 160, bw = 30, gap = (W - bars.length * bw) / (bars.length - 1);
+    return h('svg', { className: 'chart', viewBox: '0 0 ' + W + ' ' + (H + 20), width: '100%', height: 180, preserveAspectRatio: 'xMidYMid meet' },
+      h('line', { className: 'axis', x1: 0, x2: W, y1: H, y2: H }),
+      bars.map(function (b, i) { var bh = b / max * H, x = i * (bw + gap); return h('g', { key: i },
+        h('rect', { className: 'bar' + (i === bars.length - 1 ? ' hi' : ''), x: x, y: H - bh, width: bw, height: bh }),
+        i === bars.length - 1 ? h('rect', { className: 'mk', x: x + bw / 2 - 5, y: H - bh - 16, width: 10, height: 10, transform: 'rotate(45 ' + (x + bw / 2) + ' ' + (H - bh - 11) + ')' }) : null,
+        h('text', { x: x + bw / 2, y: H + 15, textAnchor: 'middle' }, months[i])); }));
+  }
+  var rows = [
+    { id: 'NK-24081', client: 'Almarai Retail', route: 'Riyadh → Dammam', status: 'Delivered', tone: 'success', value: '48,200' },
+    { id: 'NK-24082', client: 'Sadeem Clinics', route: 'Jeddah → Makkah', status: 'In transit', tone: 'accent', value: '12,950', selected: true },
+    { id: 'NK-24083', client: 'Wared Foods', route: 'Riyadh → Qassim', status: 'Delayed', tone: 'warning', value: '31,400' },
+    { id: 'NK-24084', client: 'Masar Realty', route: 'Khobar → Riyadh', status: 'Failed pickup', tone: 'danger', value: '6,780' },
+    { id: 'NK-24085', client: 'Qahwa House', route: 'Riyadh → Riyadh', status: 'Delivered', tone: 'success', value: '2,140' }];
+  ReactDOM.createRoot(document.getElementById('root')).render(h(F, null,
+    h(A.Sidebar, { client: 'Nakheel Logistics', product: 'Operations portal', groups: [
+      { items: [{ label: 'Overview', icon: 'dashboard', current: true }, { label: 'Shipments', icon: 'layers', count: 128 }, { label: 'Invoices', icon: 'file', count: 24 }, { label: 'Inbox', icon: 'inbox', count: 3 }] },
+      { title: 'Manage', items: [{ label: 'Reports', icon: 'chart' }, { label: 'Branches', icon: 'globe' }, { label: 'Team', icon: 'user' }, { label: 'Settings', icon: 'sliders' }] }],
+      footer: h('div', { style: { display: 'flex', alignItems: 'center', gap: 8, padding: '0 8px', fontSize: 12, color: 'var(--ink-muted)' } }, 'Built by', h(A.Logo, { size: 11 })) }),
+    h('div', { className: 'main' },
+      h('div', { className: 'top' }, h('div', { className: 'crumbs' }, 'Nakheel', h(A.Icon, { name: 'chevron-right', size: 14 }), h('b', null, 'Overview')),
+        h(A.TextField, { className: 'search', placeholder: 'Search shipments, clients, invoices', 'aria-label': 'Search' }),
+        h(A.Tooltip, { label: 'Notifications' }, h('button', { className: 'at-icon-btn', 'aria-label': 'Notifications' }, h(A.Icon, { name: 'bell' })))),
+      h('div', { className: 'content' },
+        h('div', { className: 'title-row' }, h('div', null, h('div', { className: 'eyebrow at-muted' }, 'SEPTEMBER 2026 ◆ ALL BRANCHES'), h('h1', { className: 'heading-1' }, 'Good morning, Sara')),
+          h('div', { style: { display: 'flex', gap: 12, alignItems: 'center' } }, h(A.Tabs, { variant: 'segmented', items: [{ label: 'Week' }, { label: 'Month' }, { label: 'Quarter' }], value: 'Month' }), h(A.Button, { icon: 'file' }, 'Export'), h(A.Button, { variant: 'primary', icon: 'plus' }, 'New shipment'))),
+        h(A.Banner, { tone: 'warning', title: '6 invoices are overdue.', action: h(A.Button, { size: 'sm' }, 'Review') }, 'Finance gets a reminder tomorrow at 9:00.'),
+        h('div', { className: 'kpis' },
+          h(A.Stat, { label: 'Shipments', value: '1,284', delta: '+18.2%', period: 'vs Aug' }),
+          h(A.Stat, { label: 'Avg. dispatch', value: '6m 12s', delta: '−84%', invert: true, period: 'since launch' }),
+          h(A.Stat, { label: 'On-time rate', value: '96.4%', delta: '+2.1 pts', period: 'vs Aug' }),
+          h(A.Stat, { label: 'Revenue (SAR)', value: '1.28M', delta: '−3.1%', period: 'vs Aug' })),
+        h('div', { className: 'split' },
+          h(A.Card, { title: 'Shipments per month', eyebrow: 'Last 12 months', action: h(A.Badge, { tone: 'success', dot: true }, 'Best month yet') }, h(Chart)),
+          h(A.Card, { title: 'Latest activity', eyebrow: 'Today' }, h('div', { className: 'feed' },
+            h('div', null, h(A.Nuqta, { size: 8 }), h('span', null, h('b', null, 'Sara'), ' approved 24 invoices'), h('span', { className: 't' }, '09:41')),
+            h('div', null, h(A.Nuqta, { size: 8, tone: 'ink' }), h('span', null, 'NK-24083 marked delayed at Qassim'), h('span', { className: 't' }, '09:12')),
+            h('div', null, h(A.Nuqta, { size: 8, tone: 'muted' }), h('span', null, 'ERP sync completed · 312 records'), h('span', { className: 't' }, '08:00')),
+            h('div', null, h(A.Nuqta, { size: 8, tone: 'muted' }), h('span', null, 'Khobar branch added 2 drivers'), h('span', { className: 't' }, '07:30'))))),
+        h(A.Table, { columns: [{ key: 'id', label: 'Shipment', render: function (r) { return h('span', { style: { fontFamily: 'var(--font-mono)', fontSize: 13 } }, r.id); } }, { key: 'client', label: 'Client' }, { key: 'route', label: 'Route', muted: true }, { key: 'status', label: 'Status', render: function (r) { return h(A.Badge, { tone: r.tone, dot: true }, r.status); } }, { key: 'value', label: 'Value (SAR)', numeric: true }], rows: rows })))));
+</script>
+<button id="athr-theme" aria-label="Switch light/dark" style="position:fixed;right:16px;bottom:16px;z-index:99;height:36px;padding:0 14px;border-radius:4px;border:1px solid var(--line-strong);background:var(--surface-raised);color:var(--ink);font:500 13px var(--font-sans);cursor:pointer">Light / Dark</button>
+<script>(function(){var r=document.documentElement,b=document.getElementById('athr-theme');if(location.hash==='#dark')r.setAttribute('data-theme','dark');b.onclick=function(){r.setAttribute('data-theme',r.getAttribute('data-theme')==='dark'?'light':'dark')};})();</script>
+</body>
+</html>

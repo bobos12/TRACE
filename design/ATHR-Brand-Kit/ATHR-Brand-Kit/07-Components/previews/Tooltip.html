@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="../../_shared/fonts.css"><link rel="stylesheet" href="../../_shared/tokens.css"><link rel="stylesheet" href="../../_shared/bundle.css"><script src="../../_shared/react.production.min.js"></script><script src="../../_shared/react-dom.production.min.js"></script><script src="../../_shared/bundle.js"></script><meta charset="utf-8"><title>Tooltip — preview</title><style>.at-row{padding:64px 120px 24px;gap:64px}</style></head>
+<body>
+<div id="root" class="at-row"></div>
+<script>
+  var A = window.Athr, h = React.createElement, F = React.Fragment;
+  ReactDOM.createRoot(document.getElementById('root')).render(h(F, null, h(A.Tooltip, {label:'Copy shipment ID', kbd:'⌘C', open:true}, h('button', {className:'at-icon-btn', 'aria-label':'Copy'}, h(A.Icon, {name:'file'}))),
+    h(A.Tooltip, {label:'Approvals route to finance first'}, h(A.Button, {size:'sm', variant:'ghost', icon:'info'}, 'How approval works'))));
+</script>
+<button id="athr-theme" aria-label="Switch light/dark" style="position:fixed;right:16px;bottom:16px;z-index:99;height:36px;padding:0 14px;border-radius:4px;border:1px solid var(--line-strong);background:var(--surface-raised);color:var(--ink);font:500 13px var(--font-sans);cursor:pointer">Light / Dark</button>
+<script>(function(){var r=document.documentElement,b=document.getElementById('athr-theme');if(location.hash==='#dark')r.setAttribute('data-theme','dark');b.onclick=function(){r.setAttribute('data-theme',r.getAttribute('data-theme')==='dark'?'light':'dark')};})();</script>
+</body>
+</html>

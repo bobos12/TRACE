@@ -1,0 +1,147 @@
+/* ATHR design tokens — generated from tokens.json. Themes: [data-theme="light"] (Paper, default) and [data-theme="dark"] (Carbon). */
+
+:root, [data-theme="light"] {
+  --carbon: #0F0F0D;
+  --graphite: #1A1A17;
+  --ash: #5C584E;
+  --sand: #D8D1C0;
+  --paper: #F4F1E9;
+  --chalk: #FBFAF6;
+  --vermilion: #E0461F;
+  --surface: var(--paper);
+  --surface-raised: var(--chalk);
+  --surface-sunken: #EAE6DB;
+  --surface-inverse: var(--carbon);
+  --line: #D6CFBE;
+  --line-strong: #878070;
+  --ink: #14130F;
+  --ink-muted: #5C584E;
+  --ink-faint: #6E695D;
+  --ink-inverse: #F2EEE4;
+  --nuqta: #B8330F;
+  --nuqta-soft: #F8DED4;
+  --on-nuqta: #FFFFFF;
+  --success: #1B6470;
+  --success-soft: #D6ECEE;
+  --warning: #8A5300;
+  --warning-soft: #F5E6CC;
+  --danger: #A3123A;
+  --danger-soft: #F6DCE2;
+  --focus: var(--ink);
+  --link: var(--nuqta);
+  --scrim: #14130F8C;
+  --shadow-float: 0 1px 0 #14130f14, 0 12px 32px -12px #14130f40;
+  --focus-ring: 0 0 0 2px #f4f1e9, 0 0 0 4px #14130f;
+}
+
+[data-theme="dark"] {
+  --vermilion: #FF5A33;
+  --surface: var(--carbon);
+  --surface-raised: var(--graphite);
+  --surface-sunken: #0A0A08;
+  --surface-inverse: var(--paper);
+  --line: #2E2D28;
+  --line-strong: #726D61;
+  --ink: #F2EEE4;
+  --ink-muted: #A7A193;
+  --ink-faint: #8E887A;
+  --ink-inverse: #14130F;
+  --nuqta: #FF6B47;
+  --nuqta-soft: #3A1810;
+  --on-nuqta: #0F0F0D;
+  --success: #5FC0CF;
+  --success-soft: #0E2A2E;
+  --warning: #E0A54A;
+  --warning-soft: #33240C;
+  --danger: #FF7A9A;
+  --danger-soft: #3A1020;
+  --scrim: #000000B3;
+  --shadow-float: 0 0 0 1px #2e2d28, 0 16px 40px -12px #000000cc;
+  --focus-ring: 0 0 0 2px #0f0f0d, 0 0 0 4px #f2eee4;
+}
+
+/* Follow the OS setting unless a theme is set explicitly. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --vermilion: #FF5A33;
+    --surface: var(--carbon);
+    --surface-raised: var(--graphite);
+    --surface-sunken: #0A0A08;
+    --surface-inverse: var(--paper);
+    --line: #2E2D28;
+    --line-strong: #726D61;
+    --ink: #F2EEE4;
+    --ink-muted: #A7A193;
+    --ink-faint: #8E887A;
+    --ink-inverse: #14130F;
+    --nuqta: #FF6B47;
+    --nuqta-soft: #3A1810;
+    --on-nuqta: #0F0F0D;
+    --success: #5FC0CF;
+    --success-soft: #0E2A2E;
+    --warning: #E0A54A;
+    --warning-soft: #33240C;
+    --danger: #FF7A9A;
+    --danger-soft: #3A1020;
+    --scrim: #000000B3;
+    --shadow-float: 0 0 0 1px #2e2d28, 0 16px 40px -12px #000000cc;
+    --focus-ring: 0 0 0 2px #0f0f0d, 0 0 0 4px #f2eee4;
+  }
+}
+
+:root {
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-24: 96px;
+  --space-32: 128px;
+  --radius-0: 0px;
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 8px;
+  --radius-full: 9999px;
+  --duration-press: 90ms;
+  --duration-quick: 160ms;
+  --duration-trace: 320ms;
+  --duration-reveal: 560ms;
+  --ease-mark: cubic-bezier(0.2, 0, 0, 1);
+  --ease-press: cubic-bezier(0.5, 0, 0.75, 0);
+  --ease-trace: cubic-bezier(0.65, 0, 0.35, 1);
+  --bp-sm: 640px;
+  --bp-md: 1024px;
+  --bp-lg: 1440px;
+  --container-max: 1280px;
+  --measure: 64ch;
+  --sidebar-width: 248px;
+  --topbar-height: 56px;
+  --z-sticky: 10;
+  --z-overlay: 40;
+  --z-toast: 50;
+  --font-sans: "Instrument Sans", "IBM Plex Sans Arabic", system-ui, sans-serif;
+  --font-arabic: "IBM Plex Sans Arabic", "Instrument Sans", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+
+/* Type styles */
+.display-xl { font-family: var(--font-sans); font-size: 96px; line-height: 0.92; font-weight: 600; letter-spacing: -0.035em; }
+.display-lg { font-family: var(--font-sans); font-size: 64px; line-height: 0.98; font-weight: 600; letter-spacing: -0.03em; }
+.display-md { font-family: var(--font-sans); font-size: 44px; line-height: 1.05; font-weight: 600; letter-spacing: -0.02em; }
+.heading-1 { font-family: var(--font-sans); font-size: 32px; line-height: 40px; font-weight: 600; letter-spacing: -0.015em; }
+.heading-2 { font-family: var(--font-sans); font-size: 24px; line-height: 32px; font-weight: 600; letter-spacing: -0.01em; }
+.heading-3 { font-family: var(--font-sans); font-size: 18px; line-height: 26px; font-weight: 600; }
+.body-lg { font-family: var(--font-sans); font-size: 18px; line-height: 30px; font-weight: 400; }
+.body { font-family: var(--font-sans); font-size: 15px; line-height: 24px; font-weight: 400; }
+.body-sm { font-family: var(--font-sans); font-size: 13px; line-height: 20px; font-weight: 400; }
+.label { font-family: var(--font-sans); font-size: 13px; line-height: 16px; font-weight: 500; letter-spacing: 0.01em; }
+.ar-display { font-family: var(--font-arabic); font-size: 56px; line-height: 1.3; font-weight: 600; }
+.ar-heading { font-family: var(--font-arabic); font-size: 28px; line-height: 1.6; font-weight: 600; }
+.ar-body { font-family: var(--font-arabic); font-size: 16px; line-height: 1.85; font-weight: 400; }
+.ar-label { font-family: var(--font-arabic); font-size: 14px; line-height: 1.5; font-weight: 500; }
+.eyebrow { font-family: var(--font-mono); font-size: 11px; line-height: 16px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; }
+.data { font-family: var(--font-mono); font-size: 14px; line-height: 20px; font-weight: 500; }
+.code { font-family: var(--font-mono); font-size: 13px; line-height: 20px; font-weight: 400; }

@@ -1,0 +1,606 @@
+{
+  "light": {
+    "color": {
+      "carbon": {
+        "$type": "color",
+        "$value": "#0F0F0D",
+        "$description": "Brand black. The dark theme's ground, the app icon, the reverse logo's field. Pair with paper."
+      },
+      "graphite": {
+        "$type": "color",
+        "$value": "#1A1A17",
+        "$description": "Raised black: dark cards, the proposal cover band, case-study data panels."
+      },
+      "ash": {
+        "$type": "color",
+        "$value": "#5C584E",
+        "$description": "Warm grey for secondary marks on paper (4-tone illustration, chart gridline labels)."
+      },
+      "sand": {
+        "$type": "color",
+        "$value": "#D8D1C0",
+        "$description": "Warm neutral block: cover relief, chart secondary series on paper, imagery mats."
+      },
+      "paper": {
+        "$type": "color",
+        "$value": "#F4F1E9",
+        "$description": "Brand off-white. The light theme's ground; ink sits on it at 16:1."
+      },
+      "chalk": {
+        "$type": "color",
+        "$value": "#FBFAF6",
+        "$description": "Lightest paper: raised cards and inputs in the light theme."
+      },
+      "vermilion": {
+        "$type": "color",
+        "$value": "#E0461F",
+        "$description": "The mark's ink — the three nuqtas of the logo, the signature rhombus, a full-stop nuqta, cover blocks. Graphic only (3:1+ on surface in both themes); never body text on paper — use nuqta for that."
+      },
+      "surface": {
+        "$type": "color",
+        "$value": "{color.paper}",
+        "$description": "Page background. Ink, ink-muted, ink-faint and nuqta text all read on it."
+      },
+      "surface-raised": {
+        "$type": "color",
+        "$value": "{color.chalk}",
+        "$description": "Cards, inputs, menus, table rows at rest."
+      },
+      "surface-sunken": {
+        "$type": "color",
+        "$value": "#EAE6DB",
+        "$description": "Wells: code blocks, table header, the sidebar ground, skeleton loaders. Ink and ink-muted read on it."
+      },
+      "surface-inverse": {
+        "$type": "color",
+        "$value": "{color.carbon}",
+        "$description": "Inverted bands (a dark section on a light page, the tooltip). Text on it is ink-inverse."
+      },
+      "line": {
+        "$type": "color",
+        "$value": "#D6CFBE",
+        "$description": "Hairlines: dividers, card and table borders. Decorative only — never the only edge of a control."
+      },
+      "line-strong": {
+        "$type": "color",
+        "$value": "#878070",
+        "$description": "Control borders (inputs, checkboxes, secondary buttons): 3:1+ on surface and surface-raised in both themes."
+      },
+      "ink": {
+        "$type": "color",
+        "$value": "#14130F",
+        "$description": "Primary text and icons, on surface, surface-raised and surface-sunken (14:1+ in both themes)."
+      },
+      "ink-muted": {
+        "$type": "color",
+        "$value": "#5C584E",
+        "$description": "Secondary text, metadata, table headers — on any surface (5.6:1+)."
+      },
+      "ink-faint": {
+        "$type": "color",
+        "$value": "#6E695D",
+        "$description": "Placeholders and disabled labels, on surface and surface-raised only (4.8:1+)."
+      },
+      "ink-inverse": {
+        "$type": "color",
+        "$value": "#F2EEE4",
+        "$description": "Text and icons on surface-inverse and on carbon/paper bands."
+      },
+      "nuqta": {
+        "$type": "color",
+        "$value": "#B8330F",
+        "$description": "Interactive accent: the primary button fill, links, active tab and nav indicators, selected rows' marker. As text, on surface, surface-raised and nuqta-soft (4.6:1+)."
+      },
+      "nuqta-soft": {
+        "$type": "color",
+        "$value": "#F8DED4",
+        "$description": "Tinted ground behind nuqta text: a selected row, an active nav item, a 'new' badge."
+      },
+      "on-nuqta": {
+        "$type": "color",
+        "$value": "#FFFFFF",
+        "$description": "Label and icon colour on a nuqta fill (the primary button): 6:1 light, 6.8:1 dark."
+      },
+      "success": {
+        "$type": "color",
+        "$value": "#1B6470",
+        "$description": "Done, live, passing. A blue-teal, off the red–green axis so it never relies on hue against danger. As text on surface or success-soft; always with a check icon or word."
+      },
+      "success-soft": {
+        "$type": "color",
+        "$value": "#D6ECEE",
+        "$description": "Ground for success badges and banners."
+      },
+      "warning": {
+        "$type": "color",
+        "$value": "#8A5300",
+        "$description": "Needs attention, not broken. Text on surface or warning-soft; always with the alert icon."
+      },
+      "warning-soft": {
+        "$type": "color",
+        "$value": "#F5E6CC",
+        "$description": "Ground for warning badges and banners."
+      },
+      "danger": {
+        "$type": "color",
+        "$value": "#A3123A",
+        "$description": "Errors and destructive actions. A crimson-rose kept apart from the brand vermilion: never use nuqta or vermilion to mean error. Text on surface or danger-soft; always with an icon or word."
+      },
+      "danger-soft": {
+        "$type": "color",
+        "$value": "#F6DCE2",
+        "$description": "Ground for error banners, invalid-field hints, destructive confirmations."
+      },
+      "focus": {
+        "$type": "color",
+        "$value": "{color.ink}",
+        "$description": "Keyboard focus ring colour (2px, 2px offset): ink on every surface, so focus never reads as the accent or as an error."
+      },
+      "link": {
+        "$type": "color",
+        "$value": "{color.nuqta}",
+        "$description": "Inline links — an alias of nuqta, underlined 1px at rest."
+      },
+      "scrim": {
+        "$type": "color",
+        "$value": "#14130F8C",
+        "$description": "Backdrop behind modals and drawers."
+      }
+    }
+  },
+  "dark": {
+    "color": {
+      "carbon": {
+        "$type": "color",
+        "$value": "#0F0F0D",
+        "$description": "Brand black. The dark theme's ground, the app icon, the reverse logo's field. Pair with paper."
+      },
+      "graphite": {
+        "$type": "color",
+        "$value": "#1A1A17",
+        "$description": "Raised black: dark cards, the proposal cover band, case-study data panels."
+      },
+      "ash": {
+        "$type": "color",
+        "$value": "#5C584E",
+        "$description": "Warm grey for secondary marks on paper (4-tone illustration, chart gridline labels)."
+      },
+      "sand": {
+        "$type": "color",
+        "$value": "#D8D1C0",
+        "$description": "Warm neutral block: cover relief, chart secondary series on paper, imagery mats."
+      },
+      "paper": {
+        "$type": "color",
+        "$value": "#F4F1E9",
+        "$description": "Brand off-white. The light theme's ground; ink sits on it at 16:1."
+      },
+      "chalk": {
+        "$type": "color",
+        "$value": "#FBFAF6",
+        "$description": "Lightest paper: raised cards and inputs in the light theme."
+      },
+      "vermilion": {
+        "$type": "color",
+        "$value": "#FF5A33",
+        "$description": "The mark's ink — the three nuqtas of the logo, the signature rhombus, a full-stop nuqta, cover blocks. Graphic only (3:1+ on surface in both themes); never body text on paper — use nuqta for that."
+      },
+      "surface": {
+        "$type": "color",
+        "$value": "{color.carbon}",
+        "$description": "Page background. Ink, ink-muted, ink-faint and nuqta text all read on it."
+      },
+      "surface-raised": {
+        "$type": "color",
+        "$value": "{color.graphite}",
+        "$description": "Cards, inputs, menus, table rows at rest."
+      },
+      "surface-sunken": {
+        "$type": "color",
+        "$value": "#0A0A08",
+        "$description": "Wells: code blocks, table header, the sidebar ground, skeleton loaders. Ink and ink-muted read on it."
+      },
+      "surface-inverse": {
+        "$type": "color",
+        "$value": "{color.paper}",
+        "$description": "Inverted bands (a dark section on a light page, the tooltip). Text on it is ink-inverse."
+      },
+      "line": {
+        "$type": "color",
+        "$value": "#2E2D28",
+        "$description": "Hairlines: dividers, card and table borders. Decorative only — never the only edge of a control."
+      },
+      "line-strong": {
+        "$type": "color",
+        "$value": "#726D61",
+        "$description": "Control borders (inputs, checkboxes, secondary buttons): 3:1+ on surface and surface-raised in both themes."
+      },
+      "ink": {
+        "$type": "color",
+        "$value": "#F2EEE4",
+        "$description": "Primary text and icons, on surface, surface-raised and surface-sunken (14:1+ in both themes)."
+      },
+      "ink-muted": {
+        "$type": "color",
+        "$value": "#A7A193",
+        "$description": "Secondary text, metadata, table headers — on any surface (5.6:1+)."
+      },
+      "ink-faint": {
+        "$type": "color",
+        "$value": "#8E887A",
+        "$description": "Placeholders and disabled labels, on surface and surface-raised only (4.8:1+)."
+      },
+      "ink-inverse": {
+        "$type": "color",
+        "$value": "#14130F",
+        "$description": "Text and icons on surface-inverse and on carbon/paper bands."
+      },
+      "nuqta": {
+        "$type": "color",
+        "$value": "#FF6B47",
+        "$description": "Interactive accent: the primary button fill, links, active tab and nav indicators, selected rows' marker. As text, on surface, surface-raised and nuqta-soft (4.6:1+)."
+      },
+      "nuqta-soft": {
+        "$type": "color",
+        "$value": "#3A1810",
+        "$description": "Tinted ground behind nuqta text: a selected row, an active nav item, a 'new' badge."
+      },
+      "on-nuqta": {
+        "$type": "color",
+        "$value": "#0F0F0D",
+        "$description": "Label and icon colour on a nuqta fill (the primary button): 6:1 light, 6.8:1 dark."
+      },
+      "success": {
+        "$type": "color",
+        "$value": "#5FC0CF",
+        "$description": "Done, live, passing. A blue-teal, off the red–green axis so it never relies on hue against danger. As text on surface or success-soft; always with a check icon or word."
+      },
+      "success-soft": {
+        "$type": "color",
+        "$value": "#0E2A2E",
+        "$description": "Ground for success badges and banners."
+      },
+      "warning": {
+        "$type": "color",
+        "$value": "#E0A54A",
+        "$description": "Needs attention, not broken. Text on surface or warning-soft; always with the alert icon."
+      },
+      "warning-soft": {
+        "$type": "color",
+        "$value": "#33240C",
+        "$description": "Ground for warning badges and banners."
+      },
+      "danger": {
+        "$type": "color",
+        "$value": "#FF7A9A",
+        "$description": "Errors and destructive actions. A crimson-rose kept apart from the brand vermilion: never use nuqta or vermilion to mean error. Text on surface or danger-soft; always with an icon or word."
+      },
+      "danger-soft": {
+        "$type": "color",
+        "$value": "#3A1020",
+        "$description": "Ground for error banners, invalid-field hints, destructive confirmations."
+      },
+      "focus": {
+        "$type": "color",
+        "$value": "{color.ink}",
+        "$description": "Keyboard focus ring colour (2px, 2px offset): ink on every surface, so focus never reads as the accent or as an error."
+      },
+      "link": {
+        "$type": "color",
+        "$value": "{color.nuqta}",
+        "$description": "Inline links — an alias of nuqta, underlined 1px at rest."
+      },
+      "scrim": {
+        "$type": "color",
+        "$value": "#000000B3",
+        "$description": "Backdrop behind modals and drawers."
+      }
+    }
+  },
+  "global": {
+    "spacing": {
+      "space-1": {
+        "$type": "dimension",
+        "$value": "4px",
+        "$description": "1 nuqta. Icon-to-label gap, badge padding."
+      },
+      "space-2": {
+        "$type": "dimension",
+        "$value": "8px",
+        "$description": "Inside compact controls; between a label and its field."
+      },
+      "space-3": {
+        "$type": "dimension",
+        "$value": "12px",
+        "$description": "Button inline padding (sm); list row gaps."
+      },
+      "space-4": {
+        "$type": "dimension",
+        "$value": "16px",
+        "$description": "Card padding (compact), form field gaps, the mobile page gutter."
+      },
+      "space-6": {
+        "$type": "dimension",
+        "$value": "24px",
+        "$description": "Card padding (default), gaps between cards."
+      },
+      "space-8": {
+        "$type": "dimension",
+        "$value": "32px",
+        "$description": "Between groups inside a section; the desktop gutter."
+      },
+      "space-12": {
+        "$type": "dimension",
+        "$value": "48px",
+        "$description": "Between sections inside a product page."
+      },
+      "space-16": {
+        "$type": "dimension",
+        "$value": "64px",
+        "$description": "Marketing section padding on mobile."
+      },
+      "space-24": {
+        "$type": "dimension",
+        "$value": "96px",
+        "$description": "Marketing section padding on desktop."
+      },
+      "space-32": {
+        "$type": "dimension",
+        "$value": "128px",
+        "$description": "Hero breathing room; proposal cover margins."
+      }
+    },
+    "radius": {
+      "radius-0": {
+        "$type": "dimension",
+        "$value": "0px",
+        "$description": "Marketing blocks, images, the cover band, tables."
+      },
+      "radius-sm": {
+        "$type": "dimension",
+        "$value": "2px",
+        "$description": "Badges, checkboxes, tooltips, inputs."
+      },
+      "radius-md": {
+        "$type": "dimension",
+        "$value": "4px",
+        "$description": "Buttons, cards, menus, modals."
+      },
+      "radius-lg": {
+        "$type": "dimension",
+        "$value": "8px",
+        "$description": "Mobile sheets and large mobile cards only."
+      },
+      "radius-full": {
+        "$type": "dimension",
+        "$value": "9999px",
+        "$description": "Avatars and the switch track. Nothing else is round."
+      }
+    },
+    "fontFamily": {
+      "sans": {
+        "$type": "fontFamily",
+        "$value": "Instrument Sans"
+      },
+      "arabic": {
+        "$type": "fontFamily",
+        "$value": "IBM Plex Sans Arabic"
+      },
+      "mono": {
+        "$type": "fontFamily",
+        "$value": "IBM Plex Mono"
+      }
+    },
+    "typography": {
+      "display-xl": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{fontFamily.sans}",
+          "fontSize": "96px",
+          "lineHeight": 0.92,
+          "fontWeight": 600,
+          "letterSpacing": "-0.035em"
+        },
+        "$description": "One per page: the website hero, the proposal cover, the case-study title."
+      },
+      "display-lg": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{fontFamily.sans}",
+          "fontSize": "64px",
+          "lineHeight": 0.98,
+          "fontWeight": 600,
+          "letterSpacing": "-0.03em"
+        },
+        "$description": "Section openers on marketing pages; slide titles."
+      },
+      "display-md": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{fontFamily.sans}",
+          "fontSize": "44px",
+          "lineHeight": 1.05,
+          "fontWeight": 600,
+          "letterSpacing": "-0.02em"
+        },
+        "$description": "Case-study chapter titles, social posts, pull quotes."
+      },
+      "heading-1": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{fontFamily.sans}",
+          "fontSize": "32px",
+          "lineHeight": "40px",
+          "fontWeight": 600,
+          "letterSpacing": "-0.015em"
+        },
+        "$description": "Page title inside products; document H1."
+      },
+      "heading-2": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{fontFamily.sans}",
+          "fontSize": "24px",
+          "lineHeight": "32px",
+          "fontWeight": 600,
+          "letterSpacing": "-0.01em"
+        },
+        "$description": "Section headings, modal titles."
+      },
+      "heading-3": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{fontFamily.sans}",
+          "fontSize": "18px",
+          "lineHeight": "26px",
+          "fontWeight": 600,
+          "letterSpacing": "0"
+        },
+        "$description": "Card titles, table titles, form groups."
+      },
+      "body-lg": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{fontFamily.sans}",
+          "fontSize": "18px",
+          "lineHeight": "30px",
+          "fontWeight": 400,
+          "letterSpacing": "0"
+        },
+        "$description": "Marketing lead paragraphs, case-study body, proposals."
+      },
+      "body": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{fontFamily.sans}",
+          "fontSize": "15px",
+          "lineHeight": "24px",
+          "fontWeight": 400,
+          "letterSpacing": "0"
+        },
+        "$description": "Default UI and reading text."
+      },
+      "body-sm": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{fontFamily.sans}",
+          "fontSize": "13px",
+          "lineHeight": "20px",
+          "fontWeight": 400,
+          "letterSpacing": "0"
+        },
+        "$description": "Hints, table cells in dense views, captions."
+      },
+      "label": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{fontFamily.sans}",
+          "fontSize": "13px",
+          "lineHeight": "16px",
+          "fontWeight": 500,
+          "letterSpacing": "0.01em"
+        },
+        "$description": "Form labels, buttons, tabs, nav items."
+      },
+      "ar-display": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{fontFamily.arabic}",
+          "fontSize": "56px",
+          "lineHeight": 1.3,
+          "fontWeight": 600,
+          "letterSpacing": "0"
+        },
+        "$description": "Arabic hero and cover lines; pairs with display-xl/lg."
+      },
+      "ar-heading": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{fontFamily.arabic}",
+          "fontSize": "28px",
+          "lineHeight": 1.6,
+          "fontWeight": 600,
+          "letterSpacing": "0"
+        },
+        "$description": "Arabic section and page titles."
+      },
+      "ar-body": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{fontFamily.arabic}",
+          "fontSize": "16px",
+          "lineHeight": 1.85,
+          "fontWeight": 400,
+          "letterSpacing": "0"
+        },
+        "$description": "Arabic UI and reading text (one pixel larger than Latin body)."
+      },
+      "ar-label": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{fontFamily.arabic}",
+          "fontSize": "14px",
+          "lineHeight": 1.5,
+          "fontWeight": 500,
+          "letterSpacing": "0"
+        },
+        "$description": "Arabic labels, buttons, tabs."
+      },
+      "eyebrow": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{fontFamily.mono}",
+          "fontSize": "11px",
+          "lineHeight": "16px",
+          "fontWeight": 500,
+          "letterSpacing": "0.12em"
+        },
+        "$description": "Uppercase kicker above headings, section indices (01, 02…), slide footers."
+      },
+      "data": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{fontFamily.mono}",
+          "fontSize": "14px",
+          "lineHeight": "20px",
+          "fontWeight": 500,
+          "letterSpacing": "0"
+        },
+        "$description": "KPIs, table numbers, prices."
+      },
+      "code": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{fontFamily.mono}",
+          "fontSize": "13px",
+          "lineHeight": "20px",
+          "fontWeight": 400,
+          "letterSpacing": "0"
+        },
+        "$description": "Code, endpoints, IDs."
+      }
+    },
+    "duration": {
+      "duration-press": {
+        "$type": "duration",
+        "$value": "90ms",
+        "$description": "The press: button active state, the nuqta stamp's compress."
+      },
+      "duration-quick": {
+        "$type": "duration",
+        "$value": "160ms",
+        "$description": "Hover, tab indicator move, tooltip in."
+      },
+      "duration-trace": {
+        "$type": "duration",
+        "$value": "320ms",
+        "$description": "The trace: a line drawing, a panel forming, a toast leaving its mark."
+      },
+      "duration-reveal": {
+        "$type": "duration",
+        "$value": "560ms",
+        "$description": "Marketing reveals only; never in product UI."
+      }
+    }
+  }
+}

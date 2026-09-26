@@ -1,0 +1,55 @@
+{
+  "name": "athr-website",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "check": "npm run typecheck && npm run lint",
+    "shots": "node scripts/screenshots.mjs",
+    "og:fonts": "node scripts/make-og-fonts.mjs",
+    "lighthouse": "node scripts/lh-median.mjs",
+    "check:console": "node scripts/console-check.mjs",
+    "check:weight": "node scripts/first-load.mjs",
+    "check:overflow": "node scripts/overflow-check.mjs",
+    "check:fold": "node scripts/fold-check.mjs"
+  },
+  "dependencies": {
+    "@vercel/analytics": "^1.5.0",
+    "motion": "^13.4.3",
+    "next": "16.3.6",
+    "next-intl": "^4.14.7",
+    "qrcode": "^1.5.4",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "server-only": "^0.0.1",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.50.0",
+    "@tailwindcss/postcss": "^4.3.3",
+    "@types/node": "^22.10.0",
+    "@types/qrcode": "^1.5.5",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "chrome-launcher": "^1.2.1",
+    "eslint": "^9.18.0",
+    "eslint-config-next": "16.3.6",
+    "lighthouse": "^12.8.2",
+    "sharp": "^0.35.4",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^5.7.0",
+    "wawoff2": "^2.0.1"
+  },
+  "browserslist": [
+    "chrome >= 111",
+    "edge >= 111",
+    "firefox >= 128",
+    "safari >= 16.4",
+    "not dead"
+  ]
+}

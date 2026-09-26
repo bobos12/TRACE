@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="../_shared/fonts.css"><link rel="stylesheet" href="../_shared/tokens.css"><link rel="stylesheet" href="../_shared/bundle.css"><script src="../_shared/react.production.min.js"></script><script src="../_shared/react-dom.production.min.js"></script><script src="../_shared/bundle.js"></script><style>body{min-width:1440px}</style><meta charset="utf-8"><title>Proposal — ATHR</title>
+<style>
+  body { background: var(--surface-sunken); }
+  .row { display: flex; gap: 32px; padding: 48px; justify-content: center; }
+  .a4 { width: 420px; height: 594px; flex: none; background: var(--surface-raised); box-shadow: 0 0 0 1px var(--line), var(--shadow-float); position: relative; overflow: hidden; display: flex; flex-direction: column; padding: 36px; font-size: 11px; line-height: 17px; }
+  .cover { background: #0F0F0D; color: #F2EEE4; --ink: #F2EEE4; --vermilion: #FF5A33; --line: #2E2D28; }
+  .cover .top { display: flex; justify-content: space-between; align-items: flex-start; }
+  .cover .client { margin-top: auto; display: flex; flex-direction: column; gap: 14px; }
+  .cover h1 { margin: 0; font-size: 40px; line-height: 1; font-weight: 600; letter-spacing: -.03em; }
+  .cover .for { font-family: var(--font-mono); font-size: 9.5px; letter-spacing: .14em; color: #A7A193; }
+  .cover .base { margin-top: 28px; padding-top: 14px; border-top: 1px solid #2E2D28; display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 9px; letter-spacing: .1em; color: #A7A193; }
+  .cover .ar { font-family: var(--font-arabic); font-size: 16px; color: #A7A193; }
+  .cut-corner { position: absolute; top: 0; right: 0; width: 0; height: 0; border-style: solid; border-width: 0 44px 44px 0; border-color: transparent var(--surface-sunken) transparent transparent; }
+  .run { display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 8.5px; letter-spacing: .14em; color: var(--ink-muted); padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+  .a4 h2 { margin: 28px 0 12px; font-size: 24px; line-height: 1.08; font-weight: 600; letter-spacing: -.02em; }
+  .a4 p { margin: 0 0 10px; color: var(--ink-muted); }
+  .phase { display: grid; grid-template-columns: 28px 1fr auto; gap: 10px; padding: 12px 0; border-bottom: 1px solid var(--line); align-items: baseline; }
+  .phase .n { font-family: var(--font-mono); color: var(--ink-muted); font-size: 10px; }
+  .phase b { display: block; font-size: 12.5px; color: var(--ink); margin-bottom: 2px; }
+  .phase .w { font-family: var(--font-mono); font-size: 10px; }
+  .baseline { position: relative; height: 1px; background: var(--ink); margin: 18px 0 6px; }
+  .baseline i { position: absolute; right: -4px; top: -4px; width: 9px; height: 9px; background: var(--vermilion); transform: rotate(45deg); }
+  .price { display: grid; grid-template-columns: 1fr auto; padding: 9px 0; border-bottom: 1px solid var(--line); }
+  .price span:last-child { font-family: var(--font-mono); }
+  .total { display: grid; grid-template-columns: 1fr auto; padding: 14px 0; font-size: 14px; font-weight: 600; }
+  .total span:last-child { font-family: var(--font-mono); font-size: 18px; font-weight: 500; }
+  .foot { margin-top: auto; display: flex; justify-content: space-between; align-items: center; font-family: var(--font-mono); font-size: 8.5px; letter-spacing: .12em; color: var(--ink-muted); }
+  .quote { font-size: 15px; line-height: 21px; font-weight: 500; color: var(--ink); letter-spacing: -.01em; margin: 6px 0 18px; }
+</style></head>
+<body>
+<div class="row">
+  <section class="a4 cover">
+    <div class="top"><span data-logo="wordmark" data-size="18"></span><span class="for">PROPOSAL ◆ P-2026-031</span></div>
+    <div class="client">
+      <span data-const="Nakheel Logistics" data-size="18"></span>
+      <span class="for">PREPARED FOR NAKHEEL LOGISTICS</span>
+      <h1>One portal for eleven branches<span class="at-stop"></span></h1>
+      <span class="ar" dir="rtl">بوابة واحدة لأحد عشر فرعًا</span>
+    </div>
+    <div class="base"><span>24 SEPTEMBER 2026</span><span>RIYADH · CAIRO</span></div>
+  </section>
+  <section class="a4">
+    <div class="run"><span>ATHR ◆ NAKHEEL</span><span>02 — APPROACH</span></div>
+    <h2>We start inside the warehouse, not the codebase.</h2>
+    <p class="quote">"Dispatch runs on a WhatsApp group and three spreadsheets that only Khalid understands."</p>
+    <p>That sentence, from our first call, is the brief. Before we design a screen we spend two weeks with dispatch, finance and the branch managers, and we write down how a shipment actually moves.</p>
+    <div class="baseline"><i></i></div>
+    <div class="phase"><span class="n">01</span><div><b>Understand</b>Shadow dispatch at Riyadh and Dammam; map every handoff.</div><span class="w">2 wks</span></div>
+    <div class="phase"><span class="n">02</span><div><b>Build around it</b>Portal, driver app, ERP sync — shipped every two weeks.</div><span class="w">12 wks</span></div>
+    <div class="phase"><span class="n">03</span><div><b>Leave a mark</b>Measure dispatch time and lost notes; hand over code and docs.</div><span class="w">2 wks</span></div>
+    <div class="foot"><span>ATHR — PROPOSAL P-2026-031</span><span>02</span></div>
+  </section>
+  <section class="a4"><div class="cut-corner"></div>
+    <div class="run"><span>ATHR ◆ NAKHEEL</span><span>05 — INVESTMENT</span></div>
+    <h2>Investment</h2>
+    <p>Fixed price per phase. You can stop after any phase and keep everything we built.</p>
+    <div class="price"><span>Discovery sprint</span><span>SAR 38,000</span></div>
+    <div class="price"><span>Operations portal (web)</span><span>SAR 164,000</span></div>
+    <div class="price"><span>Driver app (iOS + Android)</span><span>SAR 96,000</span></div>
+    <div class="price"><span>ERP integration</span><span>SAR 42,000</span></div>
+    <div class="price"><span>Handover &amp; training</span><span>SAR 18,000</span></div>
+    <div class="total"><span>Total, excl. VAT</span><span>SAR 358,000</span></div>
+    <p>Care retainer after launch: SAR 14,000 / month, optional.</p>
+    <div class="foot"><span data-logo="symbol" data-size="14"></span><span>05</span></div>
+  </section>
+</div>
+<script>
+  var A = window.Athr, h = React.createElement;
+  document.querySelectorAll('[data-logo]').forEach(function (el) { ReactDOM.createRoot(el).render(h(A.Logo, { variant: el.dataset.logo, size: +el.dataset.size })); });
+  document.querySelectorAll('[data-const]').forEach(function (el) { ReactDOM.createRoot(el).render(h(A.Constellation, { seed: el.dataset.const, size: +el.dataset.size, quiet: true })); });
+</script>
+<button id="athr-theme" aria-label="Switch light/dark" style="position:fixed;right:16px;bottom:16px;z-index:99;height:36px;padding:0 14px;border-radius:4px;border:1px solid var(--line-strong);background:var(--surface-raised);color:var(--ink);font:500 13px var(--font-sans);cursor:pointer">Light / Dark</button>
+<script>(function(){var r=document.documentElement,b=document.getElementById('athr-theme');if(location.hash==='#dark')r.setAttribute('data-theme','dark');b.onclick=function(){r.setAttribute('data-theme',r.getAttribute('data-theme')==='dark'?'light':'dark')};})();</script>
+</body>
+</html>
