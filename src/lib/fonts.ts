@@ -1,9 +1,10 @@
 /**
- * Self-hosted type. The three families are exposed as CSS variables
- * (--font-latin / --font-ar / --font-code) and composed into the token stacks
- * in src/styles/globals.css.
+ * Self-hosted type. The two families are exposed as CSS variables
+ * (--font-latin / --font-code) and composed into the token stacks in
+ * src/styles/globals.css. The site is English-only, so IBM Plex Sans Arabic is
+ * no longer loaded (the files stay in public/fonts/ for brand material).
  *
- * All three are SIL Open Font License 1.1.
+ * Both are SIL Open Font License 1.1.
  */
 import localFont from 'next/font/local';
 
@@ -19,30 +20,6 @@ export const instrumentSans = localFont({
   adjustFontFallback: 'Arial',
 });
 
-/**
- * Arabic — two weights, not preloaded.
- *
- * Preloading was tried and measured: adding these ~86KB to the preload list
- * pushed mobile LCP from 2.84s to 3.37s on `/en` and 3.05s to 3.38s on `/ar`,
- * because on a throttled connection they compete with the HTML, CSS and JS on
- * the critical path. `font-display: swap` plus a metric-compatible fallback is
- * the better trade. See DECISIONS.md.
- *
- * 500 and 700 are not shipped — nothing uses them. A `font-weight: 500`
- * request on an Arabic eyebrow resolves to 400, which is the intent.
- */
-export const plexSansArabic = localFont({
-  src: [
-    { path: '../../public/fonts/IBMPlexSansArabic-400.woff2', weight: '400', style: 'normal' },
-    { path: '../../public/fonts/IBMPlexSansArabic-600.woff2', weight: '600', style: 'normal' },
-  ],
-  display: 'swap',
-  variable: '--font-ar',
-  preload: false,
-  fallback: ['Segoe UI', 'Tahoma', 'Arial'],
-  adjustFontFallback: false,
-});
-
 /** Numbers, eyebrows and codes. Not preloaded: small text, swap is invisible. */
 export const plexMono = localFont({
   src: [
@@ -56,8 +33,4 @@ export const plexMono = localFont({
   adjustFontFallback: false,
 });
 
-export const fontVariables = [
-  instrumentSans.variable,
-  plexSansArabic.variable,
-  plexMono.variable,
-].join(' ');
+export const fontVariables = [instrumentSans.variable, plexMono.variable].join(' ');

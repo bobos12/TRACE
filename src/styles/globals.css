@@ -10,12 +10,12 @@
 @source "../";
 
 /* ──────────────────────────────────────────────────────────────
-   Font stacks — next/font/local exposes --font-latin / --font-ar /
+   Font stacks — next/font/local exposes --font-latin /
    --font-code; the token stacks are rebuilt on top of them.
    ────────────────────────────────────────────────────────────── */
 :root {
-  --font-sans: var(--font-latin), var(--font-ar), system-ui, sans-serif;
-  --font-arabic: var(--font-ar), var(--font-latin), system-ui, sans-serif;
+  --font-sans: var(--font-latin), system-ui, sans-serif;
+  --font-arabic: var(--font-latin), system-ui, sans-serif;
   --font-mono: var(--font-code), ui-monospace, Menlo, monospace;
 
   /* Fluid display sizes. tokens.css ships the desktop values; these keep the
@@ -415,14 +415,14 @@
       calc(var(--trace-delay, 0s) + 0.95s) both;
   }
 
-  /* The three nuqtas stamping onto the bare ت to make ث (About page). */
-  html.js .at-athr-mark [data-nuqta] {
+  /* The three nuqtas stamping onto the A of the wordmark (About page). */
+  html.js .at-brand-mark [data-nuqta] {
     opacity: 0;
     transform-box: fill-box;
     transform-origin: center;
   }
 
-  html.js .at-athr-mark[data-reveal-in] [data-nuqta] {
+  html.js .at-brand-mark[data-reveal-in] [data-nuqta] {
     animation: illo-stamp var(--duration-trace) var(--ease-mark) var(--d, 0ms) both;
   }
 
@@ -489,38 +489,9 @@
     transform-origin: top;
   }
 
-  /* The pinned work track. `--travel` is the overflow, in vw. */
-  .at-work-track {
-    transform: translateX(calc(var(--p, 0) * var(--travel, 0vw)));
-  }
-
-  .at-work-progress {
-    transform: scaleX(var(--p, 0));
-    transform-origin: left center;
-  }
-
-  [dir="rtl"] .at-work-progress {
-    transform-origin: right center;
-  }
-
-  /* One nuqta per project; the current one is at full strength. */
-  .at-work-nuqta {
-    opacity: 0.25;
-    transform: rotate(45deg) scale(0.7071);
-    transition: opacity var(--duration-quick) var(--ease-mark);
-  }
-
-  .at-work-nuqta[data-current] {
-    opacity: 1;
-  }
-
   @media (prefers-reduced-motion: reduce) {
     .at-process-line {
       transform: scaleY(1);
-    }
-
-    .at-work-track {
-      transform: none;
     }
   }
 
@@ -862,7 +833,7 @@
 
 /* The single permitted loop: the client-logo marquee. Stopped under
    prefers-reduced-motion by the block at the foot of this file. */
-@keyframes athr-marquee {
+@keyframes trace-marquee {
   from {
     transform: translateX(0);
   }
@@ -874,7 +845,7 @@
 /* The breathing nuqta — the upper dot of ث fading out and back, then a quick
    electric flicker. The one loop besides the marquee, by the owner's request;
    opacity only, and still under reduced motion. */
-@keyframes athr-breathe {
+@keyframes trace-breathe {
   0%, 100% { opacity: 1; }
   42% { opacity: 0.22; }
   66% { opacity: 1; }
@@ -884,7 +855,7 @@
   78% { opacity: 1; }
 }
 
-@keyframes athr-breathe-glow {
+@keyframes trace-breathe-glow {
   0%, 100% { opacity: 0.7; }
   42% { opacity: 0; }
   66% { opacity: 0.7; }
@@ -895,11 +866,11 @@
 }
 
 .at-breathe {
-  animation: athr-breathe 3.6s ease-in-out infinite;
+  animation: trace-breathe 3.6s ease-in-out infinite;
 }
 
 .at-breathe-glow {
-  animation: athr-breathe-glow 3.6s ease-in-out infinite;
+  animation: trace-breathe-glow 3.6s ease-in-out infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -915,7 +886,7 @@
 /* The marquee runs in CSS so the strips need no client component. Reduced
    motion collapses the duration via the block at the foot of this file. */
 .at-marquee {
-  animation: athr-marquee 40s linear infinite;
+  animation: trace-marquee 40s linear infinite;
 }
 
 .at-marquee-slow {
@@ -925,7 +896,7 @@
 /* In RTL the flex row already lays out right-to-left, so the content sits at
    the right edge and a negative translate pushes it out of view. Move it the
    other way instead; `animation-direction: reverse` is not enough. */
-@keyframes athr-marquee-rtl {
+@keyframes trace-marquee-rtl {
   from {
     transform: translateX(0);
   }
@@ -935,7 +906,7 @@
 }
 
 [dir="rtl"] .at-marquee {
-  animation-name: athr-marquee-rtl;
+  animation-name: trace-marquee-rtl;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -943,6 +914,134 @@
     animation: none !important;
     transform: none !important;
   }
+}
+
+/* ──────────────────────────────────────────────────────────────
+   /bail-bonds — demo canvases
+   ────────────────────────────────────────────────────────────── */
+
+/* A fixed-size mock (authored in px at --w × --h) scaled to its column with
+   no JavaScript: tan(atan2(a, b)) is a / b as a plain number. */
+.bb-frame {
+  container-type: inline-size;
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: var(--ratio);
+}
+
+.bb-canvas {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  width: var(--w);
+  height: var(--h);
+  transform-origin: top left;
+  transform: scale(tan(atan2(100cqw, var(--w))));
+}
+
+/* The products inside the /bail-bonds demos keep their own colours and type
+   in both themes, as real products do. Scoped here so the components still
+   read variables, never raw values. */
+.mock-ironwood {
+  --iw-navy: #0f2240;
+  --iw-navy-deep: #0a182e;
+  --iw-brass: #c9a24a;
+  --iw-red: #c8322b;
+  --iw-ivory: #f6f4ef;
+  --iw-paper: #ffffff;
+  --iw-ink: #14202e;
+  --iw-muted: #5e6a80;
+  --iw-soft: #cbd4e2;
+  --iw-line: #e4ded2;
+  --iw-star: #f2b01e;
+  --iw-serif: Georgia, "Times New Roman", serif;
+  --iw-sans: var(--font-sans);
+  color: var(--iw-ink);
+  font-family: var(--iw-sans);
+}
+
+.mock-old {
+  --old-bg: #3a3a3a;
+  --old-page: #ffffff;
+  --old-banner: #7a0f0f;
+  --old-banner-deep: #3b0505;
+  --old-yellow: #ffd200;
+  --old-link: #0000ee;
+  --old-text: #222222;
+  --old-grey: #c0c0c0;
+  --old-grey-dark: #808080;
+  --old-red: #cc0000;
+  --old-green: #00ff00;
+  --old-serif: "Times New Roman", Times, serif;
+  --old-sans: Verdana, Geneva, Tahoma, sans-serif;
+  --old-impact: Impact, "Arial Black", sans-serif;
+  color: var(--old-text);
+  font-family: var(--old-sans);
+}
+
+.mock-gmaps {
+  --gm-bg: #ffffff;
+  --gm-text: #1f1f1f;
+  --gm-muted: #5f6368;
+  --gm-blue: #0b57d0;
+  --gm-blue-soft: #d3e3fd;
+  --gm-line: #e1e3e1;
+  --gm-chip: #f1f3f4;
+  --gm-green: #188038;
+  --gm-red: #d93025;
+  --gm-star: #fbbc04;
+  --gm-land: #f3f1ec;
+  --gm-block: #ebe8e1;
+  --gm-road: #ffffff;
+  --gm-road-edge: #dcdad3;
+  --gm-highway: #fde293;
+  --gm-highway-edge: #e9bf4f;
+  --gm-water: #a3d4f5;
+  --gm-water-text: #3f7cb5;
+  --gm-park: #c4e5c0;
+  --gm-park-text: #2f7a3a;
+  --gm-pin: #ea4335;
+  --gm-pin-dark: #b31412;
+  --gm-pin-text: #c5221f;
+  --gm-me: #1a73e8;
+  --gm-sans: Roboto, "Google Sans", Arial, sans-serif;
+  color: var(--gm-text);
+  font-family: var(--gm-sans);
+}
+
+.mock-gmaps .gm-halo {
+  paint-order: stroke;
+  stroke: var(--gm-road);
+  stroke-width: 3px;
+  stroke-linejoin: round;
+}
+
+/* The assistant typing — three dots, only while a reply is pending. */
+@keyframes bb-typing {
+  0%, 60%, 100% { opacity: 0.25; }
+  30% { opacity: 1; }
+}
+
+.bb-typing > span {
+  animation: bb-typing 1s ease-in-out infinite;
+}
+
+.bb-typing > span:nth-child(2) { animation-delay: 160ms; }
+.bb-typing > span:nth-child(3) { animation-delay: 320ms; }
+
+/* A chat bubble or notification arriving: rise and fade, once. */
+@keyframes bb-arrive {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+
+.bb-arrive {
+  animation: bb-arrive var(--duration-reveal) var(--ease-mark) both;
+  animation-delay: var(--d, 0ms);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bb-typing > span { animation: none; opacity: 0.6; }
 }
 
 /* ──────────────────────────────────────────────────────────────

@@ -11,7 +11,7 @@ import { ContactBand } from '@/components/sections/ContactBand';
 import { Constellation } from '@/components/brand/Constellation';
 import { Reveal } from '@/components/motion/Reveal';
 import { StopText } from '@/components/brand/Nuqta';
-import { WhatsAppButton } from '@/components/contact/ContactButtons';
+import { BookCallButton } from '@/components/contact/ContactButtons';
 import { Breadcrumbs } from '@/components/seo/Breadcrumbs';
 
 export function generateStaticParams() {
@@ -53,7 +53,7 @@ export default async function WorkPage({
 
   return (
     <>
-      <Breadcrumbs locale={locale} trail={[{ name: site.work.cta, path: '/work' }]} />
+      <Breadcrumbs trail={[{ name: site.work.cta, path: '/work' }]} />
 
       <PageHero
         eyebrow={copy.eyebrow}
@@ -90,9 +90,9 @@ export default async function WorkPage({
             {copy.endText}
           </Reveal>
           <Reveal delay={0.1}>
-            <WhatsAppButton placement="work" context={copy.endTitle} size="lg">
-              {site.cta.whatsapp}
-            </WhatsAppButton>
+            <BookCallButton placement="work" size="lg">
+              {site.cta.book}
+            </BookCallButton>
           </Reveal>
         </Container>
       </section>

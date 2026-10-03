@@ -2,8 +2,8 @@
  * Lighthouse against the production build.
  *
  *   npm run build && npx next start -p 3100
- *   node scripts/lighthouse.mjs                       # /ar and /en, mobile
- *   node scripts/lighthouse.mjs ar,en,en/work desktop
+ *   node scripts/lighthouse.mjs                       # the home page, mobile
+ *   node scripts/lighthouse.mjs .,work,services desktop
  *
  * Routes are written WITHOUT a leading slash — Git Bash rewrites those into
  * Windows paths before node sees them.
@@ -13,7 +13,7 @@ import lighthouse from 'lighthouse';
 import { mkdir, writeFile } from 'node:fs/promises';
 
 const BASE = process.env.LH_BASE ?? 'http://localhost:3100';
-const routes = (process.argv[2] ?? 'ar,en').split(',').map((r) => `/${r.replace(/^\//, '')}`);
+const routes = (process.argv[2] ?? '.').split(',').map((r) => (r === '.' ? '/' : `/${r.replace(/^\//, '')}`));
 const formFactor = process.argv[3] === 'desktop' ? 'desktop' : 'mobile';
 
 const desktop = {

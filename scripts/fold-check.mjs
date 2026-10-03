@@ -1,13 +1,13 @@
-/** Is the hero's WhatsApp CTA above the fold on a 390×844 screen? */
+/** Is the hero's Book-a-call CTA above the fold on a 390×844 screen? */
 import { chromium } from '@playwright/test';
 const b = await chromium.launch();
-for (const loc of ['ar', 'en']) {
+for (const loc of ['en']) {
   const ctx = await b.newContext({ viewport: { width: 390, height: 844 } });
   const p = await ctx.newPage();
-  await p.goto(`http://localhost:3100/${loc}`, { waitUntil: 'networkidle' });
+  await p.goto(`http://localhost:3100/`, { waitUntil: 'networkidle' });
   await p.waitForTimeout(1200);
   const r = await p.evaluate(() => {
-    const cta = document.querySelector('a[href*="wa.me"][class*="h-13"]');
+    const cta = document.querySelector('[data-hero-band] a[class*="h-13"]');
     const box = cta?.getBoundingClientRect();
     return {
       ctaBottom: box ? Math.round(box.bottom) : null,

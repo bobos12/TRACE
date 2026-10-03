@@ -576,3 +576,136 @@ Its cover stays a brand diagram until the clinic's screens arrive.
   reuses the hover-replay twins, so there's no library and no re-render. It pauses off
   screen and in a hidden tab, and does nothing under reduced motion. A further loop,
   at the owner's request.
+
+---
+
+## Direction change — TRACE, for US businesses
+
+The owner renamed the studio **TRACE**, retargeted it at US clients and asked to
+keep the identity exactly as it is. The full brief is `docs/00-direction.md`;
+these are the choices made inside it.
+
+### Decided with the owner
+
+- **English only.** `/ar` and the language switch are gone. The `[locale]`
+  segment and next-intl stay, with `locales: ['en']` and `localePrefix: 'never'`,
+  so URLs are `/work`, not `/en/work`, and a second language can return without
+  restructuring. Old `/en/…` links redirect.
+- **Book a call first, email second.** WhatsApp and phone remain, secondary.
+- **Client work anonymised, not deleted.** Every delivered client was Saudi or
+  Gulf. Deleting them would have left the Work page with three in-house products
+  and six concepts; anonymising keeps the proof of delivery while removing the
+  names, logos, countries, live links and site screenshots.
+- **"USA · Cairo"** — no US city is claimed.
+
+### The wordmark
+
+Built the same way as ATHR's: Instrument Sans at 600, outlined, +36 tracking plus
+the font's own kerning (T–R −8, A–C −46). The nuqta cluster keeps its size, gap
+and height above the cap line, and is **centred on the apex of the A** — the brand
+book already reads the symbol as "the apex of the A", and the A is the middle of
+the word. The symbol, favicons and app icons are unchanged.
+
+### The trust strip without logos
+
+With no client logos to show, the marquee under the hero now runs the written
+commitments (NDA, code ownership, fixed price, two-week cadence, US hours, stop
+any time). For a US buyer weighing an offshore studio these answer the real
+objections better than unfamiliar logos would. The counts stay.
+
+### Why TRACE, and no testimonial
+
+`WhyAthr` existed but was never mounted. It is now `WhyTrace`, on the home page
+after Process, with six commitments a contract can hold. Its placeholder
+testimonial was removed rather than shown — an invented quote on a site built to
+earn trust is the one thing that could undo it.
+
+### Product screens, covers and share images are generated
+
+The ATHR screens carried the old logo, SAR, Riyadh routes and Arabic. They are
+now rendered from `design/reference/pages/*.html` (edited to US demo data and
+the TRACE logo) by `scripts/render-ui.mjs`; concept covers by
+`scripts/make-concept-covers.mjs`; client diagram covers by
+`scripts/make-brand-covers.mjs`, each with the project's own constellation; share
+images by `scripts/make-og.mjs`. Nothing is retouched by hand.
+
+### The Arabic webfont is no longer loaded
+
+Nothing on the site renders Arabic. IBM Plex Sans Arabic stays in `public/fonts/`
+for brand material. The RTL rules in `globals.css` are dormant, not deleted —
+they cost nothing and keep a second language possible.
+
+### Proxy matcher fixed
+
+The matcher was `'/((?!api|_next|_vercel|.*\..*).*)'` in a plain JS string, where
+`\.` is just `.` — so the lookahead excluded every path but `/`. It never showed
+while every route carried `/ar` or `/en`; with unprefixed URLs nothing but the
+home page resolved. It is now `\.`.
+
+### Removed
+
+`qrcode` (the WhatsApp QR on the contact page), the client-logo pipeline
+(`assets/clients-src/`, `public/clients/`, `make-client-logos.mjs`), the live-site
+cover capture (`capture-covers.mjs`) and every client screenshot, and the Salla
+platform mark.
+
+### Named clients and showcase slides (revision)
+
+The owner chose five clients to show by name, with their logos: Future Earth
+Energy, Fateen (all four projects), Car Test, Fancy Stays and Retal Residence.
+The other client projects are removed. The client-logo strip is back above the
+written-commitments marquee, and case studies show the client's logo under
+"Their mark".
+
+The owner asked for visuals that look like real, working products — the WhatsApp
+CRM renders as the bar — instead of plain cards. Each project now has 2–4
+showcase slides: genuine captures of the live site (`scripts/capture-sites.mjs`)
+set in browser and phone frames on the brand grounds
+(`scripts/make-showcases.mjs`). Nothing inside a frame is mocked. Fateen, Car
+Test and ELITE GPT are Arabic-only sites, so their screens are Arabic — that is
+the real work. Future Earth is captured in English (`/en`). Car Test's mobile
+view could not be captured (the site timed out), so it has desktop slides only.
+
+LamaBooking's client app was never published (the repo's `client` folder is an
+empty submodule pointer), so there is no real screen to show. Its slides show the
+real backend instead — the Hotel model, every route with its guard, the
+availability update and the admin check, and the architecture — taken verbatim
+from the repository (`assets/captures/lamabooking/`).
+
+The diagram covers (`make-brand-covers.mjs`) are gone with the anonymised work.
+
+### Home page in English only; Car Test as a logo; no horizontal track (revision)
+
+- **Nothing Arabic on the home page.** Future Earth is recaptured from its English
+  site, fe-ksa.com/en, with its Arabic language switch hidden in the capture. The
+  "One client. Four projects." section (Fateen, whose sites are Arabic-only) is
+  off the home page; Fateen's projects stay on /work. Home cards show the sector,
+  not the country, and capability chips say "Bilingual", not "EN / AR".
+- **Car Test is a logo only.** Its project is removed; the logo stays in the
+  strip without a link (`trust.json` clients may carry a `name` instead of a
+  `project`).
+- **The stats panel is inverse** — carbon on paper, paper on carbon — so it
+  stands apart from the page in both themes.
+- **Selected work no longer scrolls sideways.** The pinned horizontal track and
+  the mobile carousel are replaced by a vertical stack of large case cards (cover
+  beside the story on desktop), each rising in once. The component is now a
+  server component.
+
+## /bail-bonds landing page
+
+- **The demo products look real, in their own colours.** The fictional agency's
+  site (new and 2011 versions) and the maps app keep their own palettes and
+  type in both themes, like real products do. The values live in scoped classes
+  in `globals.css` (`.mock-ironwood`, `.mock-old`, `.mock-gmaps`), so the
+  components still read variables. TRACE tokens stay in charge of everything
+  around the mocks.
+- **Photos only inside the client mock.** The no-stock-photo rule is about
+  TRACE's own pages. The Ironwood site uses a courthouse, an agent portrait and
+  a gavel (from the bail-bonds reference project), because a real agency site
+  would. They never appear outside a mock.
+- **The before/after handle sweeps by itself** while on screen and untouched,
+  every few seconds, so visitors who never drag still see the change. The first
+  touch, click or key press stops it; reduced motion never starts it. This is
+  the owner's request and the one exception to "animate once" on the page.
+- **No third-party logos in the maps screen.** It follows the app's layout and
+  colours; the map is drawn in SVG, not a tile.

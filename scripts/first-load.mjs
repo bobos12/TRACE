@@ -7,7 +7,7 @@ import { chromium } from '@playwright/test';
 import zlib from 'node:zlib';
 
 const base = process.argv[2] ?? 'http://localhost:3100';
-const routes = (process.argv[3] ?? 'en').split(',').map((r) => `/${r.replace(/^\//, '')}`);
+const routes = (process.argv[3] ?? '').split(',').map((r) => `/${r.replace(/^\//, '')}`);
 
 const browser = await chromium.launch();
 

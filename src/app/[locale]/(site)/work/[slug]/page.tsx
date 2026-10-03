@@ -6,6 +6,7 @@ import { setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { readLocale, routing } from '@/i18n/routing';
 import {
+  getClientLogos,
   getNextProject,
   getProject,
   getProjects,
@@ -22,6 +23,7 @@ import { Reveal } from '@/components/motion/Reveal';
 import { CountUp } from '@/components/motion/CountUp';
 import { Nuqta, StopText } from '@/components/brand/Nuqta';
 import { Constellation } from '@/components/brand/Constellation';
+import { ClientMark } from '@/components/sections/ClientMark';
 import { ContactBand } from '@/components/sections/ContactBand';
 import { ProjectCover } from '@/components/sections/ProjectCover';
 import { ProjectGallery } from '@/components/sections/ProjectGallery';
@@ -87,7 +89,12 @@ export default async function ProjectPage({
   const site = getSite(locale);
   const ui = site.ui;
   const project = localizeProject(found, locale);
-  const otherLangTitle = found[locale === 'ar' ? 'en' : 'ar'].title;
+  // The client's own logo, when we have it — shared across a client's projects.
+  const clientLogo = getClientLogos(locale).find((logo) => {
+    if (!logo.href) return false;
+    const owner = getProject(logo.href.split('/').pop() ?? '');
+    return owner?.slug === slug || (found.group !== undefined && owner?.group === found.group);
+  });
   const next = getNextProject(slug);
   const nextProject = next ? localizeProject(next, locale) : undefined;
 
@@ -103,9 +110,9 @@ export default async function ProjectPage({
     abstract: project.summary,
     inLanguage: locale,
     dateCreated: String(project.year),
-    url: siteUrl(`/${locale}/work/${slug}`),
+    url: siteUrl(`/work/${slug}`),
     image: siteUrl(project.cover),
-    creator: { '@type': 'Organization', name: 'ATHR', url: siteUrl(`/${locale}`) },
+    creator: { '@type': 'Organization', name: 'TRACE', url: siteUrl('') },
     about: serviceNames.join(', '),
   };
 
@@ -116,7 +123,6 @@ export default async function ProjectPage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <Breadcrumbs
-        locale={locale}
         trail={[
           { name: site.work.cta, path: '/work' },
           { name: project.title, path: `/work/${slug}` },
@@ -135,12 +141,7 @@ export default async function ProjectPage({
               <h1 className="display-xl m-0 max-w-[14ch]">
                 <StopText>{project.client}</StopText>
               </h1>
-              <p className="heading-2 max-w-[32ch] text-ink-muted" lang={locale === 'ar' ? 'ar' : 'en'}>
-                {project.title}
-              </p>
-              <p className="body text-ink-faint" lang={locale === 'ar' ? 'en' : 'ar'} dir={locale === 'ar' ? 'ltr' : 'rtl'}>
-                {otherLangTitle}
-              </p>
+              <p className="heading-2 max-w-[32ch] text-ink-muted">{project.title}</p>
 
               {/* Said plainly, at the top, before anything else is read. */}
               {project.kind === 'concept' ? (
@@ -232,7 +233,11 @@ export default async function ProjectPage({
             <div className="flex flex-col gap-2">
               <dt className="eyebrow text-ink-faint">{ui.theirMark}</dt>
               <dd>
-                <Constellation seed={project.client} size={13} className="text-ink" />
+                {clientLogo ? (
+                  <ClientMark client={clientLogo} className="h-10 w-auto max-w-[180px]" />
+                ) : (
+                  <Constellation seed={project.client} size={13} className="text-ink" />
+                )}
               </dd>
             </div>
           </dl>

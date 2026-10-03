@@ -1,47 +1,61 @@
 {
   "meta": {
-    "title": "ATHR — Software studio for businesses in Saudi Arabia, Egypt and the Gulf",
-    "description": "ATHR designs and builds websites, apps, business systems and custom software around how your business actually works. Arabic and English. Talk to us on WhatsApp.",
+    "title": "TRACE — Software studio for US businesses",
+    "description": "TRACE designs and builds websites, apps, business systems and custom software around how your business actually works. Senior engineers on US hours, fixed price per phase, and you own the code. Book a free 30-minute call.",
     "ogImage": "/og/og-home-en.png"
   },
   "nav": {
     "links": [
       {
         "label": "Work",
-        "href": "/en/work"
+        "href": "/work"
       },
       {
         "label": "Services",
-        "href": "/en/services"
+        "href": "/services"
+      },
+      {
+        "label": "Industries",
+        "href": "/bail-bonds",
+        "children": [
+          { "label": "Bail bond agencies", "href": "/bail-bonds", "text": "Websites and AI built for the 2 a.m. search." }
+        ]
       },
       {
         "label": "How we work",
-        "href": "/en/#process"
+        "href": "/#process"
       },
       {
         "label": "About",
-        "href": "/en/about"
+        "href": "/about"
       }
     ],
-    "lang": "العربية",
-    "cta": "WhatsApp us",
-    "call": "Call"
+    "cta": "Book a call",
+    "email": "Email us"
   },
   "hero": {
-    "eyebrow": "Software & digital studio ◆ Across the Gulf and Egypt",
+    "eyebrow": "Software studio ◆ USA · Cairo",
     "title": [
       "Every business",
       "leaves a mark."
     ],
     "subtitle": "We build the software that carries it.",
-    "lead": "Websites, apps, business systems and custom software — designed around how your business actually works, in Arabic and English.",
-    "primaryCta": "Talk to us on WhatsApp",
-    "secondaryCta": "Order your service",
-    "reassurance": "Free 30-minute call · Reply within one working hour",
-    "otherLanguageLine": "لكل عمل أثر. نحن نبني التقنية التي تحمله."
+    "lead": "Websites, apps, business systems and custom software — built by a senior team that works your US hours. Fixed price per phase, and the code is yours.",
+    "primaryCta": "Book a free call",
+    "secondaryCta": "Send a project brief",
+    "reassurance": "Free 30-minute call · NDA on request · Reply within one business day"
   },
   "trust": {
     "logosTitle": "Trusted by businesses we’ve built for",
+    "title": "What every client gets, in writing",
+    "promises": [
+      "NDA before the first call",
+      "You own 100% of the code",
+      "Fixed price per phase",
+      "Working software every two weeks",
+      "Calls and demos on US hours",
+      "Stop after any phase, keep everything"
+    ],
     "stats": [
       {
         "value": "20+",
@@ -80,8 +94,8 @@
       "AI-powered tools",
       "Custom software"
     ],
-    "request": "Request on WhatsApp",
-    "requestMessage": "Hello ATHR, I'm interested in: {service}."
+    "request": "Ask about this",
+    "requestMessage": "Project enquiry — {service}"
   },
   "platforms": {
     "eyebrow": "03 ◆ Platforms",
@@ -91,7 +105,7 @@
   "clientWork": {
     "eyebrow": "04 ◆ Client work",
     "title": "One client. Four projects.",
-    "lead": "For Fateen, a Saudi digital marketing agency, we built the main website and the landing pages behind its web development, real estate and advertising lines.",
+    "lead": "For Fateen, a digital marketing agency, we built the main website and the landing pages behind its web development, real estate and advertising lines.",
     "projectsLabel": "Delivered for Fateen",
     "moreTitle": "More client work",
     "categories": {
@@ -117,12 +131,12 @@
       {
         "n": "01",
         "title": "Understand",
-        "text": "A free call, then a short discovery with the people who do the work. You get a clear scope and a fixed price per phase."
+        "text": "A free call, then a short discovery with the people who do the work. You get a written scope and a fixed price per phase."
       },
       {
         "n": "02",
         "title": "Build around it",
-        "text": "Design and development in two-week cycles. You see working software every two weeks, in both languages."
+        "text": "Design and development in two-week cycles. Every two weeks you see working software, demoed live in your time zone."
       },
       {
         "n": "03",
@@ -132,44 +146,39 @@
       {
         "n": "04",
         "title": "Hand over & support",
-        "text": "Code, docs and access are yours. We stay on for support if you want us to."
+        "text": "Code, docs and accounts are yours from day one. We stay on for support if you want us to."
       }
     ]
   },
   "why": {
-    "eyebrow": "04 ◆ Why ATHR",
-    "title": "Why companies choose us.",
+    "eyebrow": "06 ◆ Why TRACE",
+    "title": "Built to be trusted with your business.",
     "points": [
       {
-        "title": "Built around your workflow",
-        "text": "No templates. We map how your business works first."
+        "title": "Senior people, no sales layer",
+        "text": "You talk directly to the engineers who write your code — from the first call to launch."
       },
       {
-        "title": "Arabic and English from day one",
-        "text": "RTL-native design and copy, not an afterthought."
+        "title": "Your hours, not ours",
+        "text": "Our Cairo team overlaps the US workday. Calls, demos and answers happen while you are at your desk."
       },
       {
         "title": "Fixed price per phase",
-        "text": "Clear scope, no surprises. Stop after any phase and keep what we built."
+        "text": "A written scope and a fixed price. Stop after any phase and keep everything we built."
       },
       {
         "title": "You own everything",
-        "text": "Source code, designs and accounts are handed over to you."
+        "text": "Source code, designs and accounts live in your GitHub and your cloud from day one."
       },
       {
-        "title": "Direct line to the builders",
-        "text": "Talk to the people writing your code — on WhatsApp."
+        "title": "NDA before we talk",
+        "text": "Your idea stays yours. We sign your NDA — or ours — before the first call."
       },
       {
         "title": "Support after launch",
-        "text": "Maintenance and improvements on a simple monthly plan."
+        "text": "Maintenance and improvements on a simple monthly plan, or a clean handover. Your choice."
       }
     ]
-  },
-  "testimonial": {
-    "text": "It feels like the system was built by someone who worked here.",
-    "by": "Head of Dispatch, logistics company (KSA)",
-    "_note": "PLACEHOLDER — replace with a real client quote."
   },
   "industries": {
     "title": "Industries we build for",
@@ -187,49 +196,54 @@
   "cta": {
     "title": "Tell us how your business works.",
     "text": "A free 30-minute call. No pitch deck. We'll tell you honestly whether software is the answer.",
-    "whatsapp": "Chat on WhatsApp",
-    "call": "Call us",
-    "email": "or email"
+    "book": "Book a free call",
+    "bookNote": "Pick a time that suits you — 30 minutes, no obligation.",
+    "email": "Email us",
+    "whatsapp": "WhatsApp",
+    "call": "Call"
   },
   "brief": {
-    "eyebrow": "Start on WhatsApp",
+    "eyebrow": "Send a project brief",
     "servicesLabel": "What do you need?",
     "nameLabel": "Your name",
-    "companyLabel": "Business name",
+    "companyLabel": "Company",
     "detailsLabel": "A line about the project",
-    "detailsPlaceholder": "e.g. An online store for our perfume brand, in Arabic and English.",
-    "submit": "Send on WhatsApp",
-    "hint": "WhatsApp opens with your message ready — you just press send.",
+    "detailsPlaceholder": "e.g. A customer portal that replaces our order spreadsheets.",
+    "submit": "Send brief by email",
+    "hint": "Your email app opens with the brief written — you just press send.",
+    "orWhatsApp": "Or send it on WhatsApp",
     "errorServices": "Pick at least one service.",
     "errorName": "Tell us your name.",
-    "messageHello": "Hello ATHR, this is {name}.",
-    "messageHelloCompany": "Hello ATHR, this is {name} from {company}.",
+    "subject": "Project brief — {name}",
+    "messageHello": "Hi TRACE, this is {name}.",
+    "messageHelloCompany": "Hi TRACE, this is {name} from {company}.",
     "messageServices": "I'm interested in: {services}.",
     "messageDetails": "Details: {details}",
     "messagePage": "Sent from: {page}"
   },
   "contactPage": {
     "title": "Let's talk about your project.",
-    "lead": "The fastest way to reach us is WhatsApp. Prefer a form? Leave your details and we'll call you.",
+    "lead": "The fastest way is a free 30-minute call — pick a time that suits you. Prefer writing? Leave your details and we'll reply within one business day.",
     "form": {
       "name": "Your name",
       "company": "Company",
-      "phone": "Phone / WhatsApp",
+      "email": "Work email",
+      "phone": "Phone",
       "type": "What do you need?",
       "message": "Tell us briefly about the project",
-      "submit": "Send — we'll reply within one working hour",
-      "success": "Thanks. We'll reach out within one working hour."
+      "submit": "Send — we reply within one business day",
+      "success": "Thanks. We'll be in touch within one business day."
     }
   },
   "footer": {
     "tagline": "Every business leaves a mark. We build the software that carries it.",
-    "rights": "© 2026 ATHR. All rights reserved.",
+    "rights": "© 2026 TRACE. All rights reserved.",
     "privacy": "Privacy",
     "terms": "Terms"
   },
   "floating": {
-    "whatsapp": "WhatsApp",
-    "call": "Call"
+    "book": "Book a call",
+    "email": "Email"
   },
   "ui": {
     "skipToContent": "Skip to content",
@@ -239,15 +253,14 @@
     "themeToggle": "Theme",
     "themeLight": "Paper",
     "themeDark": "Carbon",
-    "langSwitch": "Switch language",
-    "whatsappTooltip": "WhatsApp us — we reply within an hour",
+    "bookTooltip": "Book a free 30-minute call",
     "scroll": "Scroll",
-    "servicesAsk": "Not sure what you need? Ask us on WhatsApp",
-    "workAsk": "Want something like this? Tell us about your project",
+    "servicesAsk": "Not sure what you need? Book a free call",
+    "workAsk": "Want something like this? Book a free call",
     "kindClient": "Client work",
     "kindProduct": "In-house product",
     "kindConcept": "Concept",
-    "conceptNote": "A concept piece, built by ATHR to show how we work. It is not client work, and the client, figures and quote in it are illustrative.",
+    "conceptNote": "A concept piece, built by TRACE to show how we work. It is not client work, and the client, figures and quote in it are illustrative.",
     "inDevelopment": "In development",
     "visitSite": "Visit the live site",
     "viewCode": "View the code",
@@ -279,12 +292,12 @@
     "previous": "Previous",
     "next": "Next",
     "notFoundTitle": "This page left no trace.",
-    "notFoundText": "The link may be old, or the page may have moved. Try the home page — or just message us and we will point you to it.",
+    "notFoundText": "The link may be old, or the page may have moved. Try the home page — or just email us and we will point you to it.",
     "backHome": "Go to the home page",
     "optional": "Optional",
-    "sendOnWhatsApp": "Send on WhatsApp",
+    "sendByEmail": "Send by email",
     "sending": "Sending…",
-    "formError": "Something went wrong. Send it on WhatsApp instead — it reaches us either way.",
+    "formError": "Something went wrong. Send it by email instead — it reaches us either way.",
     "notSure": "Not sure yet",
     "footerServices": "Services",
     "footerCompany": "Company",
@@ -292,17 +305,17 @@
     "footerWork": "Work",
     "about": "About",
     "contact": "Contact",
-    "cr": "Commercial registration",
     "caseStudy": "Case study",
+    "bailBonds": "For bail bond agencies",
     "formTitle": "Leave your details",
-    "messagePlaceholder": "Eleven branches share one WhatsApp group and three spreadsheets…"
+    "messagePlaceholder": "Eleven locations share one inbox and three spreadsheets…"
   },
   "pages": {
     "services": {
       "eyebrow": "Services ◆ What we build",
       "title": "Software solutions, built around your business.",
       "lead": "Nine things we do well, and any custom solution in between. Every one of them starts with how your business already works.",
-      "midCta": "Not sure which one? Describe the problem on WhatsApp."
+      "midCta": "Not sure which one? Book a free call and describe the problem."
     },
     "work": {
       "eyebrow": "Work ◆ Selected projects",
@@ -313,24 +326,24 @@
     },
     "about": {
       "eyebrow": "About ◆ The name",
-      "title": "أثر means the mark that remains.",
-      "lead": "A trace, an imprint, an effect — what is left after you have gone. It is also what we are hired to leave behind.",
+      "title": "A trace is the mark that remains.",
+      "lead": "An imprint, an effect — what is left after you have gone. It is also what we are hired to leave behind.",
       "story": [
-        "In Arabic, ب ت ث share one skeleton. What makes a ث a ث is the three dots placed above it. Businesses are the same: most need similar skeletons — accounts, orders, approvals, dashboards. What makes a system theirs is how it is shaped around their people, their language and their workflow.",
-        "ATHR builds the skeleton properly, then places the mark. We started because too many companies in the region were paying for templates with their logo on top, or for developer hours with nobody accountable for the result.",
-        "We work in Arabic and English from the first meeting, we visit before we quote, and we hand over everything we build."
+        "Most businesses need similar skeletons — accounts, orders, approvals, dashboards. What makes a system theirs is how it is shaped around their people, their tools and their workflow. That shaping is the mark it leaves.",
+        "TRACE builds the skeleton properly, then places the mark. We started because too many companies were paying for templates with their logo on top, or for developer hours with nobody accountable for the result.",
+        "We are a US-facing studio with our engineering team in Cairo. Our mark is three nuqtas — the Arabic word for the dots that turn one letter into another — a nod to where we build. You get senior engineers who overlap your working day, a fixed price per phase, and everything we build handed over to you."
       ],
       "meaningsTitle": "Three readings, three commitments",
       "meanings": [
         {
           "term": "Trace",
           "title": "We study how work actually moves",
-          "text": "Discovery before design. We sit in the warehouse, the clinic, the office — and we visit before we quote."
+          "text": "Discovery before design. We sit with the people in the warehouse, the clinic, the office — before we quote."
         },
         {
           "term": "Imprint",
-          "title": "The result is uniquely theirs",
-          "text": "Custom, bilingual, shaped to the workflow. No templates, and no Arabic version coming later."
+          "title": "The result is uniquely yours",
+          "text": "Custom, shaped to the workflow and the tools you already pay for. No templates with your logo on top."
         },
         {
           "term": "Effect",
@@ -341,12 +354,12 @@
       "principlesTitle": "How we work",
       "principles": [
         {
-          "title": "Two-week discovery, inside the business",
-          "text": "We map how the work moves before anyone writes code."
+          "title": "Discovery before a line of code",
+          "text": "We map how the work moves before anyone writes code, and you get the scope in writing."
         },
         {
-          "title": "Arabic and English from day one",
-          "text": "RTL-native design, not a translation layer bolted on at the end."
+          "title": "Your time zone, your tools",
+          "text": "Calls and demos on US hours, in the tools you already use — Slack, GitHub, Jira, Linear."
         },
         {
           "title": "Fixed price per phase",
@@ -354,7 +367,7 @@
         },
         {
           "title": "Measured, then handed over",
-          "text": "Source code, designs, documentation and accounts become yours."
+          "text": "Source code, designs, documentation and accounts are yours."
         }
       ],
       "teamTitle": "Who you will be talking to",
@@ -362,7 +375,7 @@
         {
           "name": "Founder",
           "role": "Product & delivery",
-          "line": "Runs discovery, writes the scope, stays on the WhatsApp thread."
+          "line": "Runs discovery, writes the scope, stays on your Slack channel."
         },
         {
           "name": "Lead engineer",
@@ -384,11 +397,19 @@
         },
         {
           "q": "How is it priced?",
-          "a": "PLACEHOLDER — replace with your real answer. Fixed price per phase, agreed after discovery."
+          "a": "PLACEHOLDER — replace with your real answer. Fixed price per phase in USD, agreed in writing after discovery."
+        },
+        {
+          "q": "Where is your team, and what hours do you work?",
+          "a": "Our engineering team is in Cairo, Egypt, and works hours that overlap the US workday. You get one point of contact, and every call and demo is scheduled in your time zone."
+        },
+        {
+          "q": "Will you sign an NDA?",
+          "a": "Yes — yours or ours, before the first detailed conversation."
         },
         {
           "q": "Do we own the code?",
-          "a": "Yes. Source code, designs, documentation and accounts are handed over to you."
+          "a": "Yes. Source code, designs, documentation and accounts are handed over to you — most clients have the repository in their own GitHub from day one."
         },
         {
           "q": "Do you support it after launch?",
@@ -406,15 +427,15 @@
         "sections": [
           {
             "heading": "What we collect",
-            "body": "If you send us a message through the contact form we keep your name, company, phone number, email and what you wrote, so that we can reply. We do not collect anything else about you on this site."
+            "body": "If you send us a message through the contact form we keep your name, company, email, phone number and what you wrote, so that we can reply. We do not collect anything else about you on this site."
           },
           {
             "heading": "Analytics",
             "body": "We count page views and which contact buttons are pressed, in aggregate. We do not use advertising cookies and we do not build a profile of you."
           },
           {
-            "heading": "WhatsApp and phone",
-            "body": "Messaging us on WhatsApp or calling us is governed by your own agreement with those providers. Your message reaches us the same way any customer message would."
+            "heading": "Calls, email and messaging",
+            "body": "Booking a call, emailing us or messaging us is also governed by your own agreement with those providers. Your message reaches us the same way any customer message would."
           },
           {
             "heading": "How long we keep it",
@@ -432,11 +453,11 @@
         "sections": [
           {
             "heading": "About this site",
-            "body": "This site describes the services ATHR offers. Nothing on it is a binding quote or a contract."
+            "body": "This site describes the services TRACE offers. Nothing on it is a binding quote or a contract."
           },
           {
             "heading": "Project work",
-            "body": "Every project runs under a written agreement signed by both sides, covering scope, price, timing, ownership and support."
+            "body": "Every project runs under a written agreement signed by both sides, covering scope, price, timing, ownership, confidentiality and support."
           },
           {
             "heading": "Ownership",
@@ -444,7 +465,7 @@
           },
           {
             "heading": "Our work shown here",
-            "body": "Project pages describe work we did with the permission of the client. Client names and marks remain theirs."
+            "body": "Project pages describe work we did with the permission of the client. Client names and marks remain theirs. Concept pieces are labelled as such."
           },
           {
             "heading": "Accuracy",

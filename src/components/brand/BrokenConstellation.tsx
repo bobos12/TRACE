@@ -2,11 +2,11 @@ import { constellation } from '@/lib/constellation';
 import { cn } from '@/lib/cn';
 
 /**
- * ATHR's own constellation with the vermilion nuqta missing — the mark that
+ * TRACE's own constellation with the vermilion nuqta missing — the mark that
  * did not get made. Used only on the 404 page.
  */
 export function BrokenConstellation({ size = 30, className }: { size?: number; className?: string }) {
-  const { on, mark } = constellation('ATHR');
+  const { on, mark } = constellation('TRACE');
 
   return (
     <span

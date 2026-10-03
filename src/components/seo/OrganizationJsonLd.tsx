@@ -5,7 +5,7 @@ import { siteUrl } from '@/lib/seo';
 
 /**
  * Organization + ProfessionalService for the home page.
- * areaServed covers the markets in docs/01-brief.md: Saudi Arabia, Egypt, UAE.
+ * TRACE serves US businesses; the engineering team sits in Cairo, Egypt.
  */
 export function OrganizationJsonLd({ locale }: { locale: Locale }) {
   const site = getSite(locale);
@@ -16,40 +16,28 @@ export function OrganizationJsonLd({ locale }: { locale: Locale }) {
     '@context': 'https://schema.org',
     '@type': ['Organization', 'ProfessionalService'],
     '@id': `${siteUrl('')}/#organization`,
-    name: 'ATHR',
-    alternateName: 'أثر',
-    url: siteUrl(`/${locale}`),
+    name: 'TRACE',
+    url: siteUrl(''),
     logo: siteUrl('/icon-512.png'),
     image: siteUrl(site.meta.ogImage),
     description: site.meta.description,
     slogan: site.footer.tagline,
     email: contact.email,
     telephone: contact.phone,
-    areaServed: [
-      { '@type': 'Country', name: 'Saudi Arabia' },
-      { '@type': 'Country', name: 'Egypt' },
-      { '@type': 'Country', name: 'United Arab Emirates' },
-    ],
-    knowsLanguage: ['ar', 'en'],
+    areaServed: [{ '@type': 'Country', name: 'United States' }],
+    knowsLanguage: ['en'],
     contactPoint: [
       {
         '@type': 'ContactPoint',
         contactType: 'sales',
         telephone: contact.phone,
         email: contact.email,
-        availableLanguage: ['Arabic', 'English'],
-        areaServed: ['SA', 'EG', 'AE'],
-      },
-      {
-        '@type': 'ContactPoint',
-        contactType: 'customer support',
-        telephone: contact.phoneSecondary,
-        availableLanguage: ['Arabic', 'English'],
-        areaServed: ['EG'],
+        availableLanguage: ['English'],
+        areaServed: ['US'],
       },
     ],
     ...(sameAs.length ? { sameAs } : {}),
-    // TODO: add the Saudi commercial registration number here and in the footer.
+    // TODO: add the US legal entity (name, state, address) here and in the footer once formed.
   };
 
   return (

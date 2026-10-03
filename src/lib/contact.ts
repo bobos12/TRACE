@@ -1,8 +1,9 @@
 /**
- * Contact helpers — the site's two primary conversion actions.
- * Numbers live in content/contact.json (E.164, no spaces).
- * Extended from starters/contact.ts: adds placement typing, the analytics
- * bridge to Vercel Analytics, and the WhatsApp fallback used by the form.
+ * Contact helpers — the site's conversion actions, in order of weight:
+ * book a call, email, then WhatsApp and phone for those who prefer them.
+ * Details live in content/contact.json.
+ * Extended from starters/contact.ts: adds placement typing and the analytics
+ * bridge to Vercel Analytics.
  */
 import { track as vercelTrack } from '@vercel/analytics';
 import { contact } from '@/lib/contact-data';
@@ -10,7 +11,7 @@ import type { Locale } from '@/i18n/routing';
 
 export { contact };
 
-export type ContactChannel = 'whatsapp' | 'phone' | 'email' | 'form';
+export type ContactChannel = 'booking' | 'email' | 'whatsapp' | 'phone' | 'form';
 
 /** Placement values, per docs/06-conversion.md. */
 export type Placement =
@@ -27,9 +28,26 @@ export type Placement =
   | 'footer'
   | '404'
   | `service:${string}`
-  | `project:${string}`;
+  | `project:${string}`
+  | `landing:${string}`;
 
-/** WhatsApp deep link with exactly this message — the brief form writes its own. */
+/** Is the scheduling link real yet? Placeholders still contain REPLACE. */
+export const hasBooking = !contact.booking.includes('REPLACE');
+
+/**
+ * Where "Book a call" goes: the scheduling page, or — until one is set in
+ * content/contact.json — the contact page, so the button never dead-ends.
+ */
+export function bookingHref(): string {
+  return hasBooking ? contact.booking : '/contact';
+}
+
+/** The booking link opens in a new tab only when it leaves the site. */
+export const bookingLinkProps = hasBooking
+  ? { target: '_blank' as const, rel: 'noopener' as const }
+  : {};
+
+/** WhatsApp deep link with exactly this message. */
 export function whatsappTextHref(text: string): string {
   const number = contact.whatsapp.replace(/[^\d]/g, '');
   return `https://wa.me/${number}?text=${encodeURIComponent(text)}`;
@@ -42,13 +60,16 @@ export function whatsappHref(locale: Locale, context?: string): string {
 }
 
 /** tel: link. Always show contact.phoneDisplay beside it — people trust the number. */
-export function phoneHref(secondary = false): string {
-  return `tel:${secondary ? contact.phoneSecondary : contact.phone}`;
+export function phoneHref(): string {
+  return `tel:${contact.phone}`;
 }
 
-export function mailHref(subject?: string): string {
-  const q = subject ? `?subject=${encodeURIComponent(subject)}` : '';
-  return `mailto:${contact.email}${q}`;
+export function mailHref(subject?: string, body?: string): string {
+  const params = [
+    subject ? `subject=${encodeURIComponent(subject)}` : '',
+    body ? `body=${encodeURIComponent(body)}` : '',
+  ].filter(Boolean);
+  return `mailto:${contact.email}${params.length ? `?${params.join('&')}` : ''}`;
 }
 
 /**

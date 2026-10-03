@@ -1,19 +1,22 @@
-# CLAUDE.md — ATHR website
+# CLAUDE.md — TRACE website
 
-You are building the marketing website for **ATHR (أثر)**, a software studio serving businesses in Saudi Arabia, Egypt and the Gulf.
+You are building the marketing website for **TRACE**, a software studio serving **US businesses**, with its engineering team in Cairo ("USA · Cairo").
 
-**Job of the site:** convince companies to trust ATHR, then get them to contact us — **WhatsApp first, phone second**.
+**Job of the site:** convince US companies to trust TRACE, then get them to contact us — **book a call first, email second**. WhatsApp and phone are secondary.
+
+The brand was built as ATHR (أثر) for the Gulf; the identity is unchanged, only the name, market, language and contact funnel changed. **`docs/00-direction.md` overrides docs 01–07 and the brand guidelines wherever they disagree.**
 
 This folder already contains the brand, the specs, the content and every asset. Build from them. Don't invent a new visual direction.
 
 ## Read before writing code (in this order)
 
-1. `docs/01-brief.md` — the goal and the founder's original brief (Arabic).
+0. `docs/00-direction.md` — **the current direction: TRACE, English only, US buyers, book-a-call first.**
+1. `docs/01-brief.md` — the goal and the founder's original brief (Arabic, written for ATHR).
 2. `docs/02-brand-essentials.md` — the identity rules you must follow.
 3. `docs/03-home-page.md` — the home page, section by section (visual-first). **The most important document.**
 4. `docs/04-pages.md` — services, work (portfolio), project, about and contact pages.
 5. `docs/05-motion.md` — animation and interaction rules.
-6. `docs/06-conversion.md` — where the WhatsApp and call CTAs go, and the trust signals.
+6. `docs/06-conversion.md` — CTA placement and trust signals (read "WhatsApp" as "Book a call" — see 00).
 7. `docs/07-tech.md` — stack, structure, SEO, performance, accessibility and verification.
 
 **Look at the visuals too:** `design/reference/renders/*.png` (the approved look, light and dark) and `design/reference/pages/*.html` (open them in a browser).
@@ -24,18 +27,18 @@ Full brand guidelines: `docs/brand-guidelines/` (markdown + PDF).
 
 | Path | What |
 | --- | --- |
-| `public/brand/*.svg` | 17 logo files. In code, prefer `starters/Logo.tsx` (exact outlines, animatable nuqtas) |
-| `public/fonts/*.woff2` | Instrument Sans (variable), IBM Plex Sans Arabic 400–700, IBM Plex Mono 400/500 |
+| `public/brand/*.svg` | TRACE wordmark and symbol files. In code use `src/components/brand/Logo.tsx` (exact outlines, animatable nuqtas) |
+| `public/fonts/*.woff2` | Instrument Sans (variable) and IBM Plex Mono 400/500 (loaded); IBM Plex Sans Arabic (kept for brand material, not loaded) |
 | `public/icons/*.svg` | 29 icons: 1.5px stroke, square caps, 24px grid. Includes `whatsapp.svg`, `phone.svg`, `mail.svg` |
-| `public/images/ui/*` | Real product screens @2x (dashboard, mobile EN/AR, websites EN/AR, case study; light + dark). Phones are transparent PNGs |
-| `public/images/portfolio/*.jpg` | Project covers, 1600×1000 — **placeholders** |
-| `public/og/*.png` | Social share images (home EN/AR, case study, default) |
+| `public/images/ui/*` | Product screens @2x (dashboard, mobile, website, case study; light + dark), rendered from `design/reference/pages/` by `scripts/render-ui.mjs`. Phones are transparent PNGs |
+| `public/images/portfolio/*.jpg` | Project covers and galleries, 2400×1500 — showcase slides built from real captures (`capture-sites.mjs` → `make-showcases.mjs`), composites for concepts |
+| `public/og/*.png` | Social share images (home, case study, default) — `scripts/make-og.mjs` |
 | `public/favicon.*`, `apple-touch-icon.png`, `icon-*.png`, `site.webmanifest` | Favicons and PWA icons |
 | `design/tokens/` | `tokens.css` (CSS variables, both themes, type classes), `tailwind-v4.css`, `tokens.json`, `figma-tokens.json` |
 | `design/components-reference/` | Spec for 23 UI components: styles (`bundle.css`), props (`index.d.ts`), rules (`guidelines/`) |
 | `design/reference/` | Approved page designs (HTML + PNG renders) and the live component gallery |
-| `content/*.json` | All copy (EN + AR), services, portfolio, contact details |
-| `starters/` | `Logo.tsx`, `constellation.ts`, `contact.ts` (WhatsApp/phone links + tracking), `motion.ts` (presets). Copy into `src/` |
+| `content/*.json` | All copy (English), services, portfolio, contact details (booking link first) |
+| `starters/` | The original starter files. `src/` is now the source of truth |
 
 ## Non-negotiables
 
@@ -49,15 +52,15 @@ Full brand guidelines: `docs/brand-guidelines/` (markdown + PDF).
   - the cut — a 45° chamfer
   - the constellation
   - the trace
-- **WhatsApp and call are always reachable:**
+- **Book a call and email are always reachable:**
   - Nav, hero, after services and work, the contact band on every page.
-  - Floating WhatsApp button on desktop; bottom contact bar on mobile.
-  - Every link uses `whatsappHref(locale, context)` and calls `trackContact()`.
-- **Arabic and English are both first-class.**
-  - `/ar` (default) and `/en`.
-  - RTL via logical properties.
-  - Arabic uses the `ar-*` type styles and is never letter-spaced.
-  - Directional motion and icons mirror in RTL.
+  - Floating Book-a-call button on desktop; Book a call + Email bar on mobile.
+  - Booking links use `bookingHref()`, email `mailHref()`; every click calls `trackContact()`.
+  - WhatsApp and phone stay available (contact band, contact page, footer) but are never the primary action.
+- **English only, for a US audience.**
+  - No locale in URLs (`localePrefix: 'never'`); keep logical properties so a second language stays possible.
+  - US conventions: USD, US dates and phone formats, ET hours.
+- **Trust without invention.** Show only clients the owner approved (with their real logos). Every screen in a showcase is a genuine capture. Never invent clients, testimonials or metrics; concept pieces stay labelled.
 - **Motion is premium and restrained.**
   - Animate once.
   - Scroll-linked, never scroll-jacking.
@@ -72,7 +75,7 @@ Full brand guidelines: `docs/brand-guidelines/` (markdown + PDF).
 - Build in the phases in `PROMPT.md`.
 - After each phase:
   - Run the site.
-  - Screenshot the affected pages with Playwright at 390px and 1440px, in `/ar` and `/en`.
+  - Screenshot the affected pages with Playwright at 390px and 1440px.
   - Look at the screenshots and compare them with `design/reference/renders/`.
   - Fix issues, then summarise what changed.
 - When a spec is ambiguous, choose the option that looks more premium and converts better. Note the decision in `DECISIONS.md`.

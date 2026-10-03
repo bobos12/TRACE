@@ -1,0 +1,24 @@
+auth router.post("/register",register)
+auth router.post("/login",login)
+auth router.post("/logout",logout)
+auth router.get("/check-username", checkUsername);
+hotels router.get("/count-by-city", countByCity);
+hotels router.get("/count-by-type", countByType);
+hotels router.get("/room/:id", getHotelRooms);
+hotels router.post("/", verifyAdmin, createHotel);
+hotels router.put("/:id", verifyAdmin, updateHotel);
+hotels router.delete("/:id", verifyAdmin, deleteHotel);
+hotels router.get("/:id", getHotel);
+hotels router.get("/", getAllHotels);
+rooms router.post("/:hotelId", verifyAdmin ,createRoom)
+rooms router.put("/:id",verifyAdmin , updateRoom)
+rooms router.put("/availability/:id", updateRoomAvailability);
+rooms router.delete("/:id/:hotelid",verifyAdmin,deleteRoom)
+rooms router.get("/:id",verifyAdmin,getRoom)
+rooms router.get("/",verifyAdmin,GetAllRooms)
+bookings router.post("/", verifyToken, createBooking);
+bookings router.get("/stats/count", verifyAdmin, getBookingStats);
+bookings router.get("/", verifyToken, getAllBookings);
+bookings router.get("/:id", verifyUser, getBooking);
+bookings router.put("/:id", verifyUser, updateBooking);
+bookings router.delete("/:id", verifyUser, deleteBooking);

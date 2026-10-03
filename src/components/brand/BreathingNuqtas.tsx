@@ -1,7 +1,7 @@
 /**
- * The three nuqtas of ث, on their own — the mark reduced to its dots.
+ * The three nuqtas of the TRACE symbol, on their own — the mark reduced to its dots.
  *
- * Same outlines as the logo (AthrMark / starters/Logo.tsx). The two lower dots
+ * Same shape as the logo symbol (src/components/brand/Logo.tsx). The two lower dots
  * hold steady in ink; the upper one is the vermilion nuqta and breathes — a
  * slow fade out and back, then a quick electric flicker — with a soft glow
  * pulsing behind it. Opacity only, and still under reduced motion (see

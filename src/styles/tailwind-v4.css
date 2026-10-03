@@ -1,4 +1,4 @@
-/* ATHR — Tailwind CSS v4. @import "tailwindcss"; then @import this file after tokens.css. */
+/* TRACE — Tailwind CSS v4. @import "tailwindcss"; then @import this file after tokens.css. */
 @custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 @theme inline {
   --color-carbon: var(--carbon);

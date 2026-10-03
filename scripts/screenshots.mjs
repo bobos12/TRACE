@@ -6,7 +6,7 @@
  *   node scripts/screenshots.mjs --themes=light,dark --out=shots/phase2
  *
  * Routes are written WITHOUT a leading slash (Git Bash rewrites those into
- * Windows paths) and without the locale prefix. `home` means the index.
+ * Windows paths). `home` means the index.
  */
 import { chromium } from '@playwright/test';
 import { mkdir } from 'node:fs/promises';
@@ -21,7 +21,8 @@ const args = Object.fromEntries(
 
 const BASE = args.base ?? 'http://localhost:3000';
 const OUT = args.out ?? 'shots';
-const LOCALES = (args.locales ?? 'ar,en').split(',');
+// English only; kept as a label in file names.
+const LOCALES = ['en'];
 const WIDTHS = (args.widths ?? '390,1440').split(',').map(Number);
 const ROUTES = (args.pages ?? 'home').split(',').map((r) => (r === 'home' || r === '.' ? '' : r.replace(/^\//, '')));
 const THEMES = (args.themes ?? 'light').split(',');
@@ -39,14 +40,14 @@ for (const theme of THEMES) {
       const context = await browser.newContext({
         viewport: { width, height: width < 700 ? 844 : 900 },
         deviceScaleFactor: 1,
-        locale: locale === 'ar' ? 'ar-SA' : 'en-US',
+        locale: 'en-US',
         reducedMotion: args.reduced === 'true' ? 'reduce' : 'no-preference',
       });
       await context.addInitScript(
         ([t]) => {
           try {
-            localStorage.setItem('athr-theme', t);
-            sessionStorage.setItem('athr-logo-stamped', '1');
+            localStorage.setItem('trace-theme', t);
+            sessionStorage.setItem('trace-logo-stamped', '1');
           } catch {}
         },
         [theme],
@@ -55,7 +56,7 @@ for (const theme of THEMES) {
       const page = await context.newPage();
 
       for (const route of ROUTES) {
-        const url = `${BASE}/${locale}${route ? `/${route}` : ''}`;
+        const url = `${BASE}/${route}`;
         try {
           await page.goto(url, { waitUntil: 'networkidle', timeout: 45000 });
         } catch {

@@ -1,7 +1,7 @@
 /* @ds-bundle: {"format":4,"namespace":"Athr","components":[{"name":"Logo"},{"name":"Nuqta"},{"name":"Constellation"},{"name":"Icon"},{"name":"Button"},{"name":"TextField"},{"name":"Select"},{"name":"Checkbox"},{"name":"Radio"},{"name":"Switch"},{"name":"Tabs"},{"name":"NavBar"},{"name":"Sidebar"},{"name":"Card"},{"name":"Modal"},{"name":"Table"},{"name":"Badge"},{"name":"Tooltip"},{"name":"Banner"},{"name":"Toast"},{"name":"EmptyState"},{"name":"Loader"},{"name":"Stat"}]} */
 (function () {
   var React = window.React, h = React.createElement;
-  var LOGO = {"latin":{"w":2735,"h":1050.97,"word":"M0 1050.97 265 330.97H413L677 1050.97H543L481 871.97H190L128 1050.97ZM336 449.97 226 767.97H446ZM890 1050.97V433.97H651V330.97H1259V433.97H1020V1050.97ZM1385 1050.97V330.97H1515V624.97H1856V330.97H1986V1050.97H1856V726.97H1515V1050.97ZM2143 1050.97V330.97H2447Q2524 330.97 2581 356.97Q2638 382.97 2668.5 429.97Q2699 476.97 2699 539.97Q2699 601.97 2668.5 648.97Q2638 695.97 2581 721.97Q2524 747.97 2447 747.97H2443L2735 1050.97H2555L2291 747.97H2273V1050.97ZM2273 648.97H2443Q2506 648.97 2539.5 619.97Q2573 590.97 2573 539.97Q2573 488.97 2540 461.47Q2507 433.97 2443 433.97H2273Z","dots":["M1318.5 0L1388.5 70L1318.5 140L1248.5 70Z","M1231.53 86.97L1301.53 156.97L1231.53 226.97L1161.53 156.97Z","M1405.47 86.97L1475.47 156.97L1405.47 226.97L1335.47 156.97Z"],"capTop":330.97056274847716,"capH":720},"arabic":{"w":918,"h":1167,"word":"M0 1036H39Q135 1036 176 992.5Q217 949 216 866Q216 841 213 813.5Q210 786 205 757L184 630L281 614L296 702Q305 752 308 796H401V900L374 927H308Q301 981 281 1025Q261 1069 228 1100.5Q195 1132 148 1149.5Q101 1167 40 1167H0ZM374 823 401 796H426Q496 796 522.5 781.5Q549 767 549 729Q549 713 546.5 688.5Q544 664 537 623L521 533L619 517L633 607Q638 641 641 673.5Q644 706 644 729Q644 831 592 879Q540 927 426 927H374ZM750 309H857V927H750ZM690 154H730L731 150Q712 128 712 97Q712 56 741.5 29Q771 2 816 2Q843 2 869.5 14Q896 26 913 46L868 107Q845 83 816 83Q799 83 788 91.5Q777 100 777 112Q777 148 847 148H918V229H690Z","dots":["M556 200.43L614 258.43L556 316.43L498 258.43Z","M483.86 272.57L541.86 330.57L483.86 388.57L425.86 330.57Z","M628.14 272.57L686.14 330.57L628.14 388.57L570.14 330.57Z"]},"symbol":{"w":450.91,"h":325.46,"dots":["M225.46 -0L325.46 100L225.46 200L125.46 100Z","M100 125.46L200 225.46L100 325.46L0 225.46Z","M350.91 125.46L450.91 225.46L350.91 325.46L250.91 225.46Z"]}};
+  var LOGO = {"latin":{"w":3450,"h":1060.97,"word":"M239 1050.97V433.97H0V330.97H608V433.97H369V1050.97ZM723 1050.97V330.97H1027Q1104 330.97 1161 356.97Q1218 382.97 1248.5 429.97Q1279 476.97 1279 539.97Q1279 601.97 1248.5 648.97Q1218 695.97 1161 721.97Q1104 747.97 1027 747.97H825V648.97H1023Q1086 648.97 1119.5 619.97Q1153 590.97 1153 539.97Q1153 488.97 1120 461.47Q1087 433.97 1023 433.97H853V1050.97ZM1135 1050.97 814 682.97H960L1315 1050.97ZM1392 1050.97 1657 330.97H1769L1520 1050.97ZM1935 1050.97 1687 330.97H1805L2069 1050.97ZM1529 767.97H1923V871.97H1529ZM2478 1060.97Q2401 1060.97 2336.5 1033.47Q2272 1005.97 2224 955.97Q2176 905.97 2150 837.97Q2124 769.97 2124 688.97Q2124 607.97 2150 540.97Q2176 473.97 2223.5 424.47Q2271 374.97 2335.5 347.97Q2400 320.97 2478 320.97Q2564 320.97 2633 354.97Q2702 388.97 2746.5 450.47Q2791 511.97 2801 594.97H2673Q2661 513.97 2608 470.47Q2555 426.97 2479 426.97Q2412 426.97 2362 458.97Q2312 490.97 2284 549.47Q2256 607.97 2256 687.97Q2256 769.97 2284 829.47Q2312 888.97 2363 921.97Q2414 954.97 2480 954.97Q2554 954.97 2607 911.47Q2660 867.97 2674 787.97H2803Q2791 869.97 2746.5 931.97Q2702 993.97 2633 1027.47Q2564 1060.97 2478 1060.97ZM2932 1050.97V330.97H3062V1050.97ZM2994 1050.97V947.97H3450V1050.97ZM2994 730.97V629.97H3415V730.97ZM2994 433.97V330.97H3439V433.97Z","dots":["M1731 0L1801 70L1731 140L1661 70Z","M1644.03 86.97L1714.03 156.97L1644.03 226.97L1574.03 156.97Z","M1817.97 86.97L1887.97 156.97L1817.97 226.97L1747.97 156.97Z"]},"arabic":{"w":918,"h":1167,"word":"M0 1036H39Q135 1036 176 992.5Q217 949 216 866Q216 841 213 813.5Q210 786 205 757L184 630L281 614L296 702Q305 752 308 796H401V900L374 927H308Q301 981 281 1025Q261 1069 228 1100.5Q195 1132 148 1149.5Q101 1167 40 1167H0ZM374 823 401 796H426Q496 796 522.5 781.5Q549 767 549 729Q549 713 546.5 688.5Q544 664 537 623L521 533L619 517L633 607Q638 641 641 673.5Q644 706 644 729Q644 831 592 879Q540 927 426 927H374ZM750 309H857V927H750ZM690 154H730L731 150Q712 128 712 97Q712 56 741.5 29Q771 2 816 2Q843 2 869.5 14Q896 26 913 46L868 107Q845 83 816 83Q799 83 788 91.5Q777 100 777 112Q777 148 847 148H918V229H690Z","dots":["M556 200.43L614 258.43L556 316.43L498 258.43Z","M483.86 272.57L541.86 330.57L483.86 388.57L425.86 330.57Z","M628.14 272.57L686.14 330.57L628.14 388.57L570.14 330.57Z"]},"symbol":{"w":450.91,"h":325.46,"dots":["M225.46 -0L325.46 100L225.46 200L125.46 100Z","M100 125.46L200 225.46L100 325.46L0 225.46Z","M350.91 125.46L450.91 225.46L350.91 325.46L250.91 225.46Z"]}};
   var ICONS = {"arrow-right":"M4 12h15M13 6l6 6-6 6","arrow-up-right":"M7 17L17 7M8 7h9v9","check":"M4.5 12.5l5 5 10-11","close":"M6 6l12 12M18 6L6 18","plus":"M12 5v14M5 12h14","minus":"M5 12h14","search":"M10.5 17a6.5 6.5 0 1 0 0-13 6.5 6.5 0 0 0 0 13zM15.5 15.5L20 20","menu":"M4 7h16M4 12h16M4 17h10","chevron-down":"M6 9l6 6 6-6","chevron-right":"M9 6l6 6-6 6","info":"M12 2.5l9.5 9.5-9.5 9.5L2.5 12zM12 11v5M12 8v.01","alert":"M12 3.5l9 16H3zM12 10v4.5M12 17v.01","error":"M12 2.5l9.5 9.5-9.5 9.5L2.5 12zM9.5 9.5l5 5M14.5 9.5l-5 5","success":"M12 2.5l9.5 9.5-9.5 9.5L2.5 12zM8.5 12.2l2.4 2.4 4.6-5","user":"M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM4.5 20.5c1-3.8 4-5.5 7.5-5.5s6.5 1.7 7.5 5.5","sliders":"M4 7h9M17 7h3M4 17h3M11 17h9M15 5v4M9 15v4","dashboard":"M4 4h7v9H4zM13 4h7v5h-7zM13 11h7v9h-7zM4 15h7v5H4z","inbox":"M3.5 13.5h5l1.5 2.5h4l1.5-2.5h5M3.5 13.5L6 5h12l2.5 8.5v6h-17z","file":"M6 3h8l4 4v14H6zM14 3v4h4M9 12h6M9 16h6","chart":"M4 20V4M4 20h16M8 16v-4M12 16V8M16 16v-6","bell":"M6 16V11a6 6 0 1 1 12 0v5l1.5 2h-15zM10 20.5h4","calendar":"M4 6h16v14H4zM4 10h16M8 3.5V7M16 3.5V7","globe":"M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zM3 12h18M12 3c2.5 2.5 3.5 5.5 3.5 9s-1 6.5-3.5 9c-2.5-2.5-3.5-5.5-3.5-9s1-6.5 3.5-9z","code":"M8.5 7L3.5 12l5 5M15.5 7l5 5-5 5M13.5 4.5l-3 15","layers":"M12 3.5l8.5 4.5-8.5 4.5L3.5 8zM3.5 12l8.5 4.5 8.5-4.5M3.5 16l8.5 4.5 8.5-4.5","nuqta":"M12 6l6 6-6 6-6-6z"};
   function cx() { var a = []; for (var i = 0; i < arguments.length; i++) if (arguments[i]) a.push(arguments[i]); return a.join(' '); }
   function omit(p, keys) { var o = {}; for (var k in p) if (keys.indexOf(k) < 0) o[k] = p[k]; return o; }
@@ -20,7 +20,7 @@
     var v = p.variant || 'wordmark', size = p.size || 32, L = LOGO.latin, A = LOGO.arabic, w, hh, kids;
     if (v === 'symbol') {
       var s = LOGO.symbol;
-      return h('svg', { className: cx('at-logo', p.tone === 'mono' && 'at-logo-mono', p.className), viewBox: '0 0 ' + s.w + ' ' + s.h, height: size, width: size * s.w / s.h, role: 'img', 'aria-label': 'ATHR', style: p.style },
+      return h('svg', { className: cx('at-logo', p.tone === 'mono' && 'at-logo-mono', p.className), viewBox: '0 0 ' + s.w + ' ' + s.h, height: size, width: size * s.w / s.h, role: 'img', 'aria-label': 'TRACE', style: p.style },
         s.dots.map(function (d, i) { return h('path', { key: i, d: d, className: 'at-logo-dot', style: p.tone === 'accent' && i > 0 ? { fill: 'currentColor' } : null }); }));
     }
     if (v === 'arabic') { w = A.w; hh = A.h; kids = [mark(A, 'a', 1, 0, 0)]; }
@@ -28,7 +28,7 @@
       var sc = 0.95, gap = 220, aw = A.w * sc, ah = A.h * sc; hh = Math.max(L.h, ah) + ah * 0.12; w = L.w + gap * 2 + aw;
       kids = [mark(L, 'l', 1, 0, hh - ah * 0.12 - L.h), h('rect', { key: 'r', x: L.w + gap - 6, y: hh - L.h * 0.95, width: 12, height: L.h * 0.85, fill: 'currentColor', opacity: 0.3 }), mark(A, 'a', sc, L.w + gap * 2, hh - ah)];
     } else { w = L.w; hh = L.h; kids = [mark(L, 'l', 1, 0, 0)]; }
-    return h('svg', { className: cx('at-logo', p.tone === 'mono' && 'at-logo-mono', p.className), viewBox: '0 0 ' + w + ' ' + hh, height: size, width: size * w / hh, role: 'img', 'aria-label': v === 'arabic' ? 'أثر' : 'ATHR', style: p.style }, kids);
+    return h('svg', { className: cx('at-logo', p.tone === 'mono' && 'at-logo-mono', p.className), viewBox: '0 0 ' + w + ' ' + hh, height: size, width: size * w / hh, role: 'img', 'aria-label': v === 'arabic' ? 'TRACE' : 'TRACE', style: p.style }, kids);
   }
 
   function Nuqta(p) {
@@ -36,10 +36,10 @@
   }
 
   /* A client's constellation: a 3×3 lattice of nuqtas; the name picks which are filled.
-     ATHR's own is the ث arrangement. Deterministic: same name, same mark. */
+     TRACE's own is the three-nuqta arrangement. Deterministic: same name, same mark. */
   function hash(s) { var x = 2166136261; for (var i = 0; i < s.length; i++) { x ^= s.charCodeAt(i); x = Math.imul(x, 16777619); } return x >>> 0; }
   function constellation(seed) {
-    if (!seed || /^(athr|أثر)$/i.test(seed)) return { on: [1, 3, 5], mark: 1 };
+    if (!seed || /^(trace)$/i.test(seed)) return { on: [1, 3, 5], mark: 1 };
     var x = hash(String(seed).toLowerCase()), cells = [0, 1, 2, 3, 4, 5, 6, 7, 8], on = [], n = 3 + (x % 3);
     for (var i = 0; i < n; i++) { x = Math.imul(x ^ (x >>> 15), 2246822507) >>> 0; var k = x % cells.length; on.push(cells.splice(k, 1)[0]); }
     on.sort(function (a, b) { return a - b; });
@@ -48,7 +48,7 @@
   function Constellation(p) {
     var c = constellation(p.seed), cells = [];
     for (var i = 0; i < 9; i++) cells.push(h('i', { key: i, className: i === c.mark ? 'mark' : (c.on.indexOf(i) >= 0 ? 'on' : '') }));
-    return h('span', { className: cx('at-const', p.quiet && 'at-const-quiet', p.className), style: Object.assign({ '--c': (p.size || 12) + 'px' }, p.style), role: 'img', 'aria-label': (p.seed || 'ATHR') + ' mark' }, cells);
+    return h('span', { className: cx('at-const', p.quiet && 'at-const-quiet', p.className), style: Object.assign({ '--c': (p.size || 12) + 'px' }, p.style), role: 'img', 'aria-label': (p.seed || 'TRACE') + ' mark' }, cells);
   }
 
   function Button(p) {
@@ -108,7 +108,7 @@
 
   function NavBar(p) {
     return h('header', { className: cx('at-nav', p.className) },
-      h('a', { href: '#', 'aria-label': 'ATHR home', style: { display: 'inline-flex', color: 'inherit' } }, h(Logo, { variant: p.arabic ? 'arabic' : 'wordmark', size: p.arabic ? 30 : 22 })),
+      h('a', { href: '#', 'aria-label': 'TRACE home', style: { display: 'inline-flex', color: 'inherit' } }, h(Logo, { variant: p.arabic ? 'arabic' : 'wordmark', size: p.arabic ? 30 : 22 })),
       h('nav', { className: 'at-nav-links' }, (p.links || []).map(function (l) {
         var o = typeof l === 'string' ? { label: l } : l;
         return h('a', { key: o.label, href: o.href || '#', className: 'at-nav-link', 'aria-current': o.current ? 'page' : undefined }, o.current ? h(Nuqta, { size: 7 }) : null, o.label);
@@ -118,7 +118,7 @@
 
   function Sidebar(p) {
     return h('aside', { className: cx('at-side', p.className) },
-      h('div', { className: 'at-side-head' }, h(Constellation, { seed: p.client || 'ATHR', size: 9 }), h('div', { className: 'at-side-client' }, h('b', null, p.client || 'ATHR'), p.product ? h('span', null, p.product) : null)),
+      h('div', { className: 'at-side-head' }, h(Constellation, { seed: p.client || 'TRACE', size: 9 }), h('div', { className: 'at-side-client' }, h('b', null, p.client || 'TRACE'), p.product ? h('span', null, p.product) : null)),
       (p.groups || []).map(function (g, gi) {
         return h('div', { key: gi, className: 'at-side-group' }, g.title ? h('div', { className: 'at-side-title' }, g.title) : null,
           g.items.map(function (it) {

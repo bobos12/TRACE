@@ -1,13 +1,13 @@
 import type { Metadata } from 'next';
 import { getSite } from '@/lib/content';
-import { locales, type Locale } from '@/i18n/routing';
+import type { Locale } from '@/i18n/routing';
 
 /**
  * The canonical origin. An env var set but left empty (easy to do in the
  * Vercel dashboard) must fall back too — `??` alone let '' through and
  * `new URL('')` failed the whole build. A bare domain gets https:// added.
  */
-function resolveSiteUrl(fallback = 'https://athr.studio'): string {
+function resolveSiteUrl(fallback = 'https://trace.studio'): string {
   const raw = (process.env.NEXT_PUBLIC_SITE_URL ?? '').trim();
   if (!raw) return fallback;
   const candidate = /^https?:\/\//i.test(raw) ? raw : `https://${raw}`;
@@ -22,14 +22,9 @@ export const SITE_URL = resolveSiteUrl();
 
 export const siteUrl = (path = '') => `${SITE_URL}${path.startsWith('/') ? path : `/${path}`}`;
 
-/** hreflang for a route, given without the locale prefix (e.g. "/work"). */
-export function alternatesFor(locale: Locale, path = ''): Metadata['alternates'] {
-  const clean = path === '/' ? '' : path;
-  const languages: Record<string, string> = {};
-  for (const l of locales) languages[l] = siteUrl(`/${l}${clean}`);
-  languages['x-default'] = siteUrl(`/ar${clean}`);
-
-  return { canonical: siteUrl(`/${locale}${clean}`), languages };
+/** Canonical URL for a route (e.g. "/work"). One language, no prefix, no hreflang. */
+export function alternatesFor(path = ''): Metadata['alternates'] {
+  return { canonical: siteUrl(path === '/' ? '' : path) };
 }
 
 interface PageMetaInput {
@@ -51,20 +46,19 @@ export function pageMetadata({
   type = 'website',
 }: PageMetaInput): Metadata {
   const site = getSite(locale);
-  const resolvedTitle = title ? `${title} — ATHR` : site.meta.title;
+  const resolvedTitle = title ? `${title} — TRACE` : site.meta.title;
   const resolvedDescription = description ?? site.meta.description;
   const resolvedImage = image === null ? null : siteUrl(image ?? site.meta.ogImage);
 
   return {
     title: resolvedTitle,
     description: resolvedDescription,
-    alternates: alternatesFor(locale, path),
+    alternates: alternatesFor(path),
     openGraph: {
       type,
-      siteName: 'ATHR',
-      locale: locale === 'ar' ? 'ar_SA' : 'en_US',
-      alternateLocale: locale === 'ar' ? 'en_US' : 'ar_SA',
-      url: siteUrl(`/${locale}${path === '/' ? '' : path}`),
+      siteName: 'TRACE',
+      locale: 'en_US',
+      url: siteUrl(path === '/' ? '' : path),
       title: resolvedTitle,
       description: resolvedDescription,
       ...(resolvedImage

@@ -8,7 +8,7 @@ export default function robots(): MetadataRoute.Robots {
         userAgent: '*',
         allow: '/',
         // The styleguide is a reference page, not content.
-        disallow: ['/api/', '/ar/_styleguide', '/en/_styleguide'],
+        disallow: ['/api/', '/_styleguide'],
       },
     ],
     sitemap: siteUrl('/sitemap.xml'),

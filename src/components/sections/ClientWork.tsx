@@ -7,16 +7,14 @@ import { Icon } from '@/components/ui/Icon';
 import { Nuqta, StopText } from '@/components/brand/Nuqta';
 import { Reveal } from '@/components/motion/Reveal';
 import { metaLine } from '@/components/sections/ProjectMeta';
-import type { Locale } from '@/i18n/routing';
 import { projectCategories } from '@/lib/kinds';
 import type { LocalProject, Site } from '@/lib/content';
 import { cn } from '@/lib/cn';
 
-const two = (n: number, locale: Locale) =>
-  new Intl.NumberFormat(locale === 'ar' ? 'ar-EG' : 'en', { minimumIntegerDigits: 2 }).format(n);
+const two = (n: number) => String(n).padStart(2, '0');
 
 const arrow =
-  'flex-none text-ink-muted transition-transform duration-[160ms] ease-mark group-hover/row:translate-x-1 group-hover/row:text-ink rtl:group-hover/row:-translate-x-1';
+  'flex-none text-ink-muted transition-transform duration-[160ms] ease-mark group-hover/row:translate-x-1 group-hover/row:text-ink';
 
 /**
  * Client work, as relationships rather than a grid of equals.
@@ -28,12 +26,10 @@ const arrow =
  */
 export function ClientWork({
   site,
-  locale,
   group,
   more,
 }: {
   site: Site;
-  locale: Locale;
   group: LocalProject[];
   more: LocalProject[];
 }) {
@@ -71,7 +67,7 @@ export function ClientWork({
                 </figure>
                 <div className="flex items-start justify-between gap-6">
                   <div className="flex flex-col gap-2">
-                    <span className="eyebrow text-ink-faint">{two(1, locale)}</span>
+                    <span className="eyebrow text-ink-faint">{two(1)}</span>
                     <h3 className="heading-2 m-0 max-w-[28ch]">{lead.title}</h3>
                     <p className="body-sm max-w-[52ch] text-ink-muted">{lead.summary}</p>
                   </div>
@@ -106,7 +102,7 @@ export function ClientWork({
                         />
                       </span>
                       <span className="flex flex-col gap-1.5">
-                        <span className="eyebrow text-ink-faint">{two(i + 2, locale)}</span>
+                        <span className="eyebrow text-ink-faint">{two(i + 2)}</span>
                         <span className="heading-3">{p.title}</span>
                       </span>
                       <Icon name="arrow-right" size={18} className={arrow} />
@@ -155,7 +151,7 @@ export function ClientWork({
                             <Icon
                               name="arrow-right"
                               size={14}
-                              className="text-ink-faint opacity-0 transition-[opacity,translate] duration-[160ms] ease-mark group-hover/row:translate-x-0.5 group-hover/row:opacity-100 rtl:group-hover/row:-translate-x-0.5"
+                              className="text-ink-faint opacity-0 transition-[opacity,translate] duration-[160ms] ease-mark group-hover/row:translate-x-0.5 group-hover/row:opacity-100"
                             />
                           </span>
                           <span className="body-sm text-ink-faint">{metaLine(p)}</span>

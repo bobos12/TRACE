@@ -2,7 +2,7 @@
  * Client logos for the trust strip, in colour.
  *
  *   node scripts/make-client-logos.mjs            every logo
- *   node scripts/make-client-logos.mjs bayanjw    only the slugs named
+ *   node scripts/make-client-logos.mjs fancystays    only the slugs named
  *
  * The originals in assets/clients-src/ were taken from each client's own live
  * site, in every format. Each is split into two layers that share one trim box:
@@ -38,14 +38,8 @@ const LOGOS = [
   { slug: 'fateen', file: 'fateen.svg' },
   { slug: 'future-earth-energy', file: 'future-earth.png' },
   { slug: 'retal-residence', file: 'retal-residence.png' },
-  { slug: 'najm-alithar-travel', file: 'najm-alithar.jpg', bg: 'white' },
   { slug: 'cartest-auto', file: 'cartest-auto.png' },
-  { slug: 'albadar-oud-store', file: 'albadar-oud.png' },
-  { slug: 'abu-mayar-store', file: 'abu-mayar.png', whole: true },
   { slug: 'fancystays', file: 'fancy-stays.png', bg: 'sample' },
-  { slug: 'basmah-jomah', file: 'basmah-jomah.png' },
-  { slug: 'bayanjw', file: 'bayan.png' },
-  { slug: 'aatakunited', file: 'aatak-united.png' },
 ];
 
 const clamp = (v) => Math.min(1, Math.max(0, v));

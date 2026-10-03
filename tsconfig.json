@@ -43,6 +43,7 @@
   ],
   "exclude": [
     "node_modules",
+    "bail-bonds-reference",
     "design",
     "docs",
     "scripts",

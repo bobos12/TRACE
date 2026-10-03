@@ -8,7 +8,7 @@ import { pageMetadata } from '@/lib/seo';
 import { Container } from '@/components/ui/Container';
 import { Reveal } from '@/components/motion/Reveal';
 import { Nuqta, StopText } from '@/components/brand/Nuqta';
-import { AthrMark } from '@/components/brand/AthrMark';
+import { BrandMark } from '@/components/brand/BrandMark';
 import { Constellation } from '@/components/brand/Constellation';
 import { ContactBand } from '@/components/sections/ContactBand';
 import { Breadcrumbs } from '@/components/seo/Breadcrumbs';
@@ -41,7 +41,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
 
   return (
     <>
-      <Breadcrumbs locale={locale} trail={[{ name: site.ui.about, path: '/about' }]} />
+      <Breadcrumbs trail={[{ name: site.ui.about, path: '/about' }]} />
 
       {/* Hero — the name, made. */}
       <section className="border-b border-line bg-surface">
@@ -56,7 +56,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
           </div>
 
           <div className="lg:col-span-4 lg:col-start-9 lg:justify-self-end">
-            <AthrMark className="h-auto w-[180px] lg:w-[220px]" label={about.title} />
+            <BrandMark className="h-auto w-[280px] lg:w-[380px]" label="TRACE" />
           </div>
         </Container>
       </section>

@@ -145,7 +145,7 @@ function Step({
  * which writes a single CSS custom property — no animation library on the
  * home page's critical path.
  */
-export function Process({ site }: { site: Site }) {
+export function Process({ site, copy = site.process }: { site: Site; copy?: Site['process'] }) {
   const ref = useRef<HTMLDivElement>(null);
   useScrollProgress(ref, { offset: 'contain' });
 
@@ -153,8 +153,8 @@ export function Process({ site }: { site: Site }) {
     <section id="process" className="border-b border-line bg-surface py-[var(--section-y)]">
       <Container className="flex flex-col gap-16">
         <SectionHead
-          eyebrow={site.process.eyebrow}
-          title={<StopText>{site.process.title}</StopText>}
+          eyebrow={copy.eyebrow}
+          title={<StopText>{copy.title}</StopText>}
         />
 
         <div ref={ref} className="relative ps-8 md:ps-10">
@@ -163,7 +163,7 @@ export function Process({ site }: { site: Site }) {
           <span aria-hidden="true" className="at-process-line absolute inset-y-0 start-0 w-px bg-ink" />
 
           <ol className="flex flex-col">
-            {site.process.steps.map((step, i) => (
+            {copy.steps.map((step, i) => (
               <Step key={step.n} step={step} index={i} />
             ))}
           </ol>

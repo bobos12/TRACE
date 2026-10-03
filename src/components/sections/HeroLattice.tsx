@@ -25,7 +25,7 @@ interface Dot {
   y: number;
   /** 0–1, decaying. */
   heat: number;
-  /** Permanently lit. None now: ATHR's mark sits over the lattice as `BreathingNuqtas`. */
+  /** Permanently lit. None now: TRACE's mark sits over the lattice as `BreathingNuqtas`. */
   fixed: 0 | 1 | 2;
 }
 
@@ -33,7 +33,7 @@ interface Dot {
  * The hero's nuqta lattice — the brand idea made interactive.
  *
  * A grid of tiny rhombi. Dots near the pointer swell and turn vermilion, then
- * decay over ~700ms, so moving the mouse leaves a fading trace. ATHR's own
+ * decay over ~700ms, so moving the mouse leaves a fading trace. TRACE's own
  * mark — the breathing nuqtas — sits over it in the upper trailing corner.
  *
  * Touch devices get a slow diagonal wave instead of a trail.

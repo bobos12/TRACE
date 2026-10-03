@@ -9,7 +9,7 @@ import { PageHero } from '@/components/sections/PageHero';
 import { ServiceRows } from '@/components/sections/ServiceRows';
 import { ContactBand } from '@/components/sections/ContactBand';
 import { BreathingNuqtas } from '@/components/brand/BreathingNuqtas';
-import { WhatsAppLink } from '@/components/contact/WhatsAppLink';
+import { BookingLink } from '@/components/contact/BookingLink';
 import { Breadcrumbs } from '@/components/seo/Breadcrumbs';
 
 export function generateStaticParams() {
@@ -42,7 +42,6 @@ export default async function ServicesPage({ params }: { params: Promise<{ local
   return (
     <>
       <Breadcrumbs
-        locale={locale}
         trail={[{ name: site.nav.links[1]?.label ?? copy.title, path: '/services' }]}
       />
 
@@ -57,9 +56,7 @@ export default async function ServicesPage({ params }: { params: Promise<{ local
         <Container className="flex flex-col gap-14">
           <ServiceRows services={services} />
           <div className="flex justify-center">
-            <WhatsAppLink placement="services" context={copy.title}>
-              {copy.midCta}
-            </WhatsAppLink>
+            <BookingLink placement="services">{copy.midCta}</BookingLink>
           </div>
         </Container>
       </section>

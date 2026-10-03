@@ -8,7 +8,7 @@ import { Nuqta } from '@/components/brand/Nuqta';
 import { Icon } from '@/components/ui/Icon';
 import type { Site } from '@/lib/content';
 import type { Locale } from '@/i18n/routing';
-import { externalLinkProps, track, trackContact, whatsappHref } from '@/lib/contact';
+import { mailHref, track, trackContact } from '@/lib/contact';
 import { submitContact, type ContactState } from '@/app/[locale]/(site)/contact/actions';
 
 const initial: ContactState = { status: 'idle' };
@@ -16,10 +16,10 @@ const initial: ContactState = { status: 'idle' };
 /**
  * The contact form.
  *
- * WhatsApp is still the primary channel — this is the fallback for people who
- * prefer a form. If no backend is configured (or delivery fails) the submit
- * button becomes "Send on WhatsApp" and opens WhatsApp with everything the
- * visitor typed already in the message. The form never silently fails.
+ * Booking a call is the primary channel — this is for people who prefer to
+ * write. If no backend is configured (or delivery fails) the submit button
+ * becomes "Send by email" and opens an email with everything the visitor typed
+ * already in it. The form never silently fails.
  */
 export function ContactForm({
   site,
@@ -48,20 +48,21 @@ export function ContactForm({
   }, [state.status]);
 
   /**
-   * Everything typed so far, folded into the prefilled WhatsApp message.
+   * Everything typed so far, folded into a prefilled email.
    * Reads the mirrored `draft` state rather than the form element, so the href
    * is a pure function of state and can be computed during render.
    */
-  const whatsappFallback = () => {
+  const emailFallback = () => {
     const values = draft;
     const lines = [
       values.name && `${copy.name}: ${values.name}`,
       values.company && `${copy.company}: ${values.company}`,
+      values.email && `${copy.email}: ${values.email}`,
       values.phone && `${copy.phone}: ${values.phone}`,
       values.type && `${copy.type} ${values.type}`,
       values.message && `\n${values.message}`,
     ].filter(Boolean);
-    return whatsappHref(locale, lines.join('\n'));
+    return mailHref(`${site.ui.contact} — ${values.name || site.meta.title}`, lines.join('\n'));
   };
 
   if (state.status === 'success') {
@@ -83,7 +84,7 @@ export function ContactForm({
       ref={formRef}
       action={action}
       onChange={(e) => {
-        // Keep a copy of what's typed so the WhatsApp fallback can carry it
+        // Keep a copy of what's typed so the email fallback can carry it
         // even if the form element is gone by then.
         const target = e.target as unknown as { name?: string; value?: string };
         if (target.name) setDraft((d) => ({ ...d, [target.name!]: target.value ?? '' }));
@@ -107,7 +108,7 @@ export function ContactForm({
           required
           defaultValue={state.values?.name}
           error={errors.name}
-          placeholder="Sara Al-Harbi"
+          placeholder="Jordan Miller"
         />
         <Field
           label={copy.company}
@@ -118,16 +119,26 @@ export function ContactForm({
           error={errors.company}
         />
         <Field
+          label={copy.email}
+          name="email"
+          type="email"
+          inputMode="email"
+          autoComplete="email"
+          required
+          defaultValue={state.values?.email}
+          error={errors.email}
+          placeholder="jordan@company.com"
+        />
+        <Field
           label={copy.phone}
           name="phone"
           type="tel"
           inputMode="tel"
           autoComplete="tel"
-          dir="ltr"
-          required
+          optional={ui.optional}
           defaultValue={state.values?.phone}
           error={errors.phone}
-          placeholder="+966 5x xxx xxxx"
+          placeholder="(555) 010-0000"
         />
         <Select
           label={copy.type}
@@ -156,7 +167,7 @@ export function ContactForm({
       ) : null}
 
       {/* With no backend configured, or after a failure, the primary action
-          becomes WhatsApp — carrying whatever has been typed. */}
+          becomes email — carrying whatever has been typed. */}
       {hasBackend && !failed ? (
         <div className="flex flex-col items-start gap-3">
           <Button type="submit" variant="primary" size="lg" cut disabled={pending}>
@@ -170,15 +181,14 @@ export function ContactForm({
       ) : (
         <div className="flex flex-col items-start gap-3">
           <Button
-            href={whatsappFallback()}
+            href={emailFallback()}
             variant="primary"
             size="lg"
             cut
-            icon="whatsapp"
-            onClick={() => trackContact('whatsapp', 'contact-page')}
-            {...externalLinkProps}
+            icon="mail"
+            onClick={() => trackContact('email', 'contact-page')}
           >
-            {ui.sendOnWhatsApp}
+            {ui.sendByEmail}
           </Button>
           <p className="flex items-center gap-2 font-mono text-[12px] text-ink-faint">
             <Nuqta size={7} />

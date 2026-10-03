@@ -1,33 +1,30 @@
 'use client';
 
-import { useLocale } from 'next-intl';
 import { usePathname as useRawPathname } from 'next/navigation';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Link } from '@/i18n/navigation';
-import type { Locale } from '@/i18n/routing';
 import { cn } from '@/lib/cn';
 import type { Site } from '@/lib/content';
 import { Logo } from '@/components/brand/Logo';
 import { Nuqta } from '@/components/brand/Nuqta';
 import { Icon } from '@/components/ui/Icon';
 import {
-  CallIconButton,
-  WhatsAppButton,
-  WhatsAppIconButton,
-  CallButton,
+  BookCallButton,
+  BookIconButton,
+  EmailButton,
+  EmailIconButton,
 } from '@/components/contact/ContactButtons';
-import { LangSwitch } from './LangSwitch';
 import { ThemeToggle } from './ThemeToggle';
 
-const STAMP_KEY = 'athr-logo-stamped';
+const STAMP_KEY = 'trace-logo-stamped';
 
-/** Strip the locale prefix so link matching works in both locales. */
+/** Strip a stray locale prefix so link matching holds either way. */
 function unlocalise(path: string): string {
-  const stripped = path.replace(/^\/(ar|en)(?=\/|$)/, '');
+  const stripped = path.replace(/^\/en(?=\/|$)/, '');
   return stripped === '' ? '/' : stripped;
 }
 
-function NavLogo({ locale }: { locale: Locale }) {
+function NavLogo() {
   const ref = useRef<SVGSVGElement>(null);
 
   // The three logo nuqtas stamp in 80ms apart — once per session.
@@ -64,10 +61,100 @@ function NavLogo({ locale }: { locale: Locale }) {
     }
   }, []);
 
-  return locale === 'ar' ? (
-    <Logo ref={ref} variant="arabic" height={28} />
-  ) : (
-    <Logo ref={ref} variant="wordmark" height={20} />
+  return <Logo ref={ref} variant="wordmark" height={20} />;
+}
+
+type NavLink = Site['nav']['links'][number];
+
+/**
+ * A nav item with a dropdown. Opens on hover and on click, closes on Escape,
+ * on a click outside and when focus leaves it. The panel carries the cut.
+ */
+function NavMenu({ link, current, onNavigate }: { link: NavLink; current: boolean; onNavigate?: () => void }) {
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLLIElement>(null);
+  const pointer = useRef('');
+  const id = `nav-menu-${link.label.toLowerCase().replace(/\W+/g, '-')}`;
+
+  useEffect(() => {
+    if (!open) return;
+    const onDown = (e: PointerEvent) => {
+      if (!ref.current?.contains(e.target as Node)) setOpen(false);
+    };
+    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && setOpen(false);
+    document.addEventListener('pointerdown', onDown);
+    window.addEventListener('keydown', onKey);
+    return () => {
+      document.removeEventListener('pointerdown', onDown);
+      window.removeEventListener('keydown', onKey);
+    };
+  }, [open]);
+
+  return (
+    <li
+      ref={ref}
+      className="relative"
+      onMouseEnter={() => setOpen(true)}
+      onMouseLeave={() => setOpen(false)}
+      onBlur={(e) => {
+        if (!ref.current?.contains(e.relatedTarget as Node)) setOpen(false);
+      }}
+    >
+      <button
+        type="button"
+        aria-expanded={open}
+        aria-controls={id}
+        // A mouse already opened it on hover, so its click must not close it;
+        // touch and keyboard toggle.
+        onPointerDown={(e) => {
+          pointer.current = e.pointerType;
+        }}
+        onClick={() => {
+          if (pointer.current === 'mouse') setOpen(true);
+          else setOpen((v) => !v);
+          pointer.current = '';
+        }}
+        className={cn(
+          'inline-flex items-center gap-1.5 py-2 text-[14px] font-medium transition-colors duration-[160ms] ease-mark',
+          current || open ? 'text-ink' : 'text-ink-muted hover:text-ink',
+        )}
+      >
+        {current ? <Nuqta size={7} /> : null}
+        {link.label}
+        <Icon
+          name="chevron-down"
+          size={14}
+          className={cn('transition-transform duration-[160ms] ease-mark', open && 'rotate-180')}
+        />
+      </button>
+
+      {/* pt bridges the gap so the pointer can travel into the panel. */}
+      <div id={id} hidden={!open} className="absolute start-[-16px] top-full pt-3">
+        <ul
+          className="at-cut at-fade flex w-[300px] flex-col border border-line bg-surface-raised p-2 shadow-float"
+          style={{ '--cut': '14px' } as React.CSSProperties}
+        >
+          {link.children?.map((child) => (
+            <li key={child.href}>
+              <Link
+                href={child.href}
+                onClick={() => {
+                  setOpen(false);
+                  onNavigate?.();
+                }}
+                className="group flex items-start gap-3 rounded-sm p-3 transition-colors duration-[160ms] ease-mark hover:bg-surface-sunken"
+              >
+                <Nuqta size={8} className="mt-1.5" />
+                <span className="flex flex-col gap-0.5">
+                  <span className="text-[14px] font-medium text-ink">{child.label}</span>
+                  <span className="body-sm text-ink-muted">{child.text}</span>
+                </span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </li>
   );
 }
 
@@ -76,25 +163,22 @@ export interface NavProps {
 }
 
 export function Nav({ site }: NavProps) {
-  const locale = useLocale() as Locale;
   const raw = useRawPathname();
   const here = unlocalise(raw);
 
-  // Pages that open on a hero band mark it with [data-hero-band]; over one the
-  // nav is transparent until you scroll past it.
-  const [scrolled, setScrolled] = useState(true);
+  // Transparent only while the page sits at the very top; the moment it moves,
+  // the nav turns solid so it never sits over content.
+  const [scrolled, setScrolled] = useState(false);
   const [hidden, setHidden] = useState(false);
   const [menu, setMenu] = useState(false);
   const lastY = useRef(0);
 
   useEffect(() => {
     lastY.current = window.scrollY;
-    const band = document.querySelector<HTMLElement>('[data-hero-band]');
 
     const onScroll = () => {
       const y = window.scrollY;
-      const past = band ? band.offsetHeight - 80 : 24;
-      setScrolled(y > past);
+      setScrolled(y > 8);
       // Hide on scroll down, show on scroll up — only after 400px.
       setHidden(y > 400 && y > lastY.current + 4);
       lastY.current = y;
@@ -132,41 +216,47 @@ export function Nav({ site }: NavProps) {
       <header
         className={cn(
           // Above the open sheet, so the close button stays in reach.
-          'fixed inset-x-0 top-0 h-16 transition-[transform,background-color,border-color]',
+          'fixed inset-x-0 top-0 border-b transition-[transform,background-color,border-color] duration-[320ms] ease-mark motion-reduce:transition-none',
           menu ? 'z-50' : 'z-10',
-          'duration-[320ms] ease-mark motion-reduce:transition-none',
           hidden && !menu ? '-translate-y-full' : 'translate-y-0',
-          solid
-            ? 'border-b border-line bg-surface'
-            // Over the hero: transparent, in the page's own theme — the hero
-            // follows light and dark, so the nav must too.
-            : 'border-b border-transparent bg-transparent',
+          solid ? 'border-line bg-surface' : 'border-transparent bg-transparent',
         )}
       >
         <nav
           aria-label={site.nav.links[0]?.label}
-          className="container-page flex h-16 items-center gap-8"
+          className={cn(
+            'container-page flex items-center gap-8 transition-[height] duration-[320ms] ease-mark',
+            solid ? 'h-14' : 'h-16',
+          )}
         >
-          <Link href="/" className="flex-none" aria-label="ATHR">
-            <NavLogo locale={locale} />
+          <Link href="/" className="flex-none" aria-label="TRACE">
+            <NavLogo />
           </Link>
 
-          <ul className="hidden flex-1 items-center gap-7 md:flex">
+          <ul className="hidden flex-1 items-center gap-8 md:flex">
             {site.nav.links.map((link) => {
               const target = unlocalise(link.href.split('#')[0] ?? '/') || '/';
               const current = target !== '/' && here.startsWith(target);
+              if (link.children?.length) {
+                return <NavMenu key={link.label} link={link} current={current} />;
+              }
               return (
                 <li key={link.href}>
                   <Link
-                    href={link.href.replace(/^\/(ar|en)/, '') || '/'}
+                    href={link.href}
                     aria-current={current ? 'page' : undefined}
                     className={cn(
-                      'inline-flex items-center gap-1.5 text-[14px] font-medium transition-colors duration-[160ms] ease-mark',
+                      'group relative inline-flex items-center gap-1.5 py-2 text-[14px] font-medium transition-colors duration-[160ms] ease-mark',
                       current ? 'text-ink' : 'text-ink-muted hover:text-ink',
                     )}
                   >
                     {current ? <Nuqta size={7} /> : null}
                     {link.label}
+                    {/* The trace, drawn under the label on hover. */}
+                    <span
+                      aria-hidden="true"
+                      className="absolute inset-x-0 bottom-1 h-px origin-left scale-x-0 bg-ink transition-transform duration-[320ms] ease-trace group-hover:scale-x-100 rtl:origin-right"
+                    />
                   </Link>
                 </li>
               );
@@ -174,7 +264,6 @@ export function Nav({ site }: NavProps) {
           </ul>
 
           <div className="ms-auto flex items-center gap-2 md:ms-0 md:gap-3">
-            <LangSwitch label={site.nav.lang} variant="button" />
             <ThemeToggle
               variant="icon"
               labels={{
@@ -184,16 +273,16 @@ export function Nav({ site }: NavProps) {
               }}
             />
             <div className="hidden md:block">
-              <CallIconButton placement="nav" label={site.nav.call} />
+              <EmailIconButton placement="nav" label={site.nav.email} />
             </div>
             <div className="hidden md:block">
-              <WhatsAppButton placement="nav" context={site.nav.links[0]?.label} size="md">
+              <BookCallButton placement="nav" size="md">
                 {site.nav.cta}
-              </WhatsAppButton>
+              </BookCallButton>
             </div>
 
             <div className="md:hidden">
-              <WhatsAppIconButton placement="nav" label={site.nav.cta} />
+              <BookIconButton placement="nav" label={site.nav.cta} />
             </div>
             <button
               type="button"
@@ -220,6 +309,28 @@ export function Nav({ site }: NavProps) {
                 {site.nav.links.map((link, i) => {
                   const target = unlocalise(link.href.split('#')[0] ?? '/') || '/';
                   const current = target !== '/' && here.startsWith(target);
+                  if (link.children?.length) {
+                    return (
+                      <li
+                        key={link.label}
+                        className="at-rise flex flex-col gap-3"
+                        style={{ '--d': `${40 + i * 50}ms` } as React.CSSProperties}
+                      >
+                        <span className="eyebrow text-ink-faint">{link.label}</span>
+                        {link.children.map((child) => (
+                          <Link
+                            key={child.href}
+                            href={child.href}
+                            onClick={close}
+                            className="heading-1 flex items-center gap-3"
+                          >
+                            <Nuqta size={current && here.startsWith(child.href) ? 10 : 8} tone={current && here.startsWith(child.href) ? 'mark' : 'ink'} />
+                            {child.label}
+                          </Link>
+                        ))}
+                      </li>
+                    );
+                  }
                   return (
                     <li
                       key={link.href}
@@ -227,7 +338,7 @@ export function Nav({ site }: NavProps) {
                       style={{ '--d': `${40 + i * 50}ms` } as React.CSSProperties}
                     >
                       <Link
-                        href={link.href.replace(/^\/(ar|en)/, '') || '/'}
+                        href={link.href}
                         onClick={close}
                         className="display-md flex items-center gap-3"
                       >
@@ -240,12 +351,12 @@ export function Nav({ site }: NavProps) {
               </ul>
 
               <div className="flex flex-col gap-4">
-                <WhatsAppButton placement="nav-menu" size="lg" block>
+                <BookCallButton placement="nav-menu" size="lg" block>
                   {site.nav.cta}
-                </WhatsAppButton>
-                <CallButton placement="nav-menu" size="lg" block showNumber>
-                  {site.nav.call}
-                </CallButton>
+                </BookCallButton>
+                <EmailButton placement="nav-menu" size="lg" block>
+                  {site.nav.email}
+                </EmailButton>
               </div>
           </div>
         </div>

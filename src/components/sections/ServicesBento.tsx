@@ -6,8 +6,8 @@ import { Icon } from '@/components/ui/Icon';
 import { Nuqta, StopText } from '@/components/brand/Nuqta';
 import { ServiceIllustration } from '@/components/illustrations/ServiceIllustrations';
 import { IlloLoop } from '@/components/illustrations/IlloLoop';
-import { WhatsAppLink } from '@/components/contact/WhatsAppLink';
-import { WhatsAppRequest } from '@/components/contact/WhatsAppRequest';
+import { BookingLink } from '@/components/contact/BookingLink';
+import { ServiceRequest } from '@/components/contact/ServiceRequest';
 import type { LocalService, Site } from '@/lib/content';
 import { cn } from '@/lib/cn';
 
@@ -37,14 +37,14 @@ function Tile({
   span,
   index,
   request,
-  message,
+  subject,
 }: {
   service: LocalService;
   span: Span;
   index: number;
-  /** The button label, and the WhatsApp message with this service written in. */
+  /** The button label, and the email subject with this service written in. */
   request: string;
-  message: string;
+  subject: string;
 }) {
   return (
     <div
@@ -53,7 +53,7 @@ function Tile({
       className={spanClass[span]}
     >
       {/* The whole tile opens the service page (a stretched link on the title);
-          the WhatsApp button sits above it, one tap to ask about this service. */}
+          the enquiry button sits above it, one tap to ask about this service. */}
       <div
         className={cn(
           'group/tile relative flex h-full flex-col gap-6 rounded-md border border-line bg-surface-raised p-6',
@@ -94,14 +94,14 @@ function Tile({
           <p className="body-sm text-ink-muted">{service.line}</p>
         </div>
 
-        <WhatsAppRequest
+        <ServiceRequest
           placement="services"
           service={service.title}
-          message={message}
+          subject={subject}
           className="relative z-10 self-start"
         >
           {request}
-        </WhatsAppRequest>
+        </ServiceRequest>
       </div>
     </div>
   );
@@ -180,15 +180,15 @@ export function ServicesBento({ site, services }: { site: Site; services: LocalS
               span={SPANS[i] ?? 'small'}
               index={i}
               request={site.services.request}
-              message={site.services.requestMessage.replace('{service}', service.title)}
+              subject={site.services.requestMessage.replace('{service}', service.title)}
             />
           ))}
         </div>
 
         <div className="flex justify-center">
-          <WhatsAppLink placement="services" context={site.services.title}>
+          <BookingLink placement="services">
             {site.ui.servicesAsk}
-          </WhatsAppLink>
+          </BookingLink>
         </div>
       </Container>
     </section>

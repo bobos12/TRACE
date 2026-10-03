@@ -1,4 +1,3 @@
-import type { Locale } from '@/i18n/routing';
 import { siteUrl } from '@/lib/seo';
 
 /**
@@ -6,18 +5,16 @@ import { siteUrl } from '@/lib/seo';
  * hierarchy is carried by the page hero, not by a breadcrumb trail.
  */
 export function Breadcrumbs({
-  locale,
   trail,
 }: {
-  locale: Locale;
-  /** Ordered, excluding the home page, with locale-less paths. */
+  /** Ordered, excluding the home page. */
   trail: Array<{ name: string; path: string }>;
 }) {
-  const items = [{ name: 'ATHR', path: '' }, ...trail].map((item, i) => ({
+  const items = [{ name: 'TRACE', path: '' }, ...trail].map((item, i) => ({
     '@type': 'ListItem',
     position: i + 1,
     name: item.name,
-    item: siteUrl(`/${locale}${item.path}`),
+    item: siteUrl(item.path),
   }));
 
   const json = {

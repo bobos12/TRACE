@@ -6,7 +6,7 @@ import { Analytics } from '@vercel/analytics/next';
 
 import '@/styles/globals.css';
 
-import { localeDir, routing, type Locale } from '@/i18n/routing';
+import { routing, type Locale } from '@/i18n/routing';
 import { fontVariables } from '@/lib/fonts';
 import { getSite } from '@/lib/content';
 import { pageMetadata, SITE_URL } from '@/lib/seo';
@@ -36,7 +36,7 @@ export async function generateMetadata({
   return {
     metadataBase: new URL(SITE_URL),
     ...pageMetadata({ locale, path: '' }),
-    applicationName: 'ATHR',
+    applicationName: 'TRACE',
     manifest: '/site.webmanifest',
     icons: {
       icon: [
@@ -68,7 +68,7 @@ export default async function LocaleLayout({
   return (
     // The font variables go on <html>: the stacks in globals.css are built on
     // :root, and a var() there can only see what is set on the root itself.
-    <html lang={locale} dir={localeDir(locale)} className={fontVariables} suppressHydrationWarning>
+    <html lang={locale} dir="ltr" className={fontVariables} suppressHydrationWarning>
       <head>
         <ThemeScript />
       </head>

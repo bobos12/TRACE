@@ -5,10 +5,10 @@ import { chromium } from '@playwright/test';
 const ROUTE = process.env.ROUTE ? `/${process.env.ROUTE.replace(/^\//, '')}` : '';
 const b = await chromium.launch();
 for (const w of [360, 390, 768, 1024, 1280, 1440, 1920]) {
-  for (const loc of ['ar', 'en']) {
+  for (const loc of ['en']) {
     const ctx = await b.newContext({ viewport: { width: w, height: 900 } });
     const p = await ctx.newPage();
-    await p.goto(`http://localhost:3100/${loc}${ROUTE}`, { waitUntil: 'networkidle' });
+    await p.goto(`http://localhost:3100${ROUTE || '/'}`, { waitUntil: 'networkidle' });
     await p.waitForTimeout(900);
     const r = await p.evaluate(() => {
       const de = document.documentElement;
@@ -31,7 +31,7 @@ for (const w of [360, 390, 768, 1024, 1280, 1440, 1920]) {
     });
     const hOverflow = r.scrollW > r.clientW + 1;
     console.log(
-      `${String(w).padStart(4)} /${loc}  scrollW=${r.scrollW} clientW=${r.clientW}` +
+      `${String(w).padStart(4)} ${ROUTE || '/'}  scrollW=${r.scrollW} clientW=${r.clientW}` +
       `${hOverflow ? '  ✗ H-OVERFLOW ' + JSON.stringify(r.wide) : '  ✓'}`,
     );
     await ctx.close();

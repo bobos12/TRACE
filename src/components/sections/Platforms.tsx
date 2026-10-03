@@ -14,7 +14,7 @@ function Mark({ platform }: { platform: Platform }) {
   }
 
   // Brand colours come from content/trust.json — they are the platform's
-  // data, not ATHR tokens. No colour means the mark follows the ink.
+  // data, not TRACE tokens. No colour means the mark follows the ink.
   const ink = 'var(--ink)';
   return (
     <span

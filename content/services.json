@@ -1,29 +1,137 @@
 [
-  { "slug": "websites-web-apps", "visual": "browser", "featured": true,
-    "en": { "title": "Websites & Web Applications", "line": "Bilingual, fast sites and web apps that turn visitors into customers.", "deliverables": ["Corporate & marketing websites", "E-commerce and booking", "Customer portals", "CMS your team can edit"] },
-    "ar": { "title": "المواقع وتطبيقات الويب", "line": "مواقع وتطبيقات ويب سريعة وثنائية اللغة تحوّل الزوار إلى عملاء.", "deliverables": ["مواقع الشركات والتسويق", "المتاجر الإلكترونية والحجوزات", "بوابات العملاء", "نظام إدارة محتوى يستخدمه فريقك"] } },
-  { "slug": "mobile-apps", "visual": "phone", "featured": true,
-    "en": { "title": "Mobile Applications", "line": "iOS and Android apps from one codebase, Arabic-first when you need it.", "deliverables": ["Customer apps", "Field & driver apps", "Booking and ordering", "Push notifications & payments"] },
-    "ar": { "title": "تطبيقات الجوال", "line": "تطبيقات iOS وAndroid من قاعدة كود واحدة، بالعربية أولًا عند الحاجة.", "deliverables": ["تطبيقات العملاء", "تطبيقات المندوبين والسائقين", "الحجز والطلب", "الإشعارات والدفع"] } },
-  { "slug": "business-systems", "visual": "system", "featured": true,
-    "en": { "title": "Business Systems", "line": "The internal system that replaces your spreadsheets and WhatsApp groups.", "deliverables": ["ERP-style operations", "Approvals & workflows", "Inventory & orders", "Roles and permissions"] },
-    "ar": { "title": "أنظمة الأعمال", "line": "النظام الداخلي الذي يحلّ محلّ الجداول ومجموعات واتساب.", "deliverables": ["إدارة العمليات", "مسارات الاعتماد", "المخزون والطلبات", "الصلاحيات والأدوار"] } },
-  { "slug": "custom-software", "visual": "blocks", "featured": false,
-    "en": { "title": "Custom Software Solutions", "line": "When nothing off the shelf fits, we build exactly what your business needs.", "deliverables": ["Discovery & scoping", "Architecture", "Build & QA", "Handover & training"] },
-    "ar": { "title": "حلول برمجية مخصّصة", "line": "حين لا يناسبك أي حل جاهز، نبني بالضبط ما يحتاجه عملك.", "deliverables": ["الاستكشاف وتحديد النطاق", "تصميم البنية", "البناء والاختبار", "التسليم والتدريب"] } },
-  { "slug": "dashboards-admin", "visual": "chart", "featured": true,
-    "en": { "title": "Dashboards & Admin Panels", "line": "Live numbers and controls your managers actually open every morning.", "deliverables": ["KPI dashboards", "Admin & back-office", "Reports & exports", "Real-time data"] },
-    "ar": { "title": "لوحات التحكم والإدارة", "line": "أرقام حيّة وأدوات تحكّم يفتحها مديروك كل صباح فعلًا.", "deliverables": ["لوحات مؤشرات الأداء", "لوحات الإدارة", "التقارير والتصدير", "بيانات لحظية"] } },
-  { "slug": "clinic-management", "visual": "calendar", "featured": true,
-    "en": { "title": "Clinic Management Systems", "line": "Bookings, patient records and billing in one system built for clinics.", "deliverables": ["Online booking", "Patient records (EMR)", "Billing & insurance", "Reminders via WhatsApp/SMS"] },
-    "ar": { "title": "أنظمة إدارة العيادات", "line": "الحجوزات وملفات المرضى والفوترة في نظام واحد مصمَّم للعيادات.", "deliverables": ["الحجز الإلكتروني", "السجل الطبي الإلكتروني", "الفوترة والتأمين", "تذكير عبر واتساب والرسائل"] } },
-  { "slug": "saas-products", "visual": "layers", "featured": false,
-    "en": { "title": "SaaS Products", "line": "From idea to a subscription product: multi-tenant, billing, onboarding.", "deliverables": ["MVP to scale", "Multi-tenancy", "Subscriptions & billing", "Onboarding & analytics"] },
-    "ar": { "title": "منتجات SaaS", "line": "من الفكرة إلى منتج باشتراك: تعدد المستأجرين، الفوترة، وتجربة البدء.", "deliverables": ["من النموذج الأولي إلى التوسّع", "تعدد المستأجرين", "الاشتراكات والفوترة", "تجربة البدء والتحليلات"] } },
-  { "slug": "apis-integrations", "visual": "nodes", "featured": false,
-    "en": { "title": "APIs & Integrations", "line": "Connect your ERP, CRM, payment gateway, WhatsApp and the tools you already use.", "deliverables": ["REST & webhooks", "ERP / CRM sync", "Payment gateways", "Government & third-party APIs"] },
-    "ar": { "title": "الـAPIs والتكاملات", "line": "نربط الـERP والـCRM وبوابات الدفع وواتساب والأدوات التي تستخدمها بالفعل.", "deliverables": ["REST وWebhooks", "مزامنة ERP وCRM", "بوابات الدفع", "الأنظمة الحكومية والخارجية"] } },
-  { "slug": "automation", "visual": "flow", "featured": false,
-    "en": { "title": "Automation Solutions", "line": "Remove the copy-paste: workflows, notifications and AI where it earns its place.", "deliverables": ["Workflow automation", "Document generation", "Notifications & reminders", "AI assistants on your data"] },
-    "ar": { "title": "حلول الأتمتة", "line": "نلغي النسخ واللصق: مسارات عمل وإشعارات، وذكاء اصطناعي حيث يستحق.", "deliverables": ["أتمتة مسارات العمل", "توليد المستندات", "الإشعارات والتذكيرات", "مساعدون ذكيون على بياناتك"] } }
+  {
+    "slug": "websites-web-apps",
+    "visual": "browser",
+    "featured": true,
+    "en": {
+      "title": "Websites & Web Applications",
+      "line": "Fast, accessible sites and web apps that turn visitors into customers.",
+      "deliverables": [
+        "Corporate & marketing websites",
+        "E-commerce and booking",
+        "Customer portals",
+        "A CMS your team can edit"
+      ]
+    }
+  },
+  {
+    "slug": "mobile-apps",
+    "visual": "phone",
+    "featured": true,
+    "en": {
+      "title": "Mobile Applications",
+      "line": "iOS and Android apps from one codebase, shipped to both stores.",
+      "deliverables": [
+        "Customer apps",
+        "Field & driver apps",
+        "Booking and ordering",
+        "Push notifications & payments"
+      ]
+    }
+  },
+  {
+    "slug": "business-systems",
+    "visual": "system",
+    "featured": true,
+    "en": {
+      "title": "Business Systems",
+      "line": "The internal system that replaces your spreadsheets, inboxes and group texts.",
+      "deliverables": [
+        "Operations portals",
+        "Approvals & workflows",
+        "Inventory & orders",
+        "Roles and permissions"
+      ]
+    }
+  },
+  {
+    "slug": "custom-software",
+    "visual": "blocks",
+    "featured": false,
+    "en": {
+      "title": "Custom Software Solutions",
+      "line": "When nothing off the shelf fits, we build exactly what your business needs.",
+      "deliverables": [
+        "Discovery & scoping",
+        "Architecture",
+        "Build & QA",
+        "Handover & training"
+      ]
+    }
+  },
+  {
+    "slug": "dashboards-admin",
+    "visual": "chart",
+    "featured": true,
+    "en": {
+      "title": "Dashboards & Admin Panels",
+      "line": "Live numbers and controls your managers actually open every morning.",
+      "deliverables": [
+        "KPI dashboards",
+        "Admin & back-office",
+        "Reports & exports",
+        "Real-time data"
+      ]
+    }
+  },
+  {
+    "slug": "clinic-management",
+    "visual": "calendar",
+    "featured": true,
+    "en": {
+      "title": "Clinic & Practice Systems",
+      "line": "Scheduling, patient records and billing in one system built for practices.",
+      "deliverables": [
+        "Online scheduling",
+        "Patient records",
+        "Billing & insurance workflows",
+        "SMS & email reminders"
+      ]
+    }
+  },
+  {
+    "slug": "saas-products",
+    "visual": "layers",
+    "featured": false,
+    "en": {
+      "title": "SaaS Products",
+      "line": "From idea to a subscription product: multi-tenant, billing, onboarding.",
+      "deliverables": [
+        "MVP to scale",
+        "Multi-tenancy",
+        "Subscriptions & billing",
+        "Onboarding & analytics"
+      ]
+    }
+  },
+  {
+    "slug": "apis-integrations",
+    "visual": "nodes",
+    "featured": false,
+    "en": {
+      "title": "APIs & Integrations",
+      "line": "Connect your CRM, ERP, Stripe, QuickBooks and the tools you already pay for.",
+      "deliverables": [
+        "REST & webhooks",
+        "CRM / ERP sync",
+        "Payments (Stripe, Square)",
+        "Third-party APIs"
+      ]
+    }
+  },
+  {
+    "slug": "automation",
+    "visual": "flow",
+    "featured": false,
+    "en": {
+      "title": "Automation Solutions",
+      "line": "Remove the copy-paste: workflows, notifications and AI where it earns its place.",
+      "deliverables": [
+        "Workflow automation",
+        "Document generation",
+        "Notifications & reminders",
+        "AI assistants on your data"
+      ]
+    }
+  }
 ]

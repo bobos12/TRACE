@@ -1,10 +1,9 @@
 import type { Metadata } from 'next';
-import QRCode from 'qrcode';
 import { setRequestLocale } from 'next-intl/server';
 
 import { readLocale, routing } from '@/i18n/routing';
 import { getLocalServices, getSite } from '@/lib/content';
-import { contact, mailHref, phoneHref, whatsappHref } from '@/lib/contact';
+import { contact } from '@/lib/contact';
 import { hasLeadBackend } from '@/lib/leads';
 import { pageMetadata } from '@/lib/seo';
 
@@ -13,7 +12,7 @@ import { Reveal } from '@/components/motion/Reveal';
 import { StopText } from '@/components/brand/Nuqta';
 import { Icon } from '@/components/ui/Icon';
 import { ContactForm } from '@/components/contact/ContactForm';
-import { WhatsAppCard, CallCard } from '@/components/contact/ContactCards';
+import { BookCard, ChatCallRow, EmailCard } from '@/components/contact/ContactCards';
 import { Breadcrumbs } from '@/components/seo/Breadcrumbs';
 
 export function generateStaticParams() {
@@ -43,22 +42,13 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
   const services = getLocalServices(locale);
   const copy = site.contactPage;
 
-  // The QR is generated at build time and inlined — no client-side QR library.
-  const waHref = whatsappHref(locale, site.ui.contact);
-  const qr = await QRCode.toString(waHref, {
-    type: 'svg',
-    margin: 0,
-    errorCorrectionLevel: 'M',
-    color: { dark: '#14130F', light: '#0000' },
-  });
-
   return (
     <>
-      <Breadcrumbs locale={locale} trail={[{ name: site.ui.contact, path: '/contact' }]} />
+      <Breadcrumbs trail={[{ name: site.ui.contact, path: '/contact' }]} />
 
       <section data-conversion-zone className="bg-surface pt-32 pb-[var(--section-y)]">
         <Container className="grid grid-cols-1 gap-16 lg:grid-cols-12 lg:gap-8">
-          {/* Left — WhatsApp first, then call, then the details. */}
+          {/* Left — book a call first, then email, then chat and phone, then the details. */}
           <div className="flex flex-col gap-8 lg:col-span-5">
             {/* The first screenful never animates in — see PageHero. */}
             <div className="flex flex-col gap-5">
@@ -68,43 +58,30 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
               <p className="body-lg max-w-[46ch] text-ink-muted">{copy.lead}</p>
             </div>
 
-            <div>
-              <WhatsAppCard
-                label={site.cta.whatsapp}
-                note={contact.responseTime[locale]}
-                qrSvg={qr}
-                context={site.ui.contact}
-              />
-            </div>
+            <BookCard label={site.cta.book} note={site.cta.bookNote} placement="contact-page" />
+
+            <Reveal delay={0.1}>
+              <EmailCard label={site.cta.email} subject={site.ui.contact} placement="contact-page" />
+            </Reveal>
 
             <Reveal delay={0.14}>
-              <CallCard label={site.cta.call} />
+              <ChatCallRow
+                whatsappLabel={site.cta.whatsapp}
+                callLabel={site.cta.call}
+                placement="contact-page"
+                context={site.ui.contact}
+              />
             </Reveal>
 
             <Reveal delay={0.18}>
               <dl className="flex flex-col gap-4 border-t border-line pt-6">
-                <div className="flex flex-col gap-1">
-                  <dt className="eyebrow text-ink-faint">{site.cta.email}</dt>
-                  <dd>
-                    <a
-                      href={mailHref(site.ui.contact)}
-                      className="body text-ink underline decoration-line-strong underline-offset-4 hover:decoration-nuqta"
-                    >
-                      {contact.email}
-                    </a>
-                  </dd>
-                </div>
                 <div className="flex flex-col gap-1">
                   <dt className="eyebrow text-ink-faint">{site.ui.hoursLabel}</dt>
                   <dd className="body text-ink-muted">{contact.hours[locale]}</dd>
                 </div>
                 <div className="flex flex-col gap-1">
                   <dt className="eyebrow text-ink-faint">{contact.cities[locale].join(' · ')}</dt>
-                  <dd className="body text-ink-muted" dir="ltr">
-                    <a href={phoneHref(true)} className="hover:text-ink">
-                      {contact.phoneSecondaryDisplay}
-                    </a>
-                  </dd>
+                  <dd className="body text-ink-muted">{contact.responseTime[locale]}</dd>
                 </div>
               </dl>
             </Reveal>

@@ -4,11 +4,11 @@ import { getSite } from '@/lib/content';
 import { Container } from '@/components/ui/Container';
 import { StopText } from '@/components/brand/Nuqta';
 import { LinkButton } from '@/components/ui/LinkButton';
-import { WhatsAppButton } from '@/components/contact/ContactButtons';
+import { BookCallButton } from '@/components/contact/ContactButtons';
 import { BrokenConstellation } from '@/components/brand/BrokenConstellation';
 
 /**
- * "This page left no trace." — ATHR's constellation with one nuqta missing.
+ * "This page left no trace." — TRACE's constellation with one nuqta missing.
  * Both routes out are one tap: home, or WhatsApp.
  */
 export default async function NotFound() {
@@ -26,9 +26,9 @@ export default async function NotFound() {
           </h1>
           <p className="body-lg max-w-[48ch] text-ink-muted">{site.ui.notFoundText}</p>
           <div className="flex flex-wrap items-center gap-3">
-            <WhatsAppButton placement="404" context={site.ui.notFoundTitle} size="lg">
-              {site.cta.whatsapp}
-            </WhatsAppButton>
+            <BookCallButton placement="404" size="lg">
+              {site.cta.book}
+            </BookCallButton>
             <LinkButton href="/" variant="secondary" size="lg" iconEnd="arrow-right">
               {site.ui.backHome}
             </LinkButton>

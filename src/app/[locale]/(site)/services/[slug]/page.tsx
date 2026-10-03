@@ -21,7 +21,7 @@ import { ServiceIllustration } from '@/components/illustrations/ServiceIllustrat
 import { Accordion } from '@/components/ui/Accordion';
 import { Nuqta } from '@/components/brand/Nuqta';
 import { Reveal } from '@/components/motion/Reveal';
-import { WhatsAppButton, CallButton } from '@/components/contact/ContactButtons';
+import { BookCallButton, EmailButton } from '@/components/contact/ContactButtons';
 import { Breadcrumbs } from '@/components/seo/Breadcrumbs';
 
 export function generateStaticParams() {
@@ -69,7 +69,6 @@ export default async function ServiceDetailPage({
   return (
     <>
       <Breadcrumbs
-        locale={locale}
         trail={[
           { name: site.services.cta, path: '/services' },
           { name: service.title, path: `/services/${slug}` },
@@ -87,12 +86,16 @@ export default async function ServiceDetailPage({
         }
       >
         <div className="flex flex-wrap items-center gap-3">
-          <WhatsAppButton placement={`service:${slug}`} context={service.title} size="lg">
+          <BookCallButton placement={`service:${slug}`} size="lg">
             {site.hero.primaryCta}
-          </WhatsAppButton>
-          <CallButton placement={`service:${slug}`} size="lg">
-            {site.cta.call}
-          </CallButton>
+          </BookCallButton>
+          <EmailButton
+            placement={`service:${slug}`}
+            subject={site.services.requestMessage.replace('{service}', service.title)}
+            size="lg"
+          >
+            {site.cta.email}
+          </EmailButton>
         </div>
       </PageHero>
 

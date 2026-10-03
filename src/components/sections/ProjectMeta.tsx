@@ -4,7 +4,7 @@ import type { ProjectCardData, ProjectKind, Site } from '@/lib/content';
 /**
  * What a project is, said out loud.
  *
- * The portfolio mixes work delivered for clients, products ATHR built in
+ * The portfolio mixes work delivered for clients, products TRACE built in
  * house, and concept pieces. A visitor must never have to guess which is
  * which, so the label ships in production — it is not a development-only
  * badge. See docs/06-conversion.md on trust signals.

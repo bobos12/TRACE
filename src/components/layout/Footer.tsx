@@ -1,12 +1,11 @@
 import { Link } from '@/i18n/navigation';
 import type { Locale } from '@/i18n/routing';
 import { getLocalServices, getSite } from '@/lib/content';
-import { contact } from '@/lib/contact';
+import { contact, whatsappHref } from '@/lib/contact';
 import { Logo } from '@/components/brand/Logo';
 import { Container } from '@/components/ui/Container';
-import { CallButton, WhatsAppButton } from '@/components/contact/ContactButtons';
+import { BookCallButton, EmailButton } from '@/components/contact/ContactButtons';
 import { ThemeToggle } from './ThemeToggle';
-import { LangSwitch } from './LangSwitch';
 
 function Column({ title, children }: { title: string; children: React.ReactNode }) {
   return (
@@ -44,16 +43,12 @@ export function Footer({ locale }: { locale: Locale }) {
         {/* Top row — logo, tagline, the two contact actions. */}
         <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between">
           <div className="flex max-w-[44ch] flex-col gap-5">
-            <Logo variant="bilingual" height={34} />
+            <Logo variant="wordmark" height={26} />
             <p className="body text-ink-muted">{site.footer.tagline}</p>
           </div>
           <div className="flex flex-wrap items-center gap-3">
-            <WhatsAppButton placement="footer" context={ui.footerCompany}>
-              {site.cta.whatsapp}
-            </WhatsAppButton>
-            <CallButton placement="footer" showNumber>
-              {site.cta.call}
-            </CallButton>
+            <BookCallButton placement="footer">{site.cta.book}</BookCallButton>
+            <EmailButton placement="footer">{site.cta.email}</EmailButton>
           </div>
         </div>
 
@@ -70,6 +65,7 @@ export function Footer({ locale }: { locale: Locale }) {
           <Column title={ui.footerWork ?? 'Work'}>
             <FooterLink href="/work">{site.work.cta}</FooterLink>
             <FooterLink href="/services">{site.services.cta}</FooterLink>
+            <FooterLink href="/bail-bonds">{ui.bailBonds}</FooterLink>
           </Column>
 
           <Column title={ui.footerCompany ?? 'Company'}>
@@ -85,14 +81,18 @@ export function Footer({ locale }: { locale: Locale }) {
                   {contact.email}
                 </a>
               </li>
-              <li dir="ltr" className="font-mono text-start">
-                {contact.phoneDisplay}
+              <li>
+                <a href={`tel:${contact.phone}`} className="font-mono hover:text-ink">
+                  {contact.phoneDisplay}
+                </a>
               </li>
-              <li dir="ltr" className="font-mono text-start">
-                {contact.phoneSecondaryDisplay}
+              <li>
+                <a href={whatsappHref(locale)} target="_blank" rel="noopener" className="hover:text-ink">
+                  {site.cta.whatsapp}
+                </a>
               </li>
               <li>{contact.hours[locale]}</li>
-              {/* TODO: add the Saudi commercial registration number — KSA clients look for it. */}
+              {/* TODO: add the US company registration (state + entity) once formed — US buyers look for it. */}
             </ul>
             {socials.length ? (
               <ul className="mt-2 flex gap-3">
@@ -125,7 +125,6 @@ export function Footer({ locale }: { locale: Locale }) {
             <Link href="/terms" className="body-sm text-ink-muted hover:text-ink">
               {site.footer.terms}
             </Link>
-            <LangSwitch label={site.nav.lang} className="h-auto px-0" />
             <ThemeToggle
               labels={{
                 light: ui.themeLight ?? 'Light',

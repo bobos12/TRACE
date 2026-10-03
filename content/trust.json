@@ -1,5 +1,5 @@
 {
-  "_note": "Client logos come from each client's own live site (originals in assets/clients-src/, masks built by scripts/make-client-logos.mjs). Names are read from the linked project, so they cannot drift. Only clients with a real project in portfolio.json belong here. Platform marks are Simple Icons (CC0) painted in each brand's colour (Google uses its four-colour G; a lighter tint where the brand colour fails on carbon; Vercel follows the ink) and list only platforms ATHR work actually runs on.",
+  "_note": "Client logos come from each client's own live site (originals in assets/clients-src/, masks built by scripts/make-client-logos.mjs). Names are read from the linked project, so they cannot drift. Only clients with a real project in portfolio.json belong here. Platform marks are Simple Icons (CC0) painted in each brand's colour and list only platforms TRACE work actually runs on.",
   "clients": [
     {
       "slug": "future-earth-energy",
@@ -20,15 +20,6 @@
       "color": "/clients/fateen-color.png"
     },
     {
-      "slug": "bayanjw",
-      "width": 227,
-      "height": 240,
-      "project": "bayanjw",
-      "scale": 1.12,
-      "ink": "/clients/bayanjw-ink.png",
-      "color": "/clients/bayanjw-color.png"
-    },
-    {
       "slug": "retal-residence",
       "width": 218,
       "height": 240,
@@ -36,24 +27,6 @@
       "scale": 1.1,
       "ink": "/clients/retal-residence-ink.png",
       "color": "/clients/retal-residence-color.png"
-    },
-    {
-      "slug": "aatakunited",
-      "width": 164,
-      "height": 240,
-      "project": "aatakunited",
-      "scale": 1.08,
-      "ink": "/clients/aatakunited-ink.png",
-      "color": "/clients/aatakunited-color.png"
-    },
-    {
-      "slug": "najm-alithar-travel",
-      "width": 221,
-      "height": 240,
-      "project": "najm-alithar-travel",
-      "scale": 0.95,
-      "ink": "/clients/najm-alithar-travel-ink.png",
-      "color": "/clients/najm-alithar-travel-color.png"
     },
     {
       "slug": "fancystays",
@@ -68,103 +41,54 @@
       "slug": "cartest-auto",
       "width": 911,
       "height": 240,
-      "project": "cartest-auto",
       "scale": 0.96,
       "ink": "/clients/cartest-auto-ink.png",
-      "color": "/clients/cartest-auto-color.png"
-    },
-    {
-      "slug": "basmah-jomah",
-      "width": 297,
-      "height": 240,
-      "project": "basmah-jomah",
-      "scale": 0.98,
-      "ink": "/clients/basmah-jomah-ink.png",
-      "color": "/clients/basmah-jomah-color.png"
-    },
-    {
-      "slug": "albadar-oud-store",
-      "width": 115,
-      "height": 240,
-      "project": "albadar-oud-store",
-      "scale": 1.3,
-      "ink": "/clients/albadar-oud-store-ink.png",
-      "color": null
-    },
-    {
-      "slug": "abu-mayar-store",
-      "width": 244,
-      "height": 240,
-      "project": "abu-mayar-store",
-      "scale": 0.9,
-      "ink": "/clients/abu-mayar-store-ink.png",
-      "color": "/clients/abu-mayar-store-color.png"
+      "color": "/clients/cartest-auto-color.png",
+      "name": "Car Test"
     }
   ],
   "platforms": [
     {
       "slug": "whatsapp",
       "name": {
-        "en": "WhatsApp",
-        "ar": "واتساب"
+        "en": "WhatsApp"
       },
       "icon": "/platforms/whatsapp.svg",
       "kind": {
-        "en": "Business messaging",
-        "ar": "مراسلة الأعمال"
+        "en": "Business messaging"
       },
       "color": "#25D366"
     },
     {
       "slug": "google",
       "name": {
-        "en": "Google",
-        "ar": "جوجل"
+        "en": "Google"
       },
       "icon": "/platforms/google.svg",
       "kind": {
-        "en": "Search & cloud services",
-        "ar": "البحث والخدمات السحابية"
+        "en": "Search & cloud services"
       },
       "image": "/platforms/google-color.svg"
     },
     {
-      "slug": "salla",
-      "name": {
-        "en": "Salla",
-        "ar": "سلة"
-      },
-      "icon": "/platforms/salla.svg",
-      "kind": {
-        "en": "Saudi online stores",
-        "ar": "متاجر سعودية"
-      },
-      "color": "#004956",
-      "colorDark": "#BAF3E6"
-    },
-    {
       "slug": "shopify",
       "name": {
-        "en": "Shopify",
-        "ar": "شوبيفاي"
+        "en": "Shopify"
       },
       "icon": "/platforms/shopify.svg",
       "kind": {
-        "en": "Global online stores",
-        "ar": "متاجر عالمية"
+        "en": "Global online stores"
       },
       "color": "#95BF47"
     },
     {
       "slug": "wordpress",
       "name": {
-        "en": "WordPress",
-        "ar": "ووردبريس"
+        "en": "WordPress"
       },
       "icon": "/platforms/wordpress.svg",
       "kind": {
-        "en": "Websites & content",
-        "ar": "المواقع وإدارة المحتوى"
+        "en": "Websites & content"
       },
       "color": "#21759B",
       "colorDark": "#3D9AD1"
@@ -172,13 +96,11 @@
     {
       "slug": "hostinger",
       "name": {
-        "en": "Hostinger",
-        "ar": "هوستنجر"
+        "en": "Hostinger"
       },
       "icon": "/platforms/hostinger.svg",
       "kind": {
-        "en": "Hosting & domains",
-        "ar": "الاستضافة والنطاقات"
+        "en": "Hosting & domains"
       },
       "color": "#673DE6",
       "colorDark": "#8C6CF0"
@@ -186,13 +108,11 @@
     {
       "slug": "vercel",
       "name": {
-        "en": "Vercel",
-        "ar": "فيرسل"
+        "en": "Vercel"
       },
       "icon": "/platforms/vercel-badge.svg",
       "kind": {
-        "en": "Web hosting & deployment",
-        "ar": "الاستضافة والنشر"
+        "en": "Web hosting & deployment"
       }
     }
   ]

@@ -5,18 +5,18 @@ import { z } from 'zod';
  * Lead capture. Both backends are optional and selected by environment:
  *   SUPABASE_URL + SUPABASE_SERVICE_ROLE_KEY → insert into `leads`
  *   RESEND_API_KEY + LEADS_TO_EMAIL          → send an email
- * With neither configured the form falls back to WhatsApp — see
+ * With neither configured the form falls back to email — see
  * `docs/04-pages.md`. It must never silently fail.
  */
 
 export const leadSchema = z.object({
   name: z.string().trim().min(2).max(120),
   company: z.string().trim().max(160).optional().or(z.literal('')),
-  phone: z.string().trim().min(6).max(40),
-  email: z.string().trim().email().max(160).optional().or(z.literal('')),
+  email: z.string().trim().email().max(160),
+  phone: z.string().trim().max(40).optional().or(z.literal('')),
   type: z.string().trim().max(160),
   message: z.string().trim().min(10).max(4000),
-  locale: z.enum(['ar', 'en']),
+  locale: z.enum(['en']),
   /** Honeypot: must stay empty. Bots fill every field they find. */
   website: z.string().max(0).optional().or(z.literal('')),
 });
@@ -83,8 +83,8 @@ async function toSupabase(lead: Lead): Promise<void> {
     body: JSON.stringify({
       name: lead.name,
       company: lead.company || null,
-      phone: lead.phone,
-      email: lead.email || null,
+      phone: lead.phone || null,
+      email: lead.email,
       service: lead.type,
       message: lead.message,
       locale: lead.locale,
@@ -105,15 +105,15 @@ async function toResend(lead: Lead): Promise<void> {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      from: process.env.LEADS_FROM_EMAIL ?? 'ATHR website <onboarding@resend.dev>',
+      from: process.env.LEADS_FROM_EMAIL ?? 'TRACE website <onboarding@resend.dev>',
       to: [process.env.LEADS_TO_EMAIL!],
-      reply_to: lead.email || undefined,
+      reply_to: lead.email,
       subject: `New enquiry — ${lead.name}${lead.company ? ` (${lead.company})` : ''}`,
       text: [
         `Name:    ${lead.name}`,
         `Company: ${lead.company || '—'}`,
-        `Phone:   ${lead.phone}`,
-        `Email:   ${lead.email || '—'}`,
+        `Email:   ${lead.email}`,
+        `Phone:   ${lead.phone || '—'}`,
         `Needs:   ${lead.type}`,
         `Locale:  ${lead.locale}`,
         '',

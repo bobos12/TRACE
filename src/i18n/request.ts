@@ -10,6 +10,6 @@ export default getRequestConfig(async ({ requestLocale }) => {
   return {
     locale,
     messages: getMessages(locale),
-    timeZone: 'Asia/Riyadh',
+    timeZone: 'America/New_York',
   };
 });

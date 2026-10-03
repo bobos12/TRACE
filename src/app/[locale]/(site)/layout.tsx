@@ -3,7 +3,7 @@ import { readLocale } from '@/i18n/routing';
 import { getSite } from '@/lib/content';
 import { Nav } from '@/components/layout/Nav';
 import { Footer } from '@/components/layout/Footer';
-import { FloatingWhatsApp, MobileContactBar } from '@/components/contact/PersistentContact';
+import { FloatingBook, MobileContactBar } from '@/components/contact/PersistentContact';
 import { RevealMount } from '@/components/motion/RevealMount';
 
 export default async function SiteLayout({
@@ -23,11 +23,8 @@ export default async function SiteLayout({
       <Nav site={site} />
       <main id="main">{children}</main>
       <Footer locale={locale} />
-      <FloatingWhatsApp tooltip={site.ui.whatsappTooltip} label={site.cta.whatsapp} />
-      <MobileContactBar
-        whatsappLabel={site.floating.whatsapp}
-        callLabel={site.floating.call}
-      />
+      <FloatingBook tooltip={site.ui.bookTooltip} label={site.cta.book} />
+      <MobileContactBar bookLabel={site.floating.book} emailLabel={site.floating.email} />
     </>
   );
 }

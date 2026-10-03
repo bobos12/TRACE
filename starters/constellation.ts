@@ -1,6 +1,6 @@
 /**
  * The constellation — each client's own mark: a 3×3 lattice of nuqtas (rhombi), cells 0–8 row-major.
- * Deterministic: the same name always gives the same mark. ATHR's own mark is the ث arrangement.
+ * Deterministic: the same name always gives the same mark. TRACE's own mark is the three-nuqta symbol arrangement.
  * Render each cell as a square rotated 45° (scale .7071), filled = ink, mark = vermilion, empty = hairline or hidden.
  */
 export interface ConstellationCells { on: number[]; mark: number }
@@ -12,7 +12,7 @@ function fnv1a(s: string): number {
 }
 
 export function constellation(seed?: string): ConstellationCells {
-  if (!seed || /^(athr|أثر)$/i.test(seed.trim())) return { on: [1, 3, 5], mark: 1 };
+  if (!seed || /^trace$/i.test(seed.trim())) return { on: [1, 3, 5], mark: 1 };
   let x = fnv1a(seed.trim().toLowerCase());
   const cells = [0, 1, 2, 3, 4, 5, 6, 7, 8];
   const on: number[] = [];

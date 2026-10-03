@@ -6,10 +6,10 @@
  */
 import { z } from 'zod';
 
+import bailBondsJson from '@content/bail-bonds.json';
 import contactJson from '@content/contact.json';
 import portfolioJson from '@content/portfolio.json';
 import servicesJson from '@content/services.json';
-import siteAr from '@content/site.ar.json';
 import siteEn from '@content/site.en.json';
 import trustJson from '@content/trust.json';
 
@@ -18,7 +18,9 @@ import { projectCategories, projectKinds, type ProjectKind } from '@/lib/kinds';
 
 /* ── shared ───────────────────────────────────────────────────── */
 
-const bilingual = z.object({ en: z.string().min(1), ar: z.string().min(1) });
+/** Copy keyed by locale. English is the only locale; the key stays so a second
+ *  language can be added later without reshaping every file. */
+const localized = z.object({ en: z.string().min(1) });
 const numbered = z.object({ value: z.string().min(1), label: z.string().min(1) });
 
 const legalPage = z.object({
@@ -38,10 +40,20 @@ const siteSchema = z.object({
     ogImage: z.string().min(1),
   }),
   nav: z.object({
-    links: z.array(z.object({ label: z.string().min(1), href: z.string().min(1) })).min(1),
-    lang: z.string().min(1),
+    links: z
+      .array(
+        z.object({
+          label: z.string().min(1),
+          href: z.string().min(1),
+          /** A dropdown: the label opens it; `href` marks it current. */
+          children: z
+            .array(z.object({ label: z.string().min(1), href: z.string().min(1), text: z.string().min(1) }))
+            .optional(),
+        }),
+      )
+      .min(1),
     cta: z.string().min(1),
-    call: z.string().min(1),
+    email: z.string().min(1),
   }),
   hero: z.object({
     eyebrow: z.string().min(1),
@@ -51,10 +63,12 @@ const siteSchema = z.object({
     primaryCta: z.string().min(1),
     secondaryCta: z.string().min(1),
     reassurance: z.string().min(1),
-    otherLanguageLine: z.string().min(1),
   }),
   trust: z.object({
     logosTitle: z.string().min(1),
+    title: z.string().min(1),
+    /** What every client gets in writing — the strip under the hero. */
+    promises: z.array(z.string().min(1)).min(1),
     /** The owner's figures, shown under the logos. */
     stats: z.array(numbered).min(1),
   }),
@@ -77,7 +91,7 @@ const siteSchema = z.object({
     title: z.string().min(1),
     lead: z.string().min(1),
     cta: z.string().min(1),
-    /** The per-service WhatsApp button on each tile, and its message — {service}. */
+    /** The per-service enquiry button on each tile, and its email subject — {service}. */
     request: z.string().min(1),
     requestMessage: z.string().min(1),
     /** The plain-language list of everything we build, above the bento. */
@@ -103,20 +117,17 @@ const siteSchema = z.object({
     title: z.string().min(1),
     points: z.array(z.object({ title: z.string().min(1), text: z.string().min(1) })).min(1),
   }),
-  testimonial: z.object({
-    text: z.string().min(1),
-    by: z.string().min(1),
-    _note: z.string().optional(),
-  }),
   industries: z.object({ title: z.string().min(1), items: z.array(z.string().min(1)).min(1) }),
   cta: z.object({
     title: z.string().min(1),
     text: z.string().min(1),
+    book: z.string().min(1),
+    bookNote: z.string().min(1),
+    email: z.string().min(1),
     whatsapp: z.string().min(1),
     call: z.string().min(1),
-    email: z.string().min(1),
   }),
-  /** The WhatsApp brief in the contact band: pick services, send a ready message. */
+  /** The project brief in the contact band: pick services, send a ready email. */
   brief: z.object({
     eyebrow: z.string().min(1),
     servicesLabel: z.string().min(1),
@@ -126,9 +137,11 @@ const siteSchema = z.object({
     detailsPlaceholder: z.string().min(1),
     submit: z.string().min(1),
     hint: z.string().min(1),
+    orWhatsApp: z.string().min(1),
     errorServices: z.string().min(1),
     errorName: z.string().min(1),
     /** Message templates — {name}, {company}, {services}, {details}, {page}. */
+    subject: z.string().min(1),
     messageHello: z.string().min(1),
     messageHelloCompany: z.string().min(1),
     messageServices: z.string().min(1),
@@ -141,6 +154,7 @@ const siteSchema = z.object({
     form: z.object({
       name: z.string().min(1),
       company: z.string().min(1),
+      email: z.string().min(1),
       phone: z.string().min(1),
       type: z.string().min(1),
       message: z.string().min(1),
@@ -154,7 +168,7 @@ const siteSchema = z.object({
     privacy: z.string().min(1),
     terms: z.string().min(1),
   }),
-  floating: z.object({ whatsapp: z.string().min(1), call: z.string().min(1) }),
+  floating: z.object({ book: z.string().min(1), email: z.string().min(1) }),
   /** Interface chrome: labels that aren't marketing copy but still belong in content. */
   ui: z.object({
     skipToContent: z.string().min(1),
@@ -164,8 +178,7 @@ const siteSchema = z.object({
     themeToggle: z.string().min(1),
     themeLight: z.string().min(1),
     themeDark: z.string().min(1),
-    langSwitch: z.string().min(1),
-    whatsappTooltip: z.string().min(1),
+    bookTooltip: z.string().min(1),
     scroll: z.string().min(1),
     servicesAsk: z.string().min(1),
     workAsk: z.string().min(1),
@@ -208,7 +221,7 @@ const siteSchema = z.object({
     notFoundText: z.string().min(1),
     backHome: z.string().min(1),
     optional: z.string().min(1),
-    sendOnWhatsApp: z.string().min(1),
+    sendByEmail: z.string().min(1),
     sending: z.string().min(1),
     formError: z.string().min(1),
     notSure: z.string().min(1),
@@ -218,8 +231,8 @@ const siteSchema = z.object({
     footerWork: z.string().min(1),
     about: z.string().min(1),
     contact: z.string().min(1),
-    cr: z.string().min(1),
     caseStudy: z.string().min(1),
+    bailBonds: z.string().min(1),
     formTitle: z.string().min(1),
     messagePlaceholder: z.string().min(1),
   }),
@@ -291,7 +304,6 @@ export type Site = z.infer<typeof siteSchema>;
 
 const site: Record<Locale, Site> = {
   en: siteSchema.parse(siteEn),
-  ar: siteSchema.parse(siteAr),
 };
 
 export function getSite(locale: Locale): Site {
@@ -330,7 +342,6 @@ const serviceSchema = z.object({
   visual: z.enum(serviceVisuals),
   featured: z.boolean(),
   en: serviceCopy,
-  ar: serviceCopy,
 });
 
 export type Service = z.infer<typeof serviceSchema>;
@@ -415,7 +426,6 @@ const projectSchema = z.object({
     .object({ live: z.string().url().optional(), source: z.string().url().optional() })
     .default({}),
   en: projectCopy,
-  ar: projectCopy,
 });
 
 export { projectKinds };
@@ -526,7 +536,7 @@ export function toCardData(p: LocalProject): ProjectCardData {
 }
 
 export function localizeProject(project: Project, locale: Locale): LocalProject {
-  const { en: _en, ar: _ar, ...rest } = project;
+  const { en: _en, ...rest } = project;
   return { ...rest, ...project[locale] };
 }
 
@@ -551,7 +561,9 @@ const trustSchema = z.object({
         /** Optical correction: a thin wordmark needs more size than a dense badge. */
         scale: z.number().positive().default(1),
         /** The case study the logo links to; the name is read from it. */
-        project: z.string().min(1),
+        project: z.string().min(1).optional(),
+        /** For a logo shown without a case study. */
+        name: z.string().min(1).optional(),
       }),
     )
     .min(1),
@@ -559,12 +571,12 @@ const trustSchema = z.object({
     .array(
       z.object({
         slug: z.string().min(1),
-        name: bilingual,
+        name: localized,
         /** What the platform is, in a business owner's words. */
-        kind: bilingual,
+        kind: localized,
         /** Single-colour mark, painted with `color` (or the ink when there is none). */
         icon: z.string().min(1),
-        /** Brand colours are the platform's own data, not ATHR tokens. */
+        /** Brand colours are the platform's own data, not TRACE tokens. */
         color: z.string().regex(/^#[0-9a-fA-F]{6}$/).optional(),
         /** A lighter tint where the brand colour fails on carbon. */
         colorDark: z.string().regex(/^#[0-9a-fA-F]{6}$/).optional(),
@@ -585,23 +597,27 @@ export interface ClientLogo {
   width: number;
   height: number;
   scale: number;
-  href: string;
+  /** Absent when the client is shown by logo only. */
+  href?: string;
 }
 
-/** Client logos, each tied to real work — a logo without a project fails the build. */
+/** Client logos. One tied to a case study links to it and takes its name from it;
+ *  a logo-only client must carry its own name. Anything else fails the build. */
 export function getClientLogos(locale: Locale): ClientLogo[] {
   return trust.clients.map((c) => {
-    const project = getProject(c.project);
-    if (!project) throw new Error(`trust.json: no project "${c.project}" for client "${c.slug}"`);
+    const project = c.project ? getProject(c.project) : undefined;
+    if (c.project && !project) throw new Error(`trust.json: no project "${c.project}" for client "${c.slug}"`);
+    const name = project?.[locale].client ?? c.name;
+    if (!name) throw new Error(`trust.json: client "${c.slug}" needs a project or a name`);
     return {
       slug: c.slug,
-      name: project[locale].client,
+      name,
       ink: c.ink,
       color: c.color,
       width: c.width,
       height: c.height,
       scale: c.scale,
-      href: `/work/${c.project}`,
+      href: project ? `/work/${project.slug}` : undefined,
     };
   });
 }
@@ -632,16 +648,16 @@ export function getPlatforms(locale: Locale): Platform[] {
 
 const contactSchema = z.object({
   _note: z.string().optional(),
-  whatsapp: z.string().min(1),
+  /** Scheduling link (Cal.com, Calendly). Until it is real, "Book a call" opens the contact page. */
+  booking: z.string().url(),
+  email: z.string().email(),
   phone: z.string().min(1),
   phoneDisplay: z.string().min(1),
-  phoneSecondary: z.string().min(1),
-  phoneSecondaryDisplay: z.string().min(1),
-  email: z.string().email(),
-  hours: bilingual,
-  responseTime: bilingual,
-  cities: z.object({ en: z.array(z.string()).min(1), ar: z.array(z.string()).min(1) }),
-  whatsappMessage: bilingual,
+  whatsapp: z.string().min(1),
+  hours: localized,
+  responseTime: localized,
+  cities: z.object({ en: z.array(z.string()).min(1) }),
+  whatsappMessage: localized,
   social: z.object({
     linkedin: z.string(),
     x: z.string(),
@@ -656,6 +672,202 @@ export type Contact = z.infer<typeof contactSchema>;
  *  client components without dragging Zod into the browser bundle. */
 export const contact: Contact = contactSchema.parse(contactJson);
 
+/* ── bail-bonds.json ──────────────────────────────────────────── */
+
+const str = z.string().min(1);
+const strs = z.array(str).min(1);
+const qa = z.object({ q: str, a: str });
+const titled = z.object({ title: str, text: str });
+
+const bailBondsSchema = z.object({
+  _note: z.string().optional(),
+  meta: z.object({ title: str, description: str }),
+  hero: z.object({
+    eyebrow: str,
+    title: z.tuple([str, str]),
+    lead: str,
+    primaryCta: str,
+    secondaryCta: str,
+    reassurance: str,
+    specsNote: str,
+    specs: z
+      .array(z.object({ prefix: z.string().optional(), value: str, unit: str, text: str }))
+      .length(4),
+  }),
+  demo: z.object({
+    concept: str,
+    name: str,
+    fullName: str,
+    phone: str,
+    url: str,
+    oldUrl: str,
+    site: z.object({
+      utility: str,
+      spanish: str,
+      reviews: str,
+      logoSub: str,
+      nav: strs,
+      hotline: str,
+      callNow: str,
+      eyebrow: str,
+      headline: str,
+      sub: str,
+      call: str,
+      start: str,
+      checks: strs,
+      form: z.object({
+        title: str,
+        sub: str,
+        fields: strs,
+        values: z.array(z.string()),
+        submit: str,
+        note: str,
+      }),
+      proof: z.array(z.object({ a: str, b: str })).length(4),
+      jailsTitle: str,
+      jails: z.array(z.object({ name: str, where: str })).min(1),
+      agent: z.object({ label: str, name: str, role: str }),
+      review: z.object({ text: str, by: str, source: str }),
+      chat: str,
+      license: str,
+    }),
+    old: z.object({
+      title: str,
+      tagline: str,
+      nav: strs,
+      ticker: str,
+      heading: str,
+      body: strs,
+      review: str,
+      phone: str,
+      counter: str,
+      counterLabel: str,
+      footer: str,
+      ie: str,
+      construction: str,
+    }),
+  }),
+  maps: z.object({
+    query: str,
+    chips: strs,
+    actions: z.tuple([str, str, str]),
+    labels: z.object({
+      area: str,
+      area2: str,
+      street1: str,
+      street2: str,
+      street3: str,
+      water: str,
+      park: str,
+      highway: str,
+    }),
+    results: z
+      .array(
+        z.object({
+          name: str,
+          rating: str,
+          reviews: str,
+          kind: str,
+          distance: str,
+          status: str,
+          tone: z.enum(['open', 'closed', 'none']),
+          photos: z.boolean(),
+          website: z.boolean(),
+          note: str,
+        }),
+      )
+      .length(3),
+  }),
+  moment: z.object({
+    eyebrow: str,
+    title: str,
+    lead: str,
+    question: str,
+    query: str,
+    timeline: z.array(z.object({ time: str, text: str })).length(4),
+  }),
+  compare: z.object({
+    eyebrow: str,
+    title: str,
+    lead: str,
+    sliderLabel: str,
+    before: str,
+    after: str,
+    changes: z.array(z.object({ what: str, before: str, after: str })).min(1),
+    cta: str,
+  }),
+  journey: z.object({
+    eyebrow: str,
+    title: str,
+    lead: str,
+    steps: z.array(z.object({ name: str, text: str, tag: str })).length(4),
+  }),
+  assistant: z.object({
+    eyebrow: str,
+    title: str,
+    lead: str,
+    points: strs,
+    name: str,
+    status: str,
+    greeting: str,
+    inputLabel: str,
+    inputPlaceholder: str,
+    reset: str,
+    you: str,
+    waiting: str,
+    questions: z.array(z.object({ q: str, a: str, action: str })).min(1),
+    phoneTitle: str,
+    lockTime: str,
+    lockDate: str,
+    notification: z.object({ app: str, when: str, title: str, body: str, actions: strs }),
+    demoNote: str,
+  }),
+  details: z.object({
+    eyebrow: str,
+    title: str,
+    lead: str,
+    callBar: titled.extend({ label: str }),
+    areas: titled.extend({ counties: strs }),
+    estimator: titled.extend({
+      bailLabel: str,
+      rateLabel: str,
+      premiumLabel: str,
+      planLabel: str,
+      planNote: str,
+      perMonth: str,
+      disclaimer: str,
+    }),
+    language: titled.extend({ labels: z.tuple([str, str]), en: str, es: str }),
+    maps: titled.extend({ name: str, rating: str, reviews: str, open: str, kind: str }),
+    form: titled.extend({ fields: strs, submit: str, step: str }),
+    speed: titled.extend({ budget: str }),
+    privacy: titled,
+  }),
+  process: z.object({
+    eyebrow: str,
+    title: str,
+    steps: z.array(z.object({ n: str, title: str, text: str })).min(1),
+  }),
+  proof: z.object({
+    eyebrow: str,
+    title: str,
+    lead: str,
+    logosTitle: str,
+    promisesTitle: str,
+    promises: strs,
+  }),
+  faq: z.object({ eyebrow: str, title: str, items: z.array(qa).min(1) }),
+  cta: z.object({ title: str, context: str, services: strs }),
+});
+
+export type BailBonds = z.infer<typeof bailBondsSchema>;
+
+const bailBonds = bailBondsSchema.parse(bailBondsJson);
+
+export function getBailBonds(): BailBonds {
+  return bailBonds;
+}
+
 /* ── placeholders ─────────────────────────────────────────────── */
 
 /** Everything still carrying a placeholder marker — surfaced in the styleguide
@@ -664,16 +876,16 @@ export function listPlaceholders(): { area: string; detail: string }[] {
   const out: { area: string; detail: string }[] = [];
   if (contact._note) out.push({ area: 'content/contact.json', detail: contact._note });
   if (portfolio._note) out.push({ area: 'content/portfolio.json', detail: portfolio._note });
+  if (bailBonds._note) out.push({ area: 'content/bail-bonds.json', detail: bailBonds._note });
   for (const p of projects) {
     if (p._note && !p.placeholder) out.push({ area: `project: ${p.slug}`, detail: p._note });
     if (p.placeholder) {
       out.push({ area: `project: ${p.slug}`, detail: `${p.en.client} — sample project, cover ${p.cover}` });
     }
   }
-  for (const loc of ['en', 'ar'] as const) {
+  for (const loc of ['en'] as const) {
     const s = site[loc];
     const notes: Array<[string, string | undefined]> = [
-      ['testimonial', s.testimonial._note],
       ['pages.about', s.pages.about._note],
       ['pages.serviceDetail', s.pages.serviceDetail._note],
       ['pages.legal', s.pages.legal._note],

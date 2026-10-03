@@ -1,0 +1,529 @@
+{
+  "_note": "The /bail-bonds landing page. 'Ironwood Bail Bonds' and the two competing listings are fictional businesses used in every demo (555-01xx is the fiction range), labelled as a concept on the page. The photos inside the Ironwood mock (public/images/bail/) come from the bail-bonds reference project — confirm their licence before launch. The 'specs' are what we build to, not client results.",
+  "meta": {
+    "title": "Websites & AI for bail bond agencies",
+    "description": "Bail bond websites and AI assistants built for the 2 a.m. search: found on Google, credible in seconds, one tap to call — and an assistant that answers when you can't."
+  },
+  "hero": {
+    "eyebrow": "Websites & AI for bail bond agencies ◆ USA",
+    "title": [
+      "Be the bondsman",
+      "they call first."
+    ],
+    "lead": "At 2 a.m. a family searches on a phone and calls whoever looks most trustworthy. We build bail bond websites — with an assistant that answers when you can't — so that call comes to you.",
+    "primaryCta": "Book a free call",
+    "secondaryCta": "See the before & after",
+    "reassurance": "Free 30-minute call · We review your site and Google listing · No obligation",
+    "specsNote": "What we build to — specs, not claimed results.",
+    "specs": [
+      {
+        "value": "24",
+        "unit": "/7",
+        "text": "An assistant that answers and routes the lead, even when your line is busy."
+      },
+      {
+        "value": "1",
+        "unit": "tap",
+        "text": "From a Google result to your phone ringing, on every screen."
+      },
+      {
+        "prefix": "<",
+        "value": "2.5",
+        "unit": "s",
+        "text": "The load time we build to, on a weak phone signal."
+      },
+      {
+        "value": "100",
+        "unit": "%",
+        "text": "Yours — the domain, code, content and Google profile."
+      }
+    ]
+  },
+  "demo": {
+    "concept": "Concept · fictional agency",
+    "name": "Ironwood",
+    "fullName": "Ironwood Bail Bonds",
+    "phone": "(713) 555-0147",
+    "url": "ironwoodbailbonds.com",
+    "oldUrl": "www.ironwoodbailbondsinc.com/index.html",
+    "site": {
+      "utility": "Serving Harris, Fort Bend & Montgomery Counties",
+      "spanish": "Se habla español",
+      "reviews": "4.9 · 380 Google reviews",
+      "logoSub": "Bail Bonds · Houston",
+      "nav": [
+        "How Bail Works",
+        "Jails We Serve",
+        "Payment Plans",
+        "Reviews",
+        "Español"
+      ],
+      "hotline": "24/7 Bail Hotline",
+      "callNow": "Call Now",
+      "eyebrow": "Licensed bail bond agency · Houston, TX",
+      "headline": "Get your loved one home — tonight.",
+      "sub": "Fast, confidential bail bonds in Harris, Fort Bend and Montgomery counties. A licensed agent answers every call, day or night, with payment plans for every family.",
+      "call": "Call",
+      "start": "Start Bail Online",
+      "checks": [
+        "Licensed & insured",
+        "Payment plans",
+        "100% confidential"
+      ],
+      "form": {
+        "title": "Start the release process",
+        "sub": "Takes about a minute.",
+        "fields": [
+          "Defendant’s full name",
+          "County jail",
+          "Your phone number"
+        ],
+        "values": [
+          "",
+          "Harris County — JPC",
+          ""
+        ],
+        "submit": "Get Help Now",
+        "note": "A licensed agent calls you back within minutes."
+      },
+      "proof": [
+        {
+          "a": "4.9 Google rating",
+          "b": "380+ families helped"
+        },
+        {
+          "a": "Since 2009",
+          "b": "Locally owned in Houston"
+        },
+        {
+          "a": "24/7/365",
+          "b": "Including holidays"
+        },
+        {
+          "a": "Payment plans",
+          "b": "Low down payment"
+        }
+      ],
+      "jailsTitle": "Jails we serve",
+      "jails": [
+        {
+          "name": "Harris County Joint Processing Center",
+          "where": "700 N San Jacinto St, Houston"
+        },
+        {
+          "name": "Fort Bend County Jail",
+          "where": "Richmond, TX"
+        },
+        {
+          "name": "Montgomery County Jail",
+          "where": "Conroe, TX"
+        }
+      ],
+      "agent": {
+        "label": "Your agent",
+        "name": "Daniel Reyes",
+        "role": "Owner & licensed bail agent. Seventeen years helping Houston families."
+      },
+      "review": {
+        "text": "Daniel answered at 3 a.m., explained every cost and had my son home by morning. Kind, fast and honest.",
+        "by": "Maria G. · Pasadena",
+        "source": "Google review"
+      },
+      "chat": "Need help now? Chat with us 24/7",
+      "license": "TX License #00000"
+    },
+    "old": {
+      "title": "IRONWOOD BAIL BONDS INC.",
+      "tagline": "Serving the Greater Houston Area Since 2009",
+      "nav": [
+        "Home",
+        "About Us",
+        "Services",
+        "Bail Info",
+        "Links",
+        "Contact Us"
+      ],
+      "ticker": "*** 24 HOUR SERVICE *** WE ACCEPT ALL MAJOR CREDIT CARDS *** CALL TODAY ***",
+      "heading": "Welcome to our web site!",
+      "body": [
+        "Ironwood Bail Bonds Inc. is a full service bail bond company serving the greater Houston area. We have been in business for many years and our staff is ready to help you.",
+        "Please call for more information about our services. Thank you for visiting our web site!"
+      ],
+      "review": "“Great service!!” — J.",
+      "phone": "Phone: 713-555-0147 | Fax: 713-555-0148",
+      "counter": "004817",
+      "counterLabel": "Visitors:",
+      "footer": "© 2011 Ironwood Bail Bonds Inc. All Rights Reserved. | Site by WebMasters Plus",
+      "ie": "Best viewed in Internet Explorer 8 at 1024 x 768",
+      "construction": "Page under construction"
+    }
+  },
+  "maps": {
+    "query": "bail bonds near me",
+    "chips": [
+      "Open now",
+      "Top rated",
+      "Hours"
+    ],
+    "actions": [
+      "Directions",
+      "Call",
+      "Website"
+    ],
+    "labels": {
+      "area": "MIDTOWN",
+      "area2": "DOWNTOWN",
+      "street1": "Washington Ave",
+      "street2": "Main St",
+      "street3": "Gray St",
+      "water": "Buffalo Bayou",
+      "park": "Eleanor Tinsley Park",
+      "highway": "45"
+    },
+    "results": [
+      {
+        "name": "Ironwood Bail Bonds",
+        "rating": "4.9",
+        "reviews": "(380)",
+        "kind": "Bail bonds service",
+        "distance": "1.2 mi",
+        "status": "Open 24 hours",
+        "tone": "open",
+        "photos": true,
+        "website": true,
+        "note": "Open now · photos · one-tap call"
+      },
+      {
+        "name": "Marlowe Bail Services",
+        "rating": "4.1",
+        "reviews": "(27)",
+        "kind": "Bail bonds service",
+        "distance": "2.6 mi",
+        "status": "Closed · Opens 9 AM",
+        "tone": "closed",
+        "photos": false,
+        "website": true,
+        "note": "Closed at 2 a.m."
+      },
+      {
+        "name": "Brightway Bonding Co.",
+        "rating": "3.4",
+        "reviews": "(11)",
+        "kind": "Bail bonds service",
+        "distance": "4.8 mi",
+        "status": "Hours not listed",
+        "tone": "none",
+        "photos": false,
+        "website": false,
+        "note": "No hours, no website"
+      }
+    ]
+  },
+  "moment": {
+    "eyebrow": "01 ◆ The 2 a.m. search",
+    "title": "The bond goes to whoever looks trustworthy first.",
+    "lead": "Someone just got the call from the county jail. They search on a phone, compare three agencies in seconds and dial the one that looks credible. A dated site, a buried number or a listing with no hours sends that family — and that bond — to the next result.",
+    "question": "When they find you tonight, will they call — or keep scrolling?",
+    "query": "bail bonds near me",
+    "timeline": [
+      {
+        "time": "2:07 AM",
+        "text": "A call from the county jail."
+      },
+      {
+        "time": "2:09 AM",
+        "text": "“bail bonds near me”"
+      },
+      {
+        "time": "2:10 AM",
+        "text": "Three agencies, eight seconds."
+      },
+      {
+        "time": "2:11 AM",
+        "text": "One of them gets the call."
+      }
+    ]
+  },
+  "compare": {
+    "eyebrow": "02 ◆ Before → after",
+    "title": "Same agency. A completely different first impression.",
+    "lead": "What we change on a typical bail bonds site. Same business, same number, same years of experience — finally looking like the agency it is. Drag to compare.",
+    "sliderLabel": "Drag to compare the old and new website",
+    "before": "Before",
+    "after": "After · TRACE",
+    "changes": [
+      {
+        "what": "First impression",
+        "before": "Clip-art gavel and a 2011 template",
+        "after": "A calm, credible page with one clear promise"
+      },
+      {
+        "what": "Phone number",
+        "before": "Small text, bottom of the page",
+        "after": "A one-tap call button on every screen"
+      },
+      {
+        "what": "Proof",
+        "before": "“Great service!!” — J.",
+        "after": "Google rating, license and years served, up front"
+      },
+      {
+        "what": "After hours",
+        "before": "“Please call for more information”",
+        "after": "An assistant that answers and routes the lead"
+      },
+      {
+        "what": "On a phone",
+        "before": "The desktop page, shrunk",
+        "after": "Designed for the phone first"
+      },
+      {
+        "what": "Spanish",
+        "before": "Not offered",
+        "after": "Full English and Spanish versions"
+      }
+    ],
+    "cta": "Get this for your agency"
+  },
+  "journey": {
+    "eyebrow": "03 ◆ What changes",
+    "title": "A website that works the night shift.",
+    "lead": "Your phone is your business. Every part of the site is built to get it ringing — and to catch the calls you can't take.",
+    "steps": [
+      {
+        "name": "Get found",
+        "text": "Set up for “bail bonds near me”, Google Maps and every county you cover.",
+        "tag": "Visibility"
+      },
+      {
+        "name": "Look credible",
+        "text": "License, years served and real reviews — calm and professional in the first second.",
+        "tag": "Trust"
+      },
+      {
+        "name": "Get the call",
+        "text": "One-tap calling and a short bond form on every screen.",
+        "tag": "Calls"
+      },
+      {
+        "name": "Miss nothing",
+        "text": "The assistant answers at 3 a.m. and texts the lead to the agent on call.",
+        "tag": "Leads"
+      }
+    ]
+  },
+  "assistant": {
+    "eyebrow": "04 ◆ The assistant",
+    "title": "You can't answer every call. Your website can.",
+    "lead": "Trained only on what your agency approves — fees, payment plans, the jails you cover — it answers families, takes the details and texts them to the agent on call. Try it.",
+    "points": [
+      "Answers cost, payment-plan and coverage questions",
+      "English and Spanish, nights, weekends and holidays",
+      "Takes the name, number, jail and booking number",
+      "Texts the lead to whoever is on call",
+      "Never gives legal advice — it hands off to a person"
+    ],
+    "name": "Ironwood Assistant",
+    "status": "Replies instantly · 24/7",
+    "greeting": "Hi — I can help with bail costs, payment plans and the jails we serve. What happened?",
+    "inputLabel": "Ask a question",
+    "inputPlaceholder": "Pick a question below",
+    "reset": "Start over",
+    "you": "You",
+    "waiting": "Waiting for a lead",
+    "questions": [
+      {
+        "q": "Are you open right now?",
+        "a": "Yes — an agent is on call tonight, 24/7. Want me to have them call you in the next few minutes?",
+        "action": "Request a call"
+      },
+      {
+        "q": "How much does a bond cost?",
+        "a": "In Texas it's usually 10–15% of the bail amount, and we offer payment plans. An agent can confirm the exact figure in a few minutes.",
+        "action": "Get a quote"
+      },
+      {
+        "q": "My son is at Harris County.",
+        "a": "We post bonds at the Joint Processing Center every night. Can I take his full name and booking number so the agent can start?",
+        "action": "Send details"
+      },
+      {
+        "q": "¿Hablan español?",
+        "a": "Sí. Puedo ayudarle en español, y un agente que habla español le llamará en minutos.",
+        "action": "Llamar ahora"
+      }
+    ],
+    "phoneTitle": "The agent on call",
+    "lockTime": "2:14",
+    "lockDate": "Tuesday, March 18",
+    "notification": {
+      "app": "Ironwood · New lead",
+      "when": "now",
+      "title": "Maria G. — son at Harris County JPC",
+      "body": "Booking # 2026-041833 · wants a call back · (713) 555-0188 · English",
+      "actions": [
+        "Call back",
+        "Open lead"
+      ]
+    },
+    "demoNote": "Live demo · fictional agency"
+  },
+  "details": {
+    "eyebrow": "05 ◆ Built for bail bonds",
+    "title": "Every detail designed for the moment a family needs you.",
+    "lead": "Generic templates aren't built for a worried search at 2 a.m. Ours are. These are the parts of the site we build for every agency.",
+    "callBar": {
+      "title": "One-tap calling",
+      "text": "The number is never more than a thumb away — sticky on every screen.",
+      "label": "Call 24/7"
+    },
+    "areas": {
+      "title": "Every jail you serve",
+      "text": "A page for each county and jail, so you show up where families search.",
+      "counties": [
+        "Harris",
+        "Fort Bend",
+        "Montgomery",
+        "Galveston",
+        "Brazoria"
+      ]
+    },
+    "estimator": {
+      "title": "A bond cost estimator",
+      "text": "Families see a fair figure before they call — at your rates, set by your state.",
+      "bailLabel": "Bail amount",
+      "rateLabel": "Premium",
+      "premiumLabel": "Estimated premium",
+      "planLabel": "Payment plan",
+      "planNote": "down, then",
+      "perMonth": "/mo for 6 months",
+      "disclaimer": "Example rates. Premiums are set by state law and your agency."
+    },
+    "language": {
+      "title": "English and Español",
+      "text": "A full Spanish site, not a translate button.",
+      "labels": [
+        "English",
+        "Español"
+      ],
+      "en": "Get your loved one home tonight.",
+      "es": "Traiga a su ser querido a casa esta noche."
+    },
+    "maps": {
+      "title": "Found on Google Maps",
+      "text": "Your Google Business profile set up and kept in step with the site.",
+      "name": "Ironwood Bail Bonds",
+      "rating": "4.9",
+      "reviews": "(380)",
+      "open": "Open 24 hours",
+      "kind": "Bail bonds service"
+    },
+    "form": {
+      "title": "A bond form that takes a minute",
+      "text": "For families who can't talk — three fields, on a phone.",
+      "fields": [
+        "Defendant's full name",
+        "Jail or county",
+        "Booking number"
+      ],
+      "submit": "Start the bond",
+      "step": "Step 1 of 2"
+    },
+    "speed": {
+      "title": "Fast on a weak signal",
+      "text": "Built to load in under 2.5 seconds on a phone — the budget we test every page against.",
+      "budget": "2.5s budget"
+    },
+    "privacy": {
+      "title": "Confidential by default",
+      "text": "Leads go to you and nobody else. No shared directories, no resold data."
+    }
+  },
+  "process": {
+    "eyebrow": "06 ◆ How we work",
+    "title": "From first call to a phone that rings.",
+    "steps": [
+      {
+        "n": "01",
+        "title": "Review",
+        "text": "A free call about your agency, counties and competitors — and an honest look at your site and Google listing."
+      },
+      {
+        "n": "02",
+        "title": "Design",
+        "text": "A written scope and fixed price, then designs you approve on your own phone before we build."
+      },
+      {
+        "n": "03",
+        "title": "Launch",
+        "text": "Content moved, rankings and phone number protected, call tracking and speed checked."
+      },
+      {
+        "n": "04",
+        "title": "Grow",
+        "text": "Local SEO, monthly reports in plain English and improvements based on what callers do."
+      }
+    ]
+  },
+  "proof": {
+    "eyebrow": "07 ◆ Who's behind it",
+    "title": "A real studio, held to terms in writing.",
+    "lead": "TRACE builds websites, apps and business systems for companies in the US and abroad. The same team builds your agency's site.",
+    "logosTitle": "Businesses we've built for",
+    "promisesTitle": "What every agency gets, in writing",
+    "promises": [
+      "A written scope and a fixed price",
+      "You own the domain, site and Google profile",
+      "Your number and rankings protected at launch",
+      "Calls and support on US hours",
+      "Your leads stay yours — never shared or resold",
+      "Stop after any phase, keep everything"
+    ]
+  },
+  "faq": {
+    "eyebrow": "08 ◆ Questions",
+    "title": "What agency owners ask us first.",
+    "items": [
+      {
+        "q": "Do you work with agencies in my state?",
+        "a": "Yes. We build for bail bond agencies anywhere in the US. Your site follows your state's rules — license display, premium language and advertising limits — and we check the copy with you before launch."
+      },
+      {
+        "q": "Will I lose my phone number or Google rankings?",
+        "a": "No. Your number stays the same, every page that ranks today is kept or redirected, and your Google Business profile is updated to match the new site. We check search performance after launch."
+      },
+      {
+        "q": "Does the assistant give legal advice?",
+        "a": "Never. It only answers from information you approve — fees, payment plans, the jails you cover — and hands anything else to a person. Every conversation is saved for you to review."
+      },
+      {
+        "q": "Can the site be in Spanish?",
+        "a": "Yes. We build a full Spanish version, written for families rather than machine-translated, and the assistant answers in Spanish too."
+      },
+      {
+        "q": "How much does it cost?",
+        "a": "It depends on the number of counties, languages and whether you want the assistant, so we don't publish a price list. After a free 30-minute call you get a written proposal with a fixed price."
+      },
+      {
+        "q": "How long does it take?",
+        "a": "Most agency sites launch in four to six weeks. The assistant can go live with the site or be added after."
+      },
+      {
+        "q": "Who owns it?",
+        "a": "You do, from day one: the domain, the code, the content, the Google profile and every account we set up. If you ever leave, you take everything with you."
+      }
+    ]
+  },
+  "cta": {
+    "title": "Make sure tonight's call is yours.",
+    "services": [
+      "Agency website",
+      "Website redesign",
+      "AI assistant",
+      "Spanish version",
+      "Local SEO & Google profile",
+      "Not sure yet"
+    ],
+    "context": "Bail bond agency website"
+  }
+}

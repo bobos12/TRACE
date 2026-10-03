@@ -3,7 +3,7 @@ import { chromium } from '@playwright/test';
 import zlib from 'node:zlib';
 
 const base = process.argv[2] ?? 'http://localhost:3100';
-const route = `/${(process.argv[3] ?? 'ar').replace(/^\//, '')}`;
+const route = `/${(process.argv[3] ?? '').replace(/^\//, '')}`;
 
 const browser = await chromium.launch();
 const context = await browser.newContext({ viewport: { width: 1440, height: 900 } });

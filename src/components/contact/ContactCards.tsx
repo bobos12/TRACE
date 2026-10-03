@@ -4,75 +4,132 @@ import { useLocale } from 'next-intl';
 import type { CSSProperties } from 'react';
 import { Icon } from '@/components/ui/Icon';
 import type { Locale } from '@/i18n/routing';
-import { contact, externalLinkProps, phoneHref, trackContact, whatsappHref } from '@/lib/contact';
+import { cn } from '@/lib/cn';
+import {
+  bookingHref,
+  bookingLinkProps,
+  contact,
+  externalLinkProps,
+  mailHref,
+  phoneHref,
+  trackContact,
+  whatsappHref,
+  type Placement,
+} from '@/lib/contact';
+
+const arrow = 'ms-auto flex-none transition-transform duration-[160ms] ease-mark';
 
 /**
- * The big WhatsApp card on the contact page. On desktop it carries a QR code,
- * generated at build time, that opens the same wa.me link — so someone at a
- * laptop can continue the conversation on their phone.
+ * The primary card: book the free call. Vermilion with the cut — the one
+ * loud thing in the contact band and on the contact page.
  */
-export function WhatsAppCard({
+export function BookCard({
   label,
   note,
-  qrSvg,
-  context,
+  placement,
+  trace = false,
 }: {
   label: string;
   note: string;
-  qrSvg: string;
-  context?: string;
+  placement: Placement;
+  /** Draw the trace around the card once when it enters view. */
+  trace?: boolean;
 }) {
-  const locale = useLocale() as Locale;
-
   return (
-    <div
-      className="at-cut flex items-center gap-6 bg-nuqta p-7 text-on-nuqta"
-      style={{ '--cut': '28px' } as CSSProperties}
-    >
-      <div className="flex flex-1 flex-col gap-4">
-        <Icon name="whatsapp" size={34} />
-        <div className="flex flex-col gap-1.5">
-          <a
-            href={whatsappHref(locale, context)}
-            onClick={() => trackContact('whatsapp', 'contact-page')}
-            className="heading-1 after:absolute after:inset-0"
-            {...externalLinkProps}
-          >
-            {label}
-          </a>
-          <p className="body-sm opacity-85">{note}</p>
-        </div>
-      </div>
+    <div data-reveal={trace ? 'fade' : undefined} className="relative">
+      <a
+        href={bookingHref()}
+        onClick={() => trackContact('booking', placement)}
+        className="at-cut group/bk flex items-center gap-5 bg-nuqta p-7 text-on-nuqta transition-transform duration-[160ms] ease-mark hover:-translate-y-0.5"
+        style={{ '--cut': '28px' } as CSSProperties}
+        {...bookingLinkProps}
+      >
+        <Icon name="calendar" size={36} className="flex-none" />
+        <span className="flex flex-col gap-1">
+          <span className="heading-1">{label}</span>
+          <span className="body-sm opacity-85">{note}</span>
+        </span>
+        <Icon name="arrow-right" size={22} className={cn(arrow, 'group-hover/bk:translate-x-1')} />
+      </a>
 
-      {/* The QR is decorative: the link beside it does the same job. */}
-      <div
-        aria-hidden="true"
-        className="hidden size-[112px] shrink-0 bg-on-nuqta p-2 sm:block [&_svg]:size-full"
-        dangerouslySetInnerHTML={{ __html: qrSvg }}
-      />
+      {trace ? (
+        <span
+          aria-hidden="true"
+          data-reveal="fade"
+          className="at-card-trace pointer-events-none absolute inset-0"
+        />
+      ) : null}
     </div>
   );
 }
 
-export function CallCard({ label }: { label: string }) {
+/** The second card: email, with the address shown — people trust a real inbox. */
+export function EmailCard({
+  label,
+  subject,
+  placement,
+}: {
+  label: string;
+  subject?: string;
+  placement: Placement;
+}) {
   return (
     <a
-      href={phoneHref()}
-      onClick={() => trackContact('phone', 'contact-page')}
-      className="group/call flex items-center gap-5 rounded-md border border-line-strong p-6 transition-colors duration-[160ms] ease-mark hover:border-ink"
+      href={mailHref(subject)}
+      onClick={() => trackContact('email', placement)}
+      className="group/mail flex items-center gap-5 rounded-md border border-line-strong p-6 transition-colors duration-[160ms] ease-mark hover:border-ink"
     >
-      <Icon name="phone" size={26} className="flex-none text-ink" />
-      <span className="flex flex-col gap-1">
+      <Icon name="mail" size={26} className="flex-none" />
+      <span className="flex min-w-0 flex-col gap-1">
         <span className="heading-3">{label}</span>
-        <span className="font-mono text-[15px] text-ink-muted" dir="ltr">
-          {contact.phoneDisplay}
-        </span>
+        <span className="truncate font-mono text-[14px] text-ink-muted">{contact.email}</span>
       </span>
       <Icon
         name="arrow-right"
         size={18}
-        className="ms-auto flex-none text-ink-muted transition-transform duration-[160ms] ease-mark group-hover/call:translate-x-1 rtl:group-hover/call:-translate-x-1"
+        className={cn(arrow, 'text-ink-muted group-hover/mail:translate-x-1')}
       />
     </a>
+  );
+}
+
+/** WhatsApp and phone, side by side and quiet — for those who prefer them. */
+export function ChatCallRow({
+  whatsappLabel,
+  callLabel,
+  placement,
+  context,
+}: {
+  whatsappLabel: string;
+  callLabel: string;
+  placement: Placement;
+  context?: string;
+}) {
+  const locale = useLocale() as Locale;
+  const item =
+    'flex flex-1 items-center gap-3 rounded-md border border-line px-5 py-4 transition-colors duration-[160ms] ease-mark hover:border-ink';
+
+  return (
+    <div className="flex flex-col gap-3 sm:flex-row">
+      <a
+        href={whatsappHref(locale, context)}
+        onClick={() => trackContact('whatsapp', placement)}
+        className={item}
+        {...externalLinkProps}
+      >
+        <Icon name="whatsapp" size={20} className="flex-none text-ink-muted" />
+        <span className="body-sm text-ink">{whatsappLabel}</span>
+      </a>
+      <a
+        href={phoneHref()}
+        onClick={() => trackContact('phone', placement)}
+        aria-label={`${callLabel} ${contact.phoneDisplay}`}
+        className={item}
+      >
+        <Icon name="phone" size={20} className="flex-none text-ink-muted" />
+        <span className="body-sm text-ink">{callLabel}</span>
+        <span className="ms-auto font-mono text-[13px] text-ink-muted">{contact.phoneDisplay}</span>
+      </a>
+    </div>
   );
 }

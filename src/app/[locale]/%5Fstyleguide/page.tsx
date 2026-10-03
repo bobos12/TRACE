@@ -20,7 +20,7 @@ import { Field, Select, TextArea } from '@/components/ui/Field';
 import { Tabs } from '@/components/ui/Tabs';
 import { Icon, iconNames } from '@/components/ui/Icon';
 import { Container } from '@/components/ui/Container';
-import { WhatsAppButton, CallButton } from '@/components/contact/ContactButtons';
+import { BookCallButton, EmailButton } from '@/components/contact/ContactButtons';
 
 export const metadata: Metadata = { robots: { index: false, follow: false } };
 
@@ -154,26 +154,9 @@ function Gallery({ locale, theme }: { locale: Locale; theme: 'light' | 'dark' })
           </div>
         </Block>
 
-        <Block title="Type — Arabic">
-          <div className="flex flex-col gap-5" dir="rtl">
-            <p className="ar-display">
-              لكل عمل أثر
-              <Stop />
-            </p>
-            <p className="ar-heading">نفهم عملك. نبني حوله. ونترك أثرًا.</p>
-            <p className="ar-body max-w-[60ch] text-ink-muted">
-              مواقع وتطبيقات وأنظمة أعمال وبرمجيات مخصّصة — نصمّمها حول طريقة عمل شركتك الحقيقية،
-              بالعربية والإنجليزية.
-            </p>
-            <p className="ar-label">تسمية عربية · وزن متوسط</p>
-          </div>
-        </Block>
-
         <Block title="Logo">
           <div className="flex flex-wrap items-end gap-10">
             <Logo variant="wordmark" height={30} />
-            <Logo variant="arabic" height={40} />
-            <Logo variant="bilingual" height={38} />
             <Logo variant="symbol" height={26} />
             <Logo variant="symbol" height={26} tone="accent" />
             <Logo variant="wordmark" height={30} tone="mono" />
@@ -192,7 +175,7 @@ function Gallery({ locale, theme }: { locale: Locale; theme: 'light' | 'dark' })
               <span className="label">the cut</span>
             </Cut>
             <div className="flex items-center gap-6">
-              {['ATHR', 'Nakheel Logistics', 'Sadeem Clinics', 'Masar Realty'].map((seed) => (
+              {['TRACE', 'Ridgeline Freight', 'Clearwater Dental', 'Harbor & Main Realty'].map((seed) => (
                 <div key={seed} className="flex flex-col items-center gap-2">
                   <Constellation seed={seed} size={12} />
                   <span className="code text-ink-faint">{seed.split(' ')[0]}</span>
@@ -228,12 +211,12 @@ function Gallery({ locale, theme }: { locale: Locale; theme: 'light' | 'dark' })
             </Button>
           </div>
           <div className="flex flex-wrap items-center gap-3">
-            <WhatsAppButton placement="contact-page" size="lg">
-              {site.cta.whatsapp}
-            </WhatsAppButton>
-            <CallButton placement="contact-page" size="lg" showNumber>
-              {site.cta.call}
-            </CallButton>
+            <BookCallButton placement="contact-page" size="lg">
+              {site.cta.book}
+            </BookCallButton>
+            <EmailButton placement="contact-page" size="lg" showAddress>
+              {site.cta.email}
+            </EmailButton>
           </div>
         </Block>
 
@@ -265,8 +248,8 @@ function Gallery({ locale, theme }: { locale: Locale; theme: 'light' | 'dark' })
 
         <Block title="Card">
           <div className="grid gap-6 md:grid-cols-3">
-            <Card eyebrow="Case 03 ◆ Logistics · KSA" title="From WhatsApp to one portal">
-              An operations portal, driver app and ERP sync for 11 branches.
+            <Card eyebrow="Case 03 ◆ Logistics · Ohio" title="From a group text to one portal">
+              An operations portal, driver app and NetSuite sync for 11 depots.
             </Card>
             <Card
               cut={20}
@@ -306,7 +289,7 @@ function Gallery({ locale, theme }: { locale: Locale; theme: 'light' | 'dark' })
               label={site.contactPage.form.message}
               name={`sg-message-${theme}`}
               wrapClassName="md:col-span-2"
-              placeholder="Eleven branches share one WhatsApp group…"
+              placeholder="Eleven locations share one inbox and three spreadsheets…"
             />
           </div>
         </Block>
@@ -353,7 +336,7 @@ export default async function StyleguidePage({
     <NextIntlClientProvider>
       <main id="main">
         <Container className="flex flex-col gap-4 py-12">
-          <p className="eyebrow text-ink-muted">ATHR ◆ Styleguide · {locale}</p>
+          <p className="eyebrow text-ink-muted">TRACE ◆ Styleguide · {locale}</p>
           <h1 className="display-md">
             Tokens, type and components
             <Stop />

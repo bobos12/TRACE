@@ -1,62 +1,99 @@
 /**
- * ATHR logo — exact outlines (Instrument Sans SemiBold / IBM Plex Sans Arabic SemiBold, converted to paths).
- * Letters use currentColor; the three nuqtas use var(--vermilion) (#E0461F light, #FF5A33 dark).
- * Every nuqta path carries data-nuqta="0|1|2" so you can animate them (e.g. stamp them in on load).
- * Do not retype the name in a font or move the nuqtas — see docs/brand-guidelines/03-logo.md.
+ * TRACE logo — exact outlines (Instrument Sans SemiBold, converted to paths;
+ * +36 tracking plus the font's own kerning, the same construction the ATHR
+ * wordmark used). The nuqta cluster sits centred on the apex of the A.
+ * Letters use currentColor; the three nuqtas use var(--vermilion).
+ * Every nuqta path carries data-nuqta="0|1|2" so they can be stamped in.
+ * Do not retype the name in a font or move the nuqtas — docs/brand-guidelines/03-logo.md.
  */
-import type { SVGProps, ReactElement } from 'react';
+import type { ReactElement, SVGProps } from 'react';
 
-const LATIN = {"w":2735,"h":1050.97,"word":"M0 1050.97 265 330.97H413L677 1050.97H543L481 871.97H190L128 1050.97ZM336 449.97 226 767.97H446ZM890 1050.97V433.97H651V330.97H1259V433.97H1020V1050.97ZM1385 1050.97V330.97H1515V624.97H1856V330.97H1986V1050.97H1856V726.97H1515V1050.97ZM2143 1050.97V330.97H2447Q2524 330.97 2581 356.97Q2638 382.97 2668.5 429.97Q2699 476.97 2699 539.97Q2699 601.97 2668.5 648.97Q2638 695.97 2581 721.97Q2524 747.97 2447 747.97H2443L2735 1050.97H2555L2291 747.97H2273V1050.97ZM2273 648.97H2443Q2506 648.97 2539.5 619.97Q2573 590.97 2573 539.97Q2573 488.97 2540 461.47Q2507 433.97 2443 433.97H2273Z","dots":["M1318.5 0L1388.5 70L1318.5 140L1248.5 70Z","M1231.53 86.97L1301.53 156.97L1231.53 226.97L1161.53 156.97Z","M1405.47 86.97L1475.47 156.97L1405.47 226.97L1335.47 156.97Z"]};
-const ARABIC = {"w":918,"h":1167,"word":"M0 1036H39Q135 1036 176 992.5Q217 949 216 866Q216 841 213 813.5Q210 786 205 757L184 630L281 614L296 702Q305 752 308 796H401V900L374 927H308Q301 981 281 1025Q261 1069 228 1100.5Q195 1132 148 1149.5Q101 1167 40 1167H0ZM374 823 401 796H426Q496 796 522.5 781.5Q549 767 549 729Q549 713 546.5 688.5Q544 664 537 623L521 533L619 517L633 607Q638 641 641 673.5Q644 706 644 729Q644 831 592 879Q540 927 426 927H374ZM750 309H857V927H750ZM690 154H730L731 150Q712 128 712 97Q712 56 741.5 29Q771 2 816 2Q843 2 869.5 14Q896 26 913 46L868 107Q845 83 816 83Q799 83 788 91.5Q777 100 777 112Q777 148 847 148H918V229H690Z","dots":["M556 200.43L614 258.43L556 316.43L498 258.43Z","M483.86 272.57L541.86 330.57L483.86 388.57L425.86 330.57Z","M628.14 272.57L686.14 330.57L628.14 388.57L570.14 330.57Z"]};
-const SYMBOL = {"w":450.91,"h":325.46,"dots":["M225.46 -0L325.46 100L225.46 200L125.46 100Z","M100 125.46L200 225.46L100 325.46L0 225.46Z","M350.91 125.46L450.91 225.46L350.91 325.46L250.91 225.46Z"]};
+export const WORDMARK = {
+  w: 3450,
+  h: 1060.97,
+  word: 'M239 1050.97V433.97H0V330.97H608V433.97H369V1050.97ZM723 1050.97V330.97H1027Q1104 330.97 1161 356.97Q1218 382.97 1248.5 429.97Q1279 476.97 1279 539.97Q1279 601.97 1248.5 648.97Q1218 695.97 1161 721.97Q1104 747.97 1027 747.97H825V648.97H1023Q1086 648.97 1119.5 619.97Q1153 590.97 1153 539.97Q1153 488.97 1120 461.47Q1087 433.97 1023 433.97H853V1050.97ZM1135 1050.97 814 682.97H960L1315 1050.97ZM1392 1050.97 1657 330.97H1769L1520 1050.97ZM1935 1050.97 1687 330.97H1805L2069 1050.97ZM1529 767.97H1923V871.97H1529ZM2478 1060.97Q2401 1060.97 2336.5 1033.47Q2272 1005.97 2224 955.97Q2176 905.97 2150 837.97Q2124 769.97 2124 688.97Q2124 607.97 2150 540.97Q2176 473.97 2223.5 424.47Q2271 374.97 2335.5 347.97Q2400 320.97 2478 320.97Q2564 320.97 2633 354.97Q2702 388.97 2746.5 450.47Q2791 511.97 2801 594.97H2673Q2661 513.97 2608 470.47Q2555 426.97 2479 426.97Q2412 426.97 2362 458.97Q2312 490.97 2284 549.47Q2256 607.97 2256 687.97Q2256 769.97 2284 829.47Q2312 888.97 2363 921.97Q2414 954.97 2480 954.97Q2554 954.97 2607 911.47Q2660 867.97 2674 787.97H2803Q2791 869.97 2746.5 931.97Q2702 993.97 2633 1027.47Q2564 1060.97 2478 1060.97ZM2932 1050.97V330.97H3062V1050.97ZM2994 1050.97V947.97H3450V1050.97ZM2994 730.97V629.97H3415V730.97ZM2994 433.97V330.97H3439V433.97Z',
+  dots: [
+    'M1731 0L1801 70L1731 140L1661 70Z',
+    'M1644.03 86.97L1714.03 156.97L1644.03 226.97L1574.03 156.97Z',
+    'M1817.97 86.97L1887.97 156.97L1817.97 226.97L1747.97 156.97Z',
+  ],
+};
 
-type Variant = 'wordmark' | 'arabic' | 'bilingual' | 'symbol';
-type Tone = 'color' | 'mono';
+const SYMBOL = {
+  w: 450.91,
+  h: 325.46,
+  dots: [
+    'M225.46 -0L325.46 100L225.46 200L125.46 100Z',
+    'M100 125.46L200 225.46L100 325.46L0 225.46Z',
+    'M350.91 125.46L450.91 225.46L350.91 325.46L250.91 225.46Z',
+  ],
+};
+
+export type LogoVariant = 'wordmark' | 'symbol';
+type Tone = 'color' | 'mono' | 'accent';
+
 export interface LogoProps extends Omit<SVGProps<SVGSVGElement>, 'height'> {
-  variant?: Variant;
+  variant?: LogoVariant;
   /** Height in px. Width follows the aspect ratio. */
   height?: number;
   tone?: Tone;
-  /** Accessible name; defaults to "ATHR" / "أثر". */
+  /** Accessible name; defaults to "TRACE". */
   title?: string;
 }
 
 const dotFill = (tone: Tone) => (tone === 'mono' ? 'currentColor' : 'var(--vermilion, #E0461F)');
 
-function Mark({ o, tone, x = 0, y = 0, s = 1 }: { o: { word: string; dots: string[] }; tone: Tone; x?: number; y?: number; s?: number }) {
-  return (
-    <g transform={`translate(${x} ${y}) scale(${s})`}>
-      <path d={o.word} fill="currentColor" />
-      {o.dots.map((d, i) => <path key={i} d={d} fill={dotFill(tone)} data-nuqta={i} />)}
-    </g>
-  );
-}
+export function Logo({
+  variant = 'wordmark',
+  height = 24,
+  tone = 'color',
+  title,
+  ...rest
+}: LogoProps) {
+  let w: number;
+  let h: number;
+  let body: ReactElement;
 
-export function Logo({ variant = 'wordmark', height = 24, tone = 'color', title, ...rest }: LogoProps) {
-  let w: number, h: number, body: ReactElement;
   if (variant === 'symbol') {
-    w = SYMBOL.w; h = SYMBOL.h;
-    body = <>{SYMBOL.dots.map((d, i) => <path key={i} d={d} fill={dotFill(tone)} data-nuqta={i} />)}</>;
-  } else if (variant === 'arabic') {
-    w = ARABIC.w; h = ARABIC.h; body = <Mark o={ARABIC} tone={tone} />;
-  } else if (variant === 'bilingual') {
-    const s = 0.95, gap = 220, ah = ARABIC.h * s;
-    h = Math.max(LATIN.h, ah) + ah * 0.12; w = LATIN.w + gap * 2 + ARABIC.w * s;
+    w = SYMBOL.w;
+    h = SYMBOL.h;
     body = (
       <>
-        <Mark o={LATIN} tone={tone} y={h - ah * 0.12 - LATIN.h} />
-        <rect x={LATIN.w + gap - 6} y={h - LATIN.h * 0.95} width={12} height={LATIN.h * 0.85} fill="currentColor" opacity={0.3} />
-        <Mark o={ARABIC} tone={tone} x={LATIN.w + gap * 2} y={h - ah} s={s} />
+        {SYMBOL.dots.map((d, i) => (
+          <path
+            key={i}
+            d={d}
+            fill={tone === 'accent' && i > 0 ? 'currentColor' : dotFill(tone)}
+            data-nuqta={i}
+          />
+        ))}
       </>
     );
   } else {
-    w = LATIN.w; h = LATIN.h; body = <Mark o={LATIN} tone={tone} />;
+    w = WORDMARK.w;
+    h = WORDMARK.h;
+    body = (
+      <>
+        <path d={WORDMARK.word} fill="currentColor" />
+        {WORDMARK.dots.map((d, i) => (
+          <path key={i} d={d} fill={dotFill(tone)} data-nuqta={i} />
+        ))}
+      </>
+    );
   }
-  const label = title ?? (variant === 'arabic' ? 'أثر' : 'ATHR');
+
   return (
-    <svg viewBox={`0 0 ${w} ${h}`} height={height} width={(height * w) / h} role="img" aria-label={label} {...rest}>
+    <svg
+      viewBox={`0 0 ${w} ${h}`}
+      height={height}
+      width={(height * w) / h}
+      role="img"
+      aria-label={title ?? 'TRACE'}
+      {...rest}
+    >
       {body}
     </svg>
   );
 }
+
 export default Logo;

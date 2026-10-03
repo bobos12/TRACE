@@ -20,7 +20,7 @@ const paths = routes.length ? routes : [''];
 const browser = await chromium.launch();
 let problems = 0;
 
-for (const locale of ['en', 'ar']) {
+for (const locale of ['en']) {
   for (const route of paths) {
     const context = await browser.newContext({ viewport: { width: 1440, height: 900 } });
     const page = await context.newPage();
@@ -31,7 +31,7 @@ for (const locale of ['en', 'ar']) {
     });
     page.on('pageerror', (e) => messages.push(`[pageerror] ${e.message}`));
 
-    await page.goto(`${BASE}/${locale}${route}`, { waitUntil: 'networkidle' });
+    await page.goto(`${BASE}${route || '/'}`, { waitUntil: 'networkidle' });
     await page.evaluate(async () => {
       for (let y = 0; y < document.body.scrollHeight; y += 400) {
         window.scrollTo(0, y);
@@ -42,7 +42,7 @@ for (const locale of ['en', 'ar']) {
     await page.waitForTimeout(1000);
 
     if (messages.length) problems += messages.length;
-    console.log(`/${locale}${route || '/'}  ${messages.length ? '\n  ' + messages.join('\n  ') : '✓ clean'}`);
+    console.log(`${route || '/'}  ${messages.length ? '\n  ' + messages.join('\n  ') : '✓ clean'}`);
 
     await context.close();
   }

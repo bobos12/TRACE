@@ -81,12 +81,11 @@ function Layer({
 }
 
 export interface ProductStackProps {
-  locale: 'ar' | 'en';
   alt: { dashboard: string; website: string; mobile: string };
 }
 
 /**
- * Three real product screens layered in 3D space — the proof that ATHR ships
+ * Three real product screens layered in 3D space — the proof that TRACE ships
  * software, sitting where a stock photo would otherwise go.
  *
  * Entrance: back to front, 120ms apart. Pointer parallax on desktop. On scroll
@@ -94,29 +93,26 @@ export interface ProductStackProps {
  * composition. All of it in CSS, driven by three custom properties — this was
  * one of the last three things pulling the animation library onto the home page.
  */
-export function ProductStack({ locale, alt }: ProductStackProps) {
+export function ProductStack({ alt }: ProductStackProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const rtl = locale === 'ar';
 
   useScrollProgress(ref, { offset: 'contain' });
   usePointerParallax(ref);
 
-  const website = `/images/ui/website-home-${rtl ? 'ar' : 'en'}-light.png`;
-  const mobile = rtl
-    ? '/images/ui/mobile-approve-ar-light.png'
-    : '/images/ui/mobile-home-en-light.png';
+  const website = '/images/ui/website-home-en-light.png';
+  const mobile = '/images/ui/mobile-home-en-light.png';
 
   return (
     <div
       ref={ref}
       className="at-stack relative h-[240px] w-full sm:h-[400px] lg:h-[540px]"
-      style={{ perspective: '1600px', '--dir': rtl ? -1 : 1 } as CSSProperties}
+      style={{ perspective: '1600px', '--dir': 1 } as CSSProperties}
     >
       <div
         className="absolute inset-0"
         style={{
           transformStyle: 'preserve-3d',
-          transform: `rotateY(${rtl ? 14 : -14}deg) rotateX(6deg)`,
+          transform: 'rotateY(-14deg) rotateX(6deg)',
         }}
       >
         {/* Back — the dashboard, largest. */}

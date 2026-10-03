@@ -7,7 +7,7 @@ export interface ContactState {
   status: 'idle' | 'success' | 'error' | 'invalid';
   /** Field name → message, for inline errors. */
   errors?: Record<string, string>;
-  /** Echoed back so the client can offer the WhatsApp fallback with context. */
+  /** Echoed back so the client can offer the email fallback with context. */
   values?: Record<string, string>;
 }
 
@@ -38,7 +38,7 @@ export async function submitContact(
   }
 
   if (!hasLeadBackend()) {
-    // Nothing configured — the client takes over and opens WhatsApp.
+    // Nothing configured — the client takes over and opens an email.
     return { status: 'error', values: raw };
   }
 
