@@ -61,7 +61,7 @@ export function ClientWork({
                     src={lead.cover}
                     alt={lead.title}
                     fill
-                    sizes="(max-width: 1024px) 92vw, 700px"
+                    sizes="(max-width: 1440px) 92vw, 700px"
                     className="object-cover transition-transform duration-[600ms] ease-mark group-hover/row:scale-[1.03]"
                   />
                 </figure>

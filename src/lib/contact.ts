@@ -27,6 +27,7 @@ export type Placement =
   | 'contact-page'
   | 'footer'
   | '404'
+  | 'chat'
   | `service:${string}`
   | `project:${string}`
   | `landing:${string}`;

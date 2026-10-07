@@ -4,14 +4,23 @@ import { SectionHead } from '@/components/ui/SectionHead';
 import { Reveal } from '@/components/motion/Reveal';
 import { Nuqta, StopText } from '@/components/brand/Nuqta';
 import { Mark } from '@/components/sections/TrustStrip';
-import type { BailBonds, ClientLogo } from '@/lib/content';
+import { Mark as PlatformMark } from '@/components/sections/Platforms';
+import type { BailBonds, ClientLogo, Platform } from '@/lib/content';
 
 /**
  * Who is behind it: the real clients the studio has built for (their own
- * logos, linking to the work), then the terms an agency gets in writing on an
+ * logos, linking to the work), the platforms the sites run on, then the terms an agency gets in writing on an
  * inverse panel with the cut — carbon on paper, paper on carbon.
  */
-export function Proof({ copy, clients }: { copy: BailBonds; clients: ClientLogo[] }) {
+export function Proof({
+  copy,
+  clients,
+  platforms,
+}: {
+  copy: BailBonds;
+  clients: ClientLogo[];
+  platforms: Platform[];
+}) {
   const { proof } = copy;
 
   return (
@@ -36,6 +45,22 @@ export function Proof({ copy, clients }: { copy: BailBonds; clients: ClientLogo[
               </li>
             ))}
           </ul>
+        </div>
+
+        <div className="flex flex-col gap-8">
+          <Reveal as="p" className="eyebrow text-ink-faint">{proof.platformsTitle}</Reveal>
+          <ul className="flex flex-wrap items-start gap-x-10 gap-y-8 md:gap-x-14">
+            {platforms.map((p) => (
+              <li key={p.slug} className="flex items-center gap-3">
+                <PlatformMark platform={p} />
+                <span className="flex flex-col">
+                  <span className="font-semibold text-ink">{p.name}</span>
+                  <span className="body-sm text-ink-faint">{p.kind}</span>
+                </span>
+              </li>
+            ))}
+          </ul>
+          <p className="body-sm text-ink-faint">{proof.trademarkNote}</p>
         </div>
 
         <Reveal

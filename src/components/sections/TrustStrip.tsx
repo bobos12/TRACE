@@ -65,16 +65,22 @@ export function TrustStrip({ site, clients }: { site: Site; clients: ClientLogo[
 
   return (
     <section
-      className="bg-surface pt-12 [--logo-k:52px] sm:[--logo-k:58px] md:pt-16 lg:[--logo-k:64px]"
+      className="bg-surface pt-12 [--logo-k:46px] sm:[--logo-k:58px] md:pt-16 lg:[--logo-k:64px]"
       aria-labelledby="clients-title"
     >
       <Container className="flex flex-col items-center">
         <Reveal as="h2" id="clients-title" className="eyebrow m-0 text-center text-ink-faint">
           {site.trust.logosTitle}
         </Reveal>
-        <ul className="mt-10 flex flex-wrap items-center justify-center gap-x-12 gap-y-8 lg:gap-x-20">
-          {clients.map((c) => (
-            <li key={c.slug}>
+        <ul className="mt-10 flex w-full flex-wrap items-center justify-center gap-x-3 gap-y-8 sm:gap-x-12 lg:gap-x-20">
+          {clients.map((c, i) => (
+            <li
+              key={c.slug}
+              // Mobile: first client (Future Earth) goes to the middle of row one.
+              className={`flex w-[calc((100%-1.5rem)/3)] items-center justify-center sm:order-0 sm:w-auto ${
+                i === 0 ? 'order-1' : i === 1 ? 'order-0' : 'order-2'
+              }`}
+            >
               <Mark client={c} />
             </li>
           ))}
@@ -120,7 +126,7 @@ export function TrustStrip({ site, clients }: { site: Site; clients: ClientLogo[
           on carbon: numbers set large, the "+" a small vermilion superscript. */}
       <Container>
         <dl
-          className="at-cut mt-14 grid grid-cols-2 gap-x-6 gap-y-12 bg-surface-inverse px-6 py-10 md:mt-20 md:grid-cols-4 md:gap-x-10 md:px-12 md:py-14"
+          className="at-cut mt-14 grid grid-cols-2 gap-x-6 gap-y-12 bg-surface-raised px-6 py-10 md:mt-20 md:grid-cols-4 md:gap-x-10 md:px-12 md:py-14"
           style={{ '--cut': '28px' } as CSSProperties}
         >
           {site.trust.stats.map((stat, i) => {
@@ -130,7 +136,7 @@ export function TrustStrip({ site, clients }: { site: Site; clients: ClientLogo[
               <Reveal key={stat.label} as="div" delay={i * 0.08} className="flex flex-col gap-4">
                 <dd
                   dir="ltr"
-                  className="order-1 m-0 flex items-start self-start font-sans text-[clamp(3.25rem,2.4rem+3.6vw,5.75rem)] font-semibold leading-[0.85] tracking-[-0.05em] text-ink-inverse tabular-nums"
+                  className="order-1 m-0 flex items-start self-start font-sans text-[clamp(3.25rem,2.4rem+3.6vw,5.75rem)] font-semibold leading-[0.85] tracking-[-0.05em] text-ink tabular-nums"
                 >
                   <CountUp value={digits} />
                   {plus ? (
@@ -140,7 +146,7 @@ export function TrustStrip({ site, clients }: { site: Site; clients: ClientLogo[
                   ) : null}
                   {plus ? <span className="sr-only">+</span> : null}
                 </dd>
-                <dt className="order-2 flex items-center gap-2.5 body-sm text-ink-inverse/70">
+                <dt className="order-2 flex items-center gap-2.5 body-sm text-ink-muted">
                   <Nuqta size={7} />
                   {stat.label}
                 </dt>

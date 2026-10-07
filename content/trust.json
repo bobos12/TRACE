@@ -49,17 +49,6 @@
   ],
   "platforms": [
     {
-      "slug": "whatsapp",
-      "name": {
-        "en": "WhatsApp"
-      },
-      "icon": "/platforms/whatsapp.svg",
-      "kind": {
-        "en": "Business messaging"
-      },
-      "color": "#25D366"
-    },
-    {
       "slug": "google",
       "name": {
         "en": "Google"
@@ -71,6 +60,18 @@
       "image": "/platforms/google-color.svg"
     },
     {
+      "slug": "stripe",
+      "name": {
+        "en": "Stripe"
+      },
+      "icon": "/platforms/stripe.svg",
+      "kind": {
+        "en": "Online payments"
+      },
+      "color": "#635BFF",
+      "colorDark": "#8A84FF"
+    },
+    {
       "slug": "shopify",
       "name": {
         "en": "Shopify"
@@ -80,6 +81,27 @@
         "en": "Global online stores"
       },
       "color": "#95BF47"
+    },
+    {
+      "slug": "quickbooks",
+      "name": {
+        "en": "QuickBooks"
+      },
+      "icon": "/platforms/quickbooks.svg",
+      "kind": {
+        "en": "Accounting & invoices"
+      },
+      "color": "#2CA01C"
+    },
+    {
+      "slug": "square",
+      "name": {
+        "en": "Square"
+      },
+      "icon": "/platforms/square.svg",
+      "kind": {
+        "en": "Payments & point of sale"
+      }
     },
     {
       "slug": "wordpress",
@@ -94,16 +116,25 @@
       "colorDark": "#3D9AD1"
     },
     {
-      "slug": "hostinger",
+      "slug": "github",
       "name": {
-        "en": "Hostinger"
+        "en": "GitHub"
       },
-      "icon": "/platforms/hostinger.svg",
+      "icon": "/platforms/github.svg",
       "kind": {
-        "en": "Hosting & domains"
+        "en": "Your code, in your account"
+      }
+    },
+    {
+      "slug": "whatsapp",
+      "name": {
+        "en": "WhatsApp"
       },
-      "color": "#673DE6",
-      "colorDark": "#8C6CF0"
+      "icon": "/platforms/whatsapp.svg",
+      "kind": {
+        "en": "Business messaging"
+      },
+      "color": "#25D366"
     },
     {
       "slug": "vercel",
@@ -114,6 +145,18 @@
       "kind": {
         "en": "Web hosting & deployment"
       }
+    },
+    {
+      "slug": "hostinger",
+      "name": {
+        "en": "Hostinger"
+      },
+      "icon": "/platforms/hostinger.svg",
+      "kind": {
+        "en": "Hosting & domains"
+      },
+      "color": "#673DE6",
+      "colorDark": "#8C6CF0"
     }
   ]
 }

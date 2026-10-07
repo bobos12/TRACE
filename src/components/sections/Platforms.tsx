@@ -6,7 +6,7 @@ import { StopText } from '@/components/brand/Nuqta';
 import type { Platform, Site } from '@/lib/content';
 
 /** The platform's own mark, in its own colour. */
-function Mark({ platform }: { platform: Platform }) {
+export function Mark({ platform }: { platform: Platform }) {
   if (platform.image) {
     return (
       <Image src={platform.image} alt="" width={64} height={64} className="size-9 sm:size-12 md:size-16" />
@@ -66,7 +66,7 @@ export function Platforms({ site, platforms }: { site: Site; platforms: Platform
               key={p.slug}
               data-reveal="rise"
               style={{ '--d': `${i * 70}ms` } as CSSProperties}
-              className="group/platform flex w-1/4 flex-col items-center gap-3 px-1 text-center sm:w-1/3 sm:gap-5 sm:px-3 lg:w-auto lg:flex-1"
+              className="group/platform flex w-1/4 flex-col items-center gap-3 px-1 text-center sm:w-1/3 sm:gap-5 sm:px-3 md:w-1/5"
             >
               <span className="transition-transform duration-[320ms] ease-mark group-hover/platform:-translate-y-1">
                 <Mark platform={p} />
@@ -80,6 +80,7 @@ export function Platforms({ site, platforms }: { site: Site; platforms: Platform
             </li>
           ))}
         </ul>
+        <p className="body-sm -mt-4 text-center text-ink-faint md:-mt-12">{copy.note}</p>
       </Container>
     </section>
   );

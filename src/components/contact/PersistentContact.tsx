@@ -11,7 +11,7 @@ import { bookingHref, bookingLinkProps, mailHref, trackContact } from '@/lib/con
  * past, hide again while the contact band or the footer is on screen — no point
  * floating a booking button over a booking card.
  */
-function useConversionVisibility(threshold: number) {
+export function useConversionVisibility(threshold: number) {
   const [past, setPast] = useState(false);
   const [atContact, setAtContact] = useState(false);
 
@@ -56,7 +56,7 @@ export function FloatingBook({ tooltip, label }: { tooltip: string; label: strin
     <div
       aria-hidden={!visible}
       className={cn(
-        'group fixed bottom-6 end-6 z-40 hidden transition-[opacity,transform] duration-[320ms] ease-mark md:block',
+        'group fixed bottom-24 end-6 z-40 hidden transition-[opacity,transform] duration-[320ms] ease-mark md:block',
         'motion-reduce:transition-none',
         visible
           ? 'pointer-events-auto scale-100 opacity-100'

@@ -43,7 +43,7 @@ function Card({
           src={project.cover}
           alt={project.title}
           fill
-          sizes={wide ? '(max-width: 1024px) 88vw, 42vw' : '(max-width: 640px) 88vw, 540px'}
+          sizes={wide ? '(max-width: 1440px) 88vw, 42vw' : '(max-width: 640px) 88vw, 540px'}
           loading={eager ? 'eager' : 'lazy'}
           className="object-cover transition-transform duration-[600ms] ease-mark group-hover/case:scale-[1.03]"
         />

@@ -468,8 +468,11 @@
   "proof": {
     "eyebrow": "07 ◆ Who's behind it",
     "title": "A real studio, held to terms in writing.",
-    "lead": "TRACE builds websites, apps and business systems for companies in the US and abroad. The same team builds your agency's site.",
-    "logosTitle": "Businesses we've built for",
+    "lead": "TRACE has built websites, apps and business systems for companies abroad, and now brings that work to US bail agencies. The same team builds your agency’s site.",
+    "logosTitle": "Businesses we’ve built for, worldwide",
+    "platformsTitle": "Built on the platforms your callers already use",
+    "platforms": ["google", "wordpress", "vercel", "whatsapp"],
+    "trademarkNote": "Names and logos belong to their owners. Shown to name the platforms we build on, not as an endorsement.",
     "promisesTitle": "What every agency gets, in writing",
     "promises": [
       "A written scope and a fixed price",

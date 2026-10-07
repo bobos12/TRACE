@@ -1044,6 +1044,23 @@
   .bb-typing > span { animation: none; opacity: 0.6; }
 }
 
+/* The assistant panel opening: it rises out of its corner, once per open. */
+@keyframes chat-in {
+  from { opacity: 0; transform: translateY(12px) scale(0.98); }
+  to { opacity: 1; transform: none; }
+}
+
+.chat-in {
+  transform-origin: bottom right;
+  animation: chat-in var(--duration-reveal) var(--ease-mark) both;
+}
+
+[dir="rtl"] .chat-in { transform-origin: bottom left; }
+
+@media (prefers-reduced-motion: reduce) {
+  .chat-in, .bb-arrive { animation: none; }
+}
+
 /* ──────────────────────────────────────────────────────────────
    Utilities
    ────────────────────────────────────────────────────────────── */

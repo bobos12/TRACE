@@ -709,3 +709,29 @@ The diagram covers (`make-brand-covers.mjs`) are gone with the anonymised work.
   the owner's request and the one exception to "animate once" on the page.
 - **No third-party logos in the maps screen.** It follows the app's layout and
   colours; the map is drawn in SVG, not a tile.
+
+## Website assistant
+
+- **Gemini over REST, no SDK.** The owner supplied a Gemini key. Calling the
+  REST endpoint from one route handler (`src/app/api/chat/route.ts`) adds no
+  dependency and nothing to the browser bundle.
+- **It knows only what the site says.** The system prompt is built from
+  `content/*.json`; PLACEHOLDER answers are filtered out, and the rules forbid
+  prices, ranges, deadlines and anything not in the content. Concepts must be
+  called concepts. Every conversation is steered to the free call first,
+  email second — WhatsApp and phone only if asked.
+- **Action tags instead of tool calls.** The model ends a reply with
+  `[[book]]`, `[[project:slug]]` and similar; the panel draws them as cards,
+  and unknown slugs are ignored. Simpler to stream than function calling, and
+  the model can't invent a link — slugs resolve against the real catalogue.
+- **Lazy panel.** Only the launcher ships with the page; the panel (~12KB gz)
+  loads on first hover, focus or click.
+- **Placement.** The launcher takes the bottom corner; the floating Book-a-call
+  button moved up above it (`bottom-24`) and stays the vermilion action. On
+  mobile the launcher rides above the Book + Email bar.
+- **Failure ends at the call.** Busy models fall through to the next; an answer
+  cut off mid-stream ends in `[[interrupted]]`; every error shows the booking
+  card. Rate limit: 30 messages per IP per 10 minutes, in memory.
+- **The conversation lives in sessionStorage** — a reload keeps it, a new visit
+  starts clean, and nothing is stored on our side unless the visitor sends
+  the lead form.

@@ -5,6 +5,8 @@ import { Nav } from '@/components/layout/Nav';
 import { Footer } from '@/components/layout/Footer';
 import { FloatingBook, MobileContactBar } from '@/components/contact/PersistentContact';
 import { RevealMount } from '@/components/motion/RevealMount';
+import { ChatAssistant } from '@/components/chat/ChatAssistant';
+import { getChatCatalog } from '@/lib/chat/knowledge';
 
 export default async function SiteLayout({
   children,
@@ -25,6 +27,7 @@ export default async function SiteLayout({
       <Footer locale={locale} />
       <FloatingBook tooltip={site.ui.bookTooltip} label={site.cta.book} />
       <MobileContactBar bookLabel={site.floating.book} emailLabel={site.floating.email} />
+      <ChatAssistant copy={site.chat} catalog={getChatCatalog()} />
     </>
   );
 }

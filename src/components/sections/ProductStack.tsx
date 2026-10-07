@@ -105,7 +105,7 @@ export function ProductStack({ alt }: ProductStackProps) {
   return (
     <div
       ref={ref}
-      className="at-stack relative h-[240px] w-full sm:h-[400px] lg:h-[540px]"
+      className="at-stack relative h-[240px] w-full sm:h-[400px] md:h-[460px] lg:h-[540px]"
       style={{ perspective: '1600px', '--dir': 1 } as CSSProperties}
     >
       <div
@@ -138,7 +138,7 @@ export function ProductStack({ alt }: ProductStackProps) {
               alt={alt.website}
               width={2880}
               height={1800}
-              sizes="34vw"
+              sizes="(max-width: 1024px) 58vw, 34vw"
               loading="lazy"
               className="h-auto w-full"
             />

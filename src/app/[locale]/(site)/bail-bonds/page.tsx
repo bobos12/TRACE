@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
 
 import { readLocale, routing } from '@/i18n/routing';
-import { getBailBonds, getClientLogos, getSite } from '@/lib/content';
+import { getBailBonds, getClientLogos, getPlatforms, getSite } from '@/lib/content';
 import { pageMetadata, siteUrl } from '@/lib/seo';
 import { Container } from '@/components/ui/Container';
 import { Reveal } from '@/components/motion/Reveal';
@@ -82,7 +82,11 @@ export default async function BailBondsPage({ params }: { params: Promise<{ loca
       <Assistant copy={copy} />
       <Details copy={copy} />
       <Process site={site} copy={copy.process} />
-      <Proof copy={copy} clients={getClientLogos(locale)} />
+      <Proof
+        copy={copy}
+        clients={getClientLogos(locale)}
+        platforms={copy.proof.platforms.flatMap((slug) => getPlatforms(locale).filter((p) => p.slug === slug))}
+      />
 
       <section className="border-b border-line bg-surface py-[var(--section-y)]" aria-labelledby="bail-faq-title">
         <Container className="grid grid-cols-1 gap-10 md:grid-cols-12 md:gap-8">

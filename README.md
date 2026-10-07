@@ -42,6 +42,8 @@ Copy `.env.example` to `.env.local`. Every variable is optional except the site 
 | `NEXT_PUBLIC_SITE_URL` | Canonical URLs, sitemap, OG images | No trailing slash. Set it in Vercel for production *and* preview. |
 | `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY` | Saving contact-form leads to a `leads` table | |
 | `RESEND_API_KEY`, `LEADS_TO_EMAIL` | Emailing contact-form leads | `LEADS_FROM_EMAIL` must be a verified sender. |
+| `GEMINI_API_KEY` | The website assistant (chat in the corner) | Server-only — never `NEXT_PUBLIC_`. Needs a **paid** Gemini tier in production; the free tier allows ~20 requests a day. |
+| `GEMINI_MODEL` | Optional model override | Defaults to `gemini-3.8-flash`; busy or rate-limited models fall back to `gemini-3.5-flash`, then the Lite models. |
 
 **With no lead backend configured, the contact form still works**: the submit
 button becomes "Send by email" and opens an email with everything the visitor
@@ -82,6 +84,23 @@ Copy is keyed by locale (`{ "en": … }`) so a second language can be added late
 without reshaping the files. Every file is validated by Zod
 (`src/lib/content.ts`) at build time — a missing or empty field fails
 `npm run build` rather than shipping a blank section.
+
+### The website assistant
+
+The chat in the corner (`src/components/chat/`) answers from the same content
+the pages render — `src/lib/chat/knowledge.ts` builds its instructions from
+`content/*.json` on the server, so editing a service or project updates the
+assistant too. Anything marked `PLACEHOLDER` is left out of what it knows.
+
+- Its interface copy (launcher, starters, cards, lead form) is `content/site.en.json → chat`.
+- Its behaviour (voice, what it may and may not say, when it offers the call)
+  is the `RULES` block in `src/lib/chat/knowledge.ts`.
+- Replies end in action tags — `[[book]]`, `[[lead]]`, `[[project:slug]]`,
+  `[[service:slug]]`, `[[suggest:…]]` — that the panel draws as cards. Booking
+  clicks go through `trackContact('booking', 'chat')`.
+- Its lead form uses the contact form's pipeline (Supabase / Resend). With
+  neither configured it opens an email with the conversation in it.
+- Without `GEMINI_API_KEY` the panel still opens and offers the call and email.
 
 ### The booking link
 

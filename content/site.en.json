@@ -46,7 +46,7 @@
     "reassurance": "Free 30-minute call · NDA on request · Reply within one business day"
   },
   "trust": {
-    "logosTitle": "Trusted by businesses we’ve built for",
+    "logosTitle": "Businesses we’ve built for, worldwide",
     "title": "What every client gets, in writing",
     "promises": [
       "NDA before the first call",
@@ -100,7 +100,8 @@
   "platforms": {
     "eyebrow": "03 ◆ Platforms",
     "title": "Built on platforms your business already trusts.",
-    "lead": "We build on, host with and connect to the names your customers and your team already use every day."
+    "lead": "We build on, host with and connect to the names your customers and your team already use every day.",
+    "note": "Names and logos belong to their owners. Shown to name the platforms we build on, not as an endorsement."
   },
   "clientWork": {
     "eyebrow": "04 ◆ Client work",
@@ -244,6 +245,56 @@
   "floating": {
     "book": "Book a call",
     "email": "Email"
+  },
+  "chat": {
+    "launcher": "Ask TRACE",
+    "launcherLabel": "Open the TRACE assistant",
+    "teaser": "Planning a project? Ask me anything — answers in seconds.",
+    "teaserDismiss": "Dismiss",
+    "name": "TRACE assistant",
+    "status": "Online now",
+    "concept": "Concept",
+    "book": "Book a call",
+    "close": "Close the assistant",
+    "reset": "Start a new conversation",
+    "welcomeTitle": "Tell me what you’re building.",
+    "welcomeText": "I can answer questions about our services, how we work, pricing and our projects — and set up a free call with the team when you’re ready.",
+    "starters": [
+      "What can you build for my business?",
+      "How does pricing work?",
+      "Show me work you’ve done",
+      "Where is your team based?",
+      "I have a project in mind"
+    ],
+    "inputLabel": "Your message",
+    "inputPlaceholder": "Ask about a project, pricing, timelines…",
+    "send": "Send",
+    "stop": "Stop",
+    "you": "You",
+    "disclaimer": "AI assistant — it can be wrong. Nothing here is a quote.",
+    "bookCardTitle": "Talk to the people who’d build it",
+    "bookCardText": "A free 30-minute call on US hours. No pitch deck, no obligation.",
+    "bookCardCta": "Book a free call",
+    "emailCta": "Email us instead",
+    "viewProject": "View project",
+    "viewService": "Service",
+    "leadTitle": "Leave your details",
+    "leadText": "We’ll read this conversation and reply within one business day.",
+    "leadName": "Your name",
+    "leadEmail": "Work email",
+    "leadCompany": "Company",
+    "leadSubmit": "Send to the team",
+    "leadSending": "Sending…",
+    "leadSuccess": "Got it — the team will reply to {email} within one business day.",
+    "leadFallback": "Your email app opened with the conversation attached — just press send.",
+    "leadErrorName": "Tell us your name.",
+    "leadErrorEmail": "Enter a valid email.",
+    "leadSubject": "Website assistant — {name}",
+    "leadTranscript": "Conversation with the website assistant",
+    "error": "I couldn’t answer just now. The team can — book a call or email us.",
+    "interrupted": "That answer was cut short — the assistant is busy. Ask again in a moment, or go straight to the team.",
+    "rateLimited": "That’s a lot of questions in a short time. Book a call and ask the team directly.",
+    "offline": "The assistant is offline right now, but the team isn’t."
   },
   "ui": {
     "skipToContent": "Skip to content",
