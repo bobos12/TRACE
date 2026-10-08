@@ -1,6 +1,6 @@
 # Bios
 
-Replace `trace.studio` and `info@trace.studio` with the real domain and email
+Replace `trace.studio` and `info@trace-studio.tech` with the real domain and email
 before you paste.
 
 ## One line (use everywhere it fits)
