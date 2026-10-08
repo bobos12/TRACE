@@ -36,22 +36,26 @@ for (const theme of ['light', 'dark']) {
 
   await shoot('saas-dashboard.html', { width: 1440, height: 1010 }, `dashboard-${theme}.png`);
   await shoot('home-en.html', { width: 1440, height: 900 }, `website-home-en-${theme}.png`);
+  // The concept projects keep their own freight screens, apart from the bail product.
+  await shoot('freight-dashboard.html', { width: 1440, height: 1010 }, `freight-dashboard-${theme}.png`);
   await shoot('case-study.html', { width: 1280, height: 900 }, `case-study-${theme}.png`);
 
   // Phones: element shots on a transparent ground, rounded corners kept.
-  const page = await browser.newPage({ viewport: { width: 1440, height: 1000 }, deviceScaleFactor: 2 });
-  await page.goto(url('mobile-app.html', theme));
-  await page.addStyleTag({ content: HIDE + CLEAR });
-  await page.evaluate(() => document.fonts.ready);
-  await page.waitForTimeout(400);
-  const phones = page.locator('.phone');
-  const names = ['mobile-splash', 'mobile-home-en', 'mobile-approve'];
-  for (let i = 0; i < names.length; i += 1) {
-    const out = `${names[i]}-${theme}.png`;
-    await phones.nth(i).screenshot({ path: path.join(OUT, out), omitBackground: true });
-    console.log(out);
+  for (const [file, prefix] of [['mobile-app.html', 'mobile'], ['freight-mobile.html', 'freight-mobile']]) {
+    const page = await browser.newPage({ viewport: { width: 1440, height: 1000 }, deviceScaleFactor: 2 });
+    await page.goto(url(file, theme));
+    await page.addStyleTag({ content: HIDE + CLEAR });
+    await page.evaluate(() => document.fonts.ready);
+    await page.waitForTimeout(400);
+    const phones = page.locator('.phone');
+    const names = ['splash', 'home-en', 'approve'].map((n) => `${prefix}-${n}`);
+    for (let i = 0; i < names.length; i += 1) {
+      const out = `${names[i]}-${theme}.png`;
+      await phones.nth(i).screenshot({ path: path.join(OUT, out), omitBackground: true });
+      console.log(out);
+    }
+    await page.close();
   }
-  await page.close();
 }
 
 await browser.close();

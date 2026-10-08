@@ -1,6 +1,111 @@
 {
-  "_note": "kind = \"client\" (delivered for a named client), \"product\" (built in-house by TRACE) or \"concept\" (a TRACE design piece, not real work). Client and product visuals are showcase slides built from real captures of the live sites (scripts/capture-sites.mjs → scripts/make-showcases.mjs). The six concept entries at the end are PLACEHOLDERS: their clients, numbers and quotes are invented to show the format, and the site labels them as concepts wherever they appear. The real projects carry no results and no quotes on purpose — no verified metrics exist for them, and inventing any would be worse than showing none.",
+  "_note": "kind = \"client\" (delivered for a named client), \"product\" (built in-house by TRACE) or \"concept\" (a TRACE design piece, not real work). Client and product visuals are showcase slides built from real captures of the live sites (scripts/capture-sites.mjs → scripts/make-showcases.mjs). The concept entries at the end are PLACEHOLDERS: their clients, numbers and quotes are invented to show the format, and the site labels them as concepts wherever they appear. The real projects carry no results and no quotes on purpose — no verified metrics exist for them, and inventing any would be worse than showing none.",
   "projects": [
+    {
+      "slug": "ironwood-bail-bonds",
+      "kind": "concept",
+      "placeholder": true,
+      "featured": false,
+      "spotlight": true,
+      "year": 2026,
+      "cover": "/images/portfolio/ironwood-bail-bonds-cover.jpg",
+      "gallery": [
+        "/images/portfolio/ironwood-bail-bonds-shot-2.jpg",
+        "/images/portfolio/ironwood-bail-bonds-shot-3.jpg",
+        "/images/portfolio/ironwood-bail-bonds-shot-4.jpg"
+      ],
+      "services": [
+        "websites-web-apps",
+        "automation"
+      ],
+      "stack": [
+        "Next.js",
+        "Tailwind CSS",
+        "Twilio"
+      ],
+      "links": {
+        "demo": "/demos/ironwood-bail-bonds/index.html"
+      },
+      "en": {
+        "client": "Ironwood Bail Bonds",
+        "sector": "Bail bonds",
+        "country": "Texas",
+        "title": "A bail bond site built for the 2 a.m. search",
+        "summary": "A mobile-first website for a Houston bail agency: one-tap calls, a one-minute release form, the jails it serves and payment plans — in English and Spanish.",
+        "challenge": "Families search for a bail bondsman at 2 a.m., on a phone, and call whoever looks most trustworthy first. An outdated site loses that call.",
+        "solution": "A fast site led by the 24/7 number: a one-minute release form, the county jails served, premiums and payment plans explained up front, reviews, a Spanish version and a chat that answers when the office cannot.",
+        "capabilities": [
+          "Mobile-first website",
+          "Online bail start",
+          "Jails served",
+          "Payment plans",
+          "Spanish version",
+          "24/7 chat"
+        ],
+        "results": [
+          {
+            "value": "1 tap",
+            "label": "to call, from every screen"
+          },
+          {
+            "value": "2",
+            "label": "languages, English & Spanish"
+          },
+          {
+            "value": "24/7",
+            "label": "call and chat"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "trace-bail",
+      "kind": "product",
+      "_note": "In development. The screens are product designs shown with Ironwood Bail Bonds, a fictional agency; no agency uses it yet.",
+      "featured": false,
+      "spotlight": true,
+      "inDevelopment": true,
+      "category": "saas",
+      "year": 2026,
+      "cover": "/images/portfolio/trace-bail-cover.jpg",
+      "gallery": [
+        "/images/portfolio/trace-bail-shot-2.jpg",
+        "/images/portfolio/trace-bail-shot-3.jpg",
+        "/images/ui/dashboard-light.png"
+      ],
+      "services": [
+        "business-systems",
+        "mobile-apps",
+        "saas-products",
+        "automation"
+      ],
+      "stack": [
+        "Next.js",
+        "React Native",
+        "PostgreSQL",
+        "Twilio",
+        "Stripe"
+      ],
+      "links": {},
+      "en": {
+        "client": "TRACE Bail",
+        "sector": "Bail bonds",
+        "country": "USA",
+        "title": "One system for the whole bail agency",
+        "summary": "An agency portal and agent app for US bail bond companies — bonds, court dates, check-ins, e-signature and payments in one place.",
+        "challenge": "Most bail agencies still run on paper files, a shared inbox and a spreadsheet of court dates. One missed hearing can cost the full bond.",
+        "solution": "A portal for the office and an app for agents. Every bond, defendant and cosigner lives on one record; court-date reminders and check-ins go out by text in English and Spanish; cosigners sign and pay the premium from their phone. In development — shown here with a fictional agency.",
+        "capabilities": [
+          "Bond & case management",
+          "Court-date reminders by SMS",
+          "Cosigner e-signature",
+          "Card & Zelle payments",
+          "Check-in tracking",
+          "English & Spanish"
+        ],
+        "results": []
+      }
+    },
     {
       "slug": "future-earth-energy",
       "kind": "client",
@@ -398,58 +503,6 @@
       "_note": "The client app is not published, so the showcase shows the real API source (assets/captures/lamabooking/). Add client screenshots here if the frontend is deployed."
     },
     {
-      "slug": "ridgeline-freight",
-      "kind": "concept",
-      "placeholder": true,
-      "featured": false,
-      "spotlight": false,
-      "year": 2026,
-      "cover": "/images/portfolio/logistics-portal.jpg",
-      "gallery": [
-        "/images/ui/dashboard-light.png",
-        "/images/ui/mobile-home-en-light.png",
-        "/images/ui/dashboard-dark.png"
-      ],
-      "services": [
-        "business-systems",
-        "mobile-apps",
-        "apis-integrations"
-      ],
-      "stack": [
-        "Next.js",
-        "React Native",
-        "PostgreSQL"
-      ],
-      "en": {
-        "client": "Ridgeline Freight",
-        "sector": "Logistics",
-        "country": "Ohio",
-        "title": "From a group text to one operations portal",
-        "summary": "An operations portal, driver app and NetSuite sync for 11 depots.",
-        "challenge": "Dispatch ran on a group text and three spreadsheets that only one person understood.",
-        "solution": "Two weeks of discovery in the warehouses, then a portal, a driver app and an ERP sync shipped every two weeks.",
-        "capabilities": [],
-        "results": [
-          {
-            "value": "6 min",
-            "label": "to dispatch, from 40"
-          },
-          {
-            "value": "11",
-            "label": "depots on one system"
-          },
-          {
-            "value": "0",
-            "label": "lost delivery notes"
-          }
-        ],
-        "quote": {
-          "text": "It feels like the system was built by someone who worked here.",
-          "by": "Head of Dispatch"
-        }
-      }
-    },
-    {
       "slug": "clearwater-dental",
       "kind": "concept",
       "placeholder": true,
@@ -458,8 +511,8 @@
       "year": 2026,
       "cover": "/images/portfolio/clinic-booking.jpg",
       "gallery": [
-        "/images/ui/mobile-approve-light.png",
-        "/images/ui/dashboard-dark.png"
+        "/images/ui/freight-mobile-approve-light.png",
+        "/images/ui/freight-dashboard-dark.png"
       ],
       "services": [
         "clinic-management",
@@ -504,8 +557,8 @@
       "year": 2025,
       "cover": "/images/portfolio/realty-app.jpg",
       "gallery": [
-        "/images/ui/mobile-home-en-light.png",
-        "/images/ui/mobile-splash-dark.png"
+        "/images/ui/freight-mobile-home-en-light.png",
+        "/images/ui/freight-mobile-splash-dark.png"
       ],
       "services": [
         "mobile-apps",
@@ -537,109 +590,55 @@
       }
     },
     {
-      "slug": "copperline-coffee",
-      "kind": "concept",
-      "placeholder": true,
-      "featured": false,
-      "spotlight": false,
-      "year": 2025,
-      "cover": "/images/portfolio/corporate-website.jpg",
-      "gallery": [
-        "/images/ui/website-home-en-light.png"
-      ],
-      "services": [
-        "websites-web-apps"
-      ],
-      "stack": [
-        "Next.js",
-        "Sanity",
-        "Shopify"
-      ],
-      "en": {
-        "client": "Copperline Coffee",
-        "sector": "Food & beverage",
-        "country": "Colorado",
-        "title": "A brand website that sells beans, not buzzwords",
-        "summary": "Brand site and online store for a specialty coffee roaster.",
-        "challenge": "An outdated site with no online ordering.",
-        "solution": "A fast site with a store the team manages themselves.",
-        "capabilities": [],
-        "results": [
-          {
-            "value": "2.1s",
-            "label": "load on 4G"
-          },
-          {
-            "value": "+60%",
-            "label": "online orders"
-          }
-        ]
-      }
-    },
-    {
-      "slug": "fieldhouse-foods",
-      "kind": "concept",
-      "placeholder": true,
-      "featured": false,
-      "spotlight": false,
-      "year": 2025,
-      "cover": "/images/portfolio/ordering-website.jpg",
-      "gallery": [
-        "/images/ui/website-home-en-dark.png"
-      ],
-      "services": [
-        "websites-web-apps",
-        "automation"
-      ],
-      "stack": [
-        "Next.js",
-        "QuickBooks API"
-      ],
-      "en": {
-        "client": "Fieldhouse Foods",
-        "sector": "Distribution",
-        "country": "Georgia",
-        "title": "A B2B ordering site with automated invoicing",
-        "summary": "Wholesale ordering and automated invoices for a food distributor.",
-        "challenge": "Orders by phone, invoices typed by hand.",
-        "solution": "A B2B storefront with invoices generated in QuickBooks and sent automatically.",
-        "capabilities": [],
-        "results": [
-          {
-            "value": "−9 h",
-            "label": "admin work per week"
-          }
-        ]
-      }
-    },
-    {
-      "slug": "next-project",
+      "slug": "ridgeline-freight",
       "kind": "concept",
       "placeholder": true,
       "featured": false,
       "spotlight": false,
       "year": 2026,
-      "cover": "/images/portfolio/case-study-platform.jpg",
+      "cover": "/images/portfolio/logistics-portal.jpg",
       "gallery": [
-        "/images/ui/case-study-light.png"
+        "/images/ui/freight-dashboard-light.png",
+        "/images/ui/freight-mobile-home-en-light.png",
+        "/images/ui/freight-dashboard-dark.png"
       ],
       "services": [
-        "saas-products",
-        "custom-software"
+        "business-systems",
+        "mobile-apps",
+        "apis-integrations"
       ],
       "stack": [
         "Next.js",
+        "React Native",
         "PostgreSQL"
       ],
       "en": {
-        "client": "Your next project",
-        "sector": "SaaS",
-        "title": "Replace this card with a real project",
-        "summary": "Use your strongest real work here — or one of your own products.",
-        "challenge": "",
-        "solution": "",
+        "client": "Ridgeline Freight",
+        "sector": "Logistics",
+        "country": "Ohio",
+        "title": "From a group text to one operations portal",
+        "summary": "An operations portal, driver app and NetSuite sync for 11 depots.",
+        "challenge": "Dispatch ran on a group text and three spreadsheets that only one person understood.",
+        "solution": "Two weeks of discovery in the warehouses, then a portal, a driver app and an ERP sync shipped every two weeks.",
         "capabilities": [],
-        "results": []
+        "results": [
+          {
+            "value": "6 min",
+            "label": "to dispatch, from 40"
+          },
+          {
+            "value": "11",
+            "label": "depots on one system"
+          },
+          {
+            "value": "0",
+            "label": "lost delivery notes"
+          }
+        ],
+        "quote": {
+          "text": "It feels like the system was built by someone who worked here.",
+          "by": "Head of Dispatch"
+        }
       }
     }
   ]

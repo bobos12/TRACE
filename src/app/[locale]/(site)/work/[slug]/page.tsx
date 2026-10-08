@@ -150,7 +150,7 @@ export default async function ProjectPage({
                 </p>
               ) : null}
 
-              {project.links.live || project.links.source ? (
+              {project.links.live || project.links.source || project.links.demo ? (
                 <div className="flex flex-wrap gap-3">
                   {project.links.live ? (
                     <a
@@ -160,6 +160,17 @@ export default async function ProjectPage({
                       className={buttonClasses({ variant: 'secondary', size: 'md' })}
                     >
                       <span>{ui.visitSite}</span>
+                      <Icon name="arrow-up-right" size={18} className="rtl:-scale-x-100" />
+                    </a>
+                  ) : null}
+                  {project.links.demo ? (
+                    <a
+                      href={project.links.demo}
+                      target="_blank"
+                      rel="noreferrer"
+                      className={buttonClasses({ variant: 'secondary', size: 'md' })}
+                    >
+                      <span>{ui.viewDemo}</span>
                       <Icon name="arrow-up-right" size={18} className="rtl:-scale-x-100" />
                     </a>
                   ) : null}

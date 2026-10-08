@@ -28,6 +28,9 @@ const SITES = [
   { slug: 'fancystays', url: 'https://www.fancystays.net/' },
   { slug: 'retal-residence', url: 'https://retal-residence-landing.vercel.app/', settle: 2500 },
   { slug: 'elite-gpt', url: 'https://elitegpt.vercel.app/' },
+  // TRACE's own concept site, served by `npm run dev` from public/demos/. The
+  // concept notice is hidden because the portfolio labels the project itself.
+  { slug: 'ironwood-bail-bonds', url: 'http://localhost:3000/demos/ironwood-bail-bonds/index.html', hide: ['[data-concept]'] },
 ];
 
 const DESKTOP_SHOTS = 5;

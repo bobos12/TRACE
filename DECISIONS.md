@@ -735,3 +735,11 @@ The diagram covers (`make-brand-covers.mjs`) are gone with the anonymised work.
 - **The conversation lives in sessionStorage** — a reload keeps it, a new visit
   starts clean, and nothing is stored on our side unless the visitor sends
   the lead form.
+
+## Bail bonds: TRACE Bail product and the Ironwood website concept (2026-10-08)
+
+- **TRACE Bail** (`trace-bail`, in-house product, *in development*) is the bail agency portal and agent app already drawn in `saas-dashboard.html` / `mobile-app.html`. It is shown with the fictional Ironwood agency and carries no results — no agency uses it yet.
+- **Ironwood Bail Bonds** (`ironwood-bail-bonds`, concept) is a complete, working website at `public/demos/ironwood-bail-bonds/index.html`, linked from its project page as "Open the working demo" (new `links.demo`). The demo shows a concept notice at the top; the captures hide it because the portfolio labels the project as a concept. Its stats describe the design (one tap to call, two languages, 24/7), not invented outcomes.
+- Photos in the demo are from Wikimedia Commons, public domain or CC BY — sources, authors and licences in `public/images/bail/site/CREDITS.json`. CC BY requires attribution if the demo is published; keep the credits file with it.
+- The other concepts (Ridgeline, Clearwater, Harbor & Main) had started showing the bail screens, because they shared the product PNGs. They now use their own freight screens (`freight-dashboard.html`, `freight-mobile.html`, restored from c741e24) with a US name (Megan) in place of Sara. `render-ui.mjs` renders both sets.
+- Pipeline: `npm run dev` → `node scripts/capture-sites.mjs ironwood` → `node scripts/make-showcases.mjs ironwood`; `node scripts/render-ui.mjs` → `node scripts/make-concept-covers.mjs` for the product and concept covers.

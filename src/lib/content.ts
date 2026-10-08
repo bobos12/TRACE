@@ -237,6 +237,7 @@ const siteSchema = z.object({
     conceptNote: z.string().min(1),
     inDevelopment: z.string().min(1),
     visitSite: z.string().min(1),
+    viewDemo: z.string().min(1),
     viewCode: z.string().min(1),
     capabilities: z.string().min(1),
     filterKind: z.string().min(1),
@@ -471,7 +472,12 @@ const projectSchema = z.object({
   stack: z.array(z.string().min(1)),
   /** Live site and source, where they exist and are public. */
   links: z
-    .object({ live: z.string().url().optional(), source: z.string().url().optional() })
+    .object({
+      live: z.string().url().optional(),
+      source: z.string().url().optional(),
+      /** A working demo TRACE hosts itself, under public/demos/. */
+      demo: z.string().startsWith('/demos/').optional(),
+    })
     .default({}),
   en: projectCopy,
 });
@@ -539,7 +545,7 @@ export interface LocalProject extends ProjectCopy {
   gallery: string[];
   services: string[];
   stack: string[];
-  links: { live?: string; source?: string };
+  links: { live?: string; source?: string; demo?: string };
 }
 
 /**

@@ -35,17 +35,18 @@ const lattice$ = (cells, { left, top, color }) =>
     .join('')}</div>`;
 
 const COVERS = [
+  // TRACE Bail — the in-house bail agency product (agency portal + agent app).
   {
-    file: 'logistics-portal.jpg',
-    ground: GROUND.graphite,
+    file: 'trace-bail-cover.jpg',
+    ground: GROUND.carbon,
     parts: async () => [
       browser$(await img('dashboard-light.png'), { left: 120, top: 150, width: 1080 }),
       phone$(await img('mobile-home-en-light.png'), { left: 1130, top: 250, width: 330 }),
-      lattice$(['o', '', 'o', 'm', '', 'o', 'o', 'o', ''], { left: 1380, top: 70, color: '#F2EEE4' }),
+      lattice$(['o', 'm', 'o', '', 'o', '', 'o', 'o', 'o'], { left: 1380, top: 70, color: '#F2EEE4' }),
     ],
   },
   {
-    file: 'clinic-booking.jpg',
+    file: 'trace-bail-shot-2.jpg',
     ground: GROUND.sand,
     parts: async () => [
       browser$(await img('dashboard-dark.png'), { left: 540, top: 120, width: 980, dark: true }),
@@ -54,11 +55,39 @@ const COVERS = [
     ],
   },
   {
+    file: 'trace-bail-shot-3.jpg',
+    ground: GROUND.graphite,
+    parts: async () => [
+      phone$(await img('mobile-splash-dark.png'), { left: 260, top: 170, width: 330 }),
+      phone$(await img('mobile-home-en-light.png'), { left: 635, top: 110, width: 330 }),
+      phone$(await img('mobile-approve-light.png'), { left: 1010, top: 170, width: 330 }),
+      lattice$(['o', '', 'o', 'm', '', 'o', 'o', 'o', ''], { left: 1420, top: 40, color: '#F2EEE4' }),
+    ],
+  },
+  {
+    file: 'logistics-portal.jpg',
+    ground: GROUND.graphite,
+    parts: async () => [
+      browser$(await img('freight-dashboard-light.png'), { left: 120, top: 150, width: 1080 }),
+      phone$(await img('freight-mobile-home-en-light.png'), { left: 1130, top: 250, width: 330 }),
+      lattice$(['o', '', 'o', 'm', '', 'o', 'o', 'o', ''], { left: 1380, top: 70, color: '#F2EEE4' }),
+    ],
+  },
+  {
+    file: 'clinic-booking.jpg',
+    ground: GROUND.sand,
+    parts: async () => [
+      browser$(await img('freight-dashboard-dark.png'), { left: 540, top: 120, width: 980, dark: true }),
+      phone$(await img('freight-mobile-approve-light.png'), { left: 130, top: 160, width: 360 }),
+      lattice$(['', 'o', '', 'o', '', 'o', 'o', 'm', 'o'], { left: 110, top: 60, color: '#14130F' }),
+    ],
+  },
+  {
     file: 'realty-app.jpg',
     ground: GROUND.carbon,
     parts: async () => [
-      phone$(await img('mobile-home-en-dark.png'), { left: 440, top: 110, width: 340 }),
-      phone$(await img('mobile-splash-dark.png'), { left: 840, top: 190, width: 340 }),
+      phone$(await img('freight-mobile-home-en-dark.png'), { left: 440, top: 110, width: 340 }),
+      phone$(await img('freight-mobile-splash-dark.png'), { left: 840, top: 190, width: 340 }),
       lattice$(['o', 'm', 'o', '', 'o', '', 'o', 'o', 'o'], { left: 1380, top: 70, color: '#F2EEE4' }),
     ],
   },

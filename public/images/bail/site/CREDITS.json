@@ -1,0 +1,37 @@
+[
+  {
+    "file": "public/images/bail/site/handcuffs-hands.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:MightMac_Handcuffs_1.jpg",
+    "artist": "Emily &lt;3 / Alex from United States",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0"
+  },
+  {
+    "file": "public/images/bail/site/courthouse-houston.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Harris_County_Courthouse_of_1910_Houston_(HDR).jpg",
+    "artist": "Ed Uthman, Houston, Texas, USA",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0"
+  },
+  {
+    "file": "public/images/bail/site/houston-skyline.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Houston_night.jpg",
+    "artist": "User eflon on Flickr",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0"
+  },
+  {
+    "file": "public/images/bail/site/handcuffs-table.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Handcuffs_on_table.JPG",
+    "artist": "U.S. Air Force photo by Airman 1st Class Gustavo Castillo",
+    "license": "Public domain",
+    "licenseUrl": null
+  },
+  {
+    "file": "public/images/bail/site/courtroom.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Courtroom_at_the_United_States_Courthouse_in_Augusta,_GA.jpg",
+    "artist": "Carol M. Highsmith",
+    "license": "Public domain",
+    "licenseUrl": null
+  }
+]
