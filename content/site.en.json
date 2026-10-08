@@ -205,7 +205,6 @@
     "book": "Book a free call",
     "bookNote": "Pick a time that suits you — 30 minutes, no obligation.",
     "email": "Email us",
-    "whatsapp": "WhatsApp",
     "call": "Call"
   },
   "brief": {
@@ -222,7 +221,6 @@
     "sentTitle": "Brief sent.",
     "sentText": "Thanks, {name} — it’s in our inbox. We’ll reply to {email} within one business day.",
     "fallbackText": "We couldn’t send it from here, so your email app is opening with the brief written — just press send.",
-    "orWhatsApp": "Or send it on WhatsApp",
     "errorServices": "Pick at least one service.",
     "errorName": "Tell us your name.",
     "errorEmail": "Enter an email we can reply to.",
@@ -258,11 +256,15 @@
     "email": "Email"
   },
   "chat": {
-    "launcher": "Ask TRACE",
-    "launcherStatus": "Online · answers in seconds",
-    "launcherLabel": "Open the TRACE assistant",
-    "teaser": "Planning a project? Ask me anything — answers in seconds.",
-    "teaserDismiss": "Dismiss",
+    "launcher": "Ask AI",
+    "launcherStatus": "TRACE AI · online",
+    "launcherLabel": "Ask TRACE AI — our assistant answers in seconds",
+    "launcherPrompts": [
+      "What would my app cost?",
+      "Can you rebuild our site?",
+      "How fast can you start?",
+      "Ask about your project…"
+    ],
     "name": "TRACE assistant",
     "status": "Online now",
     "concept": "Concept",

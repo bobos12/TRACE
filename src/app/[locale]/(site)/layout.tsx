@@ -25,9 +25,12 @@ export default async function SiteLayout({
       <Nav site={site} />
       <main id="main">{children}</main>
       <Footer locale={locale} />
-      <FloatingBook tooltip={site.ui.bookTooltip} label={site.cta.book} />
       <MobileContactBar bookLabel={site.floating.book} emailLabel={site.floating.email} />
-      <ChatAssistant copy={site.chat} catalog={getChatCatalog()} />
+      <ChatAssistant
+        copy={site.chat}
+        catalog={getChatCatalog()}
+        book={<FloatingBook key="book" tooltip={site.ui.bookTooltip} label={site.cta.book} />}
+      />
     </>
   );
 }

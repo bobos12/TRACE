@@ -16,11 +16,9 @@ export interface ContactDetails {
   email: string;
   phone: string;
   phoneDisplay: string;
-  whatsapp: string;
   hours: { en: string };
   responseTime: { en: string };
   cities: { en: string[] };
-  whatsappMessage: { en: string };
   social: { facebook: string; linkedin: string; x: string; instagram: string; behance: string };
 }
 

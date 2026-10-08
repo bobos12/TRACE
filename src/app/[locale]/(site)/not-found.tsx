@@ -9,7 +9,7 @@ import { BrokenConstellation } from '@/components/brand/BrokenConstellation';
 
 /**
  * "This page left no trace." — TRACE's constellation with one nuqta missing.
- * Both routes out are one tap: home, or WhatsApp.
+ * Both routes out are one tap: book a call, or home.
  */
 export default async function NotFound() {
   const locale = readLocale(await getLocale());

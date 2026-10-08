@@ -47,6 +47,8 @@ export async function generateMetadata({
       icon: [
         { url: '/favicon.ico', sizes: '48x48' },
         { url: '/favicon.svg', type: 'image/svg+xml' },
+        // Google Search shows a favicon that is a multiple of 48px; give it a PNG too.
+        { url: '/icon-192.png', type: 'image/png', sizes: '192x192' },
       ],
       apple: '/apple-touch-icon.png',
       other: [{ rel: 'mask-icon', url: '/safari-pinned-tab.svg', color: '#E0461F' }],

@@ -8,7 +8,7 @@ import { Icon } from '@/components/ui/Icon';
 import { Nuqta } from '@/components/brand/Nuqta';
 import type { Locale } from '@/i18n/routing';
 import type { Site } from '@/lib/content';
-import { mailHref, track, trackContact, whatsappTextHref } from '@/lib/contact';
+import { mailHref, track, trackContact } from '@/lib/contact';
 import { submitBrief } from './actions';
 
 /** "{name} from {company}" → the values, from the content templates. */
@@ -21,8 +21,7 @@ const fill = (template: string, values: Record<string, string>) =>
  * Pick what you need, add a name and an email, and the brief goes straight to
  * the team's inbox from the server — the visitor never leaves the page. If no
  * backend is configured or the send fails, their email app opens with the
- * brief written instead, so it never silently fails. For those who prefer
- * chat, the same message can go to WhatsApp.
+ * brief written instead, so it never silently fails.
  */
 export function ProjectBrief({
   copy,
@@ -56,9 +55,6 @@ export function ProjectBrief({
 
   const onSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    // Which button sent it: the email action, or the WhatsApp alternative.
-    const submitter = (event.nativeEvent as SubmitEvent).submitter as HTMLElement | null;
-    const channel = submitter?.dataset.channel === 'whatsapp' ? 'whatsapp' : 'email';
     const data = new FormData(event.currentTarget);
     const read = (key: string) => String(data.get(key) ?? '').trim();
     const name = read('brief-name');
@@ -69,8 +65,7 @@ export function ProjectBrief({
     const next = {
       services: picked.length ? undefined : copy.errorServices,
       name: name ? undefined : copy.errorName,
-      // WhatsApp replies in the chat, so only the inbox route needs an address.
-      email: channel === 'whatsapp' || /^\S+@\S+\.\S+$/.test(email) ? undefined : copy.errorEmail,
+      email: /^\S+@\S+\.\S+$/.test(email) ? undefined : copy.errorEmail,
     };
     setErrors(next);
     if (next.services) return groupRef.current?.focus();
@@ -88,12 +83,8 @@ export function ProjectBrief({
       .filter(Boolean)
       .join('\n');
 
-    trackContact(channel, 'brief');
-    track('brief_submit', { services: picked.length, channel });
-    if (channel === 'whatsapp') {
-      window.open(whatsappTextHref(message), '_blank', 'noopener');
-      return;
-    }
+    trackContact('email', 'brief');
+    track('brief_submit', { services: picked.length, channel: 'email' });
 
     startTransition(async () => {
       const result = await submitBrief({ name, email, company, message, website: read('website') });
@@ -202,20 +193,12 @@ export function ProjectBrief({
       />
 
       <div className="flex flex-col items-start gap-3">
-        <Button type="submit" variant="primary" size="lg" cut icon="mail" data-channel="email" disabled={pending}>
+        <Button type="submit" variant="primary" size="lg" cut icon="mail" disabled={pending}>
           {pending ? copy.sending : copy.submit}
         </Button>
         <p role="status" className="body-sm text-ink-faint">
           {fallback ? copy.fallbackText : copy.hint}
         </p>
-        <button
-          type="submit"
-          data-channel="whatsapp"
-          className="inline-flex items-center gap-2 text-[14px] font-medium text-ink-muted underline decoration-line-strong underline-offset-4 transition-colors duration-[160ms] ease-mark hover:text-ink hover:decoration-ink"
-        >
-          <Icon name="whatsapp" size={16} />
-          {copy.orWhatsApp}
-        </button>
       </div>
     </form>
   );

@@ -2,7 +2,7 @@
 
 You are building the marketing website for **TRACE**, a software studio serving **US businesses**, with its engineering team in Cairo ("USA · Cairo").
 
-**Job of the site:** convince US companies to trust TRACE, then get them to contact us — **book a call first, email second**. WhatsApp and phone are secondary.
+**Job of the site:** convince US companies to trust TRACE, then get them to contact us — **book a call first, email second**. Phone is secondary. There is no WhatsApp (owner's decision, 2026-10-08).
 
 The brand was built as ATHR (أثر) for the Gulf; the identity is unchanged, only the name, market, language and contact funnel changed. **`docs/00-direction.md` overrides docs 01–07 and the brand guidelines wherever they disagree.**
 
@@ -56,7 +56,7 @@ Full brand guidelines: `docs/brand-guidelines/` (markdown + PDF).
   - Nav, hero, after services and work, the contact band on every page.
   - Floating Book-a-call button on desktop; Book a call + Email bar on mobile.
   - Booking links use `bookingHref()`, email `mailHref()`; every click calls `trackContact()`.
-  - WhatsApp and phone stay available (contact band, contact page, footer) but are never the primary action.
+  - Phone stays available (contact band, contact page, footer) but is never the primary action. No WhatsApp anywhere as a contact channel.
 - **English only, for a US audience.**
   - No locale in URLs (`localePrefix: 'never'`); keep logical properties so a second language stays possible.
   - US conventions: USD, US dates and phone formats, ET hours.

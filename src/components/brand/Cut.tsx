@@ -12,7 +12,7 @@ export interface CutProps {
 
 /**
  * The cut — a 45° chamfer on the trailing top corner, the nuqta's angle.
- * Primary CTA, featured project cards, the WhatsApp float button, the CTA band.
+ * Primary CTA, featured project cards, the Book-a-call float button, the CTA band.
  * Never on every card. Mirrors automatically in RTL.
  */
 export function Cut({ size = 12, as: Tag = 'div', className, style, children }: CutProps) {

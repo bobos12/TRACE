@@ -548,7 +548,7 @@
     animation-delay: var(--d, 0ms);
   }
 
-  /* The trace drawing itself around the WhatsApp card, once. A clip-path
+  /* The trace drawing itself around the booking card, once. A clip-path
      sweep is cheaper than an animated SVG pathLength and needs no JS. */
   @keyframes at-card-trace {
     0% {

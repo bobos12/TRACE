@@ -1,19 +1,15 @@
 'use client';
 
-import { useLocale } from 'next-intl';
 import type { CSSProperties } from 'react';
 import { Icon } from '@/components/ui/Icon';
-import type { Locale } from '@/i18n/routing';
 import { cn } from '@/lib/cn';
 import {
   bookingHref,
   bookingLinkProps,
   contact,
-  externalLinkProps,
   mailHref,
   phoneHref,
   trackContact,
-  whatsappHref,
   type Placement,
 } from '@/lib/contact';
 
@@ -93,43 +89,18 @@ export function EmailCard({
   );
 }
 
-/** WhatsApp and phone, side by side and quiet — for those who prefer them. */
-export function ChatCallRow({
-  whatsappLabel,
-  callLabel,
-  placement,
-  context,
-}: {
-  whatsappLabel: string;
-  callLabel: string;
-  placement: Placement;
-  context?: string;
-}) {
-  const locale = useLocale() as Locale;
-  const item =
-    'flex flex-1 items-center gap-3 rounded-md border border-line px-5 py-4 transition-colors duration-[160ms] ease-mark hover:border-ink';
-
+/** The phone line, quiet — for those who prefer to call. */
+export function CallRow({ callLabel, placement }: { callLabel: string; placement: Placement }) {
   return (
-    <div className="flex flex-col gap-3 sm:flex-row">
-      <a
-        href={whatsappHref(locale, context)}
-        onClick={() => trackContact('whatsapp', placement)}
-        className={item}
-        {...externalLinkProps}
-      >
-        <Icon name="whatsapp" size={20} className="flex-none text-ink-muted" />
-        <span className="body-sm text-ink">{whatsappLabel}</span>
-      </a>
-      <a
-        href={phoneHref()}
-        onClick={() => trackContact('phone', placement)}
-        aria-label={`${callLabel} ${contact.phoneDisplay}`}
-        className={item}
-      >
-        <Icon name="phone" size={20} className="flex-none text-ink-muted" />
-        <span className="body-sm text-ink">{callLabel}</span>
-        <span className="ms-auto font-mono text-[13px] text-ink-muted">{contact.phoneDisplay}</span>
-      </a>
-    </div>
+    <a
+      href={phoneHref()}
+      onClick={() => trackContact('phone', placement)}
+      aria-label={`${callLabel} ${contact.phoneDisplay}`}
+      className="flex items-center gap-3 rounded-md border border-line px-5 py-4 transition-colors duration-[160ms] ease-mark hover:border-ink"
+    >
+      <Icon name="phone" size={20} className="flex-none text-ink-muted" />
+      <span className="body-sm text-ink">{callLabel}</span>
+      <span className="ms-auto font-mono text-[13px] text-ink-muted">{contact.phoneDisplay}</span>
+    </a>
   );
 }

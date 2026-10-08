@@ -4,14 +4,14 @@ import { StopText } from '@/components/brand/Nuqta';
 import type { Site } from '@/lib/content';
 import type { Locale } from '@/i18n/routing';
 import { contact } from '@/lib/contact-data';
-import { BookCard, ChatCallRow, EmailCard } from '@/components/contact/ContactCards';
+import { BookCard, CallRow, EmailCard } from '@/components/contact/ContactCards';
 import { ProjectBrief } from '@/components/contact/ProjectBrief';
 
 /**
  * The conversion moment, at the foot of every page.
  *
- * Book a call largest and vermilion with the cut, email beneath it, WhatsApp
- * and phone quiet below — beside the project brief: pick the services you need
+ * Book a call largest and vermilion with the cut, email beneath it, the phone
+ * line quiet below — beside the project brief: pick the services you need
  * and the email is written for you. A slow trace draws around the booking card
  * once when it enters view.
  *
@@ -58,12 +58,7 @@ export function ContactBand({
               <EmailCard label={site.cta.email} subject={context} placement="contact-band" />
             </Reveal>
             <Reveal delay={0.1}>
-              <ChatCallRow
-                whatsappLabel={site.cta.whatsapp}
-                callLabel={site.cta.call}
-                placement="contact-band"
-                context={context}
-              />
+              <CallRow callLabel={site.cta.call} placement="contact-band" />
             </Reveal>
           </div>
         </div>

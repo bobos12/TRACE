@@ -134,7 +134,6 @@ const siteSchema = z.object({
     book: z.string().min(1),
     bookNote: z.string().min(1),
     email: z.string().min(1),
-    whatsapp: z.string().min(1),
     call: z.string().min(1),
   }),
   /** The project brief in the contact band: pick services, send a ready email. */
@@ -153,7 +152,6 @@ const siteSchema = z.object({
     sentTitle: z.string().min(1),
     sentText: z.string().min(1),
     fallbackText: z.string().min(1),
-    orWhatsApp: z.string().min(1),
     errorServices: z.string().min(1),
     errorName: z.string().min(1),
     errorEmail: z.string().min(1),
@@ -191,8 +189,8 @@ const siteSchema = z.object({
     launcher: z.string().min(1),
     launcherStatus: z.string().min(1),
     launcherLabel: z.string().min(1),
-    teaser: z.string().min(1),
-    teaserDismiss: z.string().min(1),
+    /** Cycled once in the desktop launcher; the last one stays. */
+    launcherPrompts: z.array(z.string().min(1)).min(1).max(6),
     name: z.string().min(1),
     status: z.string().min(1),
     concept: z.string().min(1),
@@ -727,11 +725,9 @@ const contactSchema = z.object({
   email: z.string().email(),
   phone: z.string().min(1),
   phoneDisplay: z.string().min(1),
-  whatsapp: z.string().min(1),
   hours: localized,
   responseTime: localized,
   cities: z.object({ en: z.array(z.string()).min(1) }),
-  whatsappMessage: localized,
   social: z.object({
     facebook: z.string(),
     linkedin: z.string(),

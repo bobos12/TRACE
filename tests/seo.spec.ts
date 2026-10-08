@@ -180,6 +180,28 @@ test.describe('home page', () => {
   });
 });
 
+test.describe('contact channels and icons', () => {
+  for (const path of INDEXABLE) {
+    test(`${path} has no WhatsApp contact links`, async ({ request }) => {
+      const html = await (await request.get(path)).text();
+      expect(html).not.toMatch(/wa\.me\/|api\.whatsapp\.com/);
+    });
+  }
+
+  test('every declared favicon loads', async ({ page, request }) => {
+    await page.goto('/');
+    const hrefs = await page
+      .locator('link[rel="icon"], link[rel="apple-touch-icon"]')
+      .evaluateAll((els) => els.map((el) => el.getAttribute('href') ?? ''));
+    expect(hrefs.length).toBeGreaterThanOrEqual(3);
+    for (const href of hrefs) {
+      const response = await request.get(href);
+      expect(response.status(), href).toBe(200);
+      expect(response.headers()['content-type'], href).toMatch(/^image\//);
+    }
+  });
+});
+
 test.describe('structured data across the site', () => {
   for (const path of INDEXABLE) {
     test(`${path} JSON-LD is valid and points at production`, async ({ page }) => {

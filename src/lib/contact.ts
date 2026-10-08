@@ -1,17 +1,16 @@
 /**
  * Contact helpers — the site's conversion actions, in order of weight:
- * book a call, email, then WhatsApp and phone for those who prefer them.
+ * book a call, email, then phone for those who prefer it.
  * Details live in content/contact.json.
  * Extended from starters/contact.ts: adds placement typing and the analytics
  * bridge to Vercel Analytics.
  */
 import { track as vercelTrack } from '@vercel/analytics';
 import { contact } from '@/lib/contact-data';
-import type { Locale } from '@/i18n/routing';
 
 export { contact };
 
-export type ContactChannel = 'booking' | 'email' | 'whatsapp' | 'phone' | 'form';
+export type ContactChannel = 'booking' | 'email' | 'phone' | 'form';
 
 /** Placement values, per docs/06-conversion.md. */
 export type Placement =
@@ -48,18 +47,6 @@ export const bookingLinkProps = hasBooking
   ? { target: '_blank' as const, rel: 'noopener' as const }
   : {};
 
-/** WhatsApp deep link with exactly this message. */
-export function whatsappTextHref(text: string): string {
-  const number = contact.whatsapp.replace(/[^\d]/g, '');
-  return `https://wa.me/${number}?text=${encodeURIComponent(text)}`;
-}
-
-/** WhatsApp deep link with a prefilled, context-aware message. */
-export function whatsappHref(locale: Locale, context?: string): string {
-  const base = contact.whatsappMessage[locale];
-  return whatsappTextHref(context ? `${base} — ${context}` : base);
-}
-
 /** tel: link. Always show contact.phoneDisplay beside it — people trust the number. */
 export function phoneHref(): string {
   return `tel:${contact.phone}`;
@@ -87,11 +74,3 @@ export function trackContact(channel: ContactChannel, placement: Placement): voi
   track('contact_click', { channel, placement });
 }
 
-/**
- * Attributes every outbound contact link shares.
- * WhatsApp opens in a new tab on desktop; `tel:` and `mailto:` never should.
- */
-export const externalLinkProps = {
-  target: '_blank' as const,
-  rel: 'noopener' as const,
-};

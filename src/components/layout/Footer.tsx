@@ -1,7 +1,7 @@
 import { Link } from '@/i18n/navigation';
 import type { Locale } from '@/i18n/routing';
 import { getLocalServices, getSite } from '@/lib/content';
-import { contact, whatsappHref } from '@/lib/contact';
+import { contact } from '@/lib/contact';
 import { Logo } from '@/components/brand/Logo';
 import { Container } from '@/components/ui/Container';
 import { Icon, iconNames, type IconName } from '@/components/ui/Icon';
@@ -91,11 +91,6 @@ export function Footer({ locale }: { locale: Locale }) {
               <li>
                 <a href={`tel:${contact.phone}`} className="font-mono hover:text-ink">
                   {contact.phoneDisplay}
-                </a>
-              </li>
-              <li>
-                <a href={whatsappHref(locale)} target="_blank" rel="noopener" className="hover:text-ink">
-                  {site.cta.whatsapp}
                 </a>
               </li>
               <li>{contact.hours[locale]}</li>

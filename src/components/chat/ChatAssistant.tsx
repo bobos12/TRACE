@@ -1,6 +1,15 @@
 'use client';
 
-import { lazy, Suspense, useCallback, useEffect, useRef, useState, type CSSProperties } from 'react';
+import {
+  lazy,
+  Suspense,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  type CSSProperties,
+  type ReactNode,
+} from 'react';
 import type { Site } from '@/lib/content';
 import type { ChatCatalog } from '@/lib/chat/knowledge';
 import { cn } from '@/lib/cn';
@@ -30,40 +39,46 @@ function ChatGlyph({ className }: { className?: string }) {
 const loadPanel = () => import('./ChatPanel');
 const ChatPanel = lazy(loadPanel);
 
-const TEASER_KEY = 'trace-chat-teaser';
-const TEASER_DELAY = 5000;
+const CYCLE_KEY = 'trace-chat-cycle';
+const CYCLE_DELAY = 2500;
+const CYCLE_STEP = 2800;
 const PING_KEY = 'trace-chat-ping';
 const PING_DELAY = 3500;
 
 /**
- * The website assistant's entry point.
+ * The website assistant's entry point, and the one corner row of floating
+ * controls.
  *
- * Desktop: a carbon "Ask TRACE" button in the corner, under the floating
- * Book-a-call button, with a breathing "online" nuqta and a status line.
- * Mobile: a carbon square that rides above the Book + Email bar, nuqta on its
- * corner. Once per session a vermilion ring pulses out of it, and on desktop
- * one teaser follows.
+ * Desktop: [Book a call] [TRACE AI launcher]. The launcher reads as a chat
+ * field — an "AI · online" line, an example question, a send key — and runs
+ * through `launcherPrompts` once per session before resting on the last one.
+ * Mobile: an "Ask AI" chip that rides above the Book + Email bar. Once per
+ * session a vermilion ring pulses out of it.
  *
  * Anything on the page can open it — and ask a first question — with
  * `openChat()` from ./events.
  */
-export function ChatAssistant({ copy, catalog }: { copy: Site['chat']; catalog: ChatCatalog }) {
+export function ChatAssistant({
+  copy,
+  catalog,
+  book,
+}: {
+  copy: Site['chat'];
+  catalog: ChatCatalog;
+  book?: ReactNode;
+}) {
   const [open, setOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
-  const [teaser, setTeaser] = useState(false);
   const [ping, setPing] = useState(false);
+  const prompts = copy.launcherPrompts;
+  const [cycle, setCycle] = useState(prompts.length - 1);
   const [prompt, setPrompt] = useState<{ text: string; id: number } | null>(null);
   const launcher = useRef<HTMLButtonElement>(null);
   const barVisible = useConversionVisibility(0.4);
-  const bookVisible = useConversionVisibility(0.9);
 
   const show = useCallback((placement: string) => {
     setMounted(true);
     setOpen(true);
-    setTeaser(false);
-    try {
-      sessionStorage.setItem(TEASER_KEY, '1');
-    } catch {}
     track('chat_open', { placement });
   }, []);
 
@@ -84,16 +99,31 @@ export function ChatAssistant({ copy, catalog }: { copy: Site['chat']; catalog: 
     return () => window.removeEventListener(CHAT_EVENT, onOpen);
   }, [show]);
 
-  // The teaser: once per session, desktop only, never after the panel opened.
+  // The example questions: once per session, desktop only, never under reduced motion.
   useEffect(() => {
     let seen = false;
     try {
-      seen = sessionStorage.getItem(TEASER_KEY) === '1';
+      seen = sessionStorage.getItem(CYCLE_KEY) === '1';
     } catch {}
-    if (seen || !window.matchMedia('(min-width: 768px)').matches) return;
-    const t = window.setTimeout(() => setTeaser(true), TEASER_DELAY);
+    if (
+      seen ||
+      prompts.length < 2 ||
+      !window.matchMedia('(min-width: 768px)').matches ||
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    )
+      return;
+    let i = 0;
+    let t = window.setTimeout(function step() {
+      if (i === 0) {
+        try {
+          sessionStorage.setItem(CYCLE_KEY, '1');
+        } catch {}
+      }
+      setCycle(i);
+      if (++i < prompts.length) t = window.setTimeout(step, CYCLE_STEP);
+    }, CYCLE_DELAY);
     return () => window.clearTimeout(t);
-  }, []);
+  }, [prompts.length]);
 
   // The ping: once per session, a few seconds in, unless the panel is open.
   useEffect(() => {
@@ -111,91 +141,73 @@ export function ChatAssistant({ copy, catalog }: { copy: Site['chat']; catalog: 
     return () => window.clearTimeout(t);
   }, []);
 
-  const dismissTeaser = () => {
-    setTeaser(false);
-    try {
-      sessionStorage.setItem(TEASER_KEY, '1');
-    } catch {}
-  };
-
   return (
     <>
       <div
         className={cn(
-          'fixed end-4 z-40 transition-transform duration-[320ms] ease-mark motion-reduce:transition-none md:end-6 md:bottom-6',
+          'fixed end-4 z-40 flex items-end gap-2 transition-transform duration-[320ms] ease-mark motion-reduce:transition-none md:end-6 md:bottom-6',
           'bottom-[calc(1rem+env(safe-area-inset-bottom))]',
           barVisible && 'max-md:-translate-y-16',
           open && 'max-md:invisible',
         )}
       >
-        {teaser && !open ? (
-          <div
+        {book}
+
+        <div className="relative">
+          {ping && !open ? (
+            <span
+              aria-hidden="true"
+              onAnimationEnd={() => setPing(false)}
+              className="chat-ping at-cut pointer-events-none absolute inset-0 bg-vermilion"
+              style={{ '--cut': '12px' } as CSSProperties}
+            />
+          ) : null}
+
+          <button
+            ref={launcher}
+            type="button"
+            onClick={() => (open ? hide() : show('launcher'))}
+            onPointerEnter={loadPanel}
+            onFocus={loadPanel}
+            aria-label={copy.launcherLabel}
+            aria-expanded={open}
+            aria-haspopup="dialog"
             className={cn(
-              'bb-arrive absolute end-0 hidden w-[17rem] md:block',
-              // Clear the floating Book-a-call button only while it is showing.
-              bookVisible ? 'bottom-[calc(100%+5.5rem)]' : 'bottom-[calc(100%+0.75rem)]',
+              'at-cut group relative flex items-center bg-ink text-surface shadow-[var(--shadow-float)]',
+              'transition-transform duration-[160ms] ease-mark hover:-translate-y-0.5 motion-reduce:transition-none',
+              'h-12 gap-2 ps-3 pe-4 md:h-16 md:w-[21rem] md:gap-3 md:ps-3 md:pe-3',
             )}
-          >
-            <div className="relative flex items-start gap-3 rounded-md border border-line-strong bg-surface-raised p-4 shadow-float">
-              <button
-                type="button"
-                onClick={() => show('teaser')}
-                onPointerEnter={loadPanel}
-                className="text-start text-[14px] leading-[1.45] text-ink"
-              >
-                {copy.teaser}
-              </button>
-              <button
-                type="button"
-                onClick={dismissTeaser}
-                aria-label={copy.teaserDismiss}
-                className="-me-1 -mt-1 grid size-7 flex-none place-items-center text-ink-muted hover:text-ink"
-              >
-                <Icon name="close" size={16} />
-              </button>
-            </div>
-          </div>
-        ) : null}
-
-        {ping && !open ? (
-          <span
-            aria-hidden="true"
-            onAnimationEnd={() => setPing(false)}
-            className="chat-ping at-cut pointer-events-none absolute inset-0 bg-vermilion"
             style={{ '--cut': '12px' } as CSSProperties}
-          />
-        ) : null}
-
-        <button
-          ref={launcher}
-          type="button"
-          onClick={() => (open ? hide() : show('launcher'))}
-          onPointerEnter={loadPanel}
-          onFocus={loadPanel}
-          aria-label={copy.launcherLabel}
-          aria-expanded={open}
-          aria-haspopup="dialog"
-          className={cn(
-            'at-cut relative flex items-center justify-center gap-3 bg-ink text-surface shadow-[var(--shadow-float)]',
-            'transition-transform duration-[160ms] ease-mark hover:-translate-y-0.5 motion-reduce:transition-none',
-            'size-[3.25rem] md:h-16 md:w-auto md:ps-4 md:pe-6',
-          )}
-          style={{ '--cut': '12px' } as CSSProperties}
-        >
-          <ChatGlyph className="size-7 md:size-6" />
-          <span className="hidden flex-col items-start md:flex">
-            <span className="text-[15px] font-medium leading-5">{copy.launcher}</span>
-            <span className="flex items-center gap-1.5 font-mono text-[11px] leading-4 text-surface/70">
-              <span aria-hidden="true" className="at-breathe size-1.5 rotate-45 bg-vermilion" />
-              {copy.launcherStatus}
+          >
+            <span className="grid flex-none place-items-center md:size-10 md:bg-surface/10">
+              <ChatGlyph className="size-6" />
             </span>
-          </span>
-          {/* Phones show no label, so the live nuqta sits on the corner. */}
-          <span
-            aria-hidden="true"
-            className="at-breathe absolute start-1.5 top-1.5 size-2 rotate-45 bg-vermilion md:hidden"
-          />
-        </button>
+
+            {/* Phones: a plain "Ask AI" chip. */}
+            <span className="text-[15px] font-medium md:hidden">{copy.launcher}</span>
+
+            {/* Desktop: a chat field. */}
+            <span className="hidden min-w-0 flex-1 flex-col items-start md:flex">
+              <span className="flex items-center gap-1.5 font-mono text-[11px] leading-4 text-surface/70">
+                <span aria-hidden="true" className="at-breathe size-1.5 rotate-45 bg-vermilion" />
+                {copy.launcherStatus}
+              </span>
+              <span
+                key={cycle}
+                className="bb-arrive block w-full truncate text-start text-[15px] font-medium leading-6"
+              >
+                {prompts[cycle]}
+              </span>
+            </span>
+            <span
+              aria-hidden="true"
+              className="at-cut hidden size-10 flex-none place-items-center bg-nuqta text-on-nuqta transition-transform duration-[160ms] ease-mark group-hover:translate-x-0.5 motion-reduce:transition-none md:grid"
+              style={{ '--cut': '8px' } as CSSProperties}
+            >
+              <Icon name="arrow-right" size={18} />
+            </span>
+          </button>
+        </div>
       </div>
 
       {mounted ? (

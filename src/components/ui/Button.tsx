@@ -27,7 +27,7 @@ export type ButtonProps = ButtonAsButton | ButtonAsLink;
 /**
  * One primary per view: the action the screen exists for.
  * Labels are a verb and an object, sentence case — "Start a project",
- * "Chat on WhatsApp". Never "Submit", "Click here", "Learn more".
+ * "Book a free call". Never "Submit", "Click here", "Learn more".
  *
  * With `href` this renders a plain <a>, for external links (wa.me, tel:).
  * For internal routes use LinkButton, which adds the locale prefix.

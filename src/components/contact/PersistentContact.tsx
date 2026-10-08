@@ -46,8 +46,8 @@ export function useConversionVisibility(threshold: number) {
 }
 
 /**
- * Desktop: a 56×56 vermilion button with the cut and a calendar — one tap to
- * book the free call. One stamp on first appearance — never a pulsing loop.
+ * Desktop: a 64×64 vermilion button with the cut and a calendar — one tap to
+ * book the free call. It sits in the assistant's corner row (see ChatAssistant). One stamp on first appearance — never a pulsing loop.
  */
 export function FloatingBook({ tooltip, label }: { tooltip: string; label: string }) {
   const visible = useConversionVisibility(0.9);
@@ -56,7 +56,7 @@ export function FloatingBook({ tooltip, label }: { tooltip: string; label: strin
     <div
       aria-hidden={!visible}
       className={cn(
-        'group fixed bottom-24 end-6 z-40 hidden transition-[opacity,transform] duration-[320ms] ease-mark md:block',
+        'group relative hidden transition-[opacity,transform] duration-[320ms] ease-mark md:block',
         'motion-reduce:transition-none',
         visible
           ? 'pointer-events-auto scale-100 opacity-100'
@@ -68,7 +68,7 @@ export function FloatingBook({ tooltip, label }: { tooltip: string; label: strin
         aria-label={label}
         onClick={() => trackContact('booking', 'float')}
         tabIndex={visible ? undefined : -1}
-        className="at-cut grid size-14 place-items-center bg-nuqta text-on-nuqta shadow-[var(--shadow-float)] transition-transform duration-[160ms] ease-mark hover:-translate-y-0.5"
+        className="at-cut grid size-16 place-items-center bg-nuqta text-on-nuqta shadow-[var(--shadow-float)] transition-transform duration-[160ms] ease-mark hover:-translate-y-0.5"
         style={{ '--cut': '14px' } as CSSProperties}
         {...bookingLinkProps}
       >
@@ -76,7 +76,7 @@ export function FloatingBook({ tooltip, label }: { tooltip: string; label: strin
       </a>
       <span
         role="tooltip"
-        className="pointer-events-none absolute bottom-1/2 end-full me-3 translate-y-1/2 whitespace-nowrap rounded-sm bg-carbon px-3 py-2 text-[12.5px] text-paper opacity-0 transition-opacity duration-[160ms] group-hover:opacity-100 group-focus-within:opacity-100"
+        className="pointer-events-none absolute bottom-full end-0 mb-3 whitespace-nowrap rounded-sm bg-carbon px-3 py-2 text-[12.5px] text-paper opacity-0 transition-opacity duration-[160ms] group-hover:opacity-100 group-focus-within:opacity-100"
       >
         {tooltip}
       </span>

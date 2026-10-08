@@ -1,6 +1,5 @@
 'use client';
 
-import { useLocale } from 'next-intl';
 import type { ReactNode } from 'react';
 import { Button, type ButtonProps, type ButtonSize, type ButtonVariant } from '@/components/ui/Button';
 import { Icon, type IconName } from '@/components/ui/Icon';
@@ -9,14 +8,11 @@ import {
   bookingHref,
   bookingLinkProps,
   contact,
-  externalLinkProps,
   mailHref,
   phoneHref,
   trackContact,
-  whatsappHref,
   type Placement,
 } from '@/lib/contact';
-import type { Locale } from '@/i18n/routing';
 
 type Shared = {
   placement: Placement;
@@ -85,36 +81,6 @@ export function EmailButton({
       {showAddress ? (
         <span className="ms-2 font-mono text-[13px] opacity-75">{contact.email}</span>
       ) : null}
-    </Button>
-  );
-}
-
-/** For visitors who prefer chat. Secondary — never the vermilion action. */
-export function WhatsAppButton({
-  placement,
-  context,
-  size = 'md',
-  variant = 'secondary',
-  cut = false,
-  block,
-  className,
-  children,
-}: Shared & { context?: string }) {
-  const locale = useLocale() as Locale;
-
-  return (
-    <Button
-      href={whatsappHref(locale, context)}
-      variant={variant}
-      size={size}
-      cut={cut}
-      block={block}
-      icon="whatsapp"
-      className={className}
-      onClick={() => trackContact('whatsapp', placement)}
-      {...externalLinkProps}
-    >
-      {children}
     </Button>
   );
 }

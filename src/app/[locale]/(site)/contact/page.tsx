@@ -12,7 +12,7 @@ import { Reveal } from '@/components/motion/Reveal';
 import { StopText } from '@/components/brand/Nuqta';
 import { Icon } from '@/components/ui/Icon';
 import { ContactForm } from '@/components/contact/ContactForm';
-import { ChatCallRow, EmailCard } from '@/components/contact/ContactCards';
+import { CallRow, EmailCard } from '@/components/contact/ContactCards';
 import { Breadcrumbs } from '@/components/seo/Breadcrumbs';
 
 export function generateStaticParams() {
@@ -48,7 +48,7 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
 
       <section data-conversion-zone className="bg-surface pt-32 pb-[var(--section-y)]">
         <Container className="grid grid-cols-1 gap-16 lg:grid-cols-12 lg:gap-8">
-          {/* Left — book a call first, then email, then chat and phone, then the details. */}
+          {/* Left — book a call first, then email, then phone, then the details. */}
           <div className="flex flex-col gap-8 lg:col-span-5">
             {/* The first screenful never animates in — see PageHero. */}
             <div className="flex flex-col gap-5">
@@ -63,12 +63,7 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
             </Reveal>
 
             <Reveal delay={0.14}>
-              <ChatCallRow
-                whatsappLabel={site.cta.whatsapp}
-                callLabel={site.cta.call}
-                placement="contact-page"
-                context={site.ui.contact}
-              />
+              <CallRow callLabel={site.cta.call} placement="contact-page" />
             </Reveal>
 
             <Reveal delay={0.18}>

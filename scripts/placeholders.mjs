@@ -27,9 +27,6 @@ if (contact.booking.includes('REPLACE')) {
 if (/55501\d\d$/.test(contact.phone) || looksFake(contact.phone)) {
   add('US phone number', 'content/contact.json → phone + phoneDisplay', `currently ${contact.phoneDisplay}`);
 }
-if (looksFake(contact.whatsapp)) {
-  add('WhatsApp number', 'content/contact.json → whatsapp', `currently ${contact.whatsapp}`);
-}
 if (contact.email.endsWith('trace.studio')) {
   add('Email address', 'content/contact.json → email', `confirm ${contact.email} is real and monitored`);
 }
