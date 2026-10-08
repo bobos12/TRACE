@@ -9,7 +9,7 @@ import '@/styles/globals.css';
 import { routing, type Locale } from '@/i18n/routing';
 import { fontVariables } from '@/lib/fonts';
 import { getSite } from '@/lib/content';
-import { pageMetadata, SITE_URL } from '@/lib/seo';
+import { BRAND_NAME, SITE_URL } from '@/lib/site';
 import { ThemeScript } from '@/components/layout/ThemeScript';
 
 export function generateStaticParams() {
@@ -31,12 +31,17 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale: raw } = await params;
   if (!hasLocale(routing.locales, raw)) return {};
-  const locale = raw as Locale;
+  const site = getSite(raw as Locale);
 
+  // Site-wide defaults only. The canonical URL and og:url are set per page, so
+  // a route without its own metadata (404, styleguide) never claims to be home.
   return {
     metadataBase: new URL(SITE_URL),
-    ...pageMetadata({ locale, path: '' }),
-    applicationName: 'TRACE',
+    title: site.meta.title,
+    description: site.meta.description,
+    applicationName: BRAND_NAME,
+    appleWebApp: { title: BRAND_NAME },
+    openGraph: { type: 'website', siteName: BRAND_NAME, locale: 'en_US' },
     manifest: '/site.webmanifest',
     icons: {
       icon: [

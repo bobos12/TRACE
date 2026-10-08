@@ -26,7 +26,7 @@ const portfolio = JSON.parse(await read('content/portfolio.json'));
 const contact = JSON.parse(await read('content/contact.json'));
 const bail = JSON.parse(await read('content/bail-bonds.json'));
 
-const DOMAIN = (process.env.NEXT_PUBLIC_SITE_URL || 'trace.studio').replace(/^https?:\/\//, '');
+const DOMAIN = (process.env.NEXT_PUBLIC_SITE_URL || 'trace-studio.tech').replace(/^https?:\/\//, '');
 
 const latin = await b64('public/fonts/InstrumentSans-Variable.woff2');
 const mono = await b64('public/fonts/IBMPlexMono-500.woff2');

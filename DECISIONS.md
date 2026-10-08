@@ -384,9 +384,11 @@ reverse the word order to compensate. That is safe for runs of Arabic; a string
 mixing Arabic with a Latin phrase of more than one word would place that
 phrase's words backwards. Worth checking when real Arabic project copy lands.
 
-Also: the route is served from a hashed path (`/opengraph-image-<hash>`), so
-`generateMetadata` must **not** set `openGraph.images` for that route — passing
-`image: null` lets the file convention supply the URL.
+Also: per-project images are a route handler at `/og/work/[slug]`
+(`src/app/og/work/[slug]/route.tsx`), not an `opengraph-image` file. The file
+convention under `[locale]` produced `/en/work/…/opengraph-image-<hash>` URLs,
+which only resolved through a redirect — not what a share preview should rely
+on. The proxy matcher skips `/og/`.
 
 ### The localized 404 needs a catch-all
 
@@ -743,3 +745,13 @@ The diagram covers (`make-brand-covers.mjs`) are gone with the anonymised work.
 - Photos in the demo are from Wikimedia Commons, public domain or CC BY — sources, authors and licences in `public/images/bail/site/CREDITS.json`. CC BY requires attribution if the demo is published; keep the credits file with it.
 - The other concepts (Ridgeline, Clearwater, Harbor & Main) had started showing the bail screens, because they shared the product PNGs. They now use their own freight screens (`freight-dashboard.html`, `freight-mobile.html`, restored from c741e24) with a US name (Megan) in place of Sara. `render-ui.mjs` renders both sets.
 - Pipeline: `npm run dev` → `node scripts/capture-sites.mjs ironwood` → `node scripts/make-showcases.mjs ironwood`; `node scripts/render-ui.mjs` → `node scripts/make-concept-covers.mjs` for the product and concept covers.
+
+## Technical SEO and the Trace Studio entity (2026-10-08)
+
+- **Name.** The written company name is **Trace Studio** (titles, `og:site_name`, footer ©, About copy, manifest, JSON-LD); `alternateName` is "Trace". The logo stays the TRACE wordmark. Several unrelated companies use "TRACE Studio", so the name is always paired with the category — *Digital Products, Websites & Software* — in the home title, the hero h1 and the structured data.
+- **Home h1.** The hero eyebrow ("Trace Studio ◆ Digital products, websites & software") is the `<h1>`; the display line "Every business leaves a mark." is a `<p>` with the same classes. Nothing moved or changed size, and nothing is hidden.
+- **One origin, not an env var.** `SITE_URL` is fixed to `https://trace-studio.tech` in `src/lib/site.ts`. Before, an unset `NEXT_PUBLIC_SITE_URL` silently produced `trace.studio` canonicals. Preview builds point at production, which is correct; Vercel already sends `noindex` on preview URLs.
+- **Canonical per page, not in the layout.** The root layout sets defaults only (title, description, site name, icons). Each page sets its own canonical and `og:url`, so the 404 and the styleguide no longer claim to be the home page.
+- **Structured data.** One `@graph` on the home page: `WebSite` + `Organization`, linked by `@id`. Project, breadcrumb and bail-bonds markup refer to the Organization by `@id`. Dropped `ProfessionalService` (a LocalBusiness type that expects an address) and the placeholder phone number. `sameAs` comes from `content/contact.json → social` — verified profiles only.
+- **Indexing.** Sample projects (`placeholder: true`) are `noindex, follow` and left out of the sitemap; they stay on /work, labelled. robots.txt blocks only `/api/` — the styleguide's `noindex` has to be fetchable to work. The sitemap has no `lastmod`: a build timestamp on every URL is noise. `/en/*` → `/*` is now a 308.
+- **Tests.** `tests/seo.spec.ts` uses `@playwright/test`, already a dev dependency — no new framework. It runs against a production build with JavaScript off, i.e. what a crawler sees.

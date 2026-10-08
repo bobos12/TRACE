@@ -3,17 +3,20 @@ import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 
 import { getProject, getProjects } from '@/lib/content';
-import { readLocale, routing } from '@/i18n/routing';
+import { routing } from '@/i18n/routing';
 import { constellation } from '@/lib/constellation';
+import { BRAND_NAME } from '@/lib/site';
 
-export const size = { width: 1200, height: 630 };
-export const contentType = 'image/png';
-export const alt = 'TRACE case study';
+const size = { width: 1200, height: 630 };
+
+/**
+ * Served at /og/work/[slug], outside [locale]: the proxy leaves /og/ alone, so
+ * the og:image URL needs no /en prefix and no redirect. Built at build time.
+ */
+export const dynamicParams = false;
 
 export function generateStaticParams() {
-  return routing.locales.flatMap((locale) =>
-    getProjects().map((project) => ({ locale, slug: project.slug })),
-  );
+  return getProjects().map((project) => ({ slug: project.slug }));
 }
 
 const CARBON = '#0F0F0D';
@@ -41,13 +44,9 @@ function Rhombus({ size: s, color }: { size: number; color: string }) {
  * eyebrow, the client name in display type ending in the nuqta, the result
  * numbers along the foot, and the client's own constellation.
  */
-export default async function Image({
-  params,
-}: {
-  params: Promise<{ locale: string; slug: string }>;
-}) {
-  const { locale: rawLocale, slug } = await params;
-  const locale = readLocale(rawLocale);
+export async function GET(_request: Request, { params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const locale = routing.defaultLocale;
   const project = getProject(slug);
 
   if (!project) {
@@ -157,7 +156,7 @@ export default async function Image({
           </div>
         </div>
 
-        {/* Result numbers, then the TRACE signature. */}
+        {/* Result numbers, then the studio's signature. */}
         <div
           style={{
             display: 'flex',
@@ -219,7 +218,7 @@ export default async function Image({
                 color: MUTED,
               }}
             >
-              TRACE
+              {BRAND_NAME}
             </div>
           </div>
         </div>

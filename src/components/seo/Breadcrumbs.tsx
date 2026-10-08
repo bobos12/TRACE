@@ -1,4 +1,5 @@
-import { siteUrl } from '@/lib/seo';
+import { jsonLd, siteUrl } from '@/lib/seo';
+import { BRAND_NAME } from '@/lib/site';
 
 /**
  * BreadcrumbList JSON-LD for inner pages. Renders nothing visible — the visual
@@ -10,7 +11,7 @@ export function Breadcrumbs({
   /** Ordered, excluding the home page. */
   trail: Array<{ name: string; path: string }>;
 }) {
-  const items = [{ name: 'TRACE', path: '' }, ...trail].map((item, i) => ({
+  const items = [{ name: BRAND_NAME, path: '/' }, ...trail].map((item, i) => ({
     '@type': 'ListItem',
     position: i + 1,
     name: item.name,
@@ -26,7 +27,7 @@ export function Breadcrumbs({
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }}
+      dangerouslySetInnerHTML={{ __html: jsonLd(json) }}
     />
   );
 }

@@ -25,6 +25,7 @@ npm run dev          # http://localhost:3000
 | `npm run build` | Production build |
 | `npm start` | Serve the production build |
 | `npm run check` | Type-check, then lint |
+| `npm test` | Production build, then the SEO tests in `tests/` (Playwright, JavaScript off). After one build, `npx playwright test` reruns them alone |
 | `npm run shots` | Playwright screenshots (see **Verifying** below) |
 | `npm run lighthouse` | Lighthouse, median of N runs |
 | `npm run og:fonts` | Regenerate the OG-image fonts (only after changing `public/fonts/`) |
@@ -35,11 +36,14 @@ Node 20+.
 
 ## Environment
 
-Copy `.env.example` to `.env.local`. Every variable is optional except the site URL.
+Copy `.env.example` to `.env.local`. Every variable is optional.
+
+The canonical origin (`https://trace-studio.tech`) and the brand name used in
+metadata and structured data live in `src/lib/site.ts` — not in the environment, so a preview or local build can never put a
+`vercel.app` or `localhost` URL into canonicals, the sitemap or JSON-LD.
 
 | Variable | Needed for | Notes |
 | --- | --- | --- |
-| `NEXT_PUBLIC_SITE_URL` | Canonical URLs, sitemap, OG images | No trailing slash. Set it in Vercel for production *and* preview. |
 | `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY` | Saving contact-form leads to a `leads` table | |
 | `RESEND_API_KEY`, `LEADS_TO_EMAIL` | Emailing contact-form leads | `LEADS_FROM_EMAIL` must be a verified sender. |
 | `GEMINI_API_KEY` | The website assistant (chat in the corner) | Server-only — never `NEXT_PUBLIC_`. Needs a **paid** Gemini tier in production; the free tier allows ~20 requests a day. |
@@ -77,7 +81,7 @@ create table leads (
 | `content/site.en.json` | Every word of the site: metadata, nav, home sections, page copy (`pages`) and interface labels (`ui`) |
 | `content/services.json` | The nine services, plus each one's `visual` key |
 | `content/portfolio.json` | Projects, with results, stack and gallery |
-| `content/contact.json` | **Booking link**, email, US phone, WhatsApp, hours, social links |
+| `content/contact.json` | **Booking link**, email, US phone, WhatsApp, hours, social links (verified profiles only — they become the footer icons and `Organization.sameAs`) |
 | `content/trust.json` | The platforms shown in the "Platforms" section |
 
 Copy is keyed by locale (`{ "en": … }`) so a second language can be added later
@@ -211,7 +215,7 @@ and ends with a live list of everything still marked placeholder. It is
 
 ```bash
 npm run check                                   # types + lint
-npm run build
+npm test                                        # build + SEO tests
 
 # against the production build on :3100
 npx next start -p 3100
@@ -237,9 +241,8 @@ If product screens look stale after re-rendering them, delete
 Vercel, zero config.
 
 1. Import the repository.
-2. Set `NEXT_PUBLIC_SITE_URL` for Production and Preview.
-3. Add the lead-backend variables if you want the form to store or email leads.
-4. Deploy.
+2. Add the lead-backend variables if you want the form to store or email leads.
+3. Deploy.
 
 Analytics is Vercel Web Analytics, and only mounts when `VERCEL` is set — off
 Vercel its script is a guaranteed 404, so it is skipped. Every contact click

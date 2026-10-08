@@ -3,7 +3,8 @@ import { setRequestLocale } from 'next-intl/server';
 
 import { readLocale, routing } from '@/i18n/routing';
 import { getBailBonds, getClientLogos, getPlatforms, getSite } from '@/lib/content';
-import { pageMetadata, siteUrl } from '@/lib/seo';
+import { jsonLd, pageMetadata, siteUrl } from '@/lib/seo';
+import { organizationRef } from '@/lib/structured-data';
 import { Container } from '@/components/ui/Container';
 import { Reveal } from '@/components/motion/Reveal';
 import { Accordion } from '@/components/ui/Accordion';
@@ -56,7 +57,7 @@ export default async function BailBondsPage({ params }: { params: Promise<{ loca
     serviceType: 'Website design and AI assistants',
     audience: { '@type': 'BusinessAudience', name: 'Bail bond agencies' },
     areaServed: { '@type': 'Country', name: 'United States' },
-    provider: { '@type': 'Organization', name: 'TRACE', url: siteUrl() },
+    provider: organizationRef(),
     url: siteUrl('/bail-bonds'),
   };
 
@@ -73,7 +74,7 @@ export default async function BailBondsPage({ params }: { params: Promise<{ loca
   return (
     <>
       <Breadcrumbs trail={[{ name: copy.meta.title, path: '/bail-bonds' }]} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify([service, faq]) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd([service, faq]) }} />
 
       <BailHero copy={copy} />
       <Moment copy={copy} />

@@ -55,6 +55,7 @@ export function ChatAssistant({ copy, catalog }: { copy: Site['chat']; catalog: 
   const [prompt, setPrompt] = useState<{ text: string; id: number } | null>(null);
   const launcher = useRef<HTMLButtonElement>(null);
   const barVisible = useConversionVisibility(0.4);
+  const bookVisible = useConversionVisibility(0.9);
 
   const show = useCallback((placement: string) => {
     setMounted(true);
@@ -128,7 +129,13 @@ export function ChatAssistant({ copy, catalog }: { copy: Site['chat']; catalog: 
         )}
       >
         {teaser && !open ? (
-          <div className="bb-arrive absolute end-0 bottom-[calc(100%+5.5rem)] hidden w-[17rem] md:block">
+          <div
+            className={cn(
+              'bb-arrive absolute end-0 hidden w-[17rem] md:block',
+              // Clear the floating Book-a-call button only while it is showing.
+              bookVisible ? 'bottom-[calc(100%+5.5rem)]' : 'bottom-[calc(100%+0.75rem)]',
+            )}
+          >
             <div className="relative flex items-start gap-3 rounded-md border border-line-strong bg-surface-raised p-4 shadow-float">
               <button
                 type="button"

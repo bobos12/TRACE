@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "TRACE — Software studio for US businesses",
-    "description": "TRACE designs and builds websites, apps, business systems and custom software around how your business actually works. Senior engineers, fixed price per phase, and you own the code. Book a free 30-minute call.",
+    "title": "Trace Studio | Digital Products, Websites & Software",
+    "description": "Trace Studio is a digital studio building premium websites, software products, business systems, and digital experiences.",
     "ogImage": "/og/og-home-en.png"
   },
   "nav": {
@@ -34,7 +34,7 @@
     "email": "Email us"
   },
   "hero": {
-    "eyebrow": "Software studio ◆ USA · Cairo",
+    "eyebrow": "Trace Studio ◆ Digital products, websites & software",
     "title": [
       "Every business",
       "leaves a mark."
@@ -43,7 +43,12 @@
     "lead": "Websites, apps, business systems and custom software — built by a senior team. Fixed price per phase, and the code is yours.",
     "primaryCta": "Book a free call",
     "secondaryCta": "Send a project brief",
-    "reassurance": "Free 30-minute call · NDA on request · Reply within one business day"
+    "reassurance": "Free 30-minute call · NDA on request · Reply within one business day",
+    "visualAlt": {
+      "dashboard": "Agency portal for a bail bond company, showing active bonds, court dates and premiums",
+      "website": "Studio website home page in a desktop browser",
+      "mobile": "Agent mobile app listing this week's court dates and clients"
+    }
   },
   "trust": {
     "logosTitle": "Businesses we’ve built for, worldwide",
@@ -244,7 +249,7 @@
   },
   "footer": {
     "tagline": "Every business leaves a mark. We build the software that carries it.",
-    "rights": "© 2026 TRACE. All rights reserved.",
+    "rights": "© 2026 Trace Studio. All rights reserved.",
     "privacy": "Privacy",
     "terms": "Terms"
   },
@@ -318,7 +323,7 @@
     "kindClient": "Client work",
     "kindProduct": "In-house product",
     "kindConcept": "Concept",
-    "conceptNote": "A concept piece, built by TRACE to show how we work. It is not client work, and the client, figures and quote in it are illustrative.",
+    "conceptNote": "A concept piece, built by Trace Studio to show how we work. It is not client work, and the client, figures and quote in it are illustrative.",
     "inDevelopment": "In development",
     "visitSite": "Visit the live site",
     "viewDemo": "Open the working demo",
@@ -371,12 +376,20 @@
   },
   "pages": {
     "services": {
+      "seo": {
+        "title": "Services: Websites, Apps & Business Systems",
+        "description": "Websites and web apps, mobile apps, business systems, SaaS products, automation and integrations — designed and built by Trace Studio around how your business already works."
+      },
       "eyebrow": "Services ◆ What we build",
       "title": "Software solutions, built around your business.",
       "lead": "Nine things we do well, and any custom solution in between. Every one of them starts with how your business already works.",
       "midCta": "Not sure which one? Book a free call and describe the problem."
     },
     "work": {
+      "seo": {
+        "title": "Work: Case Studies & Products",
+        "description": "Websites, web apps and business systems built by Trace Studio — client work, products we built in-house, and concept pieces, each labelled for what it is."
+      },
       "eyebrow": "Work ◆ Selected projects",
       "title": "Each project carries its own mark.",
       "lead": "Client work, products we built in-house, and a few concept pieces — each labelled for what it is.",
@@ -384,12 +397,16 @@
       "endText": "Tell us how your business works and we will tell you honestly what software would change."
     },
     "about": {
+      "seo": {
+        "title": "About the Studio",
+        "description": "Trace Studio is a digital studio that designs and builds websites, software products and business systems for US companies, with its engineering team in Cairo. Fixed price per phase, and the code is yours."
+      },
       "eyebrow": "About ◆ The name",
       "title": "A trace is the mark that remains.",
       "lead": "An imprint, an effect — what is left after you have gone. It is also what we are hired to leave behind.",
       "story": [
         "Most businesses need similar skeletons — accounts, orders, approvals, dashboards. What makes a system theirs is how it is shaped around their people, their tools and their workflow. That shaping is the mark it leaves.",
-        "TRACE builds the skeleton properly, then places the mark. We started because too many companies were paying for templates with their logo on top, or for developer hours with nobody accountable for the result.",
+        "Trace Studio builds the skeleton properly, then places the mark. We started because too many companies were paying for templates with their logo on top, or for developer hours with nobody accountable for the result.",
         "We are a US-facing studio with our engineering team in Cairo. Our mark is three nuqtas — the Arabic word for the dots that turn one letter into another — a nod to where we build. You get senior engineers who overlap your working day, a fixed price per phase, and everything we build handed over to you."
       ],
       "meaningsTitle": "Three readings, three commitments",
@@ -512,7 +529,7 @@
         "sections": [
           {
             "heading": "About this site",
-            "body": "This site describes the services TRACE offers. Nothing on it is a binding quote or a contract."
+            "body": "This site describes the services Trace Studio offers. Nothing on it is a binding quote or a contract."
           },
           {
             "heading": "Project work",

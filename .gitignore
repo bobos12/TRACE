@@ -9,3 +9,7 @@ shots
 
 # Reference material from another project — kept locally, not part of this site
 bail-bonds-reference
+
+# Playwright
+/test-results/
+/playwright-report/

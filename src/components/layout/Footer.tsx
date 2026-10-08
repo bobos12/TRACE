@@ -4,13 +4,14 @@ import { getLocalServices, getSite } from '@/lib/content';
 import { contact, whatsappHref } from '@/lib/contact';
 import { Logo } from '@/components/brand/Logo';
 import { Container } from '@/components/ui/Container';
+import { Icon, iconNames, type IconName } from '@/components/ui/Icon';
 import { BookCallButton, EmailButton } from '@/components/contact/ContactButtons';
 import { ThemeToggle } from './ThemeToggle';
 
 function Column({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div className="flex flex-col gap-3">
-      <h3 className="eyebrow text-ink-faint">{title}</h3>
+      <h2 className="eyebrow text-ink-faint">{title}</h2>
       <ul className="flex flex-col gap-2">{children}</ul>
     </div>
   );
@@ -29,12 +30,18 @@ function FooterLink({ href, children }: { href: string; children: React.ReactNod
   );
 }
 
+const SOCIAL_LABELS: Record<string, string> = {
+  facebook: 'TRACE on Facebook',
+  instagram: 'TRACE on Instagram',
+  x: 'TRACE on X',
+};
+
 export function Footer({ locale }: { locale: Locale }) {
   const site = getSite(locale);
   const services = getLocalServices(locale);
   const ui = site.ui;
   const socials = Object.entries(contact.social).filter(
-    ([, url]) => url && !url.includes('REPLACE'),
+    ([name, url]) => url && !url.includes('REPLACE') && iconNames.includes(name as IconName),
   );
 
   return (
@@ -74,7 +81,7 @@ export function Footer({ locale }: { locale: Locale }) {
           </Column>
 
           <div className="flex flex-col gap-3">
-            <h3 className="eyebrow text-ink-faint">{ui.contact}</h3>
+            <h2 className="eyebrow text-ink-faint">{ui.contact}</h2>
             <ul className="flex flex-col gap-2 body-sm text-ink-muted">
               <li>
                 <a href={`mailto:${contact.email}`} className="hover:text-ink">
@@ -95,16 +102,17 @@ export function Footer({ locale }: { locale: Locale }) {
               {/* TODO: add the US company registration (state + entity) once formed — US buyers look for it. */}
             </ul>
             {socials.length ? (
-              <ul className="mt-2 flex gap-3">
+              <ul className="-ms-2.5 mt-2 flex gap-1">
                 {socials.map(([name, url]) => (
                   <li key={name}>
                     <a
                       href={url}
                       target="_blank"
                       rel="noopener"
-                      className="body-sm capitalize text-ink-muted hover:text-ink"
+                      aria-label={SOCIAL_LABELS[name] ?? name}
+                      className="grid size-10 place-items-center text-ink-muted transition-colors hover:text-ink"
                     >
-                      {name}
+                      <Icon name={name as IconName} size={20} />
                     </a>
                   </li>
                 ))}

@@ -1,6 +1,7 @@
 {
-  "name": "TRACE \u2014 Software Studio",
-  "short_name": "TRACE",
+  "name": "Trace Studio — Digital Products, Websites & Software",
+  "short_name": "Trace Studio",
+  "description": "Trace Studio is a digital studio building premium websites, software products, business systems, and digital experiences.",
   "lang": "en",
   "dir": "ltr",
   "start_url": "/",

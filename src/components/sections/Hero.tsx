@@ -49,17 +49,19 @@ export function Hero({ site }: { site: Site }) {
 
       <Container className="relative z-10 flex flex-1 flex-col gap-6 pt-20 pb-8 md:grid md:grid-cols-12 md:items-center md:gap-8 md:pt-24 md:pb-10">
         <div className="contents md:col-span-6 md:flex md:flex-col md:gap-7">
-          {/* Room at the end for the mark on narrow screens. */}
-          <p className="eyebrow order-1 pe-20 text-ink-muted md:order-none md:pe-0">
+          {/* The page's h1 is the eyebrow — the studio's name and what it
+              does. The display line below is the tagline. Room at the end
+              for the mark on narrow screens. */}
+          <h1 id="hero-title" className="eyebrow order-1 m-0 pe-20 text-ink-muted md:order-none md:pe-0">
             {hero.eyebrow}
-          </p>
+          </h1>
 
-          <h1 id="hero-title" className="display-xl order-2 m-0 md:order-none">
+          <p className="display-xl order-2 m-0 md:order-none">
             <span className="block">{hero.title[0]}</span>
             <span className="block">
               <StopText stamp>{hero.title[1] ?? ''}</StopText>
             </span>
-          </h1>
+          </p>
 
           <p className="display-md order-3 m-0 max-w-[18ch] text-ink-muted md:order-none">
             {hero.subtitle}
@@ -103,13 +105,7 @@ export function Hero({ site }: { site: Site }) {
         </div>
 
         <div className="order-4 md:order-none md:col-span-6 md:-me-12 xl:-me-20">
-          <ProductStack
-            alt={{
-              dashboard: site.services.title,
-              website: site.services.title,
-              mobile: site.services.title,
-            }}
-          />
+          <ProductStack alt={hero.visualAlt} />
         </div>
       </Container>
     </section>

@@ -33,6 +33,9 @@ const legalPage = z.object({
 
 /* ── site.{locale}.json ───────────────────────────────────────── */
 
+/** Search title (the brand is appended) and meta description for a page. */
+const pageSeo = z.object({ title: z.string().min(1), description: z.string().min(1) });
+
 const siteSchema = z.object({
   meta: z.object({
     title: z.string().min(1),
@@ -63,6 +66,12 @@ const siteSchema = z.object({
     primaryCta: z.string().min(1),
     secondaryCta: z.string().min(1),
     reassurance: z.string().min(1),
+    /** Alt text for the three product screens in the hero. */
+    visualAlt: z.object({
+      dashboard: z.string().min(1),
+      website: z.string().min(1),
+      mobile: z.string().min(1),
+    }),
   }),
   trust: z.object({
     logosTitle: z.string().min(1),
@@ -296,12 +305,14 @@ const siteSchema = z.object({
   /** Copy for the pages beyond the home page. */
   pages: z.object({
     services: z.object({
+      seo: pageSeo,
       eyebrow: z.string().min(1),
       title: z.string().min(1),
       lead: z.string().min(1),
       midCta: z.string().min(1),
     }),
     work: z.object({
+      seo: pageSeo,
       eyebrow: z.string().min(1),
       title: z.string().min(1),
       lead: z.string().min(1),
@@ -309,6 +320,7 @@ const siteSchema = z.object({
       endText: z.string().min(1),
     }),
     about: z.object({
+      seo: pageSeo,
       eyebrow: z.string().min(1),
       title: z.string().min(1),
       lead: z.string().min(1),
@@ -721,6 +733,7 @@ const contactSchema = z.object({
   cities: z.object({ en: z.array(z.string()).min(1) }),
   whatsappMessage: localized,
   social: z.object({
+    facebook: z.string(),
     linkedin: z.string(),
     x: z.string(),
     instagram: z.string(),

@@ -28,8 +28,8 @@ export async function generateMetadata({
   return pageMetadata({
     locale,
     path: '/work',
-    title: site.pages.work.title.replace(/\.$/, ''),
-    description: site.pages.work.lead,
+    title: site.pages.work.seo.title,
+    description: site.pages.work.seo.description,
   });
 }
 

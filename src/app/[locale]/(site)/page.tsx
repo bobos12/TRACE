@@ -1,4 +1,6 @@
+import type { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
+import { pageMetadata } from '@/lib/seo';
 import { readLocale, routing } from '@/i18n/routing';
 import {
   getClientLogos,
@@ -17,10 +19,14 @@ import { Platforms } from '@/components/sections/Platforms';
 import { Process } from '@/components/sections/Process';
 import { WhyTrace } from '@/components/sections/WhyTrace';
 import { ContactBand } from '@/components/sections/ContactBand';
-import { OrganizationJsonLd } from '@/components/seo/OrganizationJsonLd';
+import { SiteJsonLd } from '@/components/seo/SiteJsonLd';
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  return pageMetadata({ locale: readLocale((await params).locale), path: '/' });
 }
 
 /**
@@ -40,7 +46,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
 
   return (
     <>
-      <OrganizationJsonLd locale={locale} />
+      <SiteJsonLd locale={locale} />
       <Hero site={site} />
       <TrustStrip site={site} clients={getClientLogos(locale)} />
       <WorkGallery site={site} projects={projects} />

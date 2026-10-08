@@ -27,8 +27,8 @@ export async function generateMetadata({
   return pageMetadata({
     locale,
     path: '/about',
-    title: site.ui.about,
-    description: site.pages.about.lead,
+    title: site.pages.about.seo.title,
+    description: site.pages.about.seo.description,
   });
 }
 

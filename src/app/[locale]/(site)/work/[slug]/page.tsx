@@ -14,7 +14,8 @@ import {
   getSite,
   localizeProject,
 } from '@/lib/content';
-import { pageMetadata, siteUrl } from '@/lib/seo';
+import { jsonLd as toJsonLd, pageMetadata, siteUrl } from '@/lib/seo';
+import { organizationRef } from '@/lib/structured-data';
 
 import { Container } from '@/components/ui/Container';
 import { Icon } from '@/components/ui/Icon';
@@ -52,9 +53,11 @@ export async function generateMetadata({
     path: `/work/${slug}`,
     title: `${copy.client} — ${copy.title}`,
     description: copy.summary,
-    // null → the opengraph-image.tsx in this folder supplies the URL.
-    image: null,
+    // Rendered by src/app/og/work/[slug]/route.tsx.
+    image: `/og/work/${slug}`,
     type: 'article',
+    // Sample projects stay reachable from /work but out of search results.
+    noindex: project.placeholder,
   });
 }
 
@@ -112,7 +115,7 @@ export default async function ProjectPage({
     dateCreated: String(project.year),
     url: siteUrl(`/work/${slug}`),
     image: siteUrl(project.cover),
-    creator: { '@type': 'Organization', name: 'TRACE', url: siteUrl('') },
+    creator: organizationRef(),
     about: serviceNames.join(', '),
   };
 
@@ -120,7 +123,7 @@ export default async function ProjectPage({
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: toJsonLd(jsonLd) }}
       />
       <Breadcrumbs
         trail={[

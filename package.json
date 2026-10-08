@@ -10,6 +10,7 @@
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
     "check": "npm run typecheck && npm run lint",
+    "test": "next build && playwright test",
     "shots": "node scripts/screenshots.mjs",
     "og:fonts": "node scripts/make-og-fonts.mjs",
     "lighthouse": "node scripts/lh-median.mjs",

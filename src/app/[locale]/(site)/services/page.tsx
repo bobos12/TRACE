@@ -26,8 +26,8 @@ export async function generateMetadata({
   return pageMetadata({
     locale,
     path: '/services',
-    title: site.pages.services.title.replace(/\.$/, ''),
-    description: site.pages.services.lead,
+    title: site.pages.services.seo.title,
+    description: site.pages.services.seo.description,
   });
 }
 

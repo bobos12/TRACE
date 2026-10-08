@@ -59,7 +59,6 @@ for (const [loc, site] of [['en', en]]) {
 // Things with no marker in the data.
 add('Team photos', 'public/images/team/', 'each person shows their constellation until a portrait exists (4:5)');
 add('US legal entity', 'Footer + Organization JSON-LD', 'US buyers look for the registered company (name, state); both spots are marked TODO');
-add('NEXT_PUBLIC_SITE_URL', 'Vercel env', 'defaults to https://trace.studio — set the real domain or every canonical URL and OG image is wrong');
 
 const body = `# Placeholders
 

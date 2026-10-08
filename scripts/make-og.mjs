@@ -4,7 +4,7 @@
  *   node scripts/make-og.mjs
  *
  * Per-project share images are rendered at request time by
- * src/app/[locale]/(site)/work/[slug]/opengraph-image.tsx; these are the
+ * src/app/og/work/[slug]/route.tsx; these are the
  * home page, the default, and the generic case-study card.
  */
 import { chromium } from '@playwright/test';
@@ -16,7 +16,7 @@ const mono = await b64('public/fonts/IBMPlexMono-500.woff2');
 const wordmark = await readFile('public/brand/trace-wordmark-reverse.svg', 'utf8');
 const wordmarkInk = await readFile('public/brand/trace-wordmark.svg', 'utf8');
 
-const DOMAIN = (process.env.NEXT_PUBLIC_SITE_URL || 'trace.studio').replace(/^https?:\/\//, '');
+const DOMAIN = (process.env.NEXT_PUBLIC_SITE_URL || 'trace-studio.tech').replace(/^https?:\/\//, '');
 
 const base = `
   @font-face{font-family:I;src:url(data:font/woff2;base64,${latin}) format('woff2');font-weight:100 900}
@@ -36,7 +36,7 @@ const PAGES = {
     h1 i{display:inline-block;width:20px;height:20px;background:#FF5A33;transform:rotate(45deg) scale(.7071);margin-left:4px}
     .cut{position:absolute;right:0;bottom:0;width:230px;height:230px;background:#FF5A33;clip-path:polygon(40px 0,100% 0,100% 100%,0 100%,0 40px)}
   </style>
-  <div class="eb" style="position:absolute;left:72px;top:68px">Software studio ◆ USA · Cairo</div>
+  <div class="eb" style="position:absolute;left:72px;top:68px">Trace Studio ◆ Digital products, websites &amp; software</div>
   <h1>Every business<br>leaves a mark<i></i><br><span>We build the<br>software that<br>carries it.</span></h1>
   <div class="n" style="--s:56px;--c:#FF5A33;left:1029px;top:56px"></div>
   <div class="n" style="--s:56px;--c:#F2EEE4;left:978px;top:107px"></div>

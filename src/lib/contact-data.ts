@@ -21,7 +21,7 @@ export interface ContactDetails {
   responseTime: { en: string };
   cities: { en: string[] };
   whatsappMessage: { en: string };
-  social: { linkedin: string; x: string; instagram: string; behance: string };
+  social: { facebook: string; linkedin: string; x: string; instagram: string; behance: string };
 }
 
 export const contact = contactJson as ContactDetails;

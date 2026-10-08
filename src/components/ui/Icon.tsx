@@ -22,12 +22,14 @@ const STROKE: Record<string, string> = {
   close: 'M6 6l12 12M18 6L6 18',
   code: 'M8.5 7L3.5 12l5 5M15.5 7l5 5-5 5M13.5 4.5l-3 15',
   dashboard: 'M4 4h7v9H4zM13 4h7v5h-7zM13 11h7v9h-7zM4 15h7v5H4z',
+  facebook: 'M15.5 4H14a3 3 0 0 0-3 3v14M8 11h7',
   error: 'M12 2.5l9.5 9.5-9.5 9.5L2.5 12zM9.5 9.5l5 5M14.5 9.5l-5 5',
   file: 'M6 3h8l4 4v14H6zM14 3v4h4M9 12h6M9 16h6',
   globe:
     'M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zM3 12h18M12 3c2.5 2.5 3.5 5.5 3.5 9s-1 6.5-3.5 9c-2.5-2.5-3.5-5.5-3.5-9s1-6.5 3.5-9z',
   inbox: 'M3.5 13.5h5l1.5 2.5h4l1.5-2.5h5M3.5 13.5L6 5h12l2.5 8.5v6h-17z',
   info: 'M12 2.5l9.5 9.5-9.5 9.5L2.5 12zM12 11v5M12 8v.01',
+  instagram: 'M3.5 3.5h17v17h-17zM12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM17 7v.01',
   layers: 'M12 3.5l8.5 4.5-8.5 4.5L3.5 8zM3.5 12l8.5 4.5 8.5-4.5M3.5 16l8.5 4.5 8.5-4.5',
   mail: 'M3.5 5.5h17v13h-17zM3.5 6l8.5 7 8.5-7',
   menu: 'M4 7h16M4 12h16M4 17h10',
@@ -39,6 +41,7 @@ const STROKE: Record<string, string> = {
   sliders: 'M4 7h9M17 7h3M4 17h3M11 17h9M15 5v4M9 15v4',
   success: 'M12 2.5l9.5 9.5-9.5 9.5L2.5 12zM8.5 12.2l2.4 2.4 4.6-5',
   user: 'M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM4.5 20.5c1-3.8 4-5.5 7.5-5.5s6.5 1.7 7.5 5.5',
+  x: 'M4 4h4.5l11.5 16h-4.5zM20 4l-6.6 7.4M4 20l6.6-7.4',
 };
 
 const FILLED: Record<string, string> = {

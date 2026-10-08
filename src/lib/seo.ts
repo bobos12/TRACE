@@ -1,40 +1,42 @@
 import type { Metadata } from 'next';
 import { getSite } from '@/lib/content';
 import type { Locale } from '@/i18n/routing';
+import { BRAND_NAME, SITE_URL, X_HANDLE } from '@/lib/site';
 
-/**
- * The canonical origin. An env var set but left empty (easy to do in the
- * Vercel dashboard) must fall back too — `??` alone let '' through and
- * `new URL('')` failed the whole build. A bare domain gets https:// added.
- */
-function resolveSiteUrl(fallback = 'https://trace.studio'): string {
-  const raw = (process.env.NEXT_PUBLIC_SITE_URL ?? '').trim();
-  if (!raw) return fallback;
-  const candidate = /^https?:\/\//i.test(raw) ? raw : `https://${raw}`;
-  try {
-    return new URL(candidate).toString().replace(/\/$/, '');
-  } catch {
-    return fallback;
-  }
-}
+export { SITE_URL };
 
-export const SITE_URL = resolveSiteUrl();
-
-export const siteUrl = (path = '') => `${SITE_URL}${path.startsWith('/') ? path : `/${path}`}`;
+/** Absolute URL for a route. The home page is `https://…/`, everything else has no trailing slash. */
+export const siteUrl = (path = '') => {
+  const clean = path.startsWith('/') ? path : `/${path}`;
+  return clean === '/' ? `${SITE_URL}/` : `${SITE_URL}${clean}`;
+};
 
 /** Canonical URL for a route (e.g. "/work"). One language, no prefix, no hreflang. */
 export function alternatesFor(path = ''): Metadata['alternates'] {
-  return { canonical: siteUrl(path === '/' ? '' : path) };
+  return { canonical: siteUrl(path) };
+}
+
+/** "Services | Trace Studio" — the brand once, at the end. */
+export function pageTitle(title: string): string {
+  return `${title} | ${BRAND_NAME}`;
+}
+
+/** JSON for a <script type="application/ld+json">, with `<` escaped so copy can't close the tag. */
+export function jsonLd(data: unknown): string {
+  return JSON.stringify(data).replace(/</g, '\\u003c');
 }
 
 interface PageMetaInput {
   locale: Locale;
   path?: string;
+  /** The page's own title; the brand is appended. Omit on the home page. */
   title?: string;
   description?: string;
-  /** null = this route has an opengraph-image file; let Next supply the URL. */
+  /** Path of the share image; defaults to the home image. null = none. */
   image?: string | null;
   type?: 'website' | 'article';
+  /** Keep the page out of the index (links are still followed). */
+  noindex?: boolean;
 }
 
 export function pageMetadata({
@@ -44,21 +46,23 @@ export function pageMetadata({
   description,
   image,
   type = 'website',
+  noindex = false,
 }: PageMetaInput): Metadata {
   const site = getSite(locale);
-  const resolvedTitle = title ? `${title} — TRACE` : site.meta.title;
+  const resolvedTitle = title ? pageTitle(title) : site.meta.title;
   const resolvedDescription = description ?? site.meta.description;
   const resolvedImage = image === null ? null : siteUrl(image ?? site.meta.ogImage);
 
   return {
-    title: resolvedTitle,
+    title: { absolute: resolvedTitle },
     description: resolvedDescription,
     alternates: alternatesFor(path),
+    ...(noindex ? { robots: { index: false, follow: true } } : {}),
     openGraph: {
       type,
-      siteName: 'TRACE',
+      siteName: BRAND_NAME,
       locale: 'en_US',
-      url: siteUrl(path === '/' ? '' : path),
+      url: siteUrl(path),
       title: resolvedTitle,
       description: resolvedDescription,
       ...(resolvedImage
@@ -67,6 +71,7 @@ export function pageMetadata({
     },
     twitter: {
       card: 'summary_large_image',
+      ...(X_HANDLE ? { site: X_HANDLE } : {}),
       title: resolvedTitle,
       description: resolvedDescription,
       ...(resolvedImage ? { images: [resolvedImage] } : {}),
