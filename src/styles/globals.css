@@ -1035,6 +1035,22 @@
   to { opacity: 1; transform: none; }
 }
 
+/* The assistant asks to be noticed once: a vermilion ring leaves the launcher
+   twice, a few seconds after the page loads. Transform and opacity only; never
+   under reduced motion. */
+@keyframes chat-ping {
+  0% { opacity: 0.55; transform: scale(1); }
+  100% { opacity: 0; transform: scale(1.4); }
+}
+
+.chat-ping {
+  animation: chat-ping 1.4s var(--ease-mark) 2 both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chat-ping { animation: none; opacity: 0; }
+}
+
 .bb-arrive {
   animation: bb-arrive var(--duration-reveal) var(--ease-mark) both;
   animation-delay: var(--d, 0ms);

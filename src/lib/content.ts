@@ -180,6 +180,7 @@ const siteSchema = z.object({
   /** The website assistant: launcher, panel chrome, cards and the lead form. */
   chat: z.object({
     launcher: z.string().min(1),
+    launcherStatus: z.string().min(1),
     launcherLabel: z.string().min(1),
     teaser: z.string().min(1),
     teaserDismiss: z.string().min(1),

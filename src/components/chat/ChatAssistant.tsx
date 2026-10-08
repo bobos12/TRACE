@@ -31,14 +31,18 @@ const loadPanel = () => import('./ChatPanel');
 const ChatPanel = lazy(loadPanel);
 
 const TEASER_KEY = 'trace-chat-teaser';
-const TEASER_DELAY = 9000;
+const TEASER_DELAY = 5000;
+const PING_KEY = 'trace-chat-ping';
+const PING_DELAY = 3500;
 
 /**
  * The website assistant's entry point.
  *
  * Desktop: a carbon "Ask TRACE" button in the corner, under the floating
- * Book-a-call button. Mobile: a carbon square that rides above the Book + Email
- * bar. One quiet teaser, once per session, on desktop only.
+ * Book-a-call button, with a breathing "online" nuqta and a status line.
+ * Mobile: a carbon square that rides above the Book + Email bar, nuqta on its
+ * corner. Once per session a vermilion ring pulses out of it, and on desktop
+ * one teaser follows.
  *
  * Anything on the page can open it — and ask a first question — with
  * `openChat()` from ./events.
@@ -47,6 +51,7 @@ export function ChatAssistant({ copy, catalog }: { copy: Site['chat']; catalog: 
   const [open, setOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const [teaser, setTeaser] = useState(false);
+  const [ping, setPing] = useState(false);
   const [prompt, setPrompt] = useState<{ text: string; id: number } | null>(null);
   const launcher = useRef<HTMLButtonElement>(null);
   const barVisible = useConversionVisibility(0.4);
@@ -86,6 +91,22 @@ export function ChatAssistant({ copy, catalog }: { copy: Site['chat']; catalog: 
     } catch {}
     if (seen || !window.matchMedia('(min-width: 768px)').matches) return;
     const t = window.setTimeout(() => setTeaser(true), TEASER_DELAY);
+    return () => window.clearTimeout(t);
+  }, []);
+
+  // The ping: once per session, a few seconds in, unless the panel is open.
+  useEffect(() => {
+    let seen = false;
+    try {
+      seen = sessionStorage.getItem(PING_KEY) === '1';
+    } catch {}
+    if (seen) return;
+    const t = window.setTimeout(() => {
+      setPing(true);
+      try {
+        sessionStorage.setItem(PING_KEY, '1');
+      } catch {}
+    }, PING_DELAY);
     return () => window.clearTimeout(t);
   }, []);
 
@@ -129,6 +150,15 @@ export function ChatAssistant({ copy, catalog }: { copy: Site['chat']; catalog: 
           </div>
         ) : null}
 
+        {ping && !open ? (
+          <span
+            aria-hidden="true"
+            onAnimationEnd={() => setPing(false)}
+            className="chat-ping at-cut pointer-events-none absolute inset-0 bg-vermilion"
+            style={{ '--cut': '12px' } as CSSProperties}
+          />
+        ) : null}
+
         <button
           ref={launcher}
           type="button"
@@ -139,14 +169,25 @@ export function ChatAssistant({ copy, catalog }: { copy: Site['chat']; catalog: 
           aria-expanded={open}
           aria-haspopup="dialog"
           className={cn(
-            'at-cut flex items-center justify-center gap-2.5 bg-ink text-surface shadow-[var(--shadow-float)]',
+            'at-cut relative flex items-center justify-center gap-3 bg-ink text-surface shadow-[var(--shadow-float)]',
             'transition-transform duration-[160ms] ease-mark hover:-translate-y-0.5 motion-reduce:transition-none',
-            'size-[3.25rem] md:h-14 md:w-auto md:ps-4 md:pe-5',
+            'size-[3.25rem] md:h-16 md:w-auto md:ps-4 md:pe-6',
           )}
           style={{ '--cut': '12px' } as CSSProperties}
         >
           <ChatGlyph className="size-7 md:size-6" />
-          <span className="hidden text-[15px] font-medium md:inline">{copy.launcher}</span>
+          <span className="hidden flex-col items-start md:flex">
+            <span className="text-[15px] font-medium leading-5">{copy.launcher}</span>
+            <span className="flex items-center gap-1.5 font-mono text-[11px] leading-4 text-surface/70">
+              <span aria-hidden="true" className="at-breathe size-1.5 rotate-45 bg-vermilion" />
+              {copy.launcherStatus}
+            </span>
+          </span>
+          {/* Phones show no label, so the live nuqta sits on the corner. */}
+          <span
+            aria-hidden="true"
+            className="at-breathe absolute start-1.5 top-1.5 size-2 rotate-45 bg-vermilion md:hidden"
+          />
         </button>
       </div>
 

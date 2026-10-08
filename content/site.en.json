@@ -254,6 +254,7 @@
   },
   "chat": {
     "launcher": "Ask TRACE",
+    "launcherStatus": "Online · answers in seconds",
     "launcherLabel": "Open the TRACE assistant",
     "teaser": "Planning a project? Ask me anything — answers in seconds.",
     "teaserDismiss": "Dismiss",

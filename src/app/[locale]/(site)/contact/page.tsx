@@ -12,7 +12,7 @@ import { Reveal } from '@/components/motion/Reveal';
 import { StopText } from '@/components/brand/Nuqta';
 import { Icon } from '@/components/ui/Icon';
 import { ContactForm } from '@/components/contact/ContactForm';
-import { BookCard, ChatCallRow, EmailCard } from '@/components/contact/ContactCards';
+import { ChatCallRow, EmailCard } from '@/components/contact/ContactCards';
 import { Breadcrumbs } from '@/components/seo/Breadcrumbs';
 
 export function generateStaticParams() {
@@ -57,8 +57,6 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
               </h1>
               <p className="body-lg max-w-[46ch] text-ink-muted">{copy.lead}</p>
             </div>
-
-            <BookCard label={site.cta.book} note={site.cta.bookNote} placement="contact-page" />
 
             <Reveal delay={0.1}>
               <EmailCard label={site.cta.email} subject={site.ui.contact} placement="contact-page" />
