@@ -48,7 +48,7 @@ them on X.
 > → You own 100% of the code
 > → Fixed price per phase
 > → Working software every two weeks
-> → Calls and demos on US hours
+> → One point of contact, start to finish
 > → Stop after any phase and keep everything
 >
 > Hold us to it.
@@ -63,7 +63,7 @@ them on X.
 >
 > 01 Understand — a free call, then a short discovery. Written scope, fixed
 > price per phase.
-> 02 Build around it — two-week cycles, live demos in your time zone.
+> 02 Build around it — two-week cycles, live demos every two weeks.
 > 03 Launch & measure.
 > 04 Hand over & support — code, docs and accounts are yours.
 >

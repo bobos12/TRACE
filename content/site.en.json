@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "TRACE — Software studio for US businesses",
-    "description": "TRACE designs and builds websites, apps, business systems and custom software around how your business actually works. Senior engineers on US hours, fixed price per phase, and you own the code. Book a free 30-minute call.",
+    "description": "TRACE designs and builds websites, apps, business systems and custom software around how your business actually works. Senior engineers, fixed price per phase, and you own the code. Book a free 30-minute call.",
     "ogImage": "/og/og-home-en.png"
   },
   "nav": {
@@ -40,7 +40,7 @@
       "leaves a mark."
     ],
     "subtitle": "We build the software that carries it.",
-    "lead": "Websites, apps, business systems and custom software — built by a senior team that works your US hours. Fixed price per phase, and the code is yours.",
+    "lead": "Websites, apps, business systems and custom software — built by a senior team. Fixed price per phase, and the code is yours.",
     "primaryCta": "Book a free call",
     "secondaryCta": "Send a project brief",
     "reassurance": "Free 30-minute call · NDA on request · Reply within one business day"
@@ -53,7 +53,7 @@
       "You own 100% of the code",
       "Fixed price per phase",
       "Working software every two weeks",
-      "Calls and demos on US hours",
+      "One point of contact, start to finish",
       "Stop after any phase, keep everything"
     ],
     "stats": [
@@ -137,7 +137,7 @@
       {
         "n": "02",
         "title": "Build around it",
-        "text": "Design and development in two-week cycles. Every two weeks you see working software, demoed live in your time zone."
+        "text": "Design and development in two-week cycles. Every two weeks you see working software, demoed live."
       },
       {
         "n": "03",
@@ -160,8 +160,8 @@
         "text": "You talk directly to the engineers who write your code — from the first call to launch."
       },
       {
-        "title": "Your hours, not ours",
-        "text": "Our Cairo team overlaps the US workday. Calls, demos and answers happen while you are at your desk."
+        "title": "Straight answers, fast",
+        "text": "Every message answered within one business day, by someone who knows your project."
       },
       {
         "title": "Fixed price per phase",
@@ -273,7 +273,7 @@
     "you": "You",
     "disclaimer": "AI assistant — it can be wrong. Nothing here is a quote.",
     "bookCardTitle": "Talk to the people who’d build it",
-    "bookCardText": "A free 30-minute call on US hours. No pitch deck, no obligation.",
+    "bookCardText": "A free 30-minute call. No pitch deck, no obligation.",
     "bookCardCta": "Book a free call",
     "emailCta": "Email us instead",
     "viewProject": "View project",
@@ -410,8 +410,8 @@
           "text": "We map how the work moves before anyone writes code, and you get the scope in writing."
         },
         {
-          "title": "Your time zone, your tools",
-          "text": "Calls and demos on US hours, in the tools you already use — Slack, GitHub, Jira, Linear."
+          "title": "Your tools, not ours",
+          "text": "We work in the tools you already use — Slack, GitHub, Jira, Linear."
         },
         {
           "title": "Fixed price per phase",
@@ -452,8 +452,8 @@
           "a": "PLACEHOLDER — replace with your real answer. Fixed price per phase in USD, agreed in writing after discovery."
         },
         {
-          "q": "Where is your team, and what hours do you work?",
-          "a": "Our engineering team is in Cairo, Egypt, and works hours that overlap the US workday. You get one point of contact, and every call and demo is scheduled in your time zone."
+          "q": "Where is your team?",
+          "a": "Our engineering team is in Cairo, Egypt. You get one point of contact from the first call to launch."
         },
         {
           "q": "Will you sign an NDA?",

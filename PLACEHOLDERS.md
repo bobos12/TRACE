@@ -10,7 +10,7 @@ The live version of this list is also at `/[locale]/_styleguide`.
 | 1 | **Booking link** | `content/contact.json → booking` | Cal.com / Calendly URL — until set, "Book a call" opens the contact page |
 | 2 | **US phone number** | `content/contact.json → phone + phoneDisplay` | currently +1 (212) 555-0100 |
 | 3 | **WhatsApp number** | `content/contact.json → whatsapp` | currently +201000000000 |
-| 4 | **Email address** | `content/contact.json → email` | confirm hello@trace.studio is real and monitored |
+| 4 | **Email address** | `content/contact.json → email` | confirm info@trace.studio is real and monitored |
 | 5 | **linkedin URL** | `content/contact.json → social` | placeholder — or delete the key to hide the link |
 | 6 | **x URL** | `content/contact.json → social` | placeholder — or delete the key to hide the link |
 | 7 | **Project: WhatsApp CRM** | `content/portfolio.json → whatsapp-crm` | Cover and gallery are the product's marketing renders, cropped to 16:10. They are built from the app's own source with a demo tenant ("Marina Interiors"), so every name and number on them is demo data, and the case study says so. |

@@ -285,7 +285,7 @@ const banner = (eyebrow, title, sub) => carbon(1200, 627, `
   <div class="wm" style="position:absolute;left:72px;bottom:52px;width:110px">${wordmark}</div>
   <div class="cut" style="--cut:36px;position:absolute;right:0;bottom:0;width:250px;height:250px;background:${C.vermilion}"></div>
   ${symbol(1075, 512, 34, C.carbon, C.carbon)}`);
-posts['linkedin/link-banner-intro-1200x627.png'] = [1200, 627, banner('Software studio ◆ USA · Cairo', 'Every business leaves a mark', 'Websites, apps, business systems and custom software — senior engineers on US hours, fixed price per phase.')];
+posts['linkedin/link-banner-intro-1200x627.png'] = [1200, 627, banner('Software studio ◆ USA · Cairo', 'Every business leaves a mark', 'Websites, apps, business systems and custom software — senior engineers, fixed price per phase.')];
 posts['linkedin/link-banner-bail-bonds-1200x627.png'] = [1200, 627, banner('For bail bond agencies', 'Be the bondsman they call first', 'Bail bond websites and an assistant that answers at 2 a.m.')];
 posts['square/introducing-trace-1080x1080.png'] = [1080, 1080, carbon(1080, 1080, `
   ${symbol(540, 330, 110)}

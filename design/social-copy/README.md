@@ -46,7 +46,7 @@ The announcement template's text lives in `scripts/make-social.mjs`.
 
 ## Before you post
 
-- The domain `trace.studio`, the email `hello@trace.studio` and the handles
+- The domain `trace.studio`, the email `info@trace.studio` and the handles
   are **placeholders** until the real ones are confirmed — they appear on the
   posts. Set `NEXT_PUBLIC_SITE_URL` and `content/contact.json`, then re-run.
 - The bail-bonds post links to `/bail-bonds`, which uses a fictional demo

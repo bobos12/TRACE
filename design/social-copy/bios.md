@@ -1,6 +1,6 @@
 # Bios
 
-Replace `trace.studio` and `hello@trace.studio` with the real domain and email
+Replace `trace.studio` and `info@trace.studio` with the real domain and email
 before you paste.
 
 ## One line (use everywhere it fits)
@@ -11,7 +11,7 @@ before you paste.
 
 **Tagline** (120 characters max)
 
-> Websites, apps and business systems for US businesses. Senior engineers on US hours. Fixed price, and you own the code.
+> Websites, apps and business systems for US businesses. Senior engineers. Fixed price, and you own the code.
 
 **About**
 
@@ -27,7 +27,7 @@ before you paste.
 > • 100% ownership of the code, designs and accounts
 > • A fixed price per phase
 > • Working software every two weeks
-> • Calls and demos on US hours
+> • One point of contact, start to finish
 > • The freedom to stop after any phase and keep everything
 >
 > USA · Cairo
@@ -51,7 +51,7 @@ words "Software Studio" help people find you).
 
 ## X (160 characters)
 
-> Software studio for US businesses. Websites, apps and business systems — senior engineers on US hours, fixed price per phase, and the code is yours.
+> Software studio for US businesses. Websites, apps and business systems — senior engineers, fixed price per phase, and the code is yours.
 
 Location: **USA · Cairo**
 

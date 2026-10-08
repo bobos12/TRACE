@@ -7,7 +7,7 @@ import type { Site } from '@/lib/content';
 /** Icons contained in a rhombus, in the icon style of public/icons/. */
 const GLYPHS = [
   'M5 7h14M5 12h10M5 17h6', // direct line to the builders
-  'M12 4v8l5 3M12 21a9 9 0 1 1 0-18 9 9 0 0 1 0 18z', // your hours
+  'M12 4v8l5 3M12 21a9 9 0 1 1 0-18 9 9 0 0 1 0 18z', // fast answers
   'M5 15h14M5 9h14', // fixed price per phase
   'M7 12l4 4 6-8', // you own everything
   'M7 10V7a5 5 0 0 1 10 0v3M5 10h14v10H5z', // NDA
