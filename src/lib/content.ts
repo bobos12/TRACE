@@ -723,8 +723,9 @@ const contactSchema = z.object({
   /** Scheduling link (Cal.com, Calendly). Until it is real, "Book a call" opens the contact page. */
   booking: z.string().url(),
   email: z.string().email(),
-  phone: z.string().min(1),
-  phoneDisplay: z.string().min(1),
+  /** Blank hides the phone everywhere. */
+  phone: z.string(),
+  phoneDisplay: z.string(),
   hours: localized,
   responseTime: localized,
   cities: z.object({ en: z.array(z.string()).min(1) }),

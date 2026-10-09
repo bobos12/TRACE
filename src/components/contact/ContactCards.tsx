@@ -91,6 +91,7 @@ export function EmailCard({
 
 /** The phone line, quiet — for those who prefer to call. */
 export function CallRow({ callLabel, placement }: { callLabel: string; placement: Placement }) {
+  if (!contact.phone) return null;
   return (
     <a
       href={phoneHref()}

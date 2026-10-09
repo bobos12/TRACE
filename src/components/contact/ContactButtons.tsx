@@ -95,6 +95,7 @@ export function CallButton({
   children,
   showNumber = false,
 }: Shared & { showNumber?: boolean }) {
+  if (!contact.phone) return null;
   return (
     <Button
       href={phoneHref()}

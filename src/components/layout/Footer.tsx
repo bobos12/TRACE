@@ -88,11 +88,13 @@ export function Footer({ locale }: { locale: Locale }) {
                   {contact.email}
                 </a>
               </li>
-              <li>
-                <a href={`tel:${contact.phone}`} className="font-mono hover:text-ink">
-                  {contact.phoneDisplay}
-                </a>
-              </li>
+              {contact.phone ? (
+                <li>
+                  <a href={`tel:${contact.phone}`} className="font-mono hover:text-ink">
+                    {contact.phoneDisplay}
+                  </a>
+                </li>
+              ) : null}
               <li>{contact.hours[locale]}</li>
               {/* TODO: add the US company registration (state + entity) once formed — US buyers look for it. */}
             </ul>

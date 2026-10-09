@@ -1,9 +1,9 @@
 {
-  "_note": "PLACEHOLDERS — replace every value before launch: the booking link (Cal.com / Calendly), the US phone number, the email domain and the socials. Numbers in E.164 without spaces.",
+  "_note": "PLACEHOLDERS — replace every value before launch: the booking link (Cal.com / Calendly), the US phone number (left blank = hidden everywhere), the email domain and the socials. Numbers in E.164 without spaces.",
   "booking": "https://cal.com/REPLACE/30min",
   "email": "info@trace-studio.tech",
-  "phone": "+12125550100",
-  "phoneDisplay": "+1 (212) 555-0100",
+  "phone": "",
+  "phoneDisplay": "",
   "hours": { "en": "Mon–Fri, 9am–6pm ET" },
   "responseTime": { "en": "We reply within one business day." },
   "cities": { "en": ["USA", "Cairo"] },
