@@ -52,7 +52,7 @@ const PING_DELAY = 3500;
  * Desktop: [Book a call] [TRACE AI launcher]. The launcher reads as a chat
  * field — an "AI · online" line, an example question, a send key — and runs
  * through `launcherPrompts` once per session before resting on the last one.
- * Mobile: an "Ask AI" chip that rides above the Book + Email bar. Once per
+ * Mobile: the same field, compact, riding above the Book + Email bar. Once per
  * session a vermilion ring pulses out of it.
  *
  * Anything on the page can open it — and ask a first question — with
@@ -99,7 +99,7 @@ export function ChatAssistant({
     return () => window.removeEventListener(CHAT_EVENT, onOpen);
   }, [show]);
 
-  // The example questions: once per session, desktop only, never under reduced motion.
+  // The example questions: once per session, never under reduced motion.
   useEffect(() => {
     let seen = false;
     try {
@@ -108,7 +108,6 @@ export function ChatAssistant({
     if (
       seen ||
       prompts.length < 2 ||
-      !window.matchMedia('(min-width: 768px)').matches ||
       window.matchMedia('(prefers-reduced-motion: reduce)').matches
     )
       return;
@@ -175,33 +174,29 @@ export function ChatAssistant({
             className={cn(
               'at-cut group relative flex items-center bg-ink text-surface shadow-[var(--shadow-float)]',
               'transition-transform duration-[160ms] ease-mark hover:-translate-y-0.5 motion-reduce:transition-none',
-              'h-12 gap-2 ps-3 pe-4 md:h-16 md:w-[21rem] md:gap-3 md:ps-3 md:pe-3',
+              'h-14 w-[17rem] gap-2 ps-2 pe-2 md:h-16 md:w-[21rem] md:gap-3 md:ps-3 md:pe-3',
             )}
             style={{ '--cut': '12px' } as CSSProperties}
           >
-            <span className="grid flex-none place-items-center md:size-10 md:bg-surface/10">
+            <span className="grid size-9 flex-none place-items-center bg-surface/10 md:size-10">
               <ChatGlyph className="size-6" />
             </span>
 
-            {/* Phones: a plain "Ask AI" chip. */}
-            <span className="text-[15px] font-medium md:hidden">{copy.launcher}</span>
-
-            {/* Desktop: a chat field. */}
-            <span className="hidden min-w-0 flex-1 flex-col items-start md:flex">
+            <span className="flex min-w-0 flex-1 flex-col items-start">
               <span className="flex items-center gap-1.5 font-mono text-[11px] leading-4 text-surface/70">
                 <span aria-hidden="true" className="at-breathe size-1.5 rotate-45 bg-vermilion" />
                 {copy.launcherStatus}
               </span>
               <span
                 key={cycle}
-                className="bb-arrive block w-full truncate text-start text-[15px] font-medium leading-6"
+                className="bb-arrive block w-full truncate text-start text-[14px] font-medium leading-5 md:text-[15px] md:leading-6"
               >
                 {prompts[cycle]}
               </span>
             </span>
             <span
               aria-hidden="true"
-              className="at-cut hidden size-10 flex-none place-items-center bg-nuqta text-on-nuqta transition-transform duration-[160ms] ease-mark group-hover:translate-x-0.5 motion-reduce:transition-none md:grid"
+              className="at-cut grid size-9 flex-none place-items-center bg-nuqta text-on-nuqta transition-transform duration-[160ms] ease-mark group-hover:translate-x-0.5 motion-reduce:transition-none md:size-10"
               style={{ '--cut': '8px' } as CSSProperties}
             >
               <Icon name="arrow-right" size={18} />
