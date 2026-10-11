@@ -448,20 +448,22 @@
           "text": "Source code, designs, documentation and accounts are yours."
         }
       ],
-      "teamTitle": "Who you will be talking to",
+      "teamTitle": "The people behind TRACE",
+      "teamLocation": "Travis is based in Ontario, California, where he operates from his virtual office. Our Lead Engineer, Ahmed, is based in Cairo and Dubai.",
       "team": [
         {
-          "name": "Founder",
-          "role": "Product & delivery",
-          "line": "Runs discovery, writes the scope, stays on your Slack channel."
+          "name": "Travis Lopez",
+          "role": "Founder · Client relations specialist",
+          "line": "With 3+ years in the bail bond industry, I’ve helped serve 70+ clients nationwide and contributed to a company that facilitated $700K+ in collections in 2025. Now, I help bail bond agencies grow through better digital solutions.",
+          "photo": "/images/team/travis-lopez.jpg"
         },
         {
-          "name": "Lead engineer",
-          "role": "Architecture",
-          "line": "Owns the stack, the handover and the code you end up with."
+          "name": "Ahmed Sharaf Ghazy",
+          "role": "Lead engineer · Product manager",
+          "line": "Ahmed leads engineering and product development at Trace Studio, combining full-stack development, product strategy, and AI integration to turn business ideas into scalable digital solutions. His focus is on building high-quality websites, custom systems, and technology-driven products that help businesses grow and operate smarter.",
+          "photo": "/images/team/ahmed.jpg"
         }
-      ],
-      "_note": "PLACEHOLDER team — replace names, roles and photos before launch."
+      ]
     },
     "serviceDetail": {
       "eyebrow": "Service",

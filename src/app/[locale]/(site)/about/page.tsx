@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import { setRequestLocale } from 'next-intl/server';
 
 import { readLocale, routing } from '@/i18n/routing';
@@ -58,6 +59,47 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
           <div className="lg:col-span-4 lg:col-start-9 lg:justify-self-end">
             <BrandMark className="h-auto w-[280px] lg:w-[380px]" label="TRACE" />
           </div>
+        </Container>
+      </section>
+
+      {/* Team — a constellation stands in for anyone without a photo. */}
+      <section className="border-b border-line bg-surface py-[var(--section-y)]">
+        <Container className="flex flex-col gap-12">
+          <Reveal as="h2" className="display-md">
+            {about.teamTitle}
+          </Reveal>
+          <ul className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            {about.team.map((person, i) => (
+              <Reveal
+                as="li"
+                key={person.name}
+                delay={i * 0.06}
+                className="flex flex-col gap-5 border-t border-line pt-6"
+              >
+                {person.photo ? (
+                  <div className="relative aspect-[4/5] w-full overflow-hidden bg-surface-sunken">
+                    <Image
+                      src={person.photo}
+                      alt={person.name}
+                      fill
+                      quality={90}
+                      sizes="(max-width: 640px) 92vw, (max-width: 1024px) 46vw, 23vw"
+                      className="object-cover"
+                    />
+                  </div>
+                ) : (
+                  <div className="flex aspect-[4/5] w-full items-center justify-center bg-surface-sunken">
+                    <Constellation seed={person.name} size={20} className="text-ink" />
+                  </div>
+                )}
+                <div className="flex flex-col gap-1.5">
+                  <h3 className="heading-3">{person.name}</h3>
+                  <p className="eyebrow text-ink-faint">{person.role}</p>
+                  <p className="body-sm text-ink-muted">{person.line}</p>
+                </div>
+              </Reveal>
+            ))}
+          </ul>
         </Container>
       </section>
 
@@ -121,36 +163,6 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
               >
                 <h3 className="heading-3">{p.title}</h3>
                 <p className="body-sm max-w-[60ch] text-ink-muted">{p.text}</p>
-              </Reveal>
-            ))}
-          </ul>
-        </Container>
-      </section>
-
-      {/* Team — constellations stand in until real photos exist. */}
-      <section className="border-b border-line bg-surface py-[var(--section-y)]">
-        <Container className="flex flex-col gap-12">
-          <Reveal as="h2" className="display-md">
-            {about.teamTitle}
-          </Reveal>
-          <ul className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {about.team.map((person, i) => (
-              <Reveal
-                as="li"
-                key={person.name}
-                delay={i * 0.06}
-                className="flex flex-col gap-5 border-t border-line pt-6"
-              >
-                {/* TODO: real photo — drop it in public/images/team/ and swap
-                    this constellation for a next/image. */}
-                <div className="flex aspect-[4/5] w-full items-center justify-center bg-surface-sunken">
-                  <Constellation seed={person.name} size={20} className="text-ink" />
-                </div>
-                <div className="flex flex-col gap-1.5">
-                  <h3 className="heading-3">{person.name}</h3>
-                  <p className="eyebrow text-ink-faint">{person.role}</p>
-                  <p className="body-sm text-ink-muted">{person.line}</p>
-                </div>
               </Reveal>
             ))}
           </ul>

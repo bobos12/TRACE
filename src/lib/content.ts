@@ -338,12 +338,14 @@ const siteSchema = z.object({
         .array(z.object({ title: z.string().min(1), text: z.string().min(1) }))
         .min(1),
       teamTitle: z.string().min(1),
+      teamLocation: z.string().min(1),
       team: z
         .array(
           z.object({
             name: z.string().min(1),
             role: z.string().min(1),
             line: z.string().min(1),
+            photo: z.string().min(1).optional(),
           }),
         )
         .min(1),
