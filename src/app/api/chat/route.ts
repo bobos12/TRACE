@@ -61,7 +61,7 @@ function allow(ip: string): boolean {
 }
 
 type Code = 'invalid' | 'rate' | 'offline' | 'upstream';
-const fail = (code: Code, status: number) => Response.json({ error: code }, { status });
+const fail = (code: Code, status: number, headers?: HeadersInit) => Response.json({ error: code }, { status, headers });
 
 interface GeminiEvent {
   candidates?: { content?: { parts?: { text?: string; thought?: boolean }[] }; finishReason?: string }[];
@@ -130,17 +130,25 @@ export async function POST(request: Request) {
       },
     });
 
+  /* Each model tried and how it went — sent back as X-Chat-Trace, so a slow
+     or failed answer can be read from the browser's network tab. */
+  const trace: string[] = [];
+
   const call = async (model: string) => {
+    const started = Date.now();
     const slow = new AbortController();
     const timer = model === MODELS.at(-1) ? undefined : setTimeout(() => slow.abort(), FIRST_WORD_MS);
     try {
-      return await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:streamGenerateContent?alt=sse`, {
+      const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:streamGenerateContent?alt=sse`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'x-goog-api-key': key },
         signal: AbortSignal.any([request.signal, slow.signal]),
         body: payload(model),
       });
+      trace.push(`${model} ${res.status} ${Date.now() - started}ms`);
+      return res;
     } catch {
+      trace.push(`${model} ${slow.signal.aborted ? 'slow' : 'error'} ${Date.now() - started}ms`);
       if (slow.signal.aborted) console.error('[chat] slow', model, `no answer in ${FIRST_WORD_MS}ms`);
       return null;
     } finally {
@@ -170,7 +178,7 @@ export async function POST(request: Request) {
     return null;
   })();
 
-  if (!first) return fail(lastStatus === 429 ? 'rate' : 'upstream', 502);
+  if (!first) return fail(lastStatus === 429 ? 'rate' : 'upstream', 502, { 'X-Chat-Trace': trace.join(', ') });
 
   const stream = new ReadableStream<Uint8Array>({
     async start(controller) {
@@ -231,6 +239,7 @@ export async function POST(request: Request) {
       'Content-Type': 'text/plain; charset=utf-8',
       'Cache-Control': 'no-store',
       'X-Content-Type-Options': 'nosniff',
+      'X-Chat-Trace': trace.join(', '),
     },
   });
 }
