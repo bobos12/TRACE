@@ -734,6 +734,10 @@ The diagram covers (`make-brand-covers.mjs`) are gone with the anonymised work.
 - **Failure ends at the call.** Busy models fall through to the next; an answer
   cut off mid-stream ends in `[[interrupted]]`; every error shows the booking
   card. Rate limit: 30 messages per IP per 10 minutes, in memory.
+- **Speed over the biggest model (2026-10-12).** Replies took 11–45s:
+  `gemini-3.8-flash` was overloaded and the route waited on it with no limit.
+  Now `gemini-3.5-flash-lite` (minimal thinking, ~1s to the first word) leads,
+  and any model but the last that hasn't started answering in 5s is skipped.
 - **The conversation lives in sessionStorage** — a reload keeps it, a new visit
   starts clean, and nothing is stored on our side unless the visitor sends
   the lead form.

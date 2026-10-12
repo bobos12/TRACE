@@ -11,12 +11,22 @@ import { systemPrompt } from '@/lib/chat/knowledge';
  * a failed answer still ends at "Book a call".
  */
 
-/* Tried in order: a busy or rate-limited model falls through to the next.
-   Each has its own quota, so the fallbacks are different model families. */
+/* Tried in order: a busy, rate-limited or slow model falls through to the next.
+   Each has its own quota, so the fallbacks are different model families.
+   Measured 2026-10-12: 3.5-flash-lite starts in ~1s every time; 3.5-flash
+   took 4–15s or returned 503; 3.8-flash took ~45s, so it's not in the chain. */
 const MODELS = [
-  ...new Set([process.env.GEMINI_MODEL || 'gemini-3.8-flash', 'gemini-3.5-flash', 'gemini-3.5-flash-lite', 'gemini-3.1-flash-lite']),
+  ...new Set([process.env.GEMINI_MODEL || 'gemini-3.5-flash-lite', 'gemini-3.5-flash', 'gemini-3.1-flash-lite']),
 ];
 const RETRYABLE = new Set([429, 500, 502, 503, 504]);
+
+/* A model that hasn't started answering by then is treated as busy — except
+   the last one, which is given the time it needs. Gemini sends the headers
+   with the first words. */
+const FIRST_WORD_MS = 5_000;
+
+/* The fastest thinking level each model accepts — thinking delays the first word. */
+const MINIMAL_THINKING = new Set(['gemini-3.5-flash', 'gemini-3.5-flash-lite', 'gemini-3.1-flash-lite']);
 
 const bodySchema = z.object({
   messages: z
@@ -106,26 +116,37 @@ export async function POST(request: Request) {
   if (turns.at(-1)?.role !== 'user') return fail('invalid', 400);
 
   const system = page ? `${systemPrompt()}\n\n# Context\nThe visitor is on ${page}.` : systemPrompt();
-  const payload = JSON.stringify({
-    systemInstruction: { parts: [{ text: system }] },
-    contents: turns.map((m) => ({
-      role: m.role === 'assistant' ? 'model' : 'user',
-      parts: [{ text: m.text }],
-    })),
-    generationConfig: {
-      temperature: 0.5,
-      maxOutputTokens: 2048,
-      thinkingConfig: { thinkingLevel: 'low' },
-    },
-  });
+  const payload = (model: string) =>
+    JSON.stringify({
+      systemInstruction: { parts: [{ text: system }] },
+      contents: turns.map((m) => ({
+        role: m.role === 'assistant' ? 'model' : 'user',
+        parts: [{ text: m.text }],
+      })),
+      generationConfig: {
+        temperature: 0.5,
+        maxOutputTokens: 2048,
+        thinkingConfig: { thinkingLevel: MINIMAL_THINKING.has(model) ? 'minimal' : 'low' },
+      },
+    });
 
-  const call = (model: string) =>
-    fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:streamGenerateContent?alt=sse`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'x-goog-api-key': key },
-      signal: request.signal,
-      body: payload,
-    }).catch(() => null);
+  const call = async (model: string) => {
+    const slow = new AbortController();
+    const timer = model === MODELS.at(-1) ? undefined : setTimeout(() => slow.abort(), FIRST_WORD_MS);
+    try {
+      return await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:streamGenerateContent?alt=sse`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'x-goog-api-key': key },
+        signal: AbortSignal.any([request.signal, slow.signal]),
+        body: payload(model),
+      });
+    } catch {
+      if (slow.signal.aborted) console.error('[chat] slow', model, `no answer in ${FIRST_WORD_MS}ms`);
+      return null;
+    } finally {
+      clearTimeout(timer);
+    }
+  };
 
   const encoder = new TextEncoder();
   let lastStatus = 0;
