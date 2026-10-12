@@ -16,7 +16,7 @@ import { systemPrompt } from '@/lib/chat/knowledge';
    Measured 2026-10-12: 3.5-flash-lite starts in ~1s every time; 3.5-flash
    took 4–15s or returned 503; 3.8-flash took ~45s, so it's not in the chain. */
 const MODELS = [
-  ...new Set([process.env.GEMINI_MODEL || 'gemini-3.5-flash-lite', 'gemini-3.5-flash', 'gemini-3.1-flash-lite']),
+  ...new Set([process.env.GEMINI_MODEL || 'gemini-3.5-flash-lite', 'gemini-3.5-flash-lite', 'gemini-3.5-flash', 'gemini-3.1-flash-lite']),
 ];
 const RETRYABLE = new Set([429, 500, 502, 503, 504]);
 
