@@ -1007,6 +1007,41 @@ const bailBondsSchema = z.object({
     query: str,
     timeline: z.array(z.object({ time: str, text: str })).length(4),
   }),
+  /** Ellison & Reyes — the working demo agency, toured screen by screen. */
+  flagship: z.object({
+    _note: z.string().optional(),
+    concept: str,
+    title: str,
+    lead: str,
+    demoCta: str,
+    caseCta: str,
+    url: str,
+    tourLabel: str,
+    tourHint: str,
+    /** The strip of every page under the hero; `id` is the demo's hash route and thumbnail name. */
+    strip: z.object({
+      title: str,
+      hint: str,
+      cta: str,
+      pages: z.array(z.object({ id: str, label: str })).min(1),
+    }),
+    groups: z.object({ families: str, office: str }),
+    /** `desktop` / `mobile` name captures in public/images/ellison-reyes/. */
+    screens: z
+      .array(
+        z.object({
+          group: z.enum(['families', 'office']),
+          title: str,
+          text: str,
+          desktop: str,
+          mobile: z.string().optional(),
+          alt: str,
+        }),
+      )
+      .min(1),
+    facts: z.array(z.object({ value: str, label: str })).min(1),
+    close: z.object({ title: str, text: str, cta: str }),
+  }),
   compare: z.object({
     eyebrow: str,
     title: str,

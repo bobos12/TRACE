@@ -1,15 +1,15 @@
+import Image from 'next/image';
 import type { CSSProperties } from 'react';
 import { Container } from '@/components/ui/Container';
 import { Button } from '@/components/ui/Button';
 import { Nuqta, StopText } from '@/components/brand/Nuqta';
 import { BookCallButton } from '@/components/contact/ContactButtons';
 import type { BailBonds } from '@/lib/content';
-import { Browser, Phone, Scaled } from './Frames';
-import { IronwoodSite, SITE_H, SITE_W } from './Ironwood';
+import { Browser, Phone } from './Frames';
 import { MapsScreen } from './Maps';
 
 /**
- * The promise, then the proof of it: the agency's new site in a browser and,
+ * The promise, then the proof of it: Ellison & Reyes in a browser and,
  * in front, the 2 a.m. search on a phone with that agency on top.
  *
  * Copy paints on the first frame (it is the LCP candidate — see Hero.tsx);
@@ -39,7 +39,7 @@ export function BailHero({ copy }: { copy: BailBonds }) {
             <BookCallButton placement="landing:bail-bonds-hero" size="lg">
               {hero.primaryCta}
             </BookCallButton>
-            <Button href="#before-after" variant="secondary" size="lg" iconEnd="arrow-right">
+            <Button href="#live-agency" variant="secondary" size="lg" iconEnd="arrow-right">
               {hero.secondaryCta}
             </Button>
           </div>
@@ -52,10 +52,17 @@ export function BailHero({ copy }: { copy: BailBonds }) {
         {/* The agency's site, and the search that finds it. */}
         <div className="relative mb-8 md:col-span-6 md:mb-0" aria-hidden="true">
           <div className="at-rise pe-[18%]" style={{ '--d': '200ms' } as CSSProperties}>
-            <Browser url={demo.url}>
-              <Scaled w={SITE_W} h={SITE_H}>
-                <IronwoodSite demo={demo} />
-              </Scaled>
+            <Browser url={copy.flagship.url}>
+              <span className="relative block aspect-[16/10] w-full overflow-hidden">
+                <Image
+                  src="/images/ellison-reyes/site-home.jpg"
+                  alt=""
+                  fill
+                  priority
+                  sizes="(max-width: 768px) 80vw, 560px"
+                  className="object-cover object-top"
+                />
+              </span>
             </Browser>
           </div>
           <div

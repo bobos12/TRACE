@@ -1219,6 +1219,24 @@
   .bb-typing > span { animation: none; opacity: 0.6; }
 }
 
+/* The Ellison & Reyes tour: the active row's bar fills, then the next screen
+   shows. Paused on hover and off screen; never runs under reduced motion. */
+@keyframes tour-progress {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+.tour-progress {
+  transform-origin: left;
+  animation: tour-progress 5200ms linear both;
+}
+
+[dir="rtl"] .tour-progress { transform-origin: right; }
+
+@media (prefers-reduced-motion: reduce) {
+  .tour-progress { animation: none; transform: scaleX(0); }
+}
+
 /* The assistant panel opening: it rises out of its corner, once per open. */
 @keyframes chat-in {
   from { opacity: 0; transform: translateY(12px) scale(0.98); }

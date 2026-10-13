@@ -109,6 +109,7 @@ const FEATURES = [
   { name: 'courts', page: 'courts', f: 'Court date reminders' },
   { name: 'plan', page: 'cost', f: 'Payment plan builder' },
   { name: 'crm', page: 'staff', f: 'Trace Bail agency CRM' },
+  { name: 'wanted', page: 'wanted', f: 'Wanted board + anonymous tips' },
 ];
 
 if (!ONLY_FULL) {
