@@ -2,15 +2,12 @@ import type { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
 
 import { readLocale, routing } from '@/i18n/routing';
-import { getBailBonds, getClientLogos, getPlatforms, getSite } from '@/lib/content';
+import { getBailBonds, getPlatforms, getSite } from '@/lib/content';
 import { jsonLd, pageMetadata, siteUrl } from '@/lib/seo';
 import { organizationRef } from '@/lib/structured-data';
-import { Container } from '@/components/ui/Container';
-import { Reveal } from '@/components/motion/Reveal';
-import { Accordion } from '@/components/ui/Accordion';
-import { StopText } from '@/components/brand/Nuqta';
 import { Process } from '@/components/sections/Process';
 import { ContactBand } from '@/components/sections/ContactBand';
+import { Faq } from '@/components/sections/Faq';
 import { Breadcrumbs } from '@/components/seo/Breadcrumbs';
 import { BailHero } from '@/components/bail/BailHero';
 import { Moment } from '@/components/bail/Moment';
@@ -85,23 +82,10 @@ export default async function BailBondsPage({ params }: { params: Promise<{ loca
       <Process site={site} copy={copy.process} />
       <Proof
         copy={copy}
-        clients={getClientLogos(locale)}
         platforms={copy.proof.platforms.flatMap((slug) => getPlatforms(locale).filter((p) => p.slug === slug))}
       />
 
-      <section className="border-b border-line bg-surface py-[var(--section-y)]" aria-labelledby="bail-faq-title">
-        <Container className="grid grid-cols-1 gap-10 md:grid-cols-12 md:gap-8">
-          <div className="flex flex-col gap-6 md:col-span-4">
-            <Reveal className="eyebrow text-ink-muted">{copy.faq.eyebrow}</Reveal>
-            <Reveal as="h2" id="bail-faq-title" className="display-md m-0">
-              <StopText>{copy.faq.title}</StopText>
-            </Reveal>
-          </div>
-          <div className="md:col-span-7 md:col-start-6">
-            <Accordion items={copy.faq.items} />
-          </div>
-        </Container>
-      </section>
+      <Faq id="bail-faq-title" title={copy.faq.title} items={copy.faq.items} />
 
       <ContactBand site={site} locale={locale} title={copy.cta.title}
         context={copy.cta.context}

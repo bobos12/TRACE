@@ -1,6 +1,6 @@
 import type { Locale } from '@/i18n/routing';
 import { contact } from '@/lib/contact-data';
-import { getLocalServices, getSite } from '@/lib/content';
+import { getLocalServices, getSite, type LocalService } from '@/lib/content';
 import { siteUrl } from '@/lib/seo';
 import {
   ALTERNATE_NAME,
@@ -67,10 +67,71 @@ export function websiteNode() {
   };
 }
 
-/** WebSite + Organization, for the home page. */
+/** The home page, with the hero's h1 and lead marked for voice answers. */
+export function homePageNode() {
+  return {
+    '@type': 'WebPage',
+    '@id': `${siteUrl('/')}#webpage`,
+    url: siteUrl('/'),
+    name: BRAND_NAME,
+    description: BRAND_DESCRIPTION,
+    inLanguage: 'en-US',
+    isPartOf: { '@id': WEBSITE_ID },
+    about: { '@id': ORGANIZATION_ID },
+    speakable: { '@type': 'SpeakableSpecification', cssSelector: ['#hero-title', '#hero-lead'] },
+  };
+}
+
+/** The "How we work" steps, as shown in the Process section. */
+export function processNode(locale: Locale) {
+  const { process } = getSite(locale);
+  return {
+    '@type': 'HowTo',
+    '@id': `${siteUrl('/')}#process`,
+    name: process.title,
+    step: process.steps.map((step, i) => ({
+      '@type': 'HowToStep',
+      position: i + 1,
+      name: step.title,
+      text: step.text,
+      url: `${siteUrl('/')}#process`,
+    })),
+  };
+}
+
+/** WebSite + Organization + WebPage + HowTo, for the home page. */
 export function siteGraph(locale: Locale) {
   return {
     '@context': 'https://schema.org',
-    '@graph': [websiteNode(), organizationNode(locale)],
+    '@graph': [websiteNode(), organizationNode(locale), homePageNode(), processNode(locale)],
+  };
+}
+
+export function serviceNode(service: LocalService) {
+  return {
+    '@type': 'Service',
+    name: service.title,
+    serviceType: service.title,
+    description: service.line,
+    url: siteUrl(`/services/${service.slug}`),
+    provider: organizationRef(),
+    areaServed: { '@type': 'Country', name: 'United States' },
+  };
+}
+
+/**
+ * FAQPage for questions shown on the page. Answers still marked PLACEHOLDER
+ * are left out, so they join the markup once the owner writes them.
+ */
+export function faqNode(items: Array<{ q: string; a: string }>) {
+  const answered = items.filter((item) => !item.a.startsWith('PLACEHOLDER'));
+  if (!answered.length) return null;
+  return {
+    '@type': 'FAQPage',
+    mainEntity: answered.map((item) => ({
+      '@type': 'Question',
+      name: item.q,
+      acceptedAnswer: { '@type': 'Answer', text: item.a },
+    })),
   };
 }

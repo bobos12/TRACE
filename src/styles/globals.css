@@ -495,6 +495,112 @@
     }
   }
 
+  /* A signature writing itself: a cover over it shrinks toward the end of
+     the line once the mock is in view. Without JS there is no cover. */
+  .at-wipe {
+    transform: scaleX(0);
+    transform-origin: right;
+  }
+
+  html.js .at-wipe {
+    transform: scaleX(1);
+  }
+
+  html.js [data-reveal-in] .at-wipe {
+    animation: at-wipe 1100ms var(--ease-mark) 450ms both;
+  }
+
+  /* A whole page in a fixed frame, scrolling through itself while hovered or
+     focused — transform only; it returns when the pointer leaves. */
+  .at-scrollshot {
+    --frame: clamp(320px, 52vw, 560px);
+    height: var(--frame);
+    overflow: hidden;
+  }
+
+  .at-scrollshot > img {
+    transition: transform var(--scroll-time, 8s) linear;
+  }
+
+  .at-scrollshot:hover > img,
+  .at-scrollshot:focus-visible > img {
+    transform: translateY(calc(-100% + var(--frame)));
+  }
+
+  /* No hover on touch screens: the frame scrolls under the finger instead. */
+  @media (hover: none) {
+    .at-scrollshot {
+      overflow-y: auto;
+      overscroll-behavior: contain;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .at-scrollshot {
+      overflow-y: auto;
+    }
+
+    .at-scrollshot:hover > img,
+    .at-scrollshot:focus-visible > img {
+      transform: none;
+    }
+  }
+
+  /* A progress bar filling to its value once in view. */
+  .at-fill {
+    transform: scaleX(var(--to, 1));
+    transform-origin: left;
+  }
+
+  html.js .at-fill {
+    transform: scaleX(0);
+  }
+
+  html.js [data-reveal-in] .at-fill {
+    animation: at-fill 1200ms var(--ease-mark) 250ms both;
+  }
+
+  @keyframes at-fill {
+    to {
+      transform: scaleX(var(--to, 1));
+    }
+  }
+
+  /* A button calling attention once: a ring that swells and fades. */
+  .at-ring {
+    opacity: 0;
+  }
+
+  html.js [data-reveal-in] .at-ring {
+    animation: at-ring 1400ms var(--ease-mark) 500ms both;
+  }
+
+  @keyframes at-ring {
+    from {
+      opacity: 0.5;
+      transform: scale(1);
+    }
+    to {
+      opacity: 0;
+      transform: scale(1.25, 1.9);
+    }
+  }
+
+  @keyframes at-wipe {
+    from {
+      transform: scaleX(1);
+    }
+    to {
+      transform: scaleX(0);
+    }
+  }
+
+  /* A layer drifting against the scroll — `--p` from useScrollProgress
+     ('cover'); at rest (no JS, reduced motion) it sits still. */
+  .at-drift {
+    transform: translate3d(0, calc((0.5 - var(--p, 0.5)) * var(--drift, 64px)), 0);
+  }
+
   /* Hairline rules that read as the trace at rest. */
   .at-rule {
     border: 0;
@@ -871,6 +977,59 @@
 
 .at-breathe-glow {
   animation: trace-breathe-glow 3.6s ease-in-out infinite;
+}
+
+/* The home AI bot: a slow hover and an occasional blink. */
+@keyframes ai-bot-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes ai-bot-blink {
+  0%, 92%, 100% { transform: scaleY(1); }
+  95% { transform: scaleY(0.1); }
+}
+
+.ai-bot-float {
+  animation: ai-bot-float 6s ease-in-out infinite;
+}
+
+.ai-bot-blink {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: ai-bot-blink 5s ease-in-out infinite;
+}
+
+/* A wave from the shoulder, then a long rest. */
+@keyframes ai-bot-wave {
+  0%, 30%, 100% { transform: rotate(0deg); }
+  8%, 22% { transform: rotate(12deg); }
+  15% { transform: rotate(-6deg); }
+}
+
+.ai-bot-wave {
+  transform-box: view-box;
+  transform-origin: 152px 262px;
+  animation: ai-bot-wave 5s ease-in-out infinite;
+}
+
+/* The shadow tightens as the bot rises — same 6s as the hover. */
+@keyframes ai-bot-shadow {
+  0%, 100% { transform: scaleX(1); opacity: 0.15; }
+  50% { transform: scaleX(0.82); opacity: 0.09; }
+}
+
+.ai-bot-shadow {
+  animation: ai-bot-shadow 6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ai-bot-float,
+  .ai-bot-shadow,
+  .ai-bot-wave,
+  .ai-bot-blink {
+    animation: none;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

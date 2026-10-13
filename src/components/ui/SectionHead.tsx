@@ -3,7 +3,7 @@ import { cn } from '@/lib/cn';
 import { Reveal } from '@/components/motion/Reveal';
 
 export interface SectionHeadProps {
-  /** Mono eyebrow, e.g. "02 ◆ SELECTED WORK". */
+  /** No longer shown — section titles stand alone (owner, 2026-10-13). */
   eyebrow?: string;
   title: ReactNode;
   lead?: ReactNode;
@@ -15,12 +15,10 @@ export interface SectionHeadProps {
 }
 
 /**
- * The section header from the approved home design: the eyebrow sits in
- * columns 1–3 and the heading is offset to column 4 — asymmetry instead of a
- * centred stack. Collapses to a single column below 1024px.
+ * The section header: the title from the leading edge, the lead and an
+ * optional action beneath it. No eyebrow (owner, 2026-10-13).
  */
 export function SectionHead({
-  eyebrow,
   title,
   lead,
   action,
@@ -29,10 +27,7 @@ export function SectionHead({
 }: SectionHeadProps) {
   return (
     <div className={cn('grid grid-cols-1 gap-x-8 gap-y-6 md:grid-cols-12', className)}>
-      {eyebrow ? (
-        <Reveal className="eyebrow text-ink-muted md:col-span-3 md:pt-3">{eyebrow}</Reveal>
-      ) : null}
-      <div className={cn('flex flex-col gap-6', eyebrow ? 'md:col-span-9' : 'md:col-span-12')}>
+      <div className="flex flex-col gap-6 md:col-span-10">
         <Reveal as="h2" className={cn('m-0', size === 'lg' ? 'display-lg' : 'display-md')}>
           {title}
         </Reveal>

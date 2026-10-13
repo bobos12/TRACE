@@ -124,8 +124,19 @@ node scripts/make-showcases.mjs         # slides → public/images/portfolio/<sl
 ```
 
 Slide copy and which captures each slide uses live in `PROJECTS` in
-`make-showcases.mjs`. LamaBooking's client app is not published, so its slides
-show the real API source from `assets/captures/lamabooking/`.
+`make-showcases.mjs`.
+
+The case-study pages also show the screens one by one, the phone screens and the
+whole page (hover to scroll). Those images come from the same captures:
+
+```bash
+node scripts/capture-ellison.mjs        # the Ellison & Reyes demo (needs npm run dev)
+node scripts/make-case-assets.mjs       # → public/images/work/<slug>/row-*.jpg, phone-*.jpg, m-*.jpg, full.jpg
+```
+
+Which capture goes where is `PROJECTS` in `make-case-assets.mjs`; the captions
+are `en.highlights` and `en.rows` in `content/portfolio.json`, and the image
+paths `media` (one `en.rows` entry per `media.rows` entry — the build checks).
 
 Only clients who have agreed to be shown belong in the portfolio. Their logos are
 in `content/trust.json` (built by `scripts/make-client-logos.mjs` from
@@ -133,9 +144,9 @@ in `content/trust.json` (built by `scripts/make-client-logos.mjs` from
 
 ### Adding a project
 
-Add an object to `content/portfolio.json`, add the site to `capture-sites.mjs`
-and `make-showcases.mjs`, and run both (or drop your own **2400×1500** cover and
-gallery into `public/images/portfolio/`). The case-study page, the route, the
+Add an object to `content/portfolio.json`, add the site to `capture-sites.mjs`,
+`make-showcases.mjs` and `make-case-assets.mjs`, and run them (or drop your own
+**2400×1500** cover and gallery into `public/images/portfolio/`). The case-study page, the route, the
 sitemap entry and the social share image are all generated from it.
 
 Set `"featured": true` to put it in the home page's pinned gallery.

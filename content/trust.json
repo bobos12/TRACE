@@ -11,24 +11,6 @@
       "color": null
     },
     {
-      "slug": "fateen",
-      "width": 287,
-      "height": 240,
-      "project": "fateen-website",
-      "scale": 0.92,
-      "ink": "/clients/fateen-ink.png",
-      "color": "/clients/fateen-color.png"
-    },
-    {
-      "slug": "retal-residence",
-      "width": 218,
-      "height": 240,
-      "project": "retal-residence",
-      "scale": 1.1,
-      "ink": "/clients/retal-residence-ink.png",
-      "color": "/clients/retal-residence-color.png"
-    },
-    {
       "slug": "fancystays",
       "width": 228,
       "height": 240,

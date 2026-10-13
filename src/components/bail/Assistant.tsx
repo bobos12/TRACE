@@ -12,7 +12,6 @@ export function Assistant({ copy }: { copy: BailBonds }) {
     <section className="border-b border-line bg-surface py-[var(--section-y)]" aria-labelledby="assistant-title">
       <Container className="grid grid-cols-1 items-center gap-14 md:grid-cols-12 md:gap-8">
         <div className="flex flex-col gap-7 md:col-span-5">
-          <Reveal className="eyebrow text-ink-muted">{assistant.eyebrow}</Reveal>
           <Reveal as="h2" id="assistant-title" className="display-lg m-0">
             <StopText>{assistant.title}</StopText>
           </Reveal>

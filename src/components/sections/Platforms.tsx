@@ -50,7 +50,6 @@ export function Platforms({ site, platforms }: { site: Site; platforms: Platform
       <Container className="flex flex-col gap-10 md:gap-20">
         {/* Centred, like the marks beneath it. */}
         <div className="mx-auto flex max-w-[44rem] flex-col items-center gap-6 text-center">
-          <Reveal className="eyebrow text-ink-muted">{copy.eyebrow}</Reveal>
           <Reveal as="h2" className="display-md m-0">
             <StopText>{copy.title}</StopText>
           </Reveal>

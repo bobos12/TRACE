@@ -106,7 +106,7 @@ function Step({
   const flip = index % 2 === 1;
 
   return (
-    <li className="relative grid grid-cols-1 gap-8 pb-16 md:grid-cols-12 md:gap-8 md:pb-24">
+    <li className="relative grid grid-cols-1 gap-6 pb-10 md:grid-cols-12 md:items-center md:gap-8 md:pb-12">
       {/* The nuqta stamps onto the trace as the line reaches it. */}
       <span aria-hidden="true" className="absolute -start-[25px] top-1.5 md:-start-[33px]">
         <span data-reveal="fade" className="at-step-nuqta block size-3 bg-vermilion" />
@@ -130,7 +130,9 @@ function Step({
           flip ? 'md:order-1 md:col-start-1' : 'md:col-start-8'
         }`}
       >
-        <Visual />
+        <div className="max-w-[300px]">
+          <Visual />
+        </div>
       </div>
     </li>
   );
@@ -145,18 +147,55 @@ function Step({
  * which writes a single CSS custom property — no animation library on the
  * home page's critical path.
  */
-export function Process({ site, copy = site.process }: { site: Site; copy?: Site['process'] }) {
+/**
+ * The same four steps in one row — the home page's short version. The trace
+ * runs along the top, a nuqta on it for each step; two by two on phones.
+ */
+function CompactSteps({ steps }: { steps: Site['process']['steps'] }) {
+  return (
+    <ol className="relative grid grid-cols-2 gap-x-4 gap-y-8 md:grid-cols-4 md:gap-x-8">
+      <span aria-hidden="true" className="absolute inset-x-0 top-1.5 hidden h-px bg-line md:block" />
+      {steps.map((step, i) => (
+        <li
+          key={step.n}
+          data-reveal="rise"
+          style={{ '--d': `${i * 80}ms` } as CSSProperties}
+          className="relative flex flex-col gap-2 max-md:border-t max-md:border-line max-md:pt-4"
+        >
+          <span aria-hidden="true" className="mb-3 hidden size-3 rotate-45 scale-[0.7071] bg-vermilion md:block" />
+          <span className="eyebrow text-ink-faint">{step.n}</span>
+          <h3 className="heading-2 m-0">{step.title}</h3>
+          <p className="body-sm text-ink-muted max-sm:hidden">{step.text}</p>
+        </li>
+      ))}
+    </ol>
+  );
+}
+
+export function Process({
+  site,
+  copy = site.process,
+  compact = false,
+}: {
+  site: Site;
+  copy?: Site['process'];
+  /** One row of four, no step visuals — for the home page. */
+  compact?: boolean;
+}) {
   const ref = useRef<HTMLDivElement>(null);
   useScrollProgress(ref, { offset: 'contain' });
 
   return (
     <section id="process" className="border-b border-line bg-surface py-[var(--section-y)]">
-      <Container className="flex flex-col gap-16">
+      <Container className="flex flex-col gap-12">
         <SectionHead
           eyebrow={copy.eyebrow}
           title={<StopText>{copy.title}</StopText>}
         />
 
+        {compact ? (
+          <CompactSteps steps={copy.steps} />
+        ) : (
         <div ref={ref} className="relative ps-8 md:ps-10">
           {/* The trace: a hairline rule with the ink line drawn over it. */}
           <span aria-hidden="true" className="absolute inset-y-0 start-0 w-px bg-line" />
@@ -168,6 +207,7 @@ export function Process({ site, copy = site.process }: { site: Site; copy?: Site
             ))}
           </ol>
         </div>
+        )}
       </Container>
     </section>
   );

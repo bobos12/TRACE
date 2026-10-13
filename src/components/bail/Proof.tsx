@@ -3,9 +3,8 @@ import { Container } from '@/components/ui/Container';
 import { SectionHead } from '@/components/ui/SectionHead';
 import { Reveal } from '@/components/motion/Reveal';
 import { Nuqta, StopText } from '@/components/brand/Nuqta';
-import { Mark } from '@/components/sections/TrustStrip';
 import { Mark as PlatformMark } from '@/components/sections/Platforms';
-import type { BailBonds, ClientLogo, Platform } from '@/lib/content';
+import type { BailBonds, Platform } from '@/lib/content';
 
 /**
  * Who is behind it: the real clients the studio has built for (their own
@@ -14,11 +13,9 @@ import type { BailBonds, ClientLogo, Platform } from '@/lib/content';
  */
 export function Proof({
   copy,
-  clients,
   platforms,
 }: {
   copy: BailBonds;
-  clients: ClientLogo[];
   platforms: Platform[];
 }) {
   const { proof } = copy;
@@ -35,17 +32,6 @@ export function Proof({
           lead={proof.lead}
           size="md"
         />
-
-        <div className="flex flex-col gap-8">
-          <Reveal as="p" className="eyebrow text-ink-faint">{proof.logosTitle}</Reveal>
-          <ul className="flex flex-wrap items-center gap-x-12 gap-y-8 md:gap-x-16">
-            {clients.map((c) => (
-              <li key={c.slug}>
-                <Mark client={c} />
-              </li>
-            ))}
-          </ul>
-        </div>
 
         <div className="flex flex-col gap-8">
           <Reveal as="p" className="eyebrow text-ink-faint">{proof.platformsTitle}</Reveal>

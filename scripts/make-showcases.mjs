@@ -250,7 +250,16 @@ const PROJECTS = [
       { t: 'sections', ground: 'sand', eyebrow: 'Trust, then terms', title: 'Every cost explained before they call', desktops: ['desktop-2', 'desktop-4'] },
     ],
   },
-  { slug: 'lamabooking', lama: true },
+  {
+    // Captured by scripts/capture-ellison.mjs. A fictional agency, so the bar names the demo, not a domain.
+    slug: 'ellison-reyes', name: 'Ellison &amp; Reyes Bail Bonds', url: 'Ellison &amp; Reyes · live demo',
+    cover: ['desktop-0', 'mobile-0'],
+    slides: [
+      { t: 'screens', ground: 'carbon', eyebrow: 'Concept ◆ Bail bond agency website', title: 'The cost, before they call', desktop: 'feature-plan', mobiles: ['mobile-cost', 'mobile-locations'] },
+      { t: 'mobiles', ground: 'graphite', eyebrow: 'Mobile first', title: 'Start, sign and pay from a phone', text: 'Families start the bail, e-sign and pay the premium without driving to the office. Defendants check in every week.', mobiles: ['mobile-start', 'mobile-pay', 'mobile-checkin'] },
+      { t: 'sections', ground: 'sand', eyebrow: 'The office side', title: 'Court dates, check-ins and the agency CRM', desktops: ['desktop-checkin', 'desktop-staff'] },
+    ],
+  },
 ];
 
 /* ── page ─────────────────────────────────────────────────────── */

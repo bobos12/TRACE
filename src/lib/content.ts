@@ -106,7 +106,107 @@ const siteSchema = z.object({
     requestMessage: z.string().min(1),
     /** The plain-language list of everything we build, above the bento. */
     capabilities: z.array(z.string().min(1)).min(1),
+    /** The services shown on the home page, by slug, in order; the rest are on /services. */
+    home: z.array(z.string().min(1)).min(1).max(4),
   }),
+  /** The home page case study: Ellison & Reyes, a demo agency on real, working software. */
+  showcase: z.object({
+    eyebrow: z.string().min(1),
+    title: z.string().min(1),
+    lead: z.string().min(1),
+    concept: z.string().min(1),
+    demoCta: z.string().min(1),
+    caseCta: z.string().min(1),
+    url: z.string().min(1),
+    facts: z.array(numbered).min(1),
+    featuresTitle: z.string().min(1),
+    /** Feature cards, each drawn as a live piece of the product (`kind`). */
+    features: z
+      .array(
+        z.object({
+          kind: z.enum(['cost', 'reminders', 'call', 'map', 'agents', 'online', 'payments', 'assistant']),
+          title: z.string().min(1),
+          text: z.string().min(1),
+        }),
+      )
+      .min(1),
+  }),
+  /** The home page AI section: the headline, four benefits and one illustrated exchange. */
+  aiSection: z.object({
+    _note: z.string().optional(),
+    title: z.string().min(1),
+    lead: z.string().min(1),
+    cta: z.string().min(1),
+    more: z.string().min(1),
+    moreHref: z.string().startsWith('/'),
+    benefits: z.array(z.string().min(1)).length(4),
+    visual: z.object({
+      alt: z.string().min(1),
+      answered: z.object({ meta: z.string().min(1), tag: z.string().min(1), title: z.string().min(1) }),
+      captured: z.object({
+        meta: z.string().min(1),
+        rows: z.array(z.object({ k: z.string().min(1), v: z.string().min(1) })).min(1),
+      }),
+      handoff: z.object({ meta: z.string().min(1), title: z.string().min(1), tag: z.string().min(1) }),
+    }),
+  }),
+  /** The AI chat assistant service, with the bail demo beside it. */
+  ai: z.object({
+    title: z.string().min(1),
+    lead: z.string().min(1),
+    points: z
+      .array(z.object({ icon: z.string().min(1), title: z.string().min(1), text: z.string().min(1) }))
+      .min(1),
+    demoLabel: z.string().min(1),
+    tryCta: z.string().min(1),
+    /** The first question asked when "Try our assistant" opens the site's own chat. */
+    tryPrompt: z.string().min(1),
+  }),
+  /** TRACE's own products. Names are shown after the TRACE wordmark. */
+  products: z.object({
+    eyebrow: z.string().min(1),
+    title: z.string().min(1),
+    lead: z.string().min(1),
+    _note: z.string().optional(),
+    items: z
+      .array(
+        z.object({
+          name: z.string().min(1),
+          tagline: z.string().min(1),
+          text: z.string().min(1),
+          status: z.string().min(1).optional(),
+          href: z.string().min(1),
+          /** The order button and the line in the pricing panel. */
+          order: z.string().min(1),
+          /** The unit beside the price, e.g. "per agency". */
+          price: z.string().min(1),
+          /** Who it is for — the tag beside the lockup. */
+          audience: z.string().min(1),
+          /** What an order includes — the checklist. */
+          includes: z.array(z.string().min(1)).min(1),
+          features: z
+            .array(z.object({ icon: z.string().min(1), title: z.string().min(1), text: z.string().min(1) }))
+            .min(1),
+        }),
+      )
+      .min(1),
+    moreTitle: z.string().min(1),
+    includedTitle: z.string().min(1),
+    priceLabel: z.string().min(1),
+    priceNote: z.string().min(1),
+    /** The order email — {product}. */
+    orderSubject: z.string().min(1),
+    orderBody: z.string().min(1),
+    demoCta: z.string().min(1),
+    detailsCta: z.string().min(1),
+    detailsShow: z.string().min(1),
+    detailsHide: z.string().min(1),
+    /** The fold on phones: quick info first, the features behind a button. */
+    showMore: z.string().min(1),
+    showLess: z.string().min(1),
+  }),
+  /** Heading of the home page questions; the questions come from bail-bonds.json. */
+  faq: z.object({ eyebrow: z.string().min(1), title: z.string().min(1) }),
   work: z.object({
     eyebrow: z.string().min(1),
     title: z.string().min(1),
@@ -299,6 +399,15 @@ const siteSchema = z.object({
     bailBonds: z.string().min(1),
     formTitle: z.string().min(1),
     messagePlaceholder: z.string().min(1),
+    /** The case-study page's richer sections. */
+    caseHighlights: z.string().min(1),
+    caseInside: z.string().min(1),
+    caseMobile: z.string().min(1),
+    caseMobileText: z.string().min(1),
+    caseFull: z.string().min(1),
+    caseFullHint: z.string().min(1),
+    caseCtaTitle: z.string().min(1),
+    caseCtaText: z.string().min(1),
   }),
   /** Copy for the pages beyond the home page. */
   pages: z.object({
@@ -467,6 +576,33 @@ const projectCopy = z.object({
   capabilities: z.array(z.string().min(1)).default([]),
   results: z.array(numbered),
   quote: z.object({ text: z.string().min(1), by: z.string().min(1) }).optional(),
+  /** What the work does for the business, in three cards under the cover. */
+  highlights: z.array(z.object({ title: z.string().min(1), text: z.string().min(1) })).default([]),
+  /** Captions for `media.rows`, in the same order. */
+  rows: z.array(z.object({ title: z.string().min(1), text: z.string().min(1) })).default([]),
+});
+
+/** The case study's screens — genuine captures, made by scripts/make-case-assets.mjs. */
+const projectMedia = z.object({
+  rows: z
+    .array(
+      z.object({
+        image: z.string().startsWith('/images/'),
+        phone: z.string().startsWith('/images/').optional(),
+        /** `none` for designed slides, which carry their own frame. */
+        frame: z.enum(['browser', 'none']).default('browser'),
+      }),
+    )
+    .default([]),
+  mobiles: z.array(z.string().startsWith('/images/')).default([]),
+  /** The whole page, for the scroll-through, with its real size. */
+  full: z
+    .object({
+      src: z.string().startsWith('/images/'),
+      width: z.number().int().positive(),
+      height: z.number().int().positive(),
+    })
+    .optional(),
 });
 
 const projectSchema = z.object({
@@ -486,6 +622,7 @@ const projectSchema = z.object({
   /** Stated only where it is known. Never guessed. */
   year: z.number().int().optional(),
   inDevelopment: z.boolean().default(false),
+  media: projectMedia.optional(),
   cover: z.string().min(1),
   gallery: z.array(z.string().min(1)),
   services: z.array(z.string().min(1)),
@@ -511,6 +648,14 @@ export type ProjectCopy = z.infer<typeof projectCopy>;
 const portfolio = z
   .object({ _note: z.string().optional(), projects: z.array(projectSchema).min(1) })
   .parse(portfolioJson);
+
+// Every screen on a case study has its caption, and no caption is orphaned.
+for (const p of portfolio.projects) {
+  const screens = p.media?.rows.length ?? 0;
+  if (screens !== p.en.rows.length) {
+    throw new Error(`portfolio.json: "${p.slug}" has ${screens} media.rows but ${p.en.rows.length} en.rows`);
+  }
+}
 
 const projects = portfolio.projects;
 
@@ -566,6 +711,7 @@ export interface LocalProject extends ProjectCopy {
   services: string[];
   stack: string[];
   links: { live?: string; source?: string; demo?: string };
+  media?: z.infer<typeof projectMedia>;
 }
 
 /**

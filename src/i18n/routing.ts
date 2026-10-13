@@ -15,6 +15,8 @@ export const routing = defineRouting({
   localeDetection: false,
   // No alternate languages to announce.
   alternateLinks: false,
+  // Nothing to remember with one language; a Set-Cookie on every page only hurts caching.
+  localeCookie: false,
 });
 
 /**

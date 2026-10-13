@@ -13,3 +13,7 @@ bail-bonds-reference
 # Playwright
 /test-results/
 /playwright-report/
+
+# Kept locally, not part of the site: demo source (copied into public/demos) and internal pricing
+/Ellison-Reyes-Demo/
+/sales/

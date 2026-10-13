@@ -2,6 +2,118 @@
   "_note": "kind = \"client\" (delivered for a named client), \"product\" (built in-house by TRACE) or \"concept\" (a TRACE design piece, not real work). Client and product visuals are showcase slides built from real captures of the live sites (scripts/capture-sites.mjs → scripts/make-showcases.mjs). The concept entries at the end are PLACEHOLDERS: their clients, numbers and quotes are invented to show the format, and the site labels them as concepts wherever they appear. The real projects carry no results and no quotes on purpose — no verified metrics exist for them, and inventing any would be worse than showing none.",
   "projects": [
     {
+      "slug": "ellison-reyes",
+      "kind": "product",
+      "placeholder": false,
+      "_note": "Ellison & Reyes is a demo agency name (555 numbers, AI-generated Wanted faces); the site, forms and CRM are real, working software at public/demos/ellison-reyes/, captured by scripts/capture-ellison.mjs.",
+      "featured": true,
+      "spotlight": true,
+      "category": "company-website",
+      "year": 2026,
+      "cover": "/images/portfolio/ellison-reyes-cover.jpg",
+      "gallery": [
+        "/images/portfolio/ellison-reyes-shot-2.jpg",
+        "/images/portfolio/ellison-reyes-shot-3.jpg",
+        "/images/portfolio/ellison-reyes-shot-4.jpg"
+      ],
+      "services": [
+        "websites-web-apps",
+        "business-systems",
+        "automation"
+      ],
+      "stack": [
+        "HTML/CSS/JS",
+        "Leaflet maps",
+        "Gemini AI chat"
+      ],
+      "links": {
+        "demo": "/demos/ellison-reyes/index.html"
+      },
+      "en": {
+        "client": "Ellison & Reyes Bail Bonds",
+        "sector": "Bail bonds",
+        "country": "California",
+        "title": "A complete bail agency website, front desk to back office",
+        "summary": "Everything a family needs at 2 a.m. — the cost, the jails, starting bail, e-signing and paying online — and the court dates, check-ins and CRM the office needs the morning after. In English and Spanish.",
+        "challenge": "A family calling at 2 a.m. wants three things fast: what it costs, whether you cover their jail and whether they can trust you. The office then has to collect signatures, payments and check-ins and make sure nobody misses court — usually by phone, paper and spreadsheet.",
+        "solution": "One site that does both jobs. Families see the premium and a payment plan before they call, find their jail on a live map, pick an agent, start the bail and e-sign online, and pay by card, wallet, Zelle or Cash App. Defendants check in weekly and get court reminders by text. A 24/7 assistant answers in English and Spanish, and staff work from a CRM with every bond, court date and payment on one screen. Shown with Ellison & Reyes, a demo agency — every page, form and screen works.",
+        "capabilities": [
+          "Premium calculator",
+          "Live jail map",
+          "Online bail start & e-sign",
+          "Online payments & plans",
+          "Weekly check-in",
+          "Court reminders by SMS",
+          "24/7 AI chat",
+          "English & Español",
+          "Agency CRM"
+        ],
+        "results": [],
+        "highlights": [
+          {
+            "title": "Families call you first",
+            "text": "A site that looks trustworthy at 2 a.m., with the number one tap away on every screen."
+          },
+          {
+            "title": "Paperwork, done online",
+            "text": "Applications, e-signatures and payments from a phone — no drive to the office."
+          },
+          {
+            "title": "Court dates, handled",
+            "text": "Reminders by text and weekly check-ins, so fewer hearings are missed."
+          }
+        ],
+        "rows": [
+          {
+            "title": "The cost, before they call",
+            "text": "Families drag to their bail amount and see the premium and a payment plan — the question every caller asks first, answered on the page."
+          },
+          {
+            "title": "Bail started and signed online",
+            "text": "A four-step application: who is in custody, the cosigner, the bail, and an e-signature. The agent calls back within minutes."
+          },
+          {
+            "title": "Every way a family pays",
+            "text": "Card, Apple Pay, Google Pay, Zelle, Cash App or bank, with plans tracked and autopay on the 15th."
+          },
+          {
+            "title": "The office on one screen",
+            "text": "Active bonds, liability, premiums collected, missed check-ins and this week’s court dates — the staff portal, powered by TRACE Bail."
+          }
+        ]
+      },
+      "media": {
+        "rows": [
+          {
+            "image": "/images/work/ellison-reyes/row-1.jpg",
+            "phone": "/images/work/ellison-reyes/phone-1.jpg"
+          },
+          {
+            "image": "/images/work/ellison-reyes/row-2.jpg",
+            "phone": "/images/work/ellison-reyes/phone-2.jpg"
+          },
+          {
+            "image": "/images/work/ellison-reyes/row-3.jpg",
+            "phone": "/images/work/ellison-reyes/phone-3.jpg"
+          },
+          {
+            "image": "/images/work/ellison-reyes/row-4.jpg"
+          }
+        ],
+        "mobiles": [
+          "/images/work/ellison-reyes/m-1.jpg",
+          "/images/work/ellison-reyes/m-2.jpg",
+          "/images/work/ellison-reyes/m-3.jpg",
+          "/images/work/ellison-reyes/m-4.jpg"
+        ],
+        "full": {
+          "src": "/images/work/ellison-reyes/full.jpg",
+          "width": 1200,
+          "height": 7500
+        }
+      }
+    },
+    {
       "slug": "ironwood-bail-bonds",
       "kind": "concept",
       "placeholder": true,
@@ -55,7 +167,68 @@
             "value": "24/7",
             "label": "call and chat"
           }
+        ],
+        "highlights": [
+          {
+            "title": "Credible in a second",
+            "text": "License, Google rating and years served up front, on a calm, professional page."
+          },
+          {
+            "title": "One tap to call",
+            "text": "The 24/7 number on every screen, and a release form that takes a minute."
+          },
+          {
+            "title": "Costs made clear",
+            "text": "Premiums and payment plans explained before the family has to ask."
+          }
+        ],
+        "rows": [
+          {
+            "title": "The release, started tonight",
+            "text": "The 24/7 number and a short release form side by side, above the fold, on every device."
+          },
+          {
+            "title": "How bail works, in three steps",
+            "text": "Call or start online, sign from your phone, we post the bond — told plainly for a family under stress."
+          },
+          {
+            "title": "Bail you can afford",
+            "text": "Weekly or monthly plans, a low down payment and every way to pay, set out before the call."
+          },
+          {
+            "title": "Proof from real families",
+            "text": "Google reviews in the family’s own words, next to the answers they search for."
+          }
         ]
+      },
+      "media": {
+        "rows": [
+          {
+            "image": "/images/work/ironwood-bail-bonds/row-1.jpg",
+            "phone": "/images/work/ironwood-bail-bonds/phone-1.jpg"
+          },
+          {
+            "image": "/images/work/ironwood-bail-bonds/row-2.jpg"
+          },
+          {
+            "image": "/images/work/ironwood-bail-bonds/row-3.jpg",
+            "phone": "/images/work/ironwood-bail-bonds/phone-3.jpg"
+          },
+          {
+            "image": "/images/work/ironwood-bail-bonds/row-4.jpg"
+          }
+        ],
+        "mobiles": [
+          "/images/work/ironwood-bail-bonds/m-1.jpg",
+          "/images/work/ironwood-bail-bonds/m-2.jpg",
+          "/images/work/ironwood-bail-bonds/m-3.jpg",
+          "/images/work/ironwood-bail-bonds/m-4.jpg"
+        ],
+        "full": {
+          "src": "/images/work/ironwood-bail-bonds/full.jpg",
+          "width": 1200,
+          "height": 4903
+        }
       }
     },
     {
@@ -103,7 +276,49 @@
           "Check-in tracking",
           "English & Spanish"
         ],
-        "results": []
+        "results": [],
+        "highlights": [
+          {
+            "title": "One record per bond",
+            "text": "Defendant, cosigners, court dates, payments and documents in one place."
+          },
+          {
+            "title": "Court dates run themselves",
+            "text": "Reminders by text in English and Spanish, and missed check-ins flagged."
+          },
+          {
+            "title": "Signed and paid from a phone",
+            "text": "Cosigners e-sign and pay the premium without coming to the office."
+          }
+        ],
+        "rows": [
+          {
+            "title": "The agency portal",
+            "text": "Active bonds, release times, court appearance rate and premiums at a glance — and who missed a check-in, before it costs you."
+          },
+          {
+            "title": "Built for the agent in the field",
+            "text": "The agent app sends bonds for signature and shows the week’s court dates and clients — the office in a pocket."
+          }
+        ]
+      },
+      "media": {
+        "rows": [
+          {
+            "image": "/images/work/trace-bail/row-1.jpg",
+            "phone": "/images/work/trace-bail/phone-1.jpg"
+          },
+          {
+            "image": "/images/work/trace-bail/row-2.jpg",
+            "phone": "/images/work/trace-bail/phone-2.jpg"
+          }
+        ],
+        "mobiles": [
+          "/images/work/trace-bail/m-1.jpg",
+          "/images/work/trace-bail/m-2.jpg",
+          "/images/work/trace-bail/m-3.jpg",
+          "/images/work/trace-bail/m-4.jpg"
+        ]
       }
     },
     {
@@ -142,9 +357,70 @@
           "Project gallery",
           "Lead capture"
         ],
-        "results": []
+        "results": [],
+        "highlights": [
+          {
+            "title": "Credibility up front",
+            "text": "Certifications and technical partners where an industrial buyer looks first."
+          },
+          {
+            "title": "Proof in pictures",
+            "text": "Megawatt-scale installations with a gallery of their own."
+          },
+          {
+            "title": "Every page asks for the enquiry",
+            "text": "A consultation request one click from every section."
+          }
+        ],
+        "rows": [
+          {
+            "title": "A clear promise, and the next step",
+            "text": "More efficient energy, lower costs — and a technical consultation button right under it."
+          },
+          {
+            "title": "The projects do the talking",
+            "text": "Rooftop and ground-mounted installations, with capacity and client, in a gallery a buyer can browse."
+          },
+          {
+            "title": "Standards a buyer checks",
+            "text": "Accreditations, ISO certifications and EPC capability, stated plainly."
+          },
+          {
+            "title": "Trusted by names they know",
+            "text": "Clients and technical partners in one strip, where trust is decided."
+          }
+        ]
       },
-      "category": "company-website"
+      "category": "company-website",
+      "media": {
+        "rows": [
+          {
+            "image": "/images/work/future-earth-energy/row-1.jpg",
+            "phone": "/images/work/future-earth-energy/phone-1.jpg"
+          },
+          {
+            "image": "/images/work/future-earth-energy/row-2.jpg",
+            "phone": "/images/work/future-earth-energy/phone-2.jpg"
+          },
+          {
+            "image": "/images/work/future-earth-energy/row-3.jpg"
+          },
+          {
+            "image": "/images/work/future-earth-energy/row-4.jpg"
+          }
+        ],
+        "mobiles": [
+          "/images/work/future-earth-energy/m-1.jpg",
+          "/images/work/future-earth-energy/m-2.jpg",
+          "/images/work/future-earth-energy/m-3.jpg",
+          "/images/work/future-earth-energy/m-4.jpg"
+        ],
+        "full": {
+          "src": "/images/work/future-earth-energy/full.jpg",
+          "width": 1200,
+          "height": 6467
+        }
+      }
     },
     {
       "slug": "whatsapp-crm",
@@ -192,46 +468,61 @@
           "Broadcasts",
           "Analytics"
         ],
-        "results": []
-      }
-    },
-    {
-      "slug": "retal-residence",
-      "kind": "client",
-      "featured": true,
-      "spotlight": true,
-      "cover": "/images/portfolio/retal-residence-cover.jpg",
-      "gallery": [
-        "/images/portfolio/retal-residence-shot-2.jpg",
-        "/images/portfolio/retal-residence-shot-3.jpg",
-        "/images/portfolio/retal-residence-shot-4.jpg"
-      ],
-      "services": [
-        "websites-web-apps"
-      ],
-      "stack": [
-        "React",
-        "Vite"
-      ],
-      "links": {
-        "live": "https://retal-residence-landing.vercel.app/"
-      },
-      "en": {
-        "client": "Retal Residence",
-        "sector": "Real estate",
-        "country": "Saudi Arabia",
-        "title": "A bilingual landing page for an ultra-premium compound",
-        "summary": "Seven residence types, clubhouse facilities and neighbourhood highlights — all built around scheduling a visit.",
-        "challenge": "An ultra-premium residential compound in Al Khobar needed one page that could carry its standard in both Arabic and English: seven residence types, the clubhouse, the neighbourhood — and end in a scheduled visit rather than a phone number at the bottom.",
-        "solution": "A bilingual landing page with an English/Arabic toggle and full right-to-left support. Each residence type — apartments, town villas and executive villas — has its floor plan and specifications; the fifty-plus amenities are shown as a set rather than a list; the neighbourhood is placed by its landmarks. Schedule-a-visit and WhatsApp enquiry flows stay in reach the whole way down.",
-        "capabilities": [
-          "Landing page",
-          "Bilingual",
-          "Enquiry flows"
+        "results": [],
+        "highlights": [
+          {
+            "title": "One shared inbox",
+            "text": "Every WhatsApp conversation, assigned and answered by the team."
+          },
+          {
+            "title": "From chat to revenue",
+            "text": "Leads, deals and campaigns tracked from the first message."
+          },
+          {
+            "title": "Automation and AI",
+            "text": "Replies, routing and follow-ups that run without a person."
+          }
         ],
-        "results": []
+        "rows": [
+          {
+            "title": "Six systems, one platform",
+            "text": "Shared inbox, AI agent, CRM, automations, campaigns and analytics — built as one product."
+          },
+          {
+            "title": "Your inbox, in your pocket",
+            "text": "The same conversations on the phone, with the numbers that matter on top."
+          },
+          {
+            "title": "Built for the desks that run the business",
+            "text": "Dashboards and conversations on every screen size the team works on."
+          },
+          {
+            "title": "The workspace your team lives in",
+            "text": "The customer’s whole story beside the message — notes, deals and history."
+          }
+        ]
       },
-      "category": "landing-page"
+      "media": {
+        "rows": [
+          {
+            "image": "/images/work/whatsapp-crm/row-1.jpg",
+            "frame": "none"
+          },
+          {
+            "image": "/images/work/whatsapp-crm/row-2.jpg",
+            "frame": "none"
+          },
+          {
+            "image": "/images/work/whatsapp-crm/row-3.jpg",
+            "frame": "none"
+          },
+          {
+            "image": "/images/work/whatsapp-crm/row-4.jpg",
+            "frame": "none"
+          }
+        ],
+        "mobiles": []
+      }
     },
     {
       "slug": "fancystays",
@@ -266,378 +557,60 @@
           "Property pages",
           "Photo gallery"
         ],
-        "results": []
-      }
-    },
-    {
-      "slug": "fateen-website",
-      "kind": "client",
-      "featured": false,
-      "spotlight": true,
-      "group": "fateen",
-      "services": [
-        "websites-web-apps"
-      ],
-      "cover": "/images/portfolio/fateen-website-cover.jpg",
-      "gallery": [
-        "/images/portfolio/fateen-website-shot-2.jpg"
-      ],
-      "stack": [
-        "WordPress"
-      ],
-      "links": {
-        "live": "https://fateenksa.com/"
-      },
-      "en": {
-        "client": "Fateen",
-        "sector": "Marketing",
-        "country": "Saudi Arabia",
-        "title": "The main website for a Saudi marketing agency",
-        "summary": "Services, portfolio, clients, official credentials and answers to real questions — the agency’s home online, in Arabic.",
-        "challenge": "A marketing agency’s own website is the first thing its prospects judge it by. It had to present six service lines, the agency’s work and the registrations of a licensed Saudi business in one place.",
-        "solution": "An Arabic company website built around proof: the service lines laid out one by one, the portfolio and client partners, the agency’s official registrations shown where a cautious buyer looks for them, answers to the questions prospects actually ask, and call and WhatsApp buttons that stay on screen.",
-        "capabilities": [
-          "Company website",
-          "Portfolio",
-          "Lead capture"
-        ],
-        "results": []
-      },
-      "category": "company-website"
-    },
-    {
-      "slug": "fateen-real-estate",
-      "kind": "client",
-      "featured": false,
-      "spotlight": false,
-      "group": "fateen",
-      "services": [
-        "websites-web-apps"
-      ],
-      "cover": "/images/portfolio/fateen-real-estate-cover.jpg",
-      "gallery": [
-        "/images/portfolio/fateen-real-estate-shot-2.jpg",
-        "/images/portfolio/fateen-real-estate-shot-3.jpg",
-        "/images/portfolio/fateen-real-estate-shot-4.jpg"
-      ],
-      "stack": [],
-      "links": {
-        "live": "https://fateenksa.com/RealState/"
-      },
-      "en": {
-        "client": "Fateen",
-        "sector": "Marketing",
-        "country": "Saudi Arabia",
-        "title": "A landing page for the agency’s real estate line",
-        "summary": "The campaigns, landing pages, video and design the agency delivers for Saudi property companies — shown, not described.",
-        "challenge": "Property buyers take longer to decide, and developers are wary of agencies. The agency needed a page that proves its real estate record rather than one that talks about it.",
-        "solution": "A focused Arabic landing page that shows instead of claims: the property companies the agency works with, the ad platforms it runs campaigns on, real campaign screenshots with their figures as reported by the ad accounts, landing-page, video and design samples — and WhatsApp and call buttons at every step.",
-        "capabilities": [
-          "Landing page",
-          "Work showcase",
-          "Lead capture"
-        ],
-        "results": []
-      },
-      "category": "landing-page"
-    },
-    {
-      "slug": "fateen-ads",
-      "kind": "client",
-      "featured": false,
-      "spotlight": false,
-      "group": "fateen",
-      "services": [
-        "websites-web-apps"
-      ],
-      "cover": "/images/portfolio/fateen-ads-cover.jpg",
-      "gallery": [
-        "/images/portfolio/fateen-ads-shot-2.jpg",
-        "/images/portfolio/fateen-ads-shot-3.jpg",
-        "/images/portfolio/fateen-ads-shot-4.jpg"
-      ],
-      "stack": [],
-      "links": {
-        "live": "https://fateenksa.com/ads/"
-      },
-      "en": {
-        "client": "Fateen",
-        "sector": "Marketing",
-        "country": "Saudi Arabia",
-        "title": "The landing page behind the agency’s own ads",
-        "summary": "Where the agency’s paid campaigns send their traffic — built to turn a click into a consultation.",
-        "challenge": "Paid traffic is expensive, and a visitor from an ad decides in seconds. The agency needed a page built for exactly that visitor.",
-        "solution": "A fast Arabic landing page with one job. A clear headline and a free-consultation offer above the fold, the agency’s official credentials straight after, the platforms it works with — Google, Meta, Snapchat, TikTok, Salla and Zid — its client logos, six service lines, an FAQ written around real objections, and WhatsApp and call buttons fixed on screen. Light and dark themes included.",
-        "capabilities": [
-          "Landing page",
-          "Conversion design",
-          "Dark mode"
-        ],
-        "results": []
-      },
-      "category": "landing-page"
-    },
-    {
-      "slug": "fateen-web-development",
-      "kind": "client",
-      "featured": false,
-      "spotlight": false,
-      "cover": "/images/portfolio/fateen-web-development-cover.jpg",
-      "gallery": [
-        "/images/portfolio/fateen-web-development-shot-2.jpg",
-        "/images/portfolio/fateen-web-development-shot-3.jpg",
-        "/images/portfolio/fateen-web-development-shot-4.jpg"
-      ],
-      "services": [
-        "websites-web-apps"
-      ],
-      "stack": [
-        "React",
-        "CSS"
-      ],
-      "links": {
-        "live": "https://fateenksa.com/web-development/"
-      },
-      "en": {
-        "client": "Fateen",
-        "sector": "Marketing",
-        "country": "Saudi Arabia",
-        "title": "A landing page for the agency’s web development line",
-        "summary": "A landing page for an agency’s web development line, written to turn visitors into qualified leads.",
-        "challenge": "A Saudi digital marketing agency needed one page to sell a single service line — websites, online stores and landing pages — clearly enough that the lead arrives already knowing what it wants.",
-        "solution": "A conversion-focused Arabic landing page: the services broken down so a visitor can see which one they need, trust signals and credentials placed exactly where the doubt appears, and WhatsApp and phone calls-to-action repeated down the page rather than parked at the bottom.",
-        "capabilities": [
-          "Landing page",
-          "Conversion design",
-          "Lead capture"
-        ],
-        "results": []
-      },
-      "group": "fateen",
-      "category": "landing-page"
-    },
-    {
-      "slug": "elite-gpt",
-      "kind": "product",
-      "featured": false,
-      "spotlight": true,
-      "inDevelopment": true,
-      "category": "saas",
-      "cover": "/images/portfolio/elite-gpt-cover.jpg",
-      "gallery": [
-        "/images/portfolio/elite-gpt-shot-2.jpg",
-        "/images/portfolio/elite-gpt-shot-3.jpg",
-        "/images/portfolio/elite-gpt-shot-4.jpg"
-      ],
-      "services": [
-        "custom-software",
-        "saas-products"
-      ],
-      "stack": [
-        "React",
-        "MongoDB",
-        "Hugging Face",
-        "SCSS"
-      ],
-      "links": {
-        "live": "https://elitegpt.vercel.app/",
-        "source": "https://github.com/bobos12/ELITE-GPT"
-      },
-      "en": {
-        "client": "ELITE GPT",
-        "sector": "Legal tech",
-        "title": "An AI legal assistant, available around the clock",
-        "summary": "A legal assistant that answers questions about your rights, guides you through common legal issues and helps draft basic documents.",
-        "challenge": "Ordinary legal questions — what your rights are, what a basic document needs to say — usually mean finding a lawyer first. Most people simply never ask them.",
-        "solution": "A chat assistant built on a Hugging Face model with a knowledge base spanning several areas of law. It answers questions about rights and common legal situations and helps draft basic legal documents, in an interface anyone can use without being walked through it. Still in development.",
-        "capabilities": [
-          "AI assistant",
-          "Chat interface",
-          "Document drafting",
-          "Knowledge base"
-        ],
-        "results": []
-      }
-    },
-    {
-      "slug": "lamabooking",
-      "kind": "product",
-      "featured": false,
-      "spotlight": true,
-      "category": "booking-website",
-      "cover": "/images/portfolio/lamabooking-cover.jpg",
-      "gallery": [
-        "/images/portfolio/lamabooking-shot-2.jpg",
-        "/images/portfolio/lamabooking-shot-3.jpg",
-        "/images/portfolio/lamabooking-shot-4.jpg"
-      ],
-      "services": [
-        "business-systems",
-        "custom-software"
-      ],
-      "stack": [
-        "React",
-        "Node.js",
-        "Express",
-        "MongoDB",
-        "JWT"
-      ],
-      "links": {
-        "source": "https://github.com/bobos12/LAMA-BOOKING"
-      },
-      "en": {
-        "client": "LamaBooking",
-        "sector": "Hospitality",
-        "title": "Hotel search, booking and an admin panel",
-        "summary": "A full-stack booking application: search with real-time availability, secure accounts, and an admin panel behind it.",
-        "challenge": "A booking product has two sides that must stay in step — guests searching for what is actually free, and staff changing listings, rooms and reservations behind them.",
-        "solution": "A MERN application with a REST API on Node and Express, JWT authentication for accounts, and a MongoDB layer with validation. Guests search against real-time availability; the admin panel manages listings, rooms and reservations against the same data, so the two sides can never drift apart.",
-        "capabilities": [
-          "Booking system",
-          "Admin panel",
-          "REST API",
-          "Authentication"
-        ],
-        "results": []
-      },
-      "_note": "The client app is not published, so the showcase shows the real API source (assets/captures/lamabooking/). Add client screenshots here if the frontend is deployed."
-    },
-    {
-      "slug": "clearwater-dental",
-      "kind": "concept",
-      "placeholder": true,
-      "featured": false,
-      "spotlight": false,
-      "year": 2026,
-      "cover": "/images/portfolio/clinic-booking.jpg",
-      "gallery": [
-        "/images/ui/freight-mobile-approve-light.png",
-        "/images/ui/freight-dashboard-dark.png"
-      ],
-      "services": [
-        "clinic-management",
-        "mobile-apps"
-      ],
-      "stack": [
-        "Next.js",
-        "Supabase",
-        "Twilio"
-      ],
-      "en": {
-        "client": "Clearwater Dental",
-        "sector": "Healthcare",
-        "country": "Texas",
-        "title": "Booking patients actually finish",
-        "summary": "Online booking, shared patient records and SMS reminders for a dental group.",
-        "challenge": "Phone-only booking, paper files and a 30% no-show rate.",
-        "solution": "Online booking, a shared patient record across offices, and automated SMS reminders.",
-        "capabilities": [],
-        "results": [
+        "results": [],
+        "highlights": [
           {
-            "value": "−42%",
-            "label": "no-shows"
+            "title": "Booking first",
+            "text": "Dates and guests on the first screen, so browsing turns into a stay."
           },
           {
-            "value": "3",
-            "label": "offices, one record"
+            "title": "Every view, shown",
+            "text": "Galleries that sell the skyline before the guest arrives."
           },
           {
-            "value": "70%",
-            "label": "bookings online"
+            "title": "Luxury, in every detail",
+            "text": "Type, colour and imagery that match the price of the stay."
+          }
+        ],
+        "rows": [
+          {
+            "title": "The stay starts on the first screen",
+            "text": "A Burj Khalifa view and a booking bar with dates and guests, right above the fold."
+          },
+          {
+            "title": "Every property, beautifully sold",
+            "text": "Panoramic stays with the nightly price and a clear way to the details."
+          },
+          {
+            "title": "Every comfort, listed",
+            "text": "Hotel comforts, wellness and leisure, and a gallery of every room."
           }
         ]
-      }
-    },
-    {
-      "slug": "harbor-main-realty",
-      "kind": "concept",
-      "placeholder": true,
-      "featured": false,
-      "spotlight": false,
-      "year": 2025,
-      "cover": "/images/portfolio/realty-app.jpg",
-      "gallery": [
-        "/images/ui/freight-mobile-home-en-light.png",
-        "/images/ui/freight-mobile-splash-dark.png"
-      ],
-      "services": [
-        "mobile-apps",
-        "dashboards-admin"
-      ],
-      "stack": [
-        "React Native",
-        "Node.js"
-      ],
-      "en": {
-        "client": "Harbor & Main Realty",
-        "sector": "Real estate",
-        "country": "New Jersey",
-        "title": "A broker app agents open 40 times a day",
-        "summary": "Listings, leads and deal tracking for a brokerage's agents.",
-        "challenge": "Leads lived in personal phones and were lost when agents left.",
-        "solution": "A mobile app for agents and a dashboard for managers, with every lead owned by the company.",
-        "capabilities": [],
-        "results": [
+      },
+      "media": {
+        "rows": [
           {
-            "value": "40×",
-            "label": "daily opens per agent"
+            "image": "/images/work/fancystays/row-1.jpg",
+            "phone": "/images/work/fancystays/phone-1.jpg"
           },
           {
-            "value": "+23%",
-            "label": "leads converted"
-          }
-        ]
-      }
-    },
-    {
-      "slug": "ridgeline-freight",
-      "kind": "concept",
-      "placeholder": true,
-      "featured": false,
-      "spotlight": false,
-      "year": 2026,
-      "cover": "/images/portfolio/logistics-portal.jpg",
-      "gallery": [
-        "/images/ui/freight-dashboard-light.png",
-        "/images/ui/freight-mobile-home-en-light.png",
-        "/images/ui/freight-dashboard-dark.png"
-      ],
-      "services": [
-        "business-systems",
-        "mobile-apps",
-        "apis-integrations"
-      ],
-      "stack": [
-        "Next.js",
-        "React Native",
-        "PostgreSQL"
-      ],
-      "en": {
-        "client": "Ridgeline Freight",
-        "sector": "Logistics",
-        "country": "Ohio",
-        "title": "From a group text to one operations portal",
-        "summary": "An operations portal, driver app and NetSuite sync for 11 depots.",
-        "challenge": "Dispatch ran on a group text and three spreadsheets that only one person understood.",
-        "solution": "Two weeks of discovery in the warehouses, then a portal, a driver app and an ERP sync shipped every two weeks.",
-        "capabilities": [],
-        "results": [
-          {
-            "value": "6 min",
-            "label": "to dispatch, from 40"
+            "image": "/images/work/fancystays/row-2.jpg",
+            "phone": "/images/work/fancystays/phone-2.jpg"
           },
           {
-            "value": "11",
-            "label": "depots on one system"
-          },
-          {
-            "value": "0",
-            "label": "lost delivery notes"
+            "image": "/images/work/fancystays/row-3.jpg"
           }
         ],
-        "quote": {
-          "text": "It feels like the system was built by someone who worked here.",
-          "by": "Head of Dispatch"
+        "mobiles": [
+          "/images/work/fancystays/m-1.jpg",
+          "/images/work/fancystays/m-2.jpg",
+          "/images/work/fancystays/m-3.jpg",
+          "/images/work/fancystays/m-4.jpg"
+        ],
+        "full": {
+          "src": "/images/work/fancystays/full.jpg",
+          "width": 1200,
+          "height": 2589
         }
       }
     }

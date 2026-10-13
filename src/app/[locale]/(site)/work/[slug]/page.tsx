@@ -30,6 +30,7 @@ import { ProjectCover } from '@/components/sections/ProjectCover';
 import { ProjectGallery } from '@/components/sections/ProjectGallery';
 import { ProjectBadges, kindLabel, metaLine } from '@/components/sections/ProjectMeta';
 import { Breadcrumbs } from '@/components/seo/Breadcrumbs';
+import { CaseCta, CaseFullPage, CaseHighlights, CaseMobiles, CaseRows } from '@/components/case/CaseSections';
 
 export function generateStaticParams() {
   return routing.locales.flatMap((locale) =>
@@ -221,7 +222,10 @@ export default async function ProjectPage({
       {/* 2 · The cover, across the seam between the band and the page. */}
       <ProjectCover src={project.cover} alt={`${project.client} — ${project.title}`} />
 
-      {/* 3 · Facts sidebar + body. */}
+      {/* 3 · What it does for the business, before the story. */}
+      <CaseHighlights project={project} ui={ui} />
+
+      {/* 4 · Facts sidebar + the story. */}
       <section className="border-b border-line bg-surface py-[var(--section-y)]">
         <Container className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-8">
           <dl className="flex flex-col gap-6 lg:col-span-3 lg:sticky lg:top-24 lg:self-start">
@@ -259,7 +263,6 @@ export default async function ProjectPage({
           <div className="flex flex-col gap-12 lg:col-span-8 lg:col-start-5">
             {project.challenge ? (
               <Reveal as="section" className="flex flex-col gap-4">
-                <p className="eyebrow text-ink-muted">01 ◆ {ui.challenge}</p>
                 <h2 className="display-md">{ui.challenge}</h2>
                 <p className="body-lg max-w-[62ch] text-ink-muted">{project.challenge}</p>
               </Reveal>
@@ -267,7 +270,6 @@ export default async function ProjectPage({
 
             {project.solution ? (
               <Reveal as="section" className="flex flex-col gap-4">
-                <p className="eyebrow text-ink-muted">02 ◆ {ui.whatWeDid}</p>
                 <h2 className="display-md">{ui.whatWeDid}</h2>
                 <p className="body-lg max-w-[62ch] text-ink-muted">{project.solution}</p>
               </Reveal>
@@ -275,7 +277,6 @@ export default async function ProjectPage({
 
             {project.results.length ? (
               <Reveal as="section" className="flex flex-col gap-4">
-                <p className="eyebrow text-ink-muted">03 ◆ {ui.results}</p>
                 <h2 className="display-md">{ui.results}</h2>
                 <ul className="border-t border-line">
                   {project.results.map((r) => (
@@ -301,10 +302,22 @@ export default async function ProjectPage({
           </div>
         </Container>
 
-        {/* 4 · The gallery gets the full measure — the images are the proof. */}
-        {project.gallery.length ? (
-          <Container className="mt-[var(--section-y)] flex flex-col gap-8">
-            <h2 className="eyebrow text-ink-muted">{ui.gallery}</h2>
+      </section>
+
+      {/* 5–7 · The screens one by one, the phone, the whole page. */}
+      {project.media ? (
+        <>
+          <CaseRows project={project} media={project.media} ui={ui} />
+          <CaseMobiles media={project.media} ui={ui} />
+          <CaseFullPage project={project} media={project.media} ui={ui} />
+        </>
+      ) : null}
+
+      {/* 8 · The gallery: the showcase slides. */}
+      {project.gallery.length ? (
+        <section className="border-b border-line bg-surface py-[var(--section-y)]">
+          <Container className="flex flex-col gap-8">
+            <h2 className="display-md m-0">{ui.gallery}</h2>
             <ProjectGallery
               images={project.gallery}
               title={project.title}
@@ -316,10 +329,13 @@ export default async function ProjectPage({
               }}
             />
           </Container>
-        ) : null}
-      </section>
+        </section>
+      ) : null}
 
-      {/* 6 · Next project. */}
+      {/* 9 · The ask. */}
+      <CaseCta site={site} project={project} />
+
+      {/* 10 · Next project. */}
       {nextProject ? (
         <section className="border-b border-line bg-surface">
           <Link

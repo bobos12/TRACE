@@ -60,32 +60,15 @@ function Commitment({ text }: { text: string }) {
  * hover, replaced under reduced motion by the same items, wrapped and still.
  * The counts beneath roll up once, the first time they enter view.
  */
-export function TrustStrip({ site, clients }: { site: Site; clients: ClientLogo[] }) {
+export function TrustStrip({ site }: { site: Site }) {
   const { promises } = site.trust;
 
   return (
     <section
       className="bg-surface pt-12 [--logo-k:46px] sm:[--logo-k:58px] md:pt-16 lg:[--logo-k:64px]"
-      aria-labelledby="clients-title"
     >
       <Container className="flex flex-col items-center">
-        <Reveal as="h2" id="clients-title" className="eyebrow m-0 text-center text-ink-faint">
-          {site.trust.logosTitle}
-        </Reveal>
-        <ul className="mt-10 flex w-full flex-wrap items-center justify-center gap-x-3 gap-y-8 sm:gap-x-12 lg:gap-x-20">
-          {clients.map((c, i) => (
-            <li
-              key={c.slug}
-              // Mobile: first client (Future Earth) goes to the middle of row one.
-              className={`flex w-[calc((100%-1.5rem)/3)] items-center justify-center sm:order-0 sm:w-auto ${
-                i === 0 ? 'order-1' : i === 1 ? 'order-0' : 'order-2'
-              }`}
-            >
-              <Mark client={c} />
-            </li>
-          ))}
-        </ul>
-        <p className="eyebrow mt-14 text-center text-ink-faint">{site.trust.title}</p>
+        <p className="eyebrow text-center text-ink-faint">{site.trust.title}</p>
       </Container>
 
       <div

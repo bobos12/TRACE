@@ -99,8 +99,8 @@ export function ProductStack({ alt }: ProductStackProps) {
   useScrollProgress(ref, { offset: 'contain' });
   usePointerParallax(ref);
 
-  const website = '/images/ui/website-home-en-light.png';
-  const mobile = '/images/ui/mobile-home-en-light.png';
+  const website = '/images/ellison-reyes/site-home.jpg';
+  const mobile = '/images/ellison-reyes/mobile-cost.jpg';
 
   return (
     <div
@@ -156,8 +156,8 @@ export function ProductStack({ alt }: ProductStackProps) {
             <Image
               src={mobile}
               alt={alt.mobile}
-              width={720}
-              height={1520}
+              width={780}
+              height={1688}
               sizes="(max-width: 640px) 26vw, 180px"
               priority
               className="h-auto w-full"

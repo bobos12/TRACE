@@ -21,7 +21,6 @@ export function Moment({ copy }: { copy: BailBonds }) {
     <section className="border-b border-line bg-surface py-[var(--section-y)]" aria-labelledby="moment-title">
       <Container className="grid grid-cols-1 items-center gap-16 md:grid-cols-12 md:gap-8">
         <div className="flex flex-col gap-8 md:col-span-6">
-          <Reveal className="eyebrow text-ink-muted">{moment.eyebrow}</Reveal>
           <Reveal as="h2" id="moment-title" className="display-lg m-0">
             <StopText>{moment.title}</StopText>
           </Reveal>

@@ -174,29 +174,29 @@ export function ChatAssistant({
             className={cn(
               'at-cut group relative flex items-center bg-ink text-surface shadow-[var(--shadow-float)]',
               'transition-transform duration-[160ms] ease-mark hover:-translate-y-0.5 motion-reduce:transition-none',
-              'h-14 w-[17rem] gap-2 ps-2 pe-2 md:h-16 md:w-[21rem] md:gap-3 md:ps-3 md:pe-3',
+              'h-12 w-[14.5rem] gap-1.5 ps-1.5 pe-1.5 md:h-16 md:w-[21rem] md:gap-3 md:ps-3 md:pe-3',
             )}
             style={{ '--cut': '12px' } as CSSProperties}
           >
-            <span className="grid size-9 flex-none place-items-center bg-surface/10 md:size-10">
+            <span className="grid size-8 flex-none place-items-center bg-surface/10 md:size-10">
               <ChatGlyph className="size-6" />
             </span>
 
             <span className="flex min-w-0 flex-1 flex-col items-start">
-              <span className="flex items-center gap-1.5 font-mono text-[11px] leading-4 text-surface/70">
+              <span className="flex items-center gap-1.5 whitespace-nowrap font-mono text-[10px] leading-4 text-surface/70 md:text-[11px]">
                 <span aria-hidden="true" className="at-breathe size-1.5 rotate-45 bg-vermilion" />
                 {copy.launcherStatus}
               </span>
               <span
                 key={cycle}
-                className="bb-arrive block w-full truncate text-start text-[14px] font-medium leading-5 md:text-[15px] md:leading-6"
+                className="bb-arrive block w-full truncate text-start text-[13px] font-medium leading-5 md:text-[15px] md:leading-6"
               >
                 {prompts[cycle]}
               </span>
             </span>
             <span
               aria-hidden="true"
-              className="at-cut grid size-9 flex-none place-items-center bg-nuqta text-on-nuqta transition-transform duration-[160ms] ease-mark group-hover:translate-x-0.5 motion-reduce:transition-none md:size-10"
+              className="at-cut grid size-8 flex-none place-items-center bg-nuqta text-on-nuqta transition-transform duration-[160ms] ease-mark group-hover:translate-x-0.5 motion-reduce:transition-none md:size-10"
               style={{ '--cut': '8px' } as CSSProperties}
             >
               <Icon name="arrow-right" size={18} />

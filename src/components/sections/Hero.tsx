@@ -68,6 +68,7 @@ export function Hero({ site }: { site: Site }) {
           </p>
 
           <p
+            id="hero-lead"
             className="body-lg order-6 max-w-[44ch] text-ink-muted md:order-none"
           >
             {hero.lead}
@@ -79,9 +80,9 @@ export function Hero({ site }: { site: Site }) {
             <BookCallButton placement="hero" size="lg" block className="md:w-auto">
               {hero.primaryCta}
             </BookCallButton>
-            {/* Straight to the project brief in the contact band. */}
+            {/* Down to the live demo, the strongest proof on the page. */}
             <Button
-              href="#order"
+              href="#demo"
               variant="secondary"
               size="lg"
               iconEnd="arrow-right"

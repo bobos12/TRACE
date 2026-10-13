@@ -11,7 +11,8 @@ import {
   localizeProject,
   localizeService,
 } from '@/lib/content';
-import { pageMetadata } from '@/lib/seo';
+import { jsonLd, pageMetadata } from '@/lib/seo';
+import { faqNode, serviceNode } from '@/lib/structured-data';
 import { Container } from '@/components/ui/Container';
 import { PageHero } from '@/components/sections/PageHero';
 import { ContactBand } from '@/components/sections/ContactBand';
@@ -65,9 +66,14 @@ export default async function ServiceDetailPage({
   const service = localizeService(found, locale);
   const copy = site.pages.serviceDetail;
   const related = getProjectsByService(slug).map((p) => localizeProject(p, locale));
+  const structured = {
+    '@context': 'https://schema.org',
+    '@graph': [serviceNode(service), faqNode(copy.faq)].filter(Boolean),
+  };
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(structured) }} />
       <Breadcrumbs
         trail={[
           { name: site.services.cta, path: '/services' },

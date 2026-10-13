@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Trace Studio | Digital Products, Websites & Software",
-    "description": "Trace Studio is a digital studio building premium websites, software products, business systems, and digital experiences.",
+    "title": "Trace Studio | Websites & Software for Bail Bond Agencies",
+    "description": "Bail bond websites and software: online bail applications, e-sign, payments, court reminders, check-ins and a 24/7 assistant in English and Spanish. See a live demo.",
     "ogImage": "/og/og-home-en.png"
   },
   "nav": {
@@ -18,7 +18,11 @@
         "label": "Industries",
         "href": "/bail-bonds",
         "children": [
-          { "label": "Bail bond agencies", "href": "/bail-bonds", "text": "Websites and AI built for the 2 a.m. search." }
+          {
+            "label": "Bail bond agencies",
+            "href": "/bail-bonds",
+            "text": "Websites and AI built for the 2 a.m. search."
+          }
         ]
       },
       {
@@ -34,31 +38,31 @@
     "email": "Email us"
   },
   "hero": {
-    "eyebrow": "Trace Studio ◆ Digital products, websites & software",
+    "eyebrow": "Trace Studio ◆ Websites & software for bail bond agencies",
     "title": [
-      "Every business",
-      "leaves a mark."
+      "Built for bail",
+      "agencies."
     ],
-    "subtitle": "We build the software that carries it.",
-    "lead": "Websites, apps, business systems and custom software — built by a senior team. Fixed price per phase, and the code is yours.",
+    "subtitle": "Websites and software that get you the call.",
+    "lead": "Bail started and paid online, court reminders sent for you, an assistant that answers when you can’t — built by a senior team. Fixed price per phase, and the code is yours.",
     "primaryCta": "Book a free call",
-    "secondaryCta": "Send a project brief",
-    "reassurance": "Free 30-minute call · NDA on request · Reply within one business day",
+    "secondaryCta": "See it in action",
+    "reassurance": "Free 30-minute call · We review your current site · No obligation",
     "visualAlt": {
-      "dashboard": "Agency portal for a bail bond company, showing active bonds, court dates and premiums",
-      "website": "Studio website home page in a desktop browser",
-      "mobile": "Agent mobile app listing this week's court dates and clients"
+      "dashboard": "TRACE Bail agency portal: active bonds, court dates and premiums",
+      "website": "A bail bond agency website built by TRACE, on a desktop browser",
+      "mobile": "The cost and payment-plan page of the same bail agency website, on a phone"
     }
   },
   "trust": {
     "logosTitle": "Businesses we’ve built for, worldwide",
-    "title": "What every client gets, in writing",
+    "title": "What every agency gets, in writing",
     "promises": [
-      "NDA before the first call",
-      "You own 100% of the code",
-      "Fixed price per phase",
-      "Working software every two weeks",
-      "One point of contact, start to finish",
+      "A written scope and a fixed price",
+      "You own the domain, site and Google profile",
+      "Your phone number and rankings protected",
+      "Your leads stay yours — never shared or resold",
+      "Support after launch, on a simple monthly plan",
       "Stop after any phase, keep everything"
     ],
     "stats": [
@@ -81,9 +85,9 @@
     ]
   },
   "services": {
-    "eyebrow": "02 ◆ What we build",
-    "title": "Software solutions, built around your business.",
-    "lead": "One partner for everything with a login, a workflow or a customer on the other side.",
+    "eyebrow": "04 ◆ Services",
+    "title": "What we build for your business.",
+    "lead": "Four things, done properly. Everything else we build is one click away.",
     "cta": "All services",
     "capabilities": [
       "Personal websites",
@@ -100,7 +104,13 @@
       "Custom software"
     ],
     "request": "Ask about this",
-    "requestMessage": "Project enquiry — {service}"
+    "requestMessage": "Project enquiry — {service}",
+    "home": [
+      "websites-web-apps",
+      "business-systems",
+      "mobile-apps",
+      "automation"
+    ]
   },
   "platforms": {
     "eyebrow": "03 ◆ Platforms",
@@ -132,57 +142,57 @@
   },
   "process": {
     "eyebrow": "05 ◆ How we work",
-    "title": "We understand. We build around it. We leave a mark.",
+    "title": "From first call to a phone that rings.",
     "steps": [
       {
         "n": "01",
-        "title": "Understand",
-        "text": "A free call, then a short discovery with the people who do the work. You get a written scope and a fixed price per phase."
+        "title": "Review",
+        "text": "A free call about your agency, counties and competitors — and an honest look at your site and Google listing."
       },
       {
         "n": "02",
-        "title": "Build around it",
-        "text": "Design and development in two-week cycles. Every two weeks you see working software, demoed live."
+        "title": "Design",
+        "text": "A written scope and fixed price, then designs you approve on your own phone before we build."
       },
       {
         "n": "03",
-        "title": "Launch & measure",
-        "text": "We launch, measure what changed and train your team."
+        "title": "Launch",
+        "text": "Content moved, rankings and phone number protected, call tracking and speed checked."
       },
       {
         "n": "04",
-        "title": "Hand over & support",
-        "text": "Code, docs and accounts are yours from day one. We stay on for support if you want us to."
+        "title": "Grow",
+        "text": "Local SEO, monthly reports in plain English and improvements based on what callers do."
       }
     ]
   },
   "why": {
     "eyebrow": "06 ◆ Why TRACE",
-    "title": "Built to be trusted with your business.",
+    "title": "What every agency gets, in writing.",
     "points": [
       {
-        "title": "Senior people, no sales layer",
-        "text": "You talk directly to the engineers who write your code — from the first call to launch."
-      },
-      {
-        "title": "Straight answers, fast",
-        "text": "Every message answered within one business day, by someone who knows your project."
-      },
-      {
-        "title": "Fixed price per phase",
-        "text": "A written scope and a fixed price. Stop after any phase and keep everything we built."
+        "title": "A fixed price, in writing",
+        "text": "A written scope and a fixed price for each phase. Stop after any phase and keep everything we built."
       },
       {
         "title": "You own everything",
-        "text": "Source code, designs and accounts live in your GitHub and your cloud from day one."
+        "text": "Domain, website, Google profile and code are in your name from day one."
       },
       {
-        "title": "NDA before we talk",
-        "text": "Your idea stays yours. We sign your NDA — or ours — before the first call."
+        "title": "Your number and rankings protected",
+        "text": "We move your site without losing your phone number, reviews or Google rankings."
+      },
+      {
+        "title": "Your leads stay yours",
+        "text": "Every call and form goes to you — never shared, resold or sent to another agency."
+      },
+      {
+        "title": "Senior people, straight answers",
+        "text": "You talk to the engineers who build it. Every message answered within one business day."
       },
       {
         "title": "Support after launch",
-        "text": "Maintenance and improvements on a simple monthly plan, or a clean handover. Your choice."
+        "text": "Updates, fixes and local SEO on a simple monthly plan — or a clean handover. Your choice."
       }
     ]
   },
@@ -200,8 +210,8 @@
     ]
   },
   "cta": {
-    "title": "Tell us how your business works.",
-    "text": "A free 30-minute call. No pitch deck. We'll tell you honestly whether software is the answer.",
+    "title": "Make sure tonight's call is yours.",
+    "text": "A free 30-minute call. We look at your site and Google listing and tell you honestly what would bring in more calls.",
     "book": "Book a free call",
     "bookNote": "Pick a time that suits you — 30 minutes, no obligation.",
     "email": "Email us",
@@ -214,7 +224,7 @@
     "companyLabel": "Company",
     "emailLabel": "Your email",
     "detailsLabel": "A line about the project",
-    "detailsPlaceholder": "e.g. A customer portal that replaces our order spreadsheets.",
+    "detailsPlaceholder": "e.g. A new site for our two counties, with online payments.",
     "submit": "Send brief",
     "sending": "Sending…",
     "hint": "It comes straight to our inbox. We reply within one business day.",
@@ -246,7 +256,7 @@
     }
   },
   "footer": {
-    "tagline": "Every business leaves a mark. We build the software that carries it.",
+    "tagline": "Websites and software for bail bond agencies — built in plain English, and yours to keep.",
     "rights": "© 2026 Trace Studio. All rights reserved.",
     "privacy": "Privacy",
     "terms": "Terms"
@@ -260,10 +270,10 @@
     "launcherStatus": "TRACE AI · online",
     "launcherLabel": "Ask TRACE AI — our assistant answers in seconds",
     "launcherPrompts": [
-      "What would my app cost?",
+      "What would a new site cost?",
       "Can you rebuild our site?",
-      "How fast can you start?",
-      "Ask about your project…"
+      "Can it take payments online?",
+      "Ask about your agency…"
     ],
     "name": "TRACE assistant",
     "status": "Online now",
@@ -271,17 +281,17 @@
     "book": "Book a call",
     "close": "Close the assistant",
     "reset": "Start a new conversation",
-    "welcomeTitle": "Tell me what you’re building.",
+    "welcomeTitle": "Tell me about your agency.",
     "welcomeText": "I can answer questions about our services, how we work, pricing and our projects — and set up a free call with the team when you’re ready.",
     "starters": [
-      "What can you build for my business?",
+      "What can you build for my agency?",
       "How does pricing work?",
-      "Show me work you’ve done",
-      "Where is your team based?",
-      "I have a project in mind"
+      "Show me the live demo",
+      "Can families pay online?",
+      "Can the site be in Spanish?"
     ],
     "inputLabel": "Your message",
-    "inputPlaceholder": "Ask about a project, pricing, timelines…",
+    "inputPlaceholder": "Ask about your site, pricing, timelines…",
     "send": "Send",
     "stop": "Stop",
     "you": "You",
@@ -374,7 +384,15 @@
     "caseStudy": "Case study",
     "bailBonds": "For bail bond agencies",
     "formTitle": "Leave your details",
-    "messagePlaceholder": "Eleven locations share one inbox and three spreadsheets…"
+    "messagePlaceholder": "Eleven locations share one inbox and three spreadsheets…",
+    "caseHighlights": "What it does for the business",
+    "caseInside": "Inside the project",
+    "caseMobile": "Made for the phone first",
+    "caseMobileText": "Most visitors arrive on a phone — so every screen is designed for the thumb first.",
+    "caseFull": "The whole page",
+    "caseFullHint": "Hover — or swipe on a phone — to scroll through it.",
+    "caseCtaTitle": "Want this for your business?",
+    "caseCtaText": "A free 30-minute call. We look at what you have today and tell you honestly what we would build."
   },
   "pages": {
     "services": {
@@ -557,5 +575,280 @@
     "notFound": {
       "eyebrow": "404 ◆ Not found"
     }
+  },
+  "showcase": {
+    "eyebrow": "02 ◆ Case study",
+    "title": "Ellison & Reyes: a whole bail agency, online.",
+    "lead": "The website families find at 2 a.m. and the system the office runs on the morning after — built as one. Every page works; open it and try it, on your phone too.",
+    "concept": "Demo agency · every page works",
+    "demoCta": "Open the live site",
+    "caseCta": "Read the full case study",
+    "url": "Ellison & Reyes · live site",
+    "facts": [
+      {
+        "value": "12",
+        "label": "working pages"
+      },
+      {
+        "value": "1 tap",
+        "label": "to call, on every screen"
+      },
+      {
+        "value": "EN · ES",
+        "label": "English and Spanish"
+      },
+      {
+        "value": "24/7",
+        "label": "chat that answers"
+      }
+    ],
+    "featuresTitle": "What it does for the agency",
+    "features": [
+      {
+        "kind": "cost",
+        "title": "The cost, up front",
+        "text": "The premium and a plan, before they call."
+      },
+      {
+        "kind": "reminders",
+        "title": "Court reminders by text",
+        "text": "7 days, 2 days and the morning of — plus weekly check-ins."
+      },
+      {
+        "kind": "call",
+        "title": "One tap to call",
+        "text": "Your number on every screen."
+      },
+      {
+        "kind": "map",
+        "title": "Every jail on a map",
+        "text": "Every jail you serve, with release times."
+      },
+      {
+        "kind": "agents",
+        "title": "Pick your agent",
+        "text": "Who is on call now — call or text them."
+      },
+      {
+        "kind": "online",
+        "title": "Bail started online",
+        "text": "Application and e-sign from a phone."
+      },
+      {
+        "kind": "payments",
+        "title": "Payments online",
+        "text": "Every way a family pays, with autopay."
+      },
+      {
+        "kind": "assistant",
+        "title": "A 24/7 assistant",
+        "text": "Answers at 2 a.m., in English and Spanish."
+      }
+    ]
+  },
+  "faq": {
+    "eyebrow": "07 ◆ Questions",
+    "title": "What agency owners ask us first."
+  },
+  "products": {
+    "eyebrow": "03 ◆ Our products",
+    "title": "Software we make, ready for your agency.",
+    "lead": "Alongside the websites we build, TRACE makes its own products — built for bail agencies first, and for any business that runs on clients and paperwork.",
+    "_note": "Features as described by the owner on 2026-10-13. The \"In development\" label was removed from the home page at the owner's request (2026-10-13); portfolio.json still marks TRACE Bail in development. Confirm TRACE Sign status before launch; no customers, counts or results are claimed.",
+    "items": [
+      {
+        "name": "Bail",
+        "tagline": "The CRM for bail bond agencies.",
+        "text": "Every bond, defendant and cosigner on one record. Court dates, check-ins, signatures and payments run themselves — for the office and the agent in the field.",
+        "href": "/work/trace-bail",
+        "features": [
+          {
+            "icon": "folder",
+            "title": "Bonds & cases",
+            "text": "One record per bond, from posting to exoneration."
+          },
+          {
+            "icon": "bell",
+            "title": "Court reminders",
+            "text": "By text, in English and Spanish."
+          },
+          {
+            "icon": "check",
+            "title": "Check-in tracking",
+            "text": "Missed check-ins flagged before they cost you."
+          },
+          {
+            "icon": "pen",
+            "title": "Cosigner e-sign",
+            "text": "Agreements signed from a phone."
+          },
+          {
+            "icon": "card",
+            "title": "Premiums & plans",
+            "text": "Card and Zelle payments, plans tracked."
+          },
+          {
+            "icon": "phone",
+            "title": "Agent app",
+            "text": "Court dates and clients in the field."
+          }
+        ],
+        "order": "Order TRACE Bail",
+        "price": "per agency",
+        "includes": [
+          "Agency web portal",
+          "Agent mobile app",
+          "Court reminders by SMS",
+          "Cosigner e-sign & payments",
+          "Setup, import & training",
+          "English & Spanish"
+        ],
+        "audience": "For bail bond agencies"
+      },
+      {
+        "name": "Sign",
+        "tagline": "Documents signed. Clients managed.",
+        "text": "Send any document for signature, track every signer and keep every client, file and signature in one place — with a full audit trail.",
+        "href": "/contact",
+        "features": [
+          {
+            "icon": "pen",
+            "title": "E-signatures",
+            "text": "Signed from any phone in a minute."
+          },
+          {
+            "icon": "file",
+            "title": "Templates",
+            "text": "Reusable documents with fields in place."
+          },
+          {
+            "icon": "users",
+            "title": "Client records",
+            "text": "Every client, file and signature together."
+          },
+          {
+            "icon": "bell",
+            "title": "Automatic reminders",
+            "text": "Signers nudged until it is done."
+          },
+          {
+            "icon": "shield",
+            "title": "Audit trail",
+            "text": "Who opened, viewed and signed — and when."
+          },
+          {
+            "icon": "lock",
+            "title": "Secure storage",
+            "text": "Encrypted, and yours to export."
+          }
+        ],
+        "order": "Order TRACE Sign",
+        "price": "per team",
+        "includes": [
+          "E-signatures from any phone",
+          "Reusable templates",
+          "Client records",
+          "Automatic reminders",
+          "Full audit trail",
+          "Setup & onboarding"
+        ],
+        "audience": "For any business"
+      }
+    ],
+    "moreTitle": "Also built by TRACE",
+    "showMore": "See all features",
+    "showLess": "Hide features",
+    "includedTitle": "What’s included",
+    "priceLabel": "Custom",
+    "priceNote": "Quote within one business day",
+    "orderSubject": "Order — TRACE {product}",
+    "orderBody": "Hi TRACE team,\n\nWe would like to order TRACE {product}.\n\nCompany:\nNumber of users:\nWhat we use today:\nBest time for a demo:\n\nThanks,",
+    "demoCta": "Book a free demo",
+    "detailsCta": "Product details",
+    "detailsShow": "See details",
+    "detailsHide": "Hide details"
+  },
+  "aiSection": {
+    "_note": "Home page AI section. The bot and its bubbles are an illustration — the facility, booking number and charge are made-up sample values, not a real case.",
+    "title": "AI That Works for Your Business.",
+    "lead": "Instant answers, more qualified leads, and a smoother experience for every potential client.",
+    "cta": "Talk to us about AI",
+    "more": "See how it works for bail agencies",
+    "moreHref": "/bail-bonds#assistant-title",
+    "benefits": [
+      "Instant Responses",
+      "24/7 Availability",
+      "Smarter Lead Capture",
+      "Seamless Human Handoff"
+    ],
+    "visual": {
+      "alt": "An illustration of the TRACE AI assistant for bail bond agencies: a smiling bot in a suit and headset, waving with a briefcase in hand, answering a family in seconds, taking the facility and booking number, and sending the qualified lead to the agent on call.",
+      "answered": {
+        "meta": "Web chat · 2:14 a.m.",
+        "tag": "Live",
+        "title": "Answered in 4 seconds"
+      },
+      "captured": {
+        "meta": "Details captured",
+        "rows": [
+          {
+            "k": "Facility",
+            "v": "Central Jail"
+          },
+          {
+            "k": "Booking #",
+            "v": "24-118093"
+          },
+          {
+            "k": "Charge",
+            "v": "Misdemeanor"
+          }
+        ]
+      },
+      "handoff": {
+        "meta": "Handed off",
+        "title": "Agent on call",
+        "tag": "Qualified"
+      }
+    }
+  },
+  "ai": {
+    "title": "An AI assistant that never misses a customer.",
+    "lead": "We build AI chat assistants trained only on your business — your prices, hours and rules. They answer every customer instantly, day or night, take their details and hand the lead to your team.",
+    "points": [
+      {
+        "icon": "clock",
+        "title": "Answers in seconds, 24/7",
+        "text": "Nights, weekends and holidays — while your line is busy."
+      },
+      {
+        "icon": "globe",
+        "title": "Speaks their language",
+        "text": "English, Spanish and more, in the same conversation."
+      },
+      {
+        "icon": "user",
+        "title": "Captures every lead",
+        "text": "Name, number and what they need — sent to your phone."
+      },
+      {
+        "icon": "shield",
+        "title": "Says only what you approve",
+        "text": "Trained on your content; hands anything else to a person."
+      },
+      {
+        "icon": "message",
+        "title": "On your site and WhatsApp",
+        "text": "The same assistant wherever customers write to you."
+      },
+      {
+        "icon": "calendar",
+        "title": "Books the next step",
+        "text": "Calls, quotes and appointments, straight into your day."
+      }
+    ],
+    "demoLabel": "Live demo · a bail agency’s assistant — pick a question",
+    "tryCta": "Try our assistant now",
+    "tryPrompt": "What can an AI assistant do for my business?"
   }
 }

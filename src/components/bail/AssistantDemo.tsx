@@ -17,7 +17,16 @@ type Message = { from: 'bot' | 'user'; text: string; action?: string };
  * says so). The log is a polite live region. Under reduced motion there is no
  * typing pause and nothing slides.
  */
-export function AssistantDemo({ copy, initial }: { copy: Assistant; initial: string }) {
+export function AssistantDemo({
+  copy,
+  initial,
+  compact = false,
+}: {
+  copy: Assistant;
+  initial: string;
+  /** Leave the agent's phone off small screens, where it doubles the height. */
+  compact?: boolean;
+}) {
   const [messages, setMessages] = useState<Message[]>([{ from: 'bot', text: copy.greeting }]);
   const [asked, setAsked] = useState<string[]>([]);
   const [typing, setTyping] = useState(false);
@@ -147,7 +156,7 @@ export function AssistantDemo({ copy, initial }: { copy: Assistant; initial: str
       </div>
 
       {/* The agent on call, asleep until the lead lands. */}
-      <figure className="mx-auto flex w-full max-w-[180px] sm:max-w-[220px] flex-col gap-3">
+      <figure className={cn('mx-auto w-full max-w-[180px] flex-col gap-3 sm:max-w-[220px]', compact ? 'hidden sm:flex' : 'flex')}>
         <Phone>
           <div className="flex h-full w-full flex-col bg-surface-sunken text-ink">
             <StatusBar time={copy.lockTime} />

@@ -68,7 +68,7 @@ export function Journey({ copy }: { copy: BailBonds }) {
 
   return (
     <section className="band-carbon py-[var(--section-y)]" aria-labelledby="journey-title">
-      <Container className="flex flex-col gap-16">
+      <Container className="flex flex-col gap-10 sm:gap-16">
         <SectionHead
           eyebrow={journey.eyebrow}
           title={<span id="journey-title"><StopText>{journey.title}</StopText></span>}
@@ -81,31 +81,35 @@ export function Journey({ copy }: { copy: BailBonds }) {
             <Trace tone="strong" at={1} nuqtaSize={12} />
           </div>
 
-          <ol className="grid grid-cols-1 gap-12 sm:grid-cols-2 md:grid-cols-4 md:gap-8">
+          <ol className="grid grid-cols-1 sm:grid-cols-2 sm:gap-12 md:grid-cols-4 md:gap-8">
             {journey.steps.map((step, i) => {
               const Visual = VISUALS[i]!;
               return (
-                <li key={step.name} className="relative flex flex-col gap-5 md:pt-10">
+                <li key={step.name} className="relative flex flex-col gap-5 max-sm:ps-8 max-sm:pb-8 max-sm:last:pb-0 md:pt-10">
+                  {/* On phones the stages hang off a vertical trace instead. */}
+                  {i < journey.steps.length - 1 ? (
+                    <span aria-hidden="true" className="absolute start-[5px] top-4 bottom-0 w-px bg-line-strong sm:hidden" />
+                  ) : null}
                   <span
                     aria-hidden="true"
                     data-reveal="fade"
                     style={{ '--d': `${i * 160}ms` } as CSSProperties}
-                    className="at-step-nuqta absolute top-0 start-0 hidden size-[11px] bg-ink md:block"
+                    className="at-step-nuqta absolute top-1 start-0 hidden size-[11px] bg-ink max-sm:block md:top-0 md:block"
                   />
                   <div
                     data-reveal="rise"
                     style={{ '--d': `${i * 120 + 80}ms` } as CSSProperties}
                     className="flex flex-col gap-5"
                   >
-                    <div className="w-full max-w-[180px] text-ink md:max-w-[220px]">
+                    <div className="w-full max-w-[180px] text-ink max-sm:hidden md:max-w-[220px]">
                       <Visual />
                     </div>
                     <div className="flex flex-col gap-2">
                       <span className="eyebrow text-ink-faint">
                         {String(i + 1).padStart(2, '0')} ◆ {step.tag}
                       </span>
-                      <h3 className="heading-2">{step.name}</h3>
-                      <p className="body max-w-[32ch] text-ink-muted">{step.text}</p>
+                      <h3 className="heading-2 max-sm:text-[19px]">{step.name}</h3>
+                      <p className="body max-w-[32ch] text-ink-muted max-sm:text-[14px]">{step.text}</p>
                     </div>
                   </div>
                 </li>

@@ -3,7 +3,7 @@ import { Link } from '@/i18n/navigation';
 import { Container } from '@/components/ui/Container';
 import { SectionHead } from '@/components/ui/SectionHead';
 import { Icon } from '@/components/ui/Icon';
-import { Nuqta, StopText } from '@/components/brand/Nuqta';
+import { StopText } from '@/components/brand/Nuqta';
 import { ServiceIllustration } from '@/components/illustrations/ServiceIllustrations';
 import { IlloLoop } from '@/components/illustrations/IlloLoop';
 import { BookingLink } from '@/components/contact/BookingLink';
@@ -12,72 +12,44 @@ import type { LocalService, Site } from '@/lib/content';
 import { cn } from '@/lib/cn';
 
 /**
- * The bento, by position in services.json. Nine services tile a 4-column grid
- * exactly: one 2×2 anchor, four 2×1 wide tiles and four 1×1 tiles.
- *
- *   ┌──────── 0 ────────┬──── 1 ────┐
- *   │       (2×2)       │   (2×1)   │
- *   ├───────────────────┼─ 2 ─┬─ 3 ─┤
- *   ├──── 4 ────┬──── 5 ──────┴─────┤
- *   ├─ 6 ─┬─ 7 ─┼──── 8 ────────────┤
- *
- * Anything beyond nine falls back to a 1×1 tile.
+ * The few services a client needs to see first, as compact tiles — four
+ * across on desktop, two on tablets, a swipe row on phones. The full list
+ * is one click away on /services.
  */
-const SPANS = ['tall', 'wide', 'small', 'small', 'wide', 'wide', 'small', 'small', 'wide'] as const;
-type Span = (typeof SPANS)[number];
-
-const spanClass: Record<Span, string> = {
-  tall: 'sm:col-span-2 lg:row-span-2',
-  wide: 'sm:col-span-2',
-  small: '',
-};
-
 function Tile({
   service,
-  span,
   index,
   request,
   subject,
 }: {
   service: LocalService;
-  span: Span;
   index: number;
   /** The button label, and the email subject with this service written in. */
   request: string;
   subject: string;
 }) {
   return (
-    <div
+    <li
       data-reveal="rise"
       style={{ '--d': `${index * 60}ms` } as CSSProperties}
-      className={spanClass[span]}
+      className="w-[78%] flex-none snap-start sm:w-auto"
     >
       {/* The whole tile opens the service page (a stretched link on the title);
           the enquiry button sits above it, one tap to ask about this service. */}
       <div
         className={cn(
-          'group/tile relative flex h-full flex-col gap-6 rounded-md border border-line bg-surface-raised p-6',
+          'group/tile relative flex h-full flex-col gap-4 rounded-md border border-line bg-surface-raised p-5',
           'transition-[border-color,transform] duration-[160ms] ease-mark',
           'hover:-translate-y-0.5 hover:border-ink has-[a:focus-visible]:border-ink',
         )}
       >
-        <div
-          className={cn(
-            'flex flex-1 items-center justify-center',
-            span === 'tall' ? 'min-h-[180px]' : 'min-h-[120px]',
-          )}
-        >
-          <div
-            className={cn(
-              'w-full',
-              span === 'tall' ? 'max-w-[420px]' : span === 'wide' ? 'max-w-[300px]' : 'max-w-[210px]',
-            )}
-          >
+        <div className="flex h-[88px] items-center justify-center">
+          <div className="w-full max-w-[160px]">
             <ServiceIllustration visual={service.visual} />
           </div>
         </div>
 
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-1 flex-col gap-1.5">
           <h3 className="heading-3">
             <Link
               href={`/services/${service.slug}`}
@@ -103,7 +75,7 @@ function Tile({
           {request}
         </ServiceRequest>
       </div>
-    </div>
+    </li>
   );
 }
 
@@ -112,7 +84,7 @@ export function ServicesBento({ site, services }: { site: Site; services: LocalS
     <section id="services" className="border-b border-line bg-surface py-[var(--section-y)]">
       {/* The tiles' illustrations keep rebuilding while on screen. */}
       <IlloLoop scope="#services" />
-      <Container className="flex flex-col gap-14">
+      <Container className="flex flex-col gap-10">
         <SectionHead
           eyebrow={site.services.eyebrow}
           title={
@@ -135,55 +107,17 @@ export function ServicesBento({ site, services }: { site: Site; services: LocalS
           }
         />
 
-        {/* Everything we build, in words a business owner uses — one line that
-            drifts slowly (the spec's "slow chip marquee"), pausing on hover.
-            Under reduced motion it is simply wrapped and still. */}
-        <div className="border-y border-line py-6">
-          <div
-            className="relative overflow-hidden motion-reduce:hidden"
-            style={{
-              maskImage: 'linear-gradient(to right, transparent, black 6%, black 94%, transparent)',
-              WebkitMaskImage: 'linear-gradient(to right, transparent, black 6%, black 94%, transparent)',
-            }}
-          >
-            <div className="at-marquee at-marquee-slow flex w-max hover:[animation-play-state:paused]">
-              {[0, 1].map((copy) => (
-                <ul key={copy} aria-hidden={copy === 1} className="flex flex-none items-center gap-9 pe-9">
-                  {site.services.capabilities.map((c) => (
-                    <li
-                      key={c}
-                      className="flex items-center gap-3 whitespace-nowrap text-[17px] font-medium text-ink"
-                    >
-                      <Nuqta size={8} tone="muted" />
-                      {c}
-                    </li>
-                  ))}
-                </ul>
-              ))}
-            </div>
-          </div>
-          <ul className="hidden flex-wrap gap-x-6 gap-y-3 motion-reduce:flex">
-            {site.services.capabilities.map((c) => (
-              <li key={c} className="flex items-center gap-2.5 text-[15px] font-medium text-ink">
-                <Nuqta size={7} tone="muted" />
-                {c}
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="grid auto-rows-[minmax(0,auto)] grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <ul className="-mx-6 flex snap-x snap-mandatory scroll-px-6 gap-3 overflow-x-auto px-6 pb-2 [scrollbar-width:none] sm:mx-0 sm:grid sm:grid-cols-2 sm:gap-4 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-4 [&::-webkit-scrollbar]:hidden">
           {services.map((service, i) => (
             <Tile
               key={service.slug}
               service={service}
-              span={SPANS[i] ?? 'small'}
               index={i}
               request={site.services.request}
               subject={site.services.requestMessage.replace('{service}', service.title)}
             />
           ))}
-        </div>
+        </ul>
 
         <div className="flex justify-center">
           <BookingLink placement="services">
