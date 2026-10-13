@@ -139,6 +139,34 @@ function Step({
 }
 
 /**
+ * The four steps two by two, each under its drawing — the home page on phones.
+ */
+function CompactSteps({ steps }: { steps: Site['process']['steps'] }) {
+  return (
+    <ol className="grid grid-cols-2 gap-x-4 gap-y-8 md:hidden">
+      {steps.map((step, i) => {
+        const Visual = VISUALS[i % VISUALS.length]!;
+        return (
+          <li
+            key={step.n}
+            data-reveal="rise"
+            style={{ '--d': `${i * 80}ms` } as CSSProperties}
+            className="flex flex-col gap-2 border-t border-line pt-4"
+          >
+            <div className="mb-2 text-ink" aria-hidden="true">
+              <Visual />
+            </div>
+            <span className="eyebrow text-ink-faint">{step.n}</span>
+            <h3 className="heading-2 m-0">{step.title}</h3>
+            <p className="body-sm text-ink-muted max-sm:hidden">{step.text}</p>
+          </li>
+        );
+      })}
+    </ol>
+  );
+}
+
+/**
  * The process, drawn as a trace.
  *
  * An ink line runs down the leading edge; its scaleY follows scroll progress
@@ -147,31 +175,6 @@ function Step({
  * which writes a single CSS custom property — no animation library on the
  * home page's critical path.
  */
-/**
- * The same four steps in one row — the home page's short version. The trace
- * runs along the top, a nuqta on it for each step; two by two on phones.
- */
-function CompactSteps({ steps }: { steps: Site['process']['steps'] }) {
-  return (
-    <ol className="relative grid grid-cols-2 gap-x-4 gap-y-8 md:grid-cols-4 md:gap-x-8">
-      <span aria-hidden="true" className="absolute inset-x-0 top-1.5 hidden h-px bg-line md:block" />
-      {steps.map((step, i) => (
-        <li
-          key={step.n}
-          data-reveal="rise"
-          style={{ '--d': `${i * 80}ms` } as CSSProperties}
-          className="relative flex flex-col gap-2 max-md:border-t max-md:border-line max-md:pt-4"
-        >
-          <span aria-hidden="true" className="mb-3 hidden size-3 rotate-45 scale-[0.7071] bg-vermilion md:block" />
-          <span className="eyebrow text-ink-faint">{step.n}</span>
-          <h3 className="heading-2 m-0">{step.title}</h3>
-          <p className="body-sm text-ink-muted max-sm:hidden">{step.text}</p>
-        </li>
-      ))}
-    </ol>
-  );
-}
-
 export function Process({
   site,
   copy = site.process,
@@ -179,7 +182,7 @@ export function Process({
 }: {
   site: Site;
   copy?: Site['process'];
-  /** One row of four, no step visuals — for the home page. */
+  /** On phones, the steps two by two; desktop is unchanged. */
   compact?: boolean;
 }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -193,10 +196,8 @@ export function Process({
           title={<StopText>{copy.title}</StopText>}
         />
 
-        {compact ? (
-          <CompactSteps steps={copy.steps} />
-        ) : (
-        <div ref={ref} className="relative ps-8 md:ps-10">
+        {compact ? <CompactSteps steps={copy.steps} /> : null}
+        <div ref={ref} className={compact ? 'relative ps-10 max-md:hidden' : 'relative ps-8 md:ps-10'}>
           {/* The trace: a hairline rule with the ink line drawn over it. */}
           <span aria-hidden="true" className="absolute inset-y-0 start-0 w-px bg-line" />
           <span aria-hidden="true" className="at-process-line absolute inset-y-0 start-0 w-px bg-ink" />
@@ -207,7 +208,6 @@ export function Process({
             ))}
           </ol>
         </div>
-        )}
       </Container>
     </section>
   );

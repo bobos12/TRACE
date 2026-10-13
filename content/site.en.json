@@ -68,19 +68,23 @@
     "stats": [
       {
         "value": "20+",
-        "label": "Projects delivered"
+        "label": "Projects delivered",
+        "short": "Projects"
       },
       {
         "value": "10+",
-        "label": "Businesses served"
+        "label": "Businesses served",
+        "short": "Clients"
       },
       {
         "value": "7+",
-        "label": "Industries"
+        "label": "Industries",
+        "short": "Industries"
       },
       {
         "value": "5+",
-        "label": "Years of experience"
+        "label": "Years of experience",
+        "short": "Years"
       }
     ]
   },

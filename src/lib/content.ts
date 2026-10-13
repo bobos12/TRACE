@@ -79,7 +79,8 @@ const siteSchema = z.object({
     /** What every client gets in writing — the strip under the hero. */
     promises: z.array(z.string().min(1)).min(1),
     /** The owner's figures, shown under the logos. */
-    stats: z.array(numbered).min(1),
+    /** `short` is the one-word label the hero uses on phones. */
+    stats: z.array(numbered.extend({ short: z.string().min(1) })).min(1),
   }),
   platforms: z.object({
     eyebrow: z.string().min(1),

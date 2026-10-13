@@ -6,6 +6,7 @@ import type { Site } from '@/lib/content';
 import { HeroLattice } from './HeroLattice';
 import { ProductStack } from './ProductStack';
 import { BreathingNuqtas } from '@/components/brand/BreathingNuqtas';
+import { CountUp } from '@/components/motion/CountUp';
 
 /**
  * The hero — "The Mark".
@@ -69,7 +70,7 @@ export function Hero({ site }: { site: Site }) {
 
           <p
             id="hero-lead"
-            className="body-lg order-6 max-w-[44ch] text-ink-muted md:order-none"
+            className="body-lg order-6 max-w-[44ch] text-ink-muted max-md:hidden md:order-none"
           >
             {hero.lead}
           </p>
@@ -103,6 +104,33 @@ export function Hero({ site }: { site: Site }) {
             <Nuqta size={7} />
             {hero.reassurance}
           </p>
+
+          {/* The track record, set small under the call to action. */}
+          <dl className="order-7 m-0 grid max-w-[560px] grid-cols-4 gap-3 border-t border-line pt-5 sm:gap-6 md:order-none">
+            {site.trust.stats.map((stat) => {
+              const plus = stat.value.includes('+');
+              return (
+                <div key={stat.label} className="flex flex-col items-center gap-1.5 text-center md:items-start md:text-start">
+                  <dd
+                    dir="ltr"
+                    className="order-1 m-0 flex items-start self-center md:self-start text-[clamp(1.75rem,1.4rem+1.2vw,2.5rem)] font-semibold leading-none tracking-[-0.04em] text-ink tabular-nums"
+                  >
+                    <CountUp value={stat.value.replace('+', '')} />
+                    {plus ? (
+                      <span aria-hidden="true" className="ms-0.5 text-[0.5em] font-medium text-vermilion">
+                        +
+                      </span>
+                    ) : null}
+                    {plus ? <span className="sr-only">+</span> : null}
+                  </dd>
+                  <dt className="order-2 text-[12px] leading-snug text-ink-muted sm:text-[13px]">
+                    <span className="md:hidden">{stat.short}</span>
+                    <span className="max-md:hidden">{stat.label}</span>
+                  </dt>
+                </div>
+              );
+            })}
+          </dl>
         </div>
 
         <div className="order-4 md:order-none md:col-span-6 md:-me-12 xl:-me-20">
