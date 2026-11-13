@@ -283,6 +283,8 @@ const siteSchema = z.object({
     rights: z.string().min(1),
     privacy: z.string().min(1),
     terms: z.string().min(1),
+    /** Directories that list TRACE, linked from the footer on every page. */
+    listings: z.array(z.object({ label: z.string().min(1), href: z.string().url() })).default([]),
   }),
   floating: z.object({ book: z.string().min(1), email: z.string().min(1) }),
   /** The website assistant: launcher, panel chrome, cards and the lead form. */

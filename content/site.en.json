@@ -263,7 +263,10 @@
     "tagline": "Websites and software for bail bond agencies — built in plain English, and yours to keep.",
     "rights": "© 2026 Trace Studio. All rights reserved.",
     "privacy": "Privacy",
-    "terms": "Terms"
+    "terms": "Terms",
+    "listings": [
+      { "label": "Listed on BailWatcher", "href": "https://bailwatcher.com/directory/tools/trace-studio" }
+    ]
   },
   "floating": {
     "book": "Book a call",

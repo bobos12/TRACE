@@ -96,6 +96,14 @@ export function Footer({ locale }: { locale: Locale }) {
                 </li>
               ) : null}
               <li>{contact.hours[locale]}</li>
+              {site.footer.listings.map((l) => (
+                <li key={l.href}>
+                  <a href={l.href} target="_blank" rel="noopener" className="inline-flex items-center gap-1 hover:text-ink">
+                    {l.label}
+                    <Icon name="arrow-up-right" size={14} />
+                  </a>
+                </li>
+              ))}
               {/* TODO: add the US company registration (state + entity) once formed — US buyers look for it. */}
             </ul>
             {socials.length ? (
