@@ -15,8 +15,9 @@ export default function proxy(request: NextRequest) {
 }
 
 export const config = {
-  // Everything except API routes, share images (/og/), Next internals and files
+  // Everything except API routes, share images (/og/), the static demos
+  // (/demos/, clean URLs rewritten in next.config.ts), Next internals and files
   // with an extension. The dot needs a double backslash: '\.' in a JS string is
   // just '.', which made the lookahead exclude every path except '/'.
-  matcher: '/((?!api|og/|_next|_vercel|.*\\..*).*)',
+  matcher: '/((?!api|og/|demos/|_next|_vercel|.*\\..*).*)',
 };

@@ -23,7 +23,7 @@ import sharp from 'sharp';
 import { mkdir } from 'node:fs/promises';
 import path from 'node:path';
 
-const URL = 'http://localhost:3000/demos/ellison-reyes/index.html';
+const URL = 'http://localhost:3000/demos/ellison-reyes';
 const OUT = 'assets/captures/ellison-reyes';
 const PAGES = ['home', 'how', 'cost', 'locations', 'courts', 'wanted', 'start', 'pay', 'checkin', 'agents', 'staff', 'about'];
 const HIDE = '[data-build="concept"]{display:none!important}';

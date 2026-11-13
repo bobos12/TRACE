@@ -44,11 +44,11 @@ const WINDOW_MS = 10 * 60_000;
 const MAX_PER_WINDOW = 5;
 const hits = new Map<string, number[]>();
 
-export function rateLimit(key: string): boolean {
+export function rateLimit(key: string, max = MAX_PER_WINDOW): boolean {
   const now = Date.now();
   const recent = (hits.get(key) ?? []).filter((t) => now - t < WINDOW_MS);
 
-  if (recent.length >= MAX_PER_WINDOW) {
+  if (recent.length >= max) {
     hits.set(key, recent);
     return false;
   }
@@ -142,5 +142,92 @@ export async function deliverLead(lead: Lead): Promise<void> {
     throw new Error(
       results.map((r) => (r.status === 'rejected' ? String(r.reason) : '')).join(' | '),
     );
+  }
+}
+
+/* ── the Ellison & Reyes demo ─────────────────────────────────────
+   Every form in public/demos/ellison-reyes/ reports here, so the team hears
+   about each prospect who tries it — and about any real family who lands on
+   it. The demo never sends card or bank numbers. */
+
+export const demoEventSchema = z.object({
+  kind: z.enum(['application', 'tip', 'checkin', 'reminders', 'lookup', 'payment', 'chat']),
+  /** The demo page it came from (its hash route). */
+  page: z.string().trim().max(40),
+  /** True when the visitor sent the prefilled sample values untouched. */
+  sample: z.boolean(),
+  fields: z
+    .record(z.string().max(60), z.string().max(6000))
+    .refine((f) => Object.keys(f).length > 0 && Object.keys(f).length <= 30),
+  /** Where the visitor arrived from before the demo (document.referrer). */
+  from: z.string().max(300).optional(),
+  /** Honeypot: must stay empty. */
+  website: z.string().max(0).optional().or(z.literal('')),
+});
+
+export type DemoEvent = z.infer<typeof demoEventSchema>;
+
+const DEMO_TITLES: Record<DemoEvent['kind'], string> = {
+  application: 'Bail application (e-signed)',
+  tip: 'Wanted tip',
+  checkin: 'Defendant check-in',
+  reminders: 'Court reminders turned on',
+  lookup: 'Payment account lookup',
+  payment: 'Payment attempt',
+  chat: 'Chat conversation',
+};
+
+export interface DemoVisitor {
+  where: string;
+  device: string;
+  referrer: string;
+}
+
+/** Email one demo event to the team. Throws if Resend is not configured or the send fails. */
+export async function deliverDemoEvent(event: DemoEvent, visitor: DemoVisitor): Promise<void> {
+  if (!hasResend()) throw new Error('Resend is not configured');
+
+  const title = DEMO_TITLES[event.kind];
+  const who = event.fields['Cosigner'] || event.fields['Name'] || event.fields['Phone'] || '';
+  const email = Object.entries(event.fields).find(([k, v]) => /email/i.test(k) && /^\S+@\S+\.\S+$/.test(v))?.[1];
+  const when = new Date().toLocaleString('en-US', {
+    timeZone: 'America/New_York',
+    dateStyle: 'medium',
+    timeStyle: 'short',
+  });
+  const width = Math.max(8, ...Object.keys(event.fields).map((k) => k.length)) + 2;
+  const line = ([k, v]: [string, string]) => (v.includes('\n') ? `${k}:\n${v}` : `${`${k}:`.padEnd(width)}${v || '—'}`);
+
+  const response = await fetch('https://api.resend.com/emails', {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${process.env.RESEND_API_KEY!}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      from: process.env.LEADS_FROM_EMAIL ?? 'TRACE website <onboarding@resend.dev>',
+      to: [process.env.LEADS_TO_EMAIL!],
+      ...(email ? { reply_to: email } : {}),
+      subject: `Demo · ${title}${who ? ` — ${who}` : ''}${visitor.where ? ` (${visitor.where})` : ''}`,
+      text: [
+        `Someone used the Ellison & Reyes demo: ${title}.`,
+        event.sample
+          ? 'They sent the prefilled sample values — most likely an agency owner trying it out.'
+          : 'They typed their own details — follow up: a prospect testing it, or a real family.',
+        '',
+        ...Object.entries(event.fields).map(line),
+        '',
+        '—',
+        `Page:      #${event.page}`,
+        `When:      ${when} ET`,
+        `Where:     ${visitor.where || 'unknown'}`,
+        `Device:    ${visitor.device || 'unknown'}`,
+        `Came from: ${visitor.referrer || 'direct'}`,
+      ].join('\n'),
+    }),
+  });
+
+  if (!response.ok) {
+    throw new Error(`Resend send failed: ${response.status} ${await response.text()}`);
   }
 }

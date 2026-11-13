@@ -108,7 +108,9 @@ function knowledge(): string {
     `- Book a free 30-minute call: the [[book]] card${hasBooking ? ` (${contact.booking})` : ''}. This is always the first recommendation.`,
     `- Email: ${contact.email}. ${contact.responseTime.en}`,
     `- Hours: ${contact.hours.en}.`,
-    '- The phone number is listed on /contact — mention it only if asked; never give the number here. There is no WhatsApp.',
+    contact.phoneDisplay
+      ? `- Phone: ${contact.phoneDisplay} — give it only if asked; booking a call comes first. There is no WhatsApp.`
+      : '- There is no phone line yet and no WhatsApp; offer the call booking or email instead.',
     '- Other pages: /work, /services, /about, /contact.',
   );
 

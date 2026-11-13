@@ -1018,7 +1018,7 @@ const bailBondsSchema = z.object({
     url: str,
     tourLabel: str,
     tourHint: str,
-    /** The strip of every page under the hero; `id` is the demo's hash route and thumbnail name. */
+    /** The strip of every page under the hero; `id` is the demo's page path and thumbnail name. */
     strip: z.object({
       title: str,
       hint: str,

@@ -5,7 +5,7 @@
       "slug": "ellison-reyes",
       "kind": "product",
       "placeholder": false,
-      "_note": "Ellison & Reyes is a demo agency name (555 numbers, AI-generated Wanted faces); the site, forms and CRM are real, working software at public/demos/ellison-reyes/, captured by scripts/capture-ellison.mjs.",
+      "_note": "Ellison & Reyes is a demo agency name (AI-generated Wanted faces; sample customers use 555 numbers); its phone lines ring TRACE at (701) 518-9640 and every form emails the team via /api/demo-lead. The site, forms and CRM are real, working software at public/demos/ellison-reyes/, captured by scripts/capture-ellison.mjs.",
       "featured": true,
       "spotlight": true,
       "category": "company-website",
@@ -27,7 +27,7 @@
         "Gemini AI chat"
       ],
       "links": {
-        "demo": "/demos/ellison-reyes/index.html"
+        "demo": "/demos/ellison-reyes"
       },
       "en": {
         "client": "Ellison & Reyes Bail Bonds",

@@ -12,7 +12,7 @@ function Page({ page, n, demo, hidden }: { page: Strip['pages'][number]; n: numb
   return (
     <li className="w-[264px] flex-none sm:w-[320px]">
       <a
-        href={`${demo}#${page.id}`}
+        href={page.id === 'home' ? demo : `${demo}/${page.id}`}
         target="_blank"
         rel="noreferrer"
         tabIndex={hidden ? -1 : undefined}

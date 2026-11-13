@@ -25,6 +25,18 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  // The Ellison & Reyes demo is one static page with clean URLs
+  // (/demos/ellison-reyes/pay); it routes itself with the History API.
+  async rewrites() {
+    return [
+      { source: '/demos/ellison-reyes', destination: '/demos/ellison-reyes/index.html' },
+      { source: '/demos/ellison-reyes/:page([a-z-]+)', destination: '/demos/ellison-reyes/index.html' },
+    ];
+  },
+  // Old links (index.html#pay) land on the clean URL; the page maps the hash.
+  async redirects() {
+    return [{ source: '/demos/ellison-reyes/index.html', destination: '/demos/ellison-reyes', permanent: true }];
+  },
   experimental: {
     optimizePackageImports: ['motion'],
     // inlineCss was tried and reverted: the stylesheet is large enough that
