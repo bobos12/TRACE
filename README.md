@@ -46,6 +46,7 @@ metadata and structured data live in `src/lib/site.ts` — not in the environmen
 | --- | --- | --- |
 | `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY` | Saving contact-form leads to a `leads` table | |
 | `RESEND_API_KEY`, `LEADS_TO_EMAIL` | Emailing contact-form leads, and every form sent from the Ellison & Reyes demo (`/api/demo-lead`) | `LEADS_FROM_EMAIL` must be a verified sender. |
+| `TRACKING_WEBHOOK_URL`, `TRACKING_WEBHOOK_SECRET` | Forwarding every prospect step on `/demo` and in the demos to the campaign tool | See `docs/tracking-events.md`. Campaign links: `https://trace-studio.tech/demo?rid={{recipient_id}}`. |
 | `GEMINI_API_KEY` | The website assistant (chat in the corner) | Server-only — never `NEXT_PUBLIC_`. Needs a **paid** Gemini tier in production; the free tier allows ~20 requests a day. |
 | `GEMINI_MODEL` | Optional model override | Leave empty. Defaults to `gemini-3.5-flash`; a busy, rate-limited or slow model (no answer in 7s) falls back to the Lite models. Don't set `gemini-3.8-flash` — it took ~45s to answer in testing. |
 

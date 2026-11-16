@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
 <meta charset="utf-8">
+<script src="/demos/_shared/trace-track.js" data-site="Ellison &amp; Reyes"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Ellison &amp; Reyes Concept</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1648,6 +1649,26 @@ html,body{overflow-x:clip}
 @media (max-width:420px){#ccB{display:none}}
 /* FAQ questions wrap instead of pushing the toggle out. */
 summary{min-width:0;overflow-wrap:anywhere}
+
+/* ── Trace Studio: the note in the application, and the contact panel ── */
+.notice.yours{border:1.5px solid var(--on-paper);background:var(--white);margin:6px 0 4px}
+.ts-fab{position:fixed;left:16px;bottom:16px;z-index:60;display:inline-flex;align-items:center;gap:10px;padding:10px 16px 10px 12px;border-radius:999px;background:#111;color:#fff;font:600 .9rem/1.2 var(--f-sans,system-ui);border:1px solid #333;box-shadow:0 10px 30px rgb(0 0 0/.35);cursor:pointer}
+.ts-fab i{width:9px;height:9px;background:#ff5a33;transform:rotate(45deg);flex:none}
+.ts-fab small{display:block;font-weight:400;color:#bbb;font-size:.72rem}
+.ts-panel{position:fixed;left:16px;bottom:76px;z-index:61;width:min(360px,calc(100vw - 32px));background:#111;color:#f2eee4;border:1px solid #333;border-radius:16px;padding:20px;box-shadow:0 20px 60px rgb(0 0 0/.5);font-family:var(--f-sans,system-ui)}
+.ts-panel[hidden]{display:none}
+.ts-panel h3{margin:0 0 4px;font-size:1.15rem}
+.ts-panel p{margin:0 0 14px;color:#bbb;font-size:.9rem;line-height:1.45}
+.ts-panel .ts-acts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
+.ts-panel .ts-acts a{display:flex;align-items:center;justify-content:center;gap:6px;padding:11px 10px;border-radius:10px;border:1px solid #3a3a3a;color:#fff;text-decoration:none;font-size:.88rem;font-weight:600}
+.ts-panel .ts-acts a.p{grid-column:1/-1;background:#ff5a33;border-color:#ff5a33;color:#111}
+.ts-panel form{display:grid;gap:8px;border-top:1px solid #2a2a2a;padding-top:14px}
+.ts-panel form b{font-size:.85rem}
+.ts-panel input{width:100%;padding:11px 12px;border-radius:10px;border:1px solid #3a3a3a;background:#1b1b1b;color:#fff;font:inherit;font-size:16px}
+.ts-panel button[type=submit]{padding:11px;border-radius:10px;border:0;background:#f2eee4;color:#111;font-weight:700;cursor:pointer}
+.ts-panel .ts-x{position:absolute;top:10px;right:12px;background:none;border:0;color:#999;font-size:1.4rem;cursor:pointer}
+.ts-panel .ts-ok{color:#9fe3b0;font-size:.9rem}
+@media (max-width:760px){.ts-fab{bottom:84px}.ts-panel{bottom:140px}}
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -2003,7 +2024,8 @@ summary{min-width:0;overflow-wrap:anywhere}
         <fieldset data-st="0" style="border:0;margin:0;padding:0"><legend class="sr">Person in custody</legend><h2 class="d d-m">Who is in custody?</h2>
           <div class="fgrid"><div><label class="fl" for="d1">First name</label><input class="in" id="d1" required value="Daniel"></div><div><label class="fl" for="d2">Last name</label><input class="in" id="d2" required value="Alvarez"></div><div><label class="fl" for="d3">Date of birth</label><input class="in" id="d3" type="date" required value="1994-03-17"></div><div><label class="fl" for="d4">Booking number (optional)</label><input class="in mono" id="d4" placeholder="2610120347"></div><div class="full"><label class="fl" for="dFac">Facility</label><select class="in" id="dFac" required></select></div></div></fieldset>
         <fieldset data-st="1" hidden style="border:0;margin:0;padding:0"><legend class="sr">About you</legend><h2 class="d d-m">About you, the cosigner.</h2>
-          <div class="fgrid"><div><label class="fl" for="c1">Full name</label><input class="in" id="c1" required value="Rosa Alvarez"></div><div><label class="fl" for="c2">Relationship</label><select class="in" id="c2"><option>Parent</option><option>Spouse / partner</option><option>Sibling</option><option>Friend</option><option>Employer</option></select></div><div><label class="fl" for="c3">Mobile</label><input class="in mono" id="c3" required value="(909) 555-0177"></div><div><label class="fl" for="c4">Email</label><input class="in" id="c4" type="email" value="rosa.alvarez@example.com"></div><div><label class="fl" for="c5">Employer</label><input class="in" id="c5" value="Kaiser Permanente, Fontana"></div><div><label class="fl" for="c6">Years at address</label><input class="in" id="c6" value="6"></div></div></fieldset>
+          <div class="notice yours" role="note"><svg><use href="#i-ok"/></svg><div><b>Use your own name, mobile and email.</b> We'll email you this lead the moment you submit, exactly as your agency's staff would get it.</div></div>
+          <div class="fgrid"><div><label class="fl" for="c1">Full name</label><input class="in" id="c1" required autocomplete="name" placeholder="Your full name"></div><div><label class="fl" for="c2">Relationship</label><select class="in" id="c2"><option>Parent</option><option>Spouse / partner</option><option>Sibling</option><option>Friend</option><option>Employer</option></select></div><div><label class="fl" for="c3">Mobile</label><input class="in mono" id="c3" required type="tel" inputmode="tel" autocomplete="tel" placeholder="Your mobile"></div><div><label class="fl" for="c4">Email</label><input class="in" id="c4" type="email" required autocomplete="email" placeholder="you@youragency.com"></div><div><label class="fl" for="c5">Employer</label><input class="in" id="c5" value="Kaiser Permanente, Fontana"></div><div><label class="fl" for="c6">Years at address</label><input class="in" id="c6" value="6"></div></div></fieldset>
         <fieldset data-st="2" hidden style="border:0;margin:0;padding:0"><legend class="sr">The bail</legend><h2 class="d d-m">What do you know so far?</h2>
           <div class="fgrid"><div><label class="fl" for="b1">Bail amount, if known</label><input class="in mono" id="b1" value="$25,000"></div><div><label class="fl" for="b2">Charge, if known</label><input class="in" id="b2" value="VC 23152(a) · DUI"></div><div class="full"><span class="fl">Down payment by</span><div class="chips" id="bPay" role="group" aria-label="Payment method"><button type="button" class="chip" aria-pressed="true">Card</button><button type="button" class="chip">Zelle</button><button type="button" class="chip">Cash at office</button></div></div><div class="full"><label class="fl" for="b3">Anything we should know?</label><textarea class="in" id="b3">First arrest. Works full time and lives with us in Fontana.</textarea></div></div></fieldset>
         <fieldset data-st="3" hidden style="border:0;margin:0;padding:0"><legend class="sr">Review and sign</legend><h2 class="d d-m">Review &amp; sign.</h2>
@@ -2026,7 +2048,7 @@ summary{min-width:0;overflow-wrap:anywhere}
         <h2 class="d d-l">We're <em>on it.</em></h2>
         <p class="lede mute">Case <b class="mono" id="wRef" style="color:var(--on-paper)">ER-26-04812</b>. Marisol is confirming the booking record and will call <b id="wPh" style="color:var(--on-paper)"></b> in about 10 minutes.</p>
         <div class="row" style="--g:16px;margin-top:8px"><img src="/demos/ellison-reyes/img/marisol.jpg" alt="" style="width:56px;height:56px;border-radius:50%;object-fit:cover;object-position:50% 20%;filter:grayscale(1)"><div><b>Marisol Reyes</b><div class="mute" style="font-size:.9rem">Managing agent · on call now</div></div></div>
-        <p class="mute" style="font-size:.8rem">Demo: nothing you typed was sent anywhere.</p>
+        <div class="notice yours"><svg><use href="#i-ok"/></svg><div><b>Check your inbox.</b> We just emailed this lead to <b id="wEm"></b>, exactly as Ellison &amp; Reyes staff would get it. Reply to it any time, and Travis from Trace Studio will answer.</div></div>
       </div>
     </div>
   </div></section>
@@ -2216,7 +2238,7 @@ function toast(m){const t=$("#toast");t.textContent=m;t.hidden=false;t.style.ani
 const AGENCY_TEL="7015189640";
 const val=id=>{const e=$("#"+id);if(!e)return"";if(e.tagName==="SELECT")return(e.options[e.selectedIndex]||{}).text||e.value;if(e.type==="checkbox")return e.checked?"Yes":"No";return e.value.trim()};
 const untouched=ids=>ids.every(id=>{const e=$("#"+id);return !e||e.tagName==="SELECT"||e.value===e.defaultValue});
-function notify(kind,fields,sample){try{fetch("/api/demo-lead",{method:"POST",headers:{"Content-Type":"application/json"},keepalive:true,body:JSON.stringify({kind,page:CUR,sample:!!sample,fields,from:(document.referrer||"").slice(0,300)})}).catch(()=>{})}catch(e){}}
+function notify(kind,fields,sample,sendCopy){window.traceTrack&&traceTrack("demo_form",{kind});try{fetch("/api/demo-lead",{method:"POST",headers:{"Content-Type":"application/json"},keepalive:true,body:JSON.stringify({kind,page:CUR,sample:!!sample,fields,from:(document.referrer||"").slice(0,300),rid:(window.traceTrack&&traceTrack.rid())||undefined,sendCopy:!!sendCopy})}).catch(()=>{})}catch(e){}}
 if(BUILD!=="concept")$$('[data-build="concept"]').forEach(e=>e.remove());
 
 /* data */
@@ -2455,18 +2477,23 @@ addEventListener("keydown",e=>{if(e.key==="Escape"){closeM();$("#chat").hidden=t
 
 /* wizard */
 let st=0;const fs=$$("#wiz fieldset"),wl=$$("#wSteps li");
-function showSt(){fs.forEach((f,i)=>f.hidden=i!==st);$("#wBar").style.width=((st+1)*25)+"%";if(st===3)setTimeout(sizeSig,30);wl.forEach((l,i)=>{l.classList.toggle("on",i===st);l.classList.toggle("done",i<st)});
+function showSt(){window.traceTrack&&traceTrack("form_step",{form:"bail_application",step:st+1,name:["In custody","About you","The bail","Review & sign"][st]});fs.forEach((f,i)=>f.hidden=i!==st);$("#wBar").style.width=((st+1)*25)+"%";if(st===3)setTimeout(sizeSig,30);wl.forEach((l,i)=>{l.classList.toggle("on",i===st);l.classList.toggle("done",i<st)});
  $("#wBack").style.visibility=st?"visible":"hidden";$("#wNext").innerHTML=st===3?"Sign &amp; submit":'Continue <svg class="arr"><use href="#i-arr"/></svg>';
  if(st===3){const f=FAC.find(x=>x.id===dFac.value),a=parseAmt($("#b1").value);
   $("#revL").innerHTML=[["Defendant",`${$("#d1").value} ${$("#d2").value}`],["Facility",f.name],["Cosigner",`${$("#c1").value} · ${$("#c2").value}`],["Mobile",$("#c3").value],["Bail",a?usd(a):"To be confirmed"],["Premium",a?usd(a*.1)+" (10%)":"10% of bail"],["Today",a?usd(a*.02)+", then a monthly plan":"Set by agent"]].map(r=>`<dt>${r[0]}</dt><dd>${r[1]}</dd>`).join("");$("#sigE").hidden=true;$("#sigWho").textContent=$("#c1").value.toUpperCase()+" · "+new Date().toLocaleDateString("en-US")}}
 $("#wBack").onclick=()=>{st=Math.max(0,st-1);showSt()};
 $("#wiz").addEventListener("submit",e=>{e.preventDefault();const bad=$$("[required]",fs[st]).find(i=>!i.value.trim());$$(".in",fs[st]).forEach(i=>i.classList.remove("bad"));
  if(bad){bad.classList.add("bad");bad.focus();return}
+ if(st===1){const ph=$("#c3").value.replace(/\D/g,"").replace(/^1(?=\d{10}$)/,""),em=$("#c4").value.trim();
+  const badPh=ph.length!==10||/^\d{3}55501\d\d$/.test(ph)||/^(\d)\1{9}$/.test(ph),badEm=!/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(em)||/@example\./i.test(em);
+  if(badPh||badEm){const el=badPh?$("#c3"):$("#c4");el.classList.add("bad");el.focus();toast(badPh?"Enter your real 10-digit mobile so we can reach you.":"Enter your real email so we can send you the lead.");window.traceTrack&&traceTrack("form_error",{form:"bail_application",step:2,field:badPh?"Mobile":"Email"});return}}
  if(st<3){st++;showSt();$("#wiz").scrollIntoView({block:"start",behavior:"smooth"});return}
- if(!sigged||$$(".ini.done").length<4){$("#sigE").hidden=false;$("#sigE").scrollIntoView({block:"center",behavior:"smooth"});return}
+ if(!sigged){$("#sigE").hidden=false;$("#sigE").scrollIntoView({block:"center",behavior:"smooth"});return}
  $("#wiz").hidden=true;$("#wSteps").style.visibility="hidden";$("#wDone").hidden=false;$("#wRef").textContent="ER-26-0"+Math.floor(4000+Math.random()*999);$("#wPh").textContent=$("#c3").value;
  const ra=$("#reqAg"),ids=[...$$("#idF,#idB")].filter(i=>i.files&&i.files.length).length;
- notify("application",{"Reference":$("#wRef").textContent,"Defendant":val("d1")+" "+val("d2"),"Date of birth":val("d3"),"Booking number":val("d4"),"Facility":val("dFac"),"Cosigner":val("c1"),"Relationship":val("c2"),"Mobile":val("c3"),"Email":val("c4"),"Employer":val("c5"),"Years at address":val("c6"),"Bail amount":val("b1"),"Charge":val("b2"),"Notes":val("b3"),"Requested agent":ra&&!ra.hidden?ra.querySelector("b").textContent:"Any agent","Initials":$$(".ini.done").length+" of 4","Signature":"Signed on screen","ID photos":ids+" of 2 attached (not sent)"},untouched(["d1","d2","c1","c3","c4"]))});
+ notify("application",{"Reference":$("#wRef").textContent,"Defendant":val("d1")+" "+val("d2"),"Date of birth":val("d3"),"Booking number":val("d4"),"Facility":val("dFac"),"Cosigner":val("c1"),"Relationship":val("c2"),"Mobile":val("c3"),"Email":val("c4"),"Employer":val("c5"),"Years at address":val("c6"),"Bail amount":val("b1"),"Charge":val("b2"),"Notes":val("b3"),"Requested agent":ra&&!ra.hidden?ra.querySelector("b").textContent:"Any agent","Initials":$$(".ini.done").length+" of 4","Signature":"Signed on screen","ID photos":ids+" of 2 attached (not sent)"},false,true);
+ window.traceTrack&&(traceTrack.identify({name:val("c1"),email:val("c4"),phone:val("c3")}),traceTrack("application_completed",{reference:$("#wRef").textContent}),traceTrack.flush(true));
+ $("#wEm").textContent=val("c4")});
 /* initials, ID upload, signature pad */
 const initials=()=>$("#c1").value.split(/\s+/).map(w=>w[0]||"").join("").slice(0,3).toUpperCase()||"RA";
 $("#doc").addEventListener("click",e=>{const b=e.target.closest(".ini");if(!b)return;b.classList.toggle("done");b.textContent=b.classList.contains("done")?initials():"INITIAL";$("#iniC").textContent=$$(".ini.done").length+" of 4 initialed";saved()});
@@ -2665,4 +2692,36 @@ $("#peek").onclick=e=>{if(e.target.id==="peekX"){$("#peek").hidden=true;return}o
 })();
 if(store("er-lang")==="es")setLang("es");
 route();
+</script>
+
+<button type="button" class="ts-fab" id="tsFab" aria-expanded="false" aria-controls="tsPanel" data-track="contact_open"><i></i><span>Want this for your agency?<small>Trace Studio · we answer fast</small></span></button>
+<div class="ts-panel" id="tsPanel" role="dialog" aria-label="Talk to Trace Studio" hidden>
+  <button type="button" class="ts-x" id="tsX" aria-label="Close">×</button>
+  <h3>Get this site for your agency</h3>
+  <p>Your name, your counties, your rates. Ask us anything. A real person answers.</p>
+  <div class="ts-acts">
+    <a class="p" href="https://trace-studio.tech/contact" target="_blank" rel="noopener" data-track="booking">Book a free 30-min call</a>
+    <a href="tel:+17015189640" data-track="call">Call us</a>
+    <a href="sms:+17015189640" data-track="text">Text us</a>
+    <a href="mailto:info@trace-studio.tech?subject=Bail%20agency%20website" data-track="email" style="grid-column:1/-1">info@trace-studio.tech</a>
+  </div>
+  <form id="tsCb" autocomplete="on">
+    <b>Or we'll call you, today</b>
+    <input id="tsName" autocomplete="name" placeholder="Your name" required>
+    <input id="tsPhone" type="tel" inputmode="tel" autocomplete="tel" placeholder="Your mobile" required>
+    <input id="tsAgency" autocomplete="organization" placeholder="Agency name (optional)">
+    <button type="submit">Call me back</button>
+    <p class="ts-ok" id="tsOk" hidden>Thanks! We'll call you shortly from (701) 518-9640.</p>
+  </form>
+</div>
+<script>
+(function(){var fab=document.getElementById("tsFab"),panel=document.getElementById("tsPanel"),f=document.getElementById("tsCb");
+function set(open){panel.hidden=!open;fab.setAttribute("aria-expanded",open);if(open&&window.traceTrack)traceTrack("contact_panel",{action:"open"})}
+fab.addEventListener("click",function(){set(panel.hidden)});document.getElementById("tsX").addEventListener("click",function(){set(false)});
+addEventListener("keydown",function(e){if(e.key==="Escape"&&!panel.hidden)set(false)});
+f.addEventListener("submit",function(e){e.preventDefault();var n=document.getElementById("tsName").value.trim(),p=document.getElementById("tsPhone").value.trim(),a=document.getElementById("tsAgency").value.trim(),d=p.replace(/\D/g,"").replace(/^1(?=\d{10}$)/,"");
+ if(n.length<2){document.getElementById("tsName").focus();return}if(d.length!==10){document.getElementById("tsPhone").focus();return}
+ notify("callback",{"Name":n,"Phone":p,"Agency":a,"Asked from":CUR},false);
+ if(window.traceTrack){traceTrack.identify({name:n,phone:p});traceTrack("callback_request",{agency:a||undefined});traceTrack.flush(true)}
+ f.querySelectorAll("input,button").forEach(function(x){x.disabled=true});document.getElementById("tsOk").hidden=false})})();
 </script>

@@ -405,6 +405,56 @@
     "caseCtaText": "A free 30-minute call. We look at what you have today and tell you honestly what we would build."
   },
   "pages": {
+    "demoVideo": {
+      "seo": {
+        "title": "See the bail agency website demo",
+        "description": "A 36-second video of a complete bail agency website — online bail, e-sign, payments, court reminders and a wanted board — then try the live demo yourself."
+      },
+      "eyebrow": "Demo · 36 seconds",
+      "title": "A bail agency website that works the night shift.",
+      "lead": "Watch how a family finds you at 2 a.m., starts bail from a phone and pays — and how your office runs the morning after. Then try it yourself.",
+      "videoId": "a83FLUL-heY",
+      "videoTitle": "Ellison & Reyes — bail agency website demo",
+      "tryTitle": "Now try it yourself.",
+      "tryLead": "Every page works. Start a bail application with your own details and we will email you the lead exactly as your agency would get it.",
+      "demoCta": "Open the live demo",
+      "demoHref": "/demos/ellison-reyes",
+      "tasks": [
+        {
+          "label": "Start a bail application",
+          "text": "Four short steps and an e-signature. The lead lands in your inbox.",
+          "href": "/demos/ellison-reyes/start"
+        },
+        {
+          "label": "See the cost calculator",
+          "text": "The premium and a payment plan, before anyone calls.",
+          "href": "/demos/ellison-reyes/cost"
+        },
+        {
+          "label": "Open the wanted board",
+          "text": "Skip posters with rewards and anonymous tips.",
+          "href": "/demos/ellison-reyes/wanted"
+        },
+        {
+          "label": "Look inside the staff CRM",
+          "text": "Every bond, court date and payment on one screen.",
+          "href": "/demos/ellison-reyes/staff"
+        }
+      ],
+      "contactTitle": "Want this for your agency?",
+      "contactLead": "Your name, your counties, your rates. Ask us anything — a real person answers, usually within minutes.",
+      "book": "Book a free 30-minute call",
+      "call": "Call us",
+      "text": "Text us",
+      "email": "Email us",
+      "callbackTitle": "Or leave your number and we will call you today.",
+      "callbackName": "Your name",
+      "callbackPhone": "Your mobile",
+      "callbackAgency": "Agency name (optional)",
+      "callbackSubmit": "Call me back",
+      "callbackDone": "Thanks — we will call you shortly from (701) 518-9640.",
+      "callbackError": "That did not go through. Call or text us at (701) 518-9640 instead."
+    },
     "services": {
       "seo": {
         "title": "Services: Websites, Apps & Business Systems",

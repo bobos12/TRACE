@@ -1,9 +1,12 @@
-import { deliverDemoEvent, demoEventSchema, rateLimit } from '@/lib/leads';
+import { deliverDemoEvent, deliverProspectCopy, demoEventSchema, rateLimit } from '@/lib/leads';
+import { contact } from '@/lib/contact-data';
 
 /**
  * The Ellison & Reyes demo reports every form here — the bail application,
  * wanted tips, check-ins, reminders, payments and the chat — and each one is
- * emailed to the team. Only the demo on this site may call it: a request from
+ * emailed to the team. A signed application with the visitor's own email
+ * also sends them a copy, as their agency would receive it. Only the demos on
+ * this site may call it: a request from
  * any other origin is refused. Card and bank numbers are never sent.
  */
 
@@ -63,6 +66,11 @@ export async function POST(request: Request) {
       device: device(h.get('user-agent') ?? ''),
       referrer: parsed.data.from ?? '',
     });
+    if (parsed.data.sendCopy) {
+      await deliverProspectCopy(parsed.data, contact.phoneDisplay || '(701) 518-9640').catch((error) =>
+        console.error('[demo-lead] prospect copy failed', error),
+      );
+    }
     return Response.json({ ok: true });
   } catch (error) {
     console.error('[demo-lead] delivery failed', error);

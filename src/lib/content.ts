@@ -414,6 +414,33 @@ const siteSchema = z.object({
   }),
   /** Copy for the pages beyond the home page. */
   pages: z.object({
+    /** /demo: the campaign video, then the live demo and every way to reach us. */
+    demoVideo: z.object({
+      seo: pageSeo,
+      eyebrow: z.string().min(1),
+      title: z.string().min(1),
+      lead: z.string().min(1),
+      videoId: z.string().min(1),
+      videoTitle: z.string().min(1),
+      tryTitle: z.string().min(1),
+      tryLead: z.string().min(1),
+      demoCta: z.string().min(1),
+      demoHref: z.string().startsWith('/demos/'),
+      tasks: z.array(z.object({ label: z.string().min(1), text: z.string().min(1), href: z.string().startsWith('/demos/') })).min(1),
+      contactTitle: z.string().min(1),
+      contactLead: z.string().min(1),
+      book: z.string().min(1),
+      call: z.string().min(1),
+      text: z.string().min(1),
+      email: z.string().min(1),
+      callbackTitle: z.string().min(1),
+      callbackName: z.string().min(1),
+      callbackPhone: z.string().min(1),
+      callbackAgency: z.string().min(1),
+      callbackSubmit: z.string().min(1),
+      callbackDone: z.string().min(1),
+      callbackError: z.string().min(1),
+    }),
     services: z.object({
       seo: pageSeo,
       eyebrow: z.string().min(1),

@@ -151,7 +151,7 @@ export async function deliverLead(lead: Lead): Promise<void> {
    it. The demos never send card, bank or PIN numbers. */
 
 export const demoEventSchema = z.object({
-  kind: z.enum(['application', 'tip', 'checkin', 'reminders', 'lookup', 'payment', 'chat', 'text']),
+  kind: z.enum(['application', 'tip', 'checkin', 'reminders', 'lookup', 'payment', 'chat', 'text', 'callback']),
   /** Which demo it came from; Ellison & Reyes when absent. */
   site: z.string().trim().max(80).optional(),
   /** The demo page it came from (its hash route). */
@@ -163,6 +163,10 @@ export const demoEventSchema = z.object({
     .refine((f) => Object.keys(f).length > 0 && Object.keys(f).length <= 30),
   /** Where the visitor arrived from before the demo (document.referrer). */
   from: z.string().max(300).optional(),
+  /** The campaign recipient id from the email link (?rid=), so sales can match it in the CRM. */
+  rid: z.string().trim().max(120).optional(),
+  /** Email the visitor a copy of what an agency would receive (application with their own email). */
+  sendCopy: z.boolean().optional(),
   /** Honeypot: must stay empty. */
   website: z.string().max(0).optional().or(z.literal('')),
 });
@@ -178,6 +182,7 @@ const DEMO_TITLES: Record<DemoEvent['kind'], string> = {
   payment: 'Payment attempt',
   chat: 'Chat conversation',
   text: 'Text-to-start conversation',
+  callback: 'CALL BACK REQUEST',
 };
 
 export interface DemoVisitor {
@@ -193,7 +198,7 @@ export async function deliverDemoEvent(event: DemoEvent, visitor: DemoVisitor): 
   const title = DEMO_TITLES[event.kind];
   const site = event.site || 'Ellison & Reyes';
   const who = event.fields['Cosigner'] || event.fields['Name'] || event.fields['Phone'] || event.fields['From'] || '';
-  const email = Object.entries(event.fields).find(([k, v]) => /email/i.test(k) && /^\S+@\S+\.\S+$/.test(v))?.[1];
+  const email = demoEmail(event);
   const when = new Date().toLocaleString('en-US', {
     timeZone: 'America/New_York',
     dateStyle: 'medium',
@@ -215,14 +220,20 @@ export async function deliverDemoEvent(event: DemoEvent, visitor: DemoVisitor): 
       subject: `Demo · ${event.site ? `${site} · ` : ''}${title}${who ? ` — ${who}` : ''}${visitor.where ? ` (${visitor.where})` : ''}`,
       text: [
         `Someone used the ${site} demo: ${title}.`,
-        event.sample
-          ? 'They sent the prefilled sample values — most likely an agency owner trying it out.'
-          : 'They typed their own details — follow up: a prospect testing it, or a real family.',
+        event.kind === 'callback'
+          ? 'They asked us to call them back. Call them now.'
+          : event.sample
+            ? 'They sent the prefilled sample values — most likely an agency owner trying it out.'
+            : 'They typed their own details — follow up: a prospect testing it, or a real family.',
+        ...(event.sendCopy && email
+          ? [`We emailed them a copy of this lead at ${email}, as their agency would receive it. Reply to this email to reach them.`]
+          : []),
         '',
         ...Object.entries(event.fields).map(line),
         '',
         '—',
         `Page:      #${event.page}`,
+        `Campaign:  ${event.rid ? `recipient ${event.rid}` : 'not from a campaign link'}`,
         `When:      ${when} ET`,
         `Where:     ${visitor.where || 'unknown'}`,
         `Device:    ${visitor.device || 'unknown'}`,
@@ -234,4 +245,68 @@ export async function deliverDemoEvent(event: DemoEvent, visitor: DemoVisitor): 
   if (!response.ok) {
     throw new Error(`Resend send failed: ${response.status} ${await response.text()}`);
   }
+}
+
+/** The visitor's own email from a demo event, if they gave a valid one. */
+export function demoEmail(event: DemoEvent): string | undefined {
+  return Object.entries(event.fields).find(([k, v]) => /email/i.test(k) && /^\S+@\S+\.\S+$/.test(v))?.[1];
+}
+
+const escapeHtml = (v: string) =>
+  v.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]!);
+
+/**
+ * The prospect's own copy: the lead exactly as their agency would receive it,
+ * with a short, personal note and one way to reply. Sent only when they typed
+ * their own email into the demo application. Replies go to the team.
+ */
+export async function deliverProspectCopy(event: DemoEvent, phoneDisplay: string): Promise<void> {
+  const to = demoEmail(event);
+  if (!hasResend() || !to) return;
+
+  const site = event.site || 'Ellison & Reyes';
+  const first = (event.fields['Cosigner'] || '').trim().split(/\s+/)[0] || 'there';
+  const rows = Object.entries(event.fields).filter(([, v]) => v);
+  const tel = `+1${phoneDisplay.replace(/\D/g, '')}`;
+
+  const text = [
+    `Hi ${first},`,
+    '',
+    `This is the lead you just sent through the ${site} demo. It is exactly what lands in an agency's inbox the moment a family applies, at 2 a.m. or any other hour:`,
+    '',
+    ...rows.map(([k, v]) => `${k}: ${v}`),
+    '',
+    'Want this for your agency, with your name, your counties and your rates? Just reply to this email, or call or text us.',
+    '',
+    'Travis Lopez',
+    'Trace Studio',
+    `${phoneDisplay} · trace-studio.tech`,
+  ].join('\n');
+
+  const html = `<div style="font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.55;color:#14130f;max-width:560px">
+<p>Hi ${escapeHtml(first)},</p>
+<p>This is the lead you just sent through the <b>${escapeHtml(site)}</b> demo. It is exactly what lands in an agency's inbox the moment a family applies, at 2&nbsp;a.m. or any other hour:</p>
+<table style="border-collapse:collapse;width:100%;margin:16px 0;font-size:14px">${rows
+    .map(
+      ([k, v]) =>
+        `<tr><td style="padding:6px 14px 6px 0;color:#6b675e;white-space:nowrap;vertical-align:top">${escapeHtml(k)}</td><td style="padding:6px 0;border-bottom:1px solid #eeeeee">${escapeHtml(v)}</td></tr>`,
+    )
+    .join('')}</table>
+<p>Want this for your agency, with your name, your counties and your rates? <b>Just reply to this email</b>, or call or text us at <a href="tel:${tel}">${escapeHtml(phoneDisplay)}</a>.</p>
+<p>Travis Lopez<br>Trace Studio<br><a href="https://trace-studio.tech">trace-studio.tech</a></p>
+</div>`;
+
+  const response = await fetch('https://api.resend.com/emails', {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${process.env.RESEND_API_KEY!}`, 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      from: process.env.LEADS_FROM_EMAIL ?? 'TRACE website <onboarding@resend.dev>',
+      to: [to],
+      reply_to: process.env.LEADS_TO_EMAIL,
+      subject: `Your test lead from the ${site} demo`,
+      text,
+      html,
+    }),
+  });
+  if (!response.ok) throw new Error(`Resend copy failed: ${response.status} ${await response.text()}`);
 }

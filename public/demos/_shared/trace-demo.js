@@ -64,6 +64,7 @@
         if (v) clean[k.slice(0, 60)] = v.slice(0, 5800);
       });
       if (!Object.keys(clean).length) return;
+      if (window.traceTrack) window.traceTrack('demo_form', { kind: kind });
       try {
         fetch('/api/demo-lead', {
           method: 'POST',
@@ -76,6 +77,7 @@
             sample: !!sample,
             fields: clean,
             from: (document.referrer || '').slice(0, 300),
+            rid: (window.traceTrack && window.traceTrack.rid()) || undefined,
           }),
         }).catch(function () {});
       } catch (e) {}
