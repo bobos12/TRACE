@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Steel City Bail · Pittsburgh bail bonds, 24/7</title>
+<meta name="description" content="Licensed Pennsylvania bail bondsmen two blocks from the Allegheny County Jail. Call or text 24/7. Concept site by Trace Studio.">
+<meta name="theme-color" content="#111111">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' fill='%23FFC800'/%3E%3Cpath d='M12 11h24v6h-9v14h9v6H12v-6h9V17h-9z' fill='%23111'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Herr+Von+Muellerhoff&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
+<link rel="stylesheet" href="/demos/steel-city/assets/site.css">
+</head>
+<body>
+<span aria-hidden="true" style="position:absolute;left:-9999px;top:0;font-family:'Herr Von Muellerhoff',cursive">Signature</span>
+<a class="skip" href="#main">Skip to content</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="logo" viewBox="0 0 48 48"><rect x="1" y="1" width="46" height="46" fill="#FFC800" stroke="#111" stroke-width="2"/><path d="M12 11h24v6h-9v14h9v6H12v-6h9V17h-9z" fill="#111"/><circle cx="7" cy="7" r="1.6" fill="#111"/><circle cx="41" cy="7" r="1.6" fill="#111"/><circle cx="7" cy="41" r="1.6" fill="#111"/><circle cx="41" cy="41" r="1.6" fill="#111"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M5 3.5h3.4l1.6 4.4-2.2 1.4a11 11 0 0 0 5 5l1.4-2.2 4.4 1.6V17a2.5 2.5 0 0 1-2.7 2.5C9.3 19 5 14.7 4.5 6.2A2.5 2.5 0 0 1 5 3.5z"/></symbol>
+  <symbol id="i-sms" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M4 5h16v11H9l-5 4z"/><path d="M8 10.5h.01M12 10.5h.01M16 10.5h.01" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></symbol>
+  <symbol id="i-send" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" d="M4 12l16-8-6 16-3-6z"/></symbol>
+  <symbol id="i-up" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" d="M12 16V4M7 9l5-5 5 5M4 15v5h16v-5"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" d="M10.5 4a6.5 6.5 0 1 1 0 13 6.5 6.5 0 0 1 0-13zM15.5 15.5L21 21"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" d="M6 10.5h12V20H6zM8.5 10.5V8a3.5 3.5 0 0 1 7 0v2.5"/></symbol>
+</svg>
+
+<div class="topbar">
+  <div class="wrap">
+    <span class="live"><i class="sq" aria-hidden="true"></i><span>Bondsman on duty · Downtown, 2 blocks from ACJ</span></span>
+    <div class="r"><span class="hm">Allegheny · Westmoreland · Washington · Beaver · Butler</span><a href="tel:+17015189640">(701) 518-9640</a></div>
+  </div>
+</div>
+
+<header class="hdr">
+  <div class="wrap">
+    <a class="brand" href="#/" aria-label="Steel City Bail, home"><svg aria-hidden="true"><use href="#logo"/></svg><span class="wm"><b>Steel City Bail</b><small>Bail bonds · Pittsburgh, PA</small></span></a>
+    <nav class="nav" aria-label="Main">
+      <a href="#/locate">Inmate search</a>
+      <a href="#/how">How it works</a>
+      <a href="#/cost">Cost</a>
+      <a href="#/cosigner">Cosigner portal</a>
+      <a href="#/jails">Jails</a>
+      <a href="#/wanted">Skip board</a>
+      <a href="#/pay">Pay</a>
+    </nav>
+    <div class="hdr-cta">
+      <a class="btn o sm" href="#/text"><svg><use href="#i-sms"/></svg>Text us</a>
+      <a class="btn y sm" href="tel:+17015189640"><svg><use href="#i-phone"/></svg>Call 24/7</a>
+    </div>
+    <button class="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="drawer"><i></i><i></i><i></i></button>
+  </div>
+</header>
+
+<div class="ticker" aria-label="Recent activity (demo feed)">
+  <div class="row"><span class="tag"><i class="sq" style="background:var(--yellow)"></i>Live · demo</span><div class="track" id="ticker"></div></div>
+</div>
+
+<div class="drawer" id="drawer" aria-hidden="true">
+  <div class="d-top"><a class="brand" href="#/"><svg aria-hidden="true"><use href="#logo"/></svg><span class="wm"><b>Steel City Bail</b><small>Pittsburgh, PA</small></span></a><button class="close" aria-label="Close menu">&times;</button></div>
+  <nav aria-label="Mobile">
+    <a href="#/locate"><small>01</small>Inmate search</a>
+    <a href="#/text"><small>02</small>Text to start</a>
+    <a href="#/how"><small>03</small>How it works</a>
+    <a href="#/cost"><small>04</small>What it costs</a>
+    <a href="#/apply"><small>05</small>Apply online</a>
+    <a href="#/cosigner"><small>06</small>Cosigner portal</a>
+    <a href="#/checkin"><small>07</small>Weekly check-in</a>
+    <a href="#/pay"><small>08</small>Make a payment</a>
+    <a href="#/jails"><small>09</small>Jails &amp; courts</a>
+    <a href="#/wanted"><small>10</small>Skip board</a>
+    <a href="#/team"><small>11</small>Bondsmen</a>
+    <a href="#/reviews"><small>12</small>Reviews</a>
+    <a href="#/faq"><small>13</small>FAQ</a>
+    <a href="#/offices"><small>14</small>Offices</a>
+  </nav>
+  <div class="d-cta"><a class="btn y block" href="tel:+17015189640"><svg><use href="#i-phone"/></svg>Call (701) 518-9640</a><a class="btn o inv block" href="#/text"><svg><use href="#i-sms"/></svg>Text to start</a></div>
+</div>
+
+<main id="main" tabindex="-1">
+
+<!-- ======================= HOME ======================= -->
+<div data-page="home">
+  <section class="hero gridlines">
+    <div class="wrap g12">
+      <div class="copy">
+        <div class="meta"><span>Open 24/7/365</span><span>PA licensed bondsmen</span><span>950 Second Ave · 2 blocks</span></div>
+        <h1 class="h-xxl">We post bail<br>at 3 a.m. <span class="hl">too.</span></h1>
+        <p class="lede">Downtown Pittsburgh bail bonds, two blocks from the Allegheny County Jail. Call, or text us their name. We'll find them, tell you the bail type, and say straight out whether you even need a bondsman.</p>
+        <div class="ctas">
+          <a class="btn y" href="tel:+17015189640"><svg><use href="#i-phone"/></svg>Call (701) 518-9640</a>
+          <a class="btn o" href="#/apply">Start online</a>
+        </div>
+        <div class="specs">
+          <div><b>&lt;60s</b><span>Answer time, any hour</span></div>
+          <div><b>5</b><span>Counties posted</span></div>
+          <div><b>10%</b><span>Premium, $100 min.</span></div>
+        </div>
+      </div>
+      <div class="board-col">
+        <div class="board crop" aria-live="polite" aria-label="Status board">
+          <div class="bh"><b><i class="sq"></i>Steel City · Status</b><span id="board-clock" class="num">--:--</span></div>
+          <div class="flaps" id="flaps"></div>
+          <div class="bf"><span>Board updates every few seconds</span><span>Demo data</span></div>
+        </div>
+        <form class="sms-start" id="sms-start" autocomplete="off">
+          <label class="sr" for="sms-name">Name of the person arrested</label>
+          <input id="sms-name" placeholder="Text us their name to start" maxlength="60">
+          <button class="btn" type="submit"><svg><use href="#i-sms"/></svg>Text</button>
+        </form>
+      </div>
+    </div>
+    <figure class="hero-photo">
+      <img src="/demos/steel-city/img/bridge-night.jpg" alt="Underside of a yellow steel arch bridge lit at night in Pittsburgh" width="1024" height="683" fetchpriority="high">
+      <figcaption><span>Allegheny River crossing · night</span><span>Photo: brunkfordbraun · CC BY-SA 2.0</span></figcaption>
+    </figure>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="shead"><div class="idx"><b>01</b>Inmate search</div><h2 class="h-l">Find them first.<br>Then we talk money.</h2><div class="aside">Search by name. You'll see the booking, the charges, and whether bail is even set yet. <a class="lnk" href="#/locate">Full search</a></div></div>
+      <div class="js-locator"></div>
+    </div>
+  </section>
+
+  <section class="sec panel">
+    <div class="wrap">
+      <div class="shead"><div class="idx"><b>02</b>How it works</div><h2 class="h-l">Four steps.<br>No mystery.</h2><div class="aside">How bail works in Allegheny County, from intake at 950 Second Ave to the last court date. <a class="lnk" href="#/how">Full explainer</a></div></div>
+      <div class="js-plates"></div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="shead"><div class="idx"><b>03</b>What it costs</div><h2 class="h-l">Three ways to post.<br><span class="hl">We'll show all three.</span></h2><div class="aside">If the judge allowed a 10% cash deposit and you can cover it, posting it yourself is often cheaper. We'll tell you when that's the case.</div></div>
+      <div class="js-cost"></div>
+    </div>
+  </section>
+
+  <section class="sec ink">
+    <div class="wrap">
+      <div class="shead"><div class="idx"><b>04</b>Text to start</div><h2 class="h-l">Can't talk?<br>Text us.</h2><div class="aside">Waiting room, work shift, sleeping kids. Text <b style="color:var(--yellow)">START</b> to (701) 518-9640 and a bondsman picks it up from there.</div></div>
+      <div class="js-tts"></div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="shead"><div class="idx"><b>05</b>Cosigner portal</div><h2 class="h-l">Your checklist,<br>not a shoebox.</h2><div class="aside">Cosigners see the case, the court date, what's paid and which documents we still need. Upload from your phone. <a class="lnk" href="#/cosigner">Open the portal</a></div></div>
+      <div class="js-portal"></div>
+    </div>
+  </section>
+
+  <section class="sec panel">
+    <div class="wrap">
+      <div class="shead"><div class="idx"><b>06</b>Jails &amp; courts</div><h2 class="h-l">Five counties.<br>Mapped.</h2><div class="aside">Every jail and courthouse we post in, with addresses, phone numbers and directions.</div></div>
+      <div class="js-dir"></div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="shead"><div class="idx"><b>07</b>Skip board</div><h2 class="h-l">Missed court.<br>Reward posted.</h2><div class="aside">People who skipped court on a Steel City bond. Never approach anyone. Call us or 911. <a class="lnk" href="#/wanted">Full board</a></div></div>
+      <div class="js-wanted" data-limit="3"></div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="wrap g12">
+      <div class="t"><span class="label" style="color:var(--ink)">Already talked to us?</span><h2 class="h-xl" style="margin-top:14px">Sign. Upload. Pay.<br>From the lobby.</h2></div>
+      <div class="a"><a class="btn" href="#/apply">Start the application</a><a class="btn o" href="#/pay"><svg><use href="#i-lock"/></svg>Make a payment</a><a class="btn o" href="#/checkin">Weekly check-in</a></div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="shead"><div class="idx"><b>08</b>Bondsmen</div><h2 class="h-l">The people<br>on the phone.</h2><div class="aside">Licensed by the Pennsylvania Insurance Department. Born and raised between the three rivers. <a class="lnk" href="#/team">All profiles</a></div></div>
+      <div class="js-team"></div>
+    </div>
+  </section>
+
+  <section class="sec panel">
+    <div class="wrap">
+      <div class="shead"><div class="idx"><b>09</b>Reviews</div><h2 class="h-l">Word on<br>the street.</h2><div class="aside">Sample reviews written for this concept. A live site pulls verified Google reviews. <a class="lnk" href="#/reviews">All reviews</a></div></div>
+      <div class="js-reviews" data-limit="5"></div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="shead"><div class="idx"><b>10</b>FAQ</div><h2 class="h-l">Straight<br>answers.</h2><div class="aside"><a class="lnk" href="#/faq">All questions</a></div></div>
+      <div class="js-faq" data-limit="6"></div>
+    </div>
+  </section>
+
+  <section class="sec panel">
+    <div class="wrap">
+      <div class="shead"><div class="idx"><b>11</b>Offices</div><h2 class="h-l">Walk in.<br>Any hour.</h2><div class="aside">Downtown never closes. Greensburg covers Westmoreland County.</div></div>
+      <div class="js-offices"></div>
+    </div>
+  </section>
+</div>
+
+<!-- ======================= LOCATE ======================= -->
+<div data-page="locate" hidden>
+  <section class="phead"><div class="wrap g12"><div class="t"><span class="label">Inmate search · Western PA</span><h1 class="h-xl">Inmate search</h1><p class="lede">Search by last name across the jails we post in. Results show booking details, charges, bail type and status. If bail isn't set or there's a hold, you'll see it here before you spend a dollar.</p></div><div class="s"><a class="btn y" href="tel:+17015189640"><svg><use href="#i-phone"/></svg>Can't find them? Call</a></div></div></section>
+  <section class="sec"><div class="wrap"><div class="js-locator" data-full="1"></div>
+    <div class="grid3" style="margin-top:var(--gap)">
+      <div class="note"><div class="h"><span>Not in the list yet?</span></div><p>Intake at 950 Second Ave can take several hours. New bookings usually show up after the preliminary arraignment.</p></div>
+      <div class="note"><div class="h"><span>Official sources</span></div><p>On a live site this search reads the county's public jail roster and the UJS Portal docket. Here it's a fictional demo roster.</p></div>
+      <div class="note"><div class="h"><span>Status key</span></div><p><span class="chip go">Bondable</span> monetary bail set · <span class="chip ok">Released</span> ROR or unsecured · <span class="chip wait">Pending</span> awaiting arraignment · <span class="chip hold">Hold</span> detainer</p></div>
+    </div></div></section>
+</div>
+
+<!-- ======================= TEXT ======================= -->
+<div data-page="text" hidden>
+  <section class="phead dark"><div class="wrap g12"><div class="t"><span class="label">Text to start</span><h1 class="h-xl">Text START to<br>(701) 518-9640</h1><p class="lede">Every text goes to a licensed bondsman, not a bot farm. Try the demo below: it walks through the same questions we'd ask by text.</p></div></div></section>
+  <section class="sec ink"><div class="wrap"><div class="js-tts"></div></div></section>
+</div>
+
+<!-- ======================= HOW ======================= -->
+<div data-page="how" hidden>
+  <section class="phead"><div class="wrap g12"><div class="t"><span class="label">How bail works · Pennsylvania</span><h1 class="h-xl">How bail works<br>in Allegheny County</h1><p class="lede">Pennsylvania has five kinds of bail. Only one of them, monetary bail, ever needs a bondsman. Here's the whole process, in order.</p></div></div></section>
+  <section class="sec"><div class="wrap"><div class="js-plates" data-full="1"></div></div></section>
+  <section class="sec panel"><div class="wrap">
+    <div class="shead"><div class="idx"><b>§</b>Details</div><h2 class="h-l">The fine print,<br>in plain English.</h2></div>
+    <div class="g12" style="row-gap:32px">
+      <div class="prose c4"><h3 class="h-m" style="margin-bottom:12px">Preliminary arraignment</h3><p>After intake at the Allegheny County Jail, the defendant sees a magistrate, often by video from the jail. The magistrate reads the charges and sets bail. For bail questions, the arraignment court at Pittsburgh Municipal Court, 660 First Ave, can be reached at (412) 350-3240.</p></div>
+      <div class="prose c4"><h3 class="h-m" style="margin-bottom:12px">The 10% deposit</h3><p>Under Pennsylvania Rule 528, the bail authority may let the defendant post a cash deposit of up to 10% of monetary bail directly with the court. The defendant then signs as their own surety and is liable for the full amount if they skip court. If that option was granted, call us anyway, and we'll tell you if you don't need us.</p></div>
+      <div class="prose c4"><h3 class="h-m" style="margin-bottom:12px">A surety bond</h3><p>When monetary bail is set and a 10% deposit isn't allowed, or you can't cover it, a licensed bondsman posts the full bail. You pay a premium (ours is 10%, $100 minimum) and a cosigner signs an indemnity agreement. Larger bonds may need collateral.</p></div>
+      <div class="prose c4"><h3 class="h-m" style="margin-bottom:12px">Holds &amp; detainers</h3><p>A state parole or county probation detainer, another county's warrant, or an immigration detainer can keep someone in custody after bail is posted. We check for holds before you pay.</p></div>
+      <div class="prose c4"><h3 class="h-m" style="margin-bottom:12px">Release</h3><p>After the bond is posted, ACJ processes the release. It typically takes a few hours, sometimes longer at shift change. We'll call you when it starts moving.</p></div>
+      <div class="prose c4"><h3 class="h-m" style="margin-bottom:12px">Exoneration</h3><p>When the case is over, the bond is exonerated: the obligation ends and any collateral is returned. Miss court and the bond can be forfeited, and the cosigner may owe the full bail.</p></div>
+    </div>
+  </div></section>
+</div>
+
+<!-- ======================= COST ======================= -->
+<div data-page="cost" hidden>
+  <section class="phead"><div class="wrap g12"><div class="t"><span class="label">Cost calculator · PA</span><h1 class="h-xl">What will it cost?</h1><p class="lede">Enter the bail amount from the docket or the jail. We'll lay out every way to post it, including the ones that don't involve us.</p></div></div></section>
+  <section class="sec"><div class="wrap"><div class="js-cost" data-full="1"></div></div></section>
+</div>
+
+<!-- ======================= COSIGNER ======================= -->
+<div data-page="cosigner" hidden>
+  <section class="phead"><div class="wrap g12"><div class="t"><span class="label">Cosigner portal</span><h1 class="h-xl">Cosigner portal</h1><p class="lede">Everything you're responsible for, in one place: the case, the court date, the balance, and the document checklist. Upload straight from your phone.</p></div></div></section>
+  <section class="sec"><div class="wrap"><div class="js-portal"></div></div></section>
+</div>
+
+<!-- ======================= CHECK-IN ======================= -->
+<div data-page="checkin" hidden>
+  <section class="phead"><div class="wrap g12"><div class="t"><span class="label">Defendant check-in</span><h1 class="h-xl">Weekly check-in</h1><p class="lede">Clients on a Steel City bond check in once a week. It takes about a minute and keeps your cosigner in good standing.</p></div></div></section>
+  <section class="sec"><div class="wrap ci">
+    <form class="payf" id="cif" novalidate>
+      <div id="ci-1" class="grid2" style="align-items:end">
+        <div class="field"><label for="ci-case">Case ID</label><input class="input num" id="ci-case" placeholder="SC-26-0418" required></div>
+        <div class="field"><label for="ci-dob">Date of birth</label><input class="input" id="ci-dob" type="date" required></div>
+      </div>
+      <div>
+        <div class="q"><span>Are you still living at the address on file?</span><div class="yn"><label><input type="radio" name="addr" value="y" checked>Yes</label><label><input type="radio" name="addr" value="n">No</label></div></div>
+        <div class="field" id="ci-newaddr" hidden style="padding:12px 0"><label for="ci-a">New address</label><input class="input" id="ci-a"></div>
+        <div class="q"><span>Same phone number and employer?</span><div class="yn"><label><input type="radio" name="emp" value="y" checked>Yes</label><label><input type="radio" name="emp" value="n">No</label></div></div>
+        <div class="q"><span>Any contact with police since your last check-in?</span><div class="yn"><label><input type="radio" name="pol" value="n" checked>No</label><label><input type="radio" name="pol" value="y">Yes</label></div></div>
+        <div class="q"><span>Do you know your next court date and courtroom?</span><div class="yn"><label><input type="radio" name="crt" value="y" checked>Yes</label><label><input type="radio" name="crt" value="n">No</label></div></div>
+      </div>
+      <div class="field"><label for="ci-note">Anything we should know? <span class="muted">(optional)</span></label><textarea class="input" id="ci-note" placeholder="New job, moved in with family, need a ride to court…"></textarea></div>
+      <label class="check"><input type="checkbox" id="ci-ok"><span>I confirm this information is true. Late or missed check-ins are reported to my bondsman.</span></label>
+      <p class="err" id="ci-err"></p>
+      <button class="btn y block" type="submit">Submit check-in</button>
+    </form>
+    <div>
+      <div class="tape" id="ci-tape">
+        <p class="c">Steel City Bail · Check-in</p><hr>
+        <div class="r"><span>Status</span><span class="dots"></span><span>Awaiting</span></div>
+        <div class="r"><span>Frequency</span><span class="dots"></span><span>Weekly</span></div>
+        <div class="r"><span>Window</span><span class="dots"></span><span>Mon–Sun</span></div>
+        <hr><p class="small" style="font-family:var(--f-body)">Missed a week? Call (701) 518-9640 and check in by phone. A missed check-in isn't a missed court date, but it's how they start.</p>
+      </div>
+    </div>
+  </div></section>
+</div>
+
+<!-- ======================= JAILS ======================= -->
+<div data-page="jails" hidden>
+  <section class="phead"><div class="wrap g12"><div class="t"><span class="label">Directory · Western PA</span><h1 class="h-xl">Jails &amp; courts</h1><p class="lede">Real facilities in the five counties we post in. Check the address on the court notice. Magisterial district courts are spread across each county.</p></div></div></section>
+  <section class="sec"><div class="wrap"><div class="js-dir" data-tall="1"></div></div></section>
+</div>
+
+<!-- ======================= WANTED ======================= -->
+<div data-page="wanted" hidden>
+  <section class="phead dark"><div class="wrap g12"><div class="t"><span class="label">Skip board</span><h1 class="h-xl">Skip board</h1><p class="lede">These people missed court on a Steel City bond. If you know where they are, call us or send an anonymous tip. Never approach or confront anyone.</p></div><div class="s"><a class="btn y" href="tel:+17015189640"><svg><use href="#i-phone"/></svg>Tip line 24/7</a></div></div></section>
+  <section class="sec"><div class="wrap"><div class="js-wanted"></div>
+    <form class="payf" id="tipf" novalidate style="margin-top:var(--gap)">
+      <h2 class="h-m">Anonymous tip</h2>
+      <div class="grid2"><div class="field"><label for="tip-who">Who is it about?</label><select class="input" id="tip-who"></select></div><div class="field"><label for="tip-where">Where / when did you see them?</label><input class="input" id="tip-where" placeholder="e.g. Carrick, near Brownsville Rd, Tuesday evening"></div></div>
+      <div class="field"><label for="tip-msg">Details</label><textarea class="input" id="tip-msg"></textarea></div>
+      <div class="grid2" style="align-items:end"><div class="field"><label for="tip-c">Contact <span class="muted">(optional, for rewards)</span></label><input class="input" id="tip-c" placeholder="Phone or email"></div><button class="btn y" type="submit">Send tip</button></div>
+      <p class="small muted">Demo form: nothing is sent. Rewards are paid only when information leads to a voluntary surrender or a lawful return to custody.</p>
+    </form>
+  </div></section>
+</div>
+
+<!-- ======================= APPLY ======================= -->
+<div data-page="apply" hidden>
+  <section class="phead"><div class="wrap g12"><div class="t"><span class="label">Bail application · Work order</span><h1 class="h-xl">Apply online</h1><p class="lede">One form, four parts. Fill it in any order; the checklist on the right keeps track. A bondsman calls before anything is posted or charged.</p></div></div></section>
+  <section class="sec"><div class="wrap wo">
+    <form class="wo-form" id="ap" novalidate>
+      <div class="wo-sec" data-s="def"><div class="no"><b>A</b>Defendant</div><div class="bd">
+        <h3>Who's in custody</h3>
+        <div class="grid2"><div class="field"><label for="d-first">First name</label><input class="input" id="d-first" required></div><div class="field"><label for="d-last">Last name</label><input class="input" id="d-last" required></div></div>
+        <div class="grid3"><div class="field"><label for="d-dob">Date of birth</label><input class="input" id="d-dob" type="date" required></div><div class="field"><label for="d-book">Booking / OTN</label><input class="input num" id="d-book" placeholder="optional"></div>
+          <div class="field"><label for="d-jail">Facility</label><select class="input" id="d-jail" required><option value="">Select</option><option>Allegheny County Jail</option><option>Westmoreland County Prison</option><option>Washington County Correctional Facility</option><option>Beaver County Jail</option><option>Butler County Prison</option><option>Not sure</option></select></div></div>
+        <div class="field"><label for="d-bail">Bail amount, if known</label><input class="input num" id="d-bail" inputmode="numeric" placeholder="$"></div>
+      </div></div>
+      <div class="wo-sec" data-s="you"><div class="no"><b>B</b>Cosigner</div><div class="bd">
+        <h3>You, the indemnitor</h3>
+        <div class="grid2"><div class="field"><label for="c-name">Full name</label><input class="input" id="c-name" required autocomplete="name"></div><div class="field"><label for="c-rel">Relationship</label><select class="input" id="c-rel" required><option value="">Select</option><option>Parent</option><option>Spouse / partner</option><option>Sibling</option><option>Child</option><option>Friend</option><option>Employer</option></select></div></div>
+        <div class="grid2"><div class="field"><label for="c-phone">Mobile</label><input class="input" id="c-phone" type="tel" required autocomplete="tel" placeholder="(412) 555-0100"></div><div class="field"><label for="c-email">Email</label><input class="input" id="c-email" type="email" required autocomplete="email" placeholder="you@example.com"></div></div>
+        <div class="field"><label for="c-addr">Home address</label><input class="input" id="c-addr" required autocomplete="street-address"></div>
+      </div></div>
+      <div class="wo-sec" data-s="id"><div class="no"><b>C</b>ID</div><div class="bd">
+        <h3>Photo ID, front &amp; back</h3>
+        <div class="grid2">
+          <label class="drop" data-drop="front"><input type="file" accept="image/*,.pdf" aria-label="Front of ID"><svg><use href="#i-up"/></svg><b>Front</b><span>Photo or file</span></label>
+          <label class="drop" data-drop="back"><input type="file" accept="image/*,.pdf" aria-label="Back of ID"><svg><use href="#i-up"/></svg><b>Back</b><span>Photo or file</span></label>
+        </div>
+        <p class="small muted">Demo: files stay in your browser and are never uploaded.</p>
+      </div></div>
+      <div class="wo-sec" data-s="sign"><div class="no"><b>D</b>Signature</div><div class="bd">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap"><h3>Sign the indemnity agreement</h3><div class="seg" role="group" aria-label="Signature method"><button type="button" data-sig="draw" aria-pressed="true">Draw</button><button type="button" data-sig="type" aria-pressed="false">Type</button></div></div>
+        <div class="sigbox" id="sig-draw"><canvas id="sig-canvas" aria-label="Signature pad"></canvas><span class="x">X</span><span class="base"></span></div>
+        <div id="sig-type" hidden><div class="field"><label for="sig-name">Type your full legal name</label><input class="input" id="sig-name"></div><div class="sig-typed" id="sig-preview" style="margin-top:10px">&nbsp;</div></div>
+        <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap"><button type="button" class="lnk" id="sig-clear" style="background:none;border-top:0;border-left:0;border-right:0;cursor:pointer">Clear</button><span class="num small muted" id="sig-stamp"></span></div>
+        <label class="check"><input type="checkbox" id="agree1"><span>I agree to act as indemnitor and understand I may owe the full bail amount if the defendant fails to appear.</span></label>
+        <label class="check"><input type="checkbox" id="agree2"><span>I consent to electronic signatures and records.</span></label>
+      </div></div>
+    </form>
+    <aside class="wo-side">
+      <div class="cl" id="ap-cl">
+        <h4><span>Checklist</span><span id="ap-count" class="num">0/4</span></h4>
+        <ul><li data-c="def"><i></i>Defendant details</li><li data-c="you"><i></i>Cosigner details</li><li data-c="id"><i></i>ID front &amp; back</li><li data-c="sign"><i></i>Signature &amp; consent</li></ul>
+        <div class="go"><p class="err" id="ap-err" style="margin-bottom:8px"></p><button class="btn y block" id="ap-submit" type="button">Submit application</button></div>
+      </div>
+      <div class="note"><div class="h"><span>What happens next</span></div><p>A bondsman checks the docket, confirms the bail type, and calls you. Nothing is posted and no card is charged until you've spoken to a person.</p></div>
+    </aside>
+    <div class="done" id="ap-done" hidden style="grid-column:1/-1">
+      <span class="demo-flag">Demo · nothing was sent</span>
+      <h3>Application in.<br>Phone on.</h3>
+      <p class="lede" style="color:var(--ink)">On a live site, a bondsman would call <b id="ap-phone"></b> within about ten minutes. Reference <b class="num" id="ap-ref"></b>.</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:22px"><a class="btn" href="#/pay">Continue to payment</a><button class="btn o" type="button" id="ap-restart">New application</button></div>
+    </div>
+  </div></section>
+</div>
+
+<!-- ======================= PAY ======================= -->
+<div data-page="pay" hidden>
+  <section class="phead"><div class="wrap g12"><div class="t"><span class="label">Payments</span><h1 class="h-xl">Make a payment</h1><p class="lede">Premium, installment or balance. Every payment gets an itemized receipt.</p></div><div class="s"><div class="brands" aria-label="Accepted cards">
+    <span class="pm" title="Visa"><i style="--c:#1A1F71;--u:url(https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/visa.svg)"></i></span>
+    <span class="pm" title="Mastercard"><i style="--c:#EB001B;--u:url(https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/mastercard.svg)"></i></span>
+    <span class="pm" title="American Express"><i style="--c:#2E77BC;--u:url(https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/americanexpress.svg)"></i></span>
+    <span class="pm" title="Discover"><i style="--c:#FF6000;--u:url(https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/discover.svg)"></i></span>
+    <span class="pm" title="Apple Pay"><i style="--c:#000;--u:url(https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/applepay.svg)"></i></span>
+    <span class="pm" title="Google Pay"><i style="--c:#3C4043;--u:url(https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/googlepay.svg)"></i></span>
+    <span class="pm" title="Cash App"><i style="--c:#00C244;--u:url(https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/cashapp.svg)"></i></span>
+  </div></div></div></section>
+  <section class="sec"><div class="wrap pay">
+    <form class="payf" id="payf" novalidate>
+      <div class="radio-row" role="radiogroup" aria-label="Payment type">
+        <label><input type="radio" name="pw" value="Premium" checked><b>Premium</b><small>New bond</small></label>
+        <label><input type="radio" name="pw" value="Installment"><b>Installment</b><small>Payment plan</small></label>
+        <label><input type="radio" name="pw" value="Balance"><b>Balance</b><small>Itemized fees</small></label>
+      </div>
+      <div class="grid2"><div class="field"><label for="p-ref">Case ID</label><input class="input num" id="p-ref" placeholder="SC-26-0000" required></div><div class="field"><label for="p-amt">Amount</label><input class="input num" id="p-amt" inputmode="decimal" placeholder="0.00" required></div></div>
+      <div class="wallets"><button type="button" class="wallet" data-wallet="Apple Pay"><i style="--u:url(https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/applepay.svg)"></i><span class="sr">Apple Pay</span></button><button type="button" class="wallet g" data-wallet="Google Pay"><i style="--u:url(https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/googlepay.svg)"></i><span class="sr">Google Pay</span></button></div>
+      <div class="or">or card</div>
+      <div class="field"><label for="p-name">Name on card</label><input class="input" id="p-name" required autocomplete="cc-name"></div>
+      <div class="field cardnum"><label for="p-card">Card number</label><input class="input num" id="p-card" inputmode="numeric" autocomplete="cc-number" placeholder="0000 0000 0000 0000" maxlength="23" required><span class="pm" id="p-brand"><i></i></span></div>
+      <div class="grid3"><div class="field"><label for="p-exp">Exp</label><input class="input num" id="p-exp" placeholder="MM / YY" maxlength="7" inputmode="numeric" required></div><div class="field"><label for="p-cvc">CVC</label><input class="input num" id="p-cvc" maxlength="4" inputmode="numeric" placeholder="123" required></div><div class="field"><label for="p-zip">ZIP</label><input class="input num" id="p-zip" maxlength="5" inputmode="numeric" placeholder="15219" required></div></div>
+      <p class="err" id="pay-err"></p>
+      <button class="btn y block" type="submit"><svg><use href="#i-lock"/></svg><span id="pay-l">Pay now</span></button>
+      <p class="small muted">Demo checkout. No card is charged. Test card: 4242 4242 4242 4242.</p>
+    </form>
+    <div class="tape" id="tape"></div>
+  </div></section>
+</div>
+
+<!-- ======================= TEAM ======================= -->
+<div data-page="team" hidden>
+  <section class="phead"><div class="wrap g12"><div class="t"><span class="label">Bondsmen</span><h1 class="h-xl">The bondsmen</h1><p class="lede">Four people, one phone line, no call center. Every one of us is licensed by the Pennsylvania Insurance Department.</p></div></div></section>
+  <section class="sec"><div class="wrap"><div class="js-team" data-full="1"></div></div></section>
+</div>
+
+<!-- ======================= REVIEWS ======================= -->
+<div data-page="reviews" hidden>
+  <section class="phead"><div class="wrap g12"><div class="t"><span class="label">Reviews · Samples</span><h1 class="h-xl">Reviews</h1><p class="lede">Every review here is a <b>sample</b> written for this concept site, and so is the rating.</p></div></div></section>
+  <section class="sec"><div class="wrap"><div class="js-reviews"></div></div></section>
+</div>
+
+<!-- ======================= FAQ ======================= -->
+<div data-page="faq" hidden>
+  <section class="phead"><div class="wrap g12"><div class="t"><span class="label">FAQ · Pennsylvania</span><h1 class="h-xl">Questions</h1></div><div class="s"><a class="btn y" href="tel:+17015189640"><svg><use href="#i-phone"/></svg>Ask a person</a></div></div></section>
+  <section class="sec"><div class="wrap" style="max-width:1100px"><div class="js-faq"></div></div></section>
+</div>
+
+<!-- ======================= OFFICES ======================= -->
+<div data-page="offices" hidden>
+  <section class="phead"><div class="wrap g12"><div class="t"><span class="label">Offices</span><h1 class="h-xl">Offices</h1><p class="lede">Downtown is open 24 hours, a two-minute walk from the jail's front door. Greensburg serves Westmoreland County.</p></div></div></section>
+  <section class="sec"><div class="wrap"><div class="js-offices"></div></div></section>
+</div>
+
+<!-- ======================= CREDITS ======================= -->
+<div data-page="credits" hidden>
+  <section class="phead"><div class="wrap g12"><div class="t"><span class="label">Credits</span><h1 class="h-l">Photo credits &amp; notes</h1><p class="lede">Photography from Flickr under Creative Commons, found via Openverse. All faces on this site, including bondsmen and the skip board, are AI-generated and are not real people.</p></div></div></section>
+  <section class="sec"><div class="wrap"><div class="tbl-wrap" style="display:block;border:2px solid var(--ink);background:var(--panel)"><table class="roster" style="min-width:640px"><thead><tr><th>File</th><th>Title</th><th>Author</th><th>License</th></tr></thead><tbody id="credits-body"></tbody></table></div>
+  <p class="small muted" style="margin-top:16px">Map tiles © Esri; data © OpenStreetMap contributors, HERE, Garmin. Payment marks via Simple Icons (CC0); trademarks belong to their owners. Fonts: Big Shoulders Display, IBM Plex Sans/Mono, Herr Von Muellerhoff (SIL OFL).</p></div></section>
+</div>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap g12">
+    <div class="c1">
+      <a class="brand" href="#/"><svg aria-hidden="true"><use href="#logo"/></svg><span class="wm"><b>Steel City Bail</b><small>Bail bonds · Pittsburgh, PA</small></span></a>
+      <a class="big" href="tel:+17015189640">(701) 518-9640</a>
+      <p class="mono small">TEXT (701) 518-9640 · steelcitybail@example.com</p>
+    </div>
+    <div class="c2"><h4>Get out</h4><ul><li><a href="#/locate">Inmate search</a></li><li><a href="#/text">Text to start</a></li><li><a href="#/apply">Apply online</a></li><li><a href="#/pay">Pay</a></li></ul></div>
+    <div class="c3"><h4>Stay out</h4><ul><li><a href="#/cosigner">Cosigner portal</a></li><li><a href="#/checkin">Check-in</a></li><li><a href="#/wanted">Skip board</a></li><li><a href="#/faq">FAQ</a></li></ul></div>
+    <div class="c4"><h4>Find us</h4><ul><li><a href="#/jails">Jails &amp; courts</a></li><li><a href="#/offices">Offices</a></li><li><a href="#/team">Bondsmen</a></li><li><a href="#/credits">Credits</a></li></ul></div>
+  </div>
+  <div class="wrap legal">
+    <p><b>License.</b> Steel City Bail Bonds LLC. Professional bail bondsmen licensed by the Pennsylvania Insurance Department. License no. PA-CONCEPT-0000 (placeholder). Bonds underwritten by a licensed surety. Premium: 10% of the bail amount, $100 minimum, non-refundable once posted. Not legal advice.</p>
+    <p>Reviews, ratings, activity feed, roster records and skip-board entries are fictional samples. All faces are AI-generated. Phone numbers use the 555-01xx range. Jail and court addresses are real; office addresses are fictional.</p>
+    <p class="concept"><b style="color:var(--yellow)">Concept site by Trace Studio. Steel City Bail is a fictional agency.</b></p>
+  </div>
+</footer>
+
+<nav class="dock" aria-label="Quick actions"><a href="tel:+17015189640"><svg><use href="#i-phone"/></svg>Call 24/7</a><a href="#/text"><svg><use href="#i-sms"/></svg>Text us</a></nav>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+<script src="/demos/_shared/trace-demo.js" data-base="/demos/steel-city" data-site="Steel City Bail"></script>
+<script src="/demos/steel-city/assets/site.js"></script>
+</body>
+</html>

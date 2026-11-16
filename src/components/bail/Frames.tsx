@@ -50,7 +50,7 @@ export function Browser({
         <span className="size-2 rounded-full bg-line-strong" />
         <span className="size-2 rounded-full bg-line-strong" />
         <span className="size-2 rounded-full bg-line-strong" />
-        <span className="ms-3 flex h-5 flex-1 items-center rounded-sm bg-surface px-2.5 font-mono text-[10px] text-ink-faint">
+        <span className="ms-3 flex h-5 min-w-0 flex-1 items-center overflow-hidden whitespace-nowrap rounded-sm bg-surface px-2.5 font-mono text-[10px] text-ink-faint">
           {url}
         </span>
       </div>

@@ -228,6 +228,116 @@
       }
     },
     {
+      "slug": "steel-city-bail",
+      "kind": "concept",
+      "placeholder": false,
+      "_note": "Steel City Bail is a fictional Pittsburgh agency (AI-generated faces, demo roster). Hosted at /demos/steel-city from demos/concepts/steel-city; its lines ring TRACE at (701) 518-9640 and every form emails the team via /api/demo-lead. Photos are Flickr CC BY / CC BY-SA, credited on the demo's #/credits page. Captured by scripts/capture-concept.mjs.",
+      "featured": true,
+      "spotlight": true,
+      "category": "company-website",
+      "year": 2026,
+      "cover": "/images/portfolio/steel-city-bail-cover.jpg",
+      "gallery": [
+        "/images/portfolio/steel-city-bail-shot-2.jpg",
+        "/images/portfolio/steel-city-bail-shot-3.jpg",
+        "/images/portfolio/steel-city-bail-shot-4.jpg"
+      ],
+      "services": [
+        "websites-web-apps",
+        "automation"
+      ],
+      "stack": [
+        "HTML/CSS/JS",
+        "Leaflet maps"
+      ],
+      "links": {
+        "demo": "/demos/steel-city"
+      },
+      "en": {
+        "client": "Steel City Bail",
+        "sector": "Bail bonds",
+        "country": "Pennsylvania",
+        "title": "A Pittsburgh bail agency that works like a dispatcher",
+        "summary": "An industrial, no-nonsense site two blocks from the Allegheny County Jail: inmate search, text to start, an honest cost comparison, a cosigner portal, check-ins and a skip board.",
+        "challenge": "A family in Pittsburgh at 3 a.m. needs to know where their person is, what the bail is, and whether they need a bondsman at all. Pennsylvania often lets a judge allow a 10% deposit, so the honest answer is sometimes no.",
+        "solution": "A site that behaves like a dispatcher. Families search the jails by name, text to start with a bondsman, and see three ways to post side by side — full cash, the 10% deposit and a bond — with the cheapest marked even when it is not the agency. Cosigners track their case and documents; defendants check in weekly; a skip board takes anonymous tips. Shown with Steel City Bail, a fictional agency — every page and form works.",
+        "capabilities": [
+          "Inmate search",
+          "Text to start",
+          "Cost comparison",
+          "Online application",
+          "Cosigner portal",
+          "Weekly check-in",
+          "Skip board & tips",
+          "Jails & courts map"
+        ],
+        "results": [],
+        "highlights": [
+          {
+            "title": "Honest about the cost",
+            "text": "Full cash, the 10% deposit and a bond side by side — the cheapest marked, even when it is not us."
+          },
+          {
+            "title": "Start by text",
+            "text": "Four quick questions by text, and a bondsman calls back in minutes."
+          },
+          {
+            "title": "Find them first",
+            "text": "Search the jails by name, see the charges and bail, and start bail from the result."
+          }
+        ],
+        "rows": [
+          {
+            "title": "Credible at 3 a.m.",
+            "text": "Who is on duty, how close the office is to the jail, and call or text one tap away."
+          },
+          {
+            "title": "Inmate search",
+            "text": "Search by name across the jails served: booking, charges, bail and status — and Start bail from a bondable result."
+          },
+          {
+            "title": "Three ways to post",
+            "text": "Full cash, the 10% deposit and a bond compared on one screen, with the cheapest option marked."
+          },
+          {
+            "title": "One work order to apply",
+            "text": "Defendant, cosigner, ID and signature in any order, with a live checklist and a reference number at the end."
+          }
+        ]
+      },
+      "media": {
+        "rows": [
+          {
+            "image": "/images/work/steel-city-bail/row-1.jpg",
+            "phone": "/images/work/steel-city-bail/phone-1.jpg"
+          },
+          {
+            "image": "/images/work/steel-city-bail/row-2.jpg",
+            "phone": "/images/work/steel-city-bail/phone-2.jpg"
+          },
+          {
+            "image": "/images/work/steel-city-bail/row-3.jpg",
+            "phone": "/images/work/steel-city-bail/phone-3.jpg"
+          },
+          {
+            "image": "/images/work/steel-city-bail/row-4.jpg",
+            "phone": "/images/work/steel-city-bail/phone-4.jpg"
+          }
+        ],
+        "mobiles": [
+          "/images/work/steel-city-bail/m-1.jpg",
+          "/images/work/steel-city-bail/m-2.jpg",
+          "/images/work/steel-city-bail/m-3.jpg",
+          "/images/work/steel-city-bail/m-4.jpg"
+        ],
+        "full": {
+          "src": "/images/work/steel-city-bail/full.jpg",
+          "width": 1200,
+          "height": 7500
+        }
+      }
+    },
+    {
       "slug": "ironwood-bail-bonds",
       "kind": "concept",
       "placeholder": true,

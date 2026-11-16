@@ -251,6 +251,16 @@ const PROJECTS = [
     ],
   },
   {
+    // Captured by scripts/capture-concept.mjs steel-city. A fictional agency, so the bar names the demo.
+    slug: 'steel-city-bail', name: 'Steel City Bail', url: 'Steel City Bail · live demo',
+    cover: ['desktop-0', 'mobile-0'],
+    slides: [
+      { t: 'screens', ground: 'carbon', eyebrow: 'Concept ◆ Bail bond agency website', title: 'Honest about the cost, even when it loses the bond', desktop: 'desktop-cost', mobiles: ['mobile-cost', 'mobile-text'] },
+      { t: 'mobiles', ground: 'graphite', eyebrow: 'Mobile first', title: 'Search, text and tip from a phone', text: 'Find who is in custody, start bail by text, and send an anonymous tip from the skip board — with call and text pinned to the thumb.', mobiles: ['mobile-0', 'mobile-locate', 'mobile-wanted'] },
+      { t: 'sections', ground: 'sand', eyebrow: 'Built like a dispatcher', title: 'Inmate search and the skip board', desktops: ['desktop-locate', 'desktop-wanted'] },
+    ],
+  },
+  {
     // Captured by scripts/capture-travis.mjs from the hosted demo. A fictional agency, so the bar names the demo.
     slug: 'travis-bail-bonds', name: 'Travis Bail Bonds', url: 'Travis Bail Bonds · live demo',
     cover: ['desktop-0', 'mobile-0'],
