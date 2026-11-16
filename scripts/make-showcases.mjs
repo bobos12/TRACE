@@ -251,6 +251,16 @@ const PROJECTS = [
     ],
   },
   {
+    // Captured by scripts/capture-travis.mjs from the hosted demo. A fictional agency, so the bar names the demo.
+    slug: 'travis-bail-bonds', name: 'Travis Bail Bonds', url: 'Travis Bail Bonds · live demo',
+    cover: ['desktop-0', 'mobile-0'],
+    slides: [
+      { t: 'screens', ground: 'carbon', eyebrow: 'Demo ◆ Bail bond agency website', title: 'Bail started from a phone', desktop: 'desktop-start', mobiles: ['mobile-start', 'mobile-pay'] },
+      { t: 'mobiles', ground: 'graphite', eyebrow: 'Mobile first', title: 'Call, pay and check in with a thumb', text: 'A call bar on every screen, payments in thirty seconds, weekly check-ins and a wanted board with anonymous tips.', mobiles: ['mobile-0', 'mobile-wanted', 'mobile-checkin'] },
+      { t: 'sections', ground: 'sand', eyebrow: 'People and proof', title: 'The agents who answer, and the skips they find', desktops: ['desktop-agents', 'desktop-wanted'] },
+    ],
+  },
+  {
     // Captured by scripts/capture-ellison.mjs. A fictional agency, so the bar names the demo, not a domain.
     slug: 'ellison-reyes', name: 'Ellison &amp; Reyes Bail Bonds', url: 'Ellison &amp; Reyes · live demo',
     cover: ['desktop-0', 'mobile-0'],

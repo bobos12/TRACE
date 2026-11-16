@@ -34,6 +34,16 @@ const PROJECTS = {
     mobiles: ['mobile-home', 'mobile-locations', 'mobile-checkin', 'mobile-agents'].map((m) => cap('ellison-reyes', m)),
     full: cap('ellison-reyes', 'full'),
   },
+  'travis-bail-bonds': {
+    rows: [
+      [cap('travis-bail-bonds', 'desktop-0'), cap('travis-bail-bonds', 'mobile-0')],
+      [cap('travis-bail-bonds', 'desktop-start'), cap('travis-bail-bonds', 'mobile-start')],
+      [cap('travis-bail-bonds', 'desktop-pay'), cap('travis-bail-bonds', 'mobile-pay')],
+      [cap('travis-bail-bonds', 'desktop-wanted'), cap('travis-bail-bonds', 'mobile-wanted')],
+    ],
+    mobiles: ['mobile-how', 'mobile-agents', 'mobile-checkin', 'mobile-1'].map((m) => cap('travis-bail-bonds', m)),
+    full: cap('travis-bail-bonds', 'full'),
+  },
   'ironwood-bail-bonds': {
     rows: [
       [cap('ironwood-bail-bonds', 'desktop-0'), cap('ironwood-bail-bonds', 'mobile-0')],

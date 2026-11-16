@@ -654,8 +654,8 @@ const projectSchema = z.object({
     .object({
       live: z.string().url().optional(),
       source: z.string().url().optional(),
-      /** A working demo TRACE hosts itself, under public/demos/. */
-      demo: z.string().startsWith('/demos/').optional(),
+      /** A working demo: under public/demos/, or one TRACE hosts elsewhere (https). */
+      demo: z.string().refine((v) => v.startsWith('/demos/') || v.startsWith('https://'), 'a /demos/ path or an https URL').optional(),
     })
     .default({}),
   en: projectCopy,

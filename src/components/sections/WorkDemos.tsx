@@ -31,9 +31,9 @@ export function WorkDemos({ copy, projects }: { copy: Demos; projects: LocalProj
       <Container className="flex flex-col gap-12 md:gap-16">
         <SectionHead title={<span id="work-demos-title"><StopText>{copy.title}</StopText></span>} lead={copy.lead} size="md" />
 
-        <ul className="grid grid-cols-1 gap-16 lg:grid-cols-2 lg:gap-10">
+        <ul className="grid grid-cols-1 gap-16 xl:grid-cols-3 xl:gap-8">
           {demos.map(({ item, project, href }, i) => (
-            <Reveal as="li" key={item.slug} delay={i * 0.08} className="flex flex-col gap-8">
+            <Reveal as="li" key={item.slug} delay={i * 0.08} className="flex flex-col gap-8 md:grid md:grid-cols-[1.25fr_1fr] md:items-center md:gap-10 xl:flex">
               <a
                 href={href}
                 target="_blank"
@@ -47,7 +47,7 @@ export function WorkDemos({ copy, projects }: { copy: Demos; projects: LocalProj
                       src={item.desktop}
                       alt={project.title}
                       fill
-                      sizes="(max-width: 1024px) 86vw, 560px"
+                      sizes="(max-width: 768px) 86vw, (max-width: 1280px) 52vw, 400px"
                       className="object-cover object-top transition-transform duration-[600ms] ease-mark group-hover/demo:scale-[1.02]"
                     />
                   </span>
@@ -64,7 +64,7 @@ export function WorkDemos({ copy, projects }: { copy: Demos; projects: LocalProj
                   <h3 className="heading-1 m-0">{project.client}</h3>
                   <p className="body text-ink-muted max-w-[52ch]">{project.title}</p>
                 </div>
-                <ul className="grid grid-cols-1 gap-x-6 gap-y-2 sm:grid-cols-2">
+                <ul className="grid grid-cols-1 gap-x-6 gap-y-2 sm:grid-cols-2 md:grid-cols-1">
                   {item.points.map((point) => (
                     <li key={point} className="flex items-baseline gap-2.5 body-sm">
                       <Icon name="check" size={14} className="flex-none translate-y-0.5 text-nuqta" />

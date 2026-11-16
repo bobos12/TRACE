@@ -114,6 +114,120 @@
       }
     },
     {
+      "slug": "travis-bail-bonds",
+      "kind": "product",
+      "placeholder": false,
+      "_note": "Travis Bail Bonds is a demo agency name (New Orleans & Lafayette); the site is real, working software hosted at travis-bail-bonds.vercel.app and its phone lines ring TRACE at (701) 518-9640. Captured by scripts/capture-travis.mjs.",
+      "featured": true,
+      "spotlight": true,
+      "category": "company-website",
+      "year": 2026,
+      "cover": "/images/portfolio/travis-bail-bonds-cover.jpg",
+      "gallery": [
+        "/images/portfolio/travis-bail-bonds-shot-2.jpg",
+        "/images/portfolio/travis-bail-bonds-shot-3.jpg",
+        "/images/portfolio/travis-bail-bonds-shot-4.jpg"
+      ],
+      "services": [
+        "websites-web-apps",
+        "business-systems",
+        "automation"
+      ],
+      "stack": [
+        "Static site",
+        "Vercel",
+        "AI chat"
+      ],
+      "links": {
+        "demo": "https://travis-bail-bonds.vercel.app/"
+      },
+      "en": {
+        "client": "Travis Bail Bonds",
+        "sector": "Bail bonds",
+        "country": "Louisiana",
+        "title": "A bail agency website for New Orleans and Lafayette",
+        "summary": "A complete bail agency site for two Louisiana offices: the price in writing before anyone signs, bail started from a phone, payments, weekly check-ins, court reminders and a wanted board — in English and Spanish.",
+        "challenge": "A family calling at 2 a.m. wants to know who has their person, what it will cost and whether they can trust you. The office then has to collect applications, payments and check-ins and keep every defendant coming to court.",
+        "solution": "One site that does both. Families start bail in four short steps, see the premium and a payment plan printed before they sign, and pay in thirty seconds by card or wallet. Defendants check in weekly and choose their court reminders. A wanted board takes anonymous tips, the agents who answer tonight are named, and a chat answers around the clock. Shown with Travis Bail Bonds, a demo agency — every page and form works, and prospects can see it under their own agency name.",
+        "capabilities": [
+          "Online bail start",
+          "Price in writing",
+          "Online payments",
+          "Weekly check-in",
+          "Court reminders",
+          "Wanted board & tips",
+          "Agent directory",
+          "24/7 chat",
+          "English & Español",
+          "Light & dark"
+        ],
+        "results": [],
+        "highlights": [
+          {
+            "title": "The price, up front",
+            "text": "Premium, down payment and plan shown before anyone signs anything."
+          },
+          {
+            "title": "Everything from a phone",
+            "text": "Start bail, pay and check in without a trip to the office."
+          },
+          {
+            "title": "Fewer missed court dates",
+            "text": "Weekly check-ins and reminders by text, with the cosigner copied."
+          }
+        ],
+        "rows": [
+          {
+            "title": "Trust in the first screen",
+            "text": "Who is on call tonight, both offices open now, and the number one tap away — before anyone scrolls."
+          },
+          {
+            "title": "Bail started from a phone",
+            "text": "Four short steps: who is in custody, the cosigner, the bail and a signature. An agent calls back within minutes."
+          },
+          {
+            "title": "Paid in thirty seconds",
+            "text": "Find the account by bond number, then pay by card, Apple Pay, Google Pay, Cash App or bank."
+          },
+          {
+            "title": "A wanted board that finds skips",
+            "text": "Every failure to appear on one board, with rewards, a tip line and anonymous tips by parish."
+          }
+        ]
+      },
+      "media": {
+        "rows": [
+          {
+            "image": "/images/work/travis-bail-bonds/row-1.jpg",
+            "phone": "/images/work/travis-bail-bonds/phone-1.jpg"
+          },
+          {
+            "image": "/images/work/travis-bail-bonds/row-2.jpg",
+            "phone": "/images/work/travis-bail-bonds/phone-2.jpg"
+          },
+          {
+            "image": "/images/work/travis-bail-bonds/row-3.jpg",
+            "phone": "/images/work/travis-bail-bonds/phone-3.jpg"
+          },
+          {
+            "image": "/images/work/travis-bail-bonds/row-4.jpg",
+            "phone": "/images/work/travis-bail-bonds/phone-4.jpg"
+          }
+        ],
+        "mobiles": [
+          "/images/work/travis-bail-bonds/m-1.jpg",
+          "/images/work/travis-bail-bonds/m-2.jpg",
+          "/images/work/travis-bail-bonds/m-3.jpg",
+          "/images/work/travis-bail-bonds/m-4.jpg"
+        ],
+        "full": {
+          "src": "/images/work/travis-bail-bonds/full.jpg",
+          "width": 1200,
+          "height": 7500
+        }
+      }
+    },
+    {
       "slug": "ironwood-bail-bonds",
       "kind": "concept",
       "placeholder": true,
