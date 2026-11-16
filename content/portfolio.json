@@ -136,7 +136,7 @@
         "Twilio"
       ],
       "links": {
-        "demo": "/demos/ironwood-bail-bonds/index.html"
+        "demo": "/demos/ironwood-bail-bonds"
       },
       "en": {
         "client": "Ironwood Bail Bonds",

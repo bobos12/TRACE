@@ -428,6 +428,25 @@ const siteSchema = z.object({
       lead: z.string().min(1),
       endTitle: z.string().min(1),
       endText: z.string().min(1),
+      /** Live demos shown at the top of /work, by project slug; the project must have links.demo. */
+      demos: z.object({
+        title: z.string().min(1),
+        lead: z.string().min(1),
+        open: z.string().min(1),
+        case: z.string().min(1),
+        items: z
+          .array(
+            z.object({
+              slug: z.string().min(1),
+              label: z.string().min(1),
+              url: z.string().min(1),
+              desktop: z.string().min(1),
+              mobile: z.string().min(1),
+              points: z.array(z.string().min(1)).min(1),
+            }),
+          )
+          .min(1),
+      }),
     }),
     about: z.object({
       seo: pageSeo,

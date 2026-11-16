@@ -7,6 +7,7 @@ import { pageMetadata } from '@/lib/seo';
 import { Container } from '@/components/ui/Container';
 import { PageHero } from '@/components/sections/PageHero';
 import { WorkIndex } from '@/components/sections/WorkIndex';
+import { WorkDemos } from '@/components/sections/WorkDemos';
 import { ContactBand } from '@/components/sections/ContactBand';
 import { Constellation } from '@/components/brand/Constellation';
 import { Reveal } from '@/components/motion/Reveal';
@@ -69,6 +70,8 @@ export default async function WorkPage({
           </ul>
         }
       />
+
+      <WorkDemos copy={copy.demos} projects={projects} />
 
       <WorkIndex
         ui={site.ui}

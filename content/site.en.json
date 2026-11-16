@@ -265,7 +265,10 @@
     "privacy": "Privacy",
     "terms": "Terms",
     "listings": [
-      { "label": "Listed on BailWatcher", "href": "https://bailwatcher.com/directory/tools/trace-studio" }
+      {
+        "label": "Listed on BailWatcher",
+        "href": "https://bailwatcher.com/directory/tools/trace-studio"
+      }
     ]
   },
   "floating": {
@@ -421,7 +424,41 @@
       "title": "Each project carries its own mark.",
       "lead": "Client work, products we built in-house, and a few concept pieces — each labelled for what it is.",
       "endTitle": "Your project could be next.",
-      "endText": "Tell us how your business works and we will tell you honestly what software would change."
+      "endText": "Tell us how your business works and we will tell you honestly what software would change.",
+      "demos": {
+        "title": "Try the live demos.",
+        "lead": "Working bail agency sites you can open and use right now — on your phone too. Start an application, look up a payment, read a wanted poster.",
+        "open": "Open the live demo",
+        "case": "Read the case study",
+        "items": [
+          {
+            "slug": "ellison-reyes",
+            "label": "Demo agency · every page works",
+            "url": "Ellison & Reyes · live site",
+            "desktop": "/images/ellison-reyes/site-home.jpg",
+            "mobile": "/images/ellison-reyes/mobile-home.jpg",
+            "points": [
+              "12 working pages",
+              "Online bail, e-sign and payments",
+              "Wanted board, check-ins, staff CRM",
+              "English and Spanish"
+            ]
+          },
+          {
+            "slug": "ironwood-bail-bonds",
+            "label": "Concept · fictional agency",
+            "url": "ironwoodbailbonds.com",
+            "desktop": "/images/ironwood-bail-bonds/site-home.jpg",
+            "mobile": "/images/ironwood-bail-bonds/mobile-home.jpg",
+            "points": [
+              "One page, built for the 2 a.m. search",
+              "One-tap call on every screen",
+              "One-minute release form",
+              "English and Spanish"
+            ]
+          }
+        ]
+      }
     },
     "about": {
       "seo": {
