@@ -7,6 +7,7 @@ interface YTPlayer {
   getCurrentTime(): number;
   getDuration(): number;
   destroy(): void;
+  playVideo(): void;
 }
 interface YTNamespace {
   Player: new (
@@ -15,7 +16,7 @@ interface YTNamespace {
       videoId: string;
       host?: string;
       playerVars?: Record<string, number | string>;
-      events?: { onStateChange?: (e: { data: number }) => void };
+      events?: { onReady?: (e: { target: YTPlayer }) => void; onStateChange?: (e: { data: number }) => void };
     },
   ) => YTPlayer;
 }
@@ -57,7 +58,7 @@ function loadApi(): Promise<YTNamespace> {
  * 10/25/50/75/90% and video_complete, each with the seconds actually watched.
  * Privacy-enhanced YouTube (no cookies until play).
  */
-export function TrackedVideo({ id, title }: { id: string; title: string }) {
+export function TrackedVideo({ id, title, autoplay = false }: { id: string; title: string; autoplay?: boolean }) {
   const host = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -91,8 +92,11 @@ export function TrackedVideo({ id, title }: { id: string; title: string }) {
       player = new YT.Player(host.current, {
         videoId: id,
         host: 'https://www.youtube-nocookie.com',
-        playerVars: { rel: 0, modestbranding: 1, playsinline: 1 },
+        playerVars: { rel: 0, modestbranding: 1, playsinline: 1, autoplay: autoplay ? 1 : 0 },
         events: {
+          onReady: ({ target }) => {
+            if (autoplay) target.playVideo();
+          },
           onStateChange: ({ data }) => {
             if (data === PLAYING) {
               plays += 1;
@@ -120,7 +124,7 @@ export function TrackedVideo({ id, title }: { id: string; title: string }) {
       clearInterval(poll);
       player?.destroy();
     };
-  }, [id]);
+  }, [id, autoplay]);
 
   return (
     <div className="relative aspect-video w-full overflow-hidden rounded-md bg-surface-sunken shadow-float ring-1 ring-line-strong">

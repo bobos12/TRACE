@@ -121,6 +121,8 @@ const siteSchema = z.object({
     url: z.string().min(1),
     facts: z.array(numbered).min(1),
     featuresTitle: z.string().min(1),
+    /** The link from the home page's four cards to the full case study. */
+    featuresMore: z.string().min(1),
     /** Feature cards, each drawn as a live piece of the product (`kind`). */
     features: z
       .array(
@@ -422,6 +424,8 @@ const siteSchema = z.object({
       lead: z.string().min(1),
       videoId: z.string().min(1),
       videoTitle: z.string().min(1),
+      /** The button that plays the video (home hero). */
+      videoCta: z.string().min(1),
       tryTitle: z.string().min(1),
       tryLead: z.string().min(1),
       demoCta: z.string().min(1),

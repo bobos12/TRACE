@@ -415,6 +415,7 @@
       "lead": "Watch how a family finds you at 2 a.m., starts bail from a phone and pays — and how your office runs the morning after. Then try it yourself.",
       "videoId": "a83FLUL-heY",
       "videoTitle": "Ellison & Reyes — bail agency website demo",
+      "videoCta": "Watch the 36-second demo",
       "tryTitle": "Now try it yourself.",
       "tryLead": "Every page works. Start a bail application with your own details and we will email you the lead exactly as your agency would get it.",
       "demoCta": "Open the live demo",
@@ -710,11 +711,22 @@
       }
     ],
     "featuresTitle": "What it does for the agency",
+    "featuresMore": "Everything it does",
     "features": [
       {
         "kind": "cost",
         "title": "The cost, up front",
         "text": "The premium and a plan, before they call."
+      },
+      {
+        "kind": "online",
+        "title": "Bail started online",
+        "text": "Application and e-sign from a phone."
+      },
+      {
+        "kind": "payments",
+        "title": "Payments online",
+        "text": "Every way a family pays, with autopay."
       },
       {
         "kind": "reminders",
@@ -735,16 +747,6 @@
         "kind": "agents",
         "title": "Pick your agent",
         "text": "Who is on call now — call or text them."
-      },
-      {
-        "kind": "online",
-        "title": "Bail started online",
-        "text": "Application and e-sign from a phone."
-      },
-      {
-        "kind": "payments",
-        "title": "Payments online",
-        "text": "Every way a family pays, with autopay."
       },
       {
         "kind": "assistant",

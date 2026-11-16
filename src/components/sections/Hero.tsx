@@ -1,7 +1,7 @@
 import { Container } from '@/components/ui/Container';
 import { Nuqta, StopText } from '@/components/brand/Nuqta';
-import { Button } from '@/components/ui/Button';
 import { BookCallButton } from '@/components/contact/ContactButtons';
+import { PlayDemoButton } from '@/components/demo/PlayDemoButton';
 import type { Site } from '@/lib/content';
 import { HeroLattice } from './HeroLattice';
 import { ProductStack } from './ProductStack';
@@ -81,17 +81,8 @@ export function Hero({ site }: { site: Site }) {
             <BookCallButton placement="hero" size="lg" block className="md:w-auto">
               {hero.primaryCta}
             </BookCallButton>
-            {/* Down to the live demo, the strongest proof on the page. */}
-            <Button
-              href="#demo"
-              variant="secondary"
-              size="lg"
-              iconEnd="arrow-right"
-              block
-              className="md:w-auto"
-            >
-              {hero.secondaryCta}
-            </Button>
+            {/* Down to the 36-second demo video, which starts as it arrives. */}
+            <PlayDemoButton label={site.pages.demoVideo.videoCta} placement="home-hero" className="w-full md:w-auto" />
             <p className="mt-1 flex items-center gap-2 font-mono text-[11px] text-ink-faint md:hidden">
               <Nuqta size={7} />
               {hero.reassurance}
