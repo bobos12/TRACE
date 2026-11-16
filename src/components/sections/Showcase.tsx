@@ -6,6 +6,7 @@ import { SectionHead } from '@/components/ui/SectionHead';
 import { Icon } from '@/components/ui/Icon';
 import { Reveal } from '@/components/motion/Reveal';
 import { Nuqta, StopText } from '@/components/brand/Nuqta';
+import { Browser } from '@/components/bail/Frames';
 import { BookingLink } from '@/components/contact/BookingLink';
 import { InlineVideo } from '@/components/demo/InlineVideo';
 import { buttonClasses } from '@/components/ui/buttonStyles';
@@ -97,21 +98,32 @@ export function Showcase({
               {copy.concept}
             </p>
 
-            <dl className="m-0 grid grid-cols-2 gap-x-6 gap-y-5">
-              {copy.facts.map((f, i) => (
-                <div
-                  key={f.label}
-                  data-reveal="rise"
-                  style={{ '--d': `${i * 60}ms` } as CSSProperties}
-                  className="flex flex-col gap-1.5 border-t border-line pt-3"
-                >
-                  <dt className="order-2 text-[13px] leading-snug text-ink-muted">{f.label}</dt>
-                  <dd className="order-1 m-0 font-mono text-[clamp(1.25rem,1.05rem+0.6vw,1.6rem)] font-medium leading-none tracking-[-0.03em]">
-                    {f.value}
-                  </dd>
-                </div>
-              ))}
-            </dl>
+            {/* The live site, with the phone over its trailing corner. */}
+            <div className="relative pe-[12%] pb-6">
+              <a
+                href={demo}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={`${copy.demoCta} — ${project.client}`}
+                className="group/demo block"
+              >
+                <Browser url={copy.url}>
+                  <span className="relative block aspect-[16/10] w-full overflow-hidden">
+                    <Image
+                      src="/images/ellison-reyes/site-home.jpg"
+                      alt={project.title}
+                      fill
+                      sizes="(max-width: 1024px) 80vw, 480px"
+                      className="object-cover object-top transition-transform duration-[600ms] ease-mark group-hover/demo:scale-[1.02]"
+                    />
+                  </span>
+                </Browser>
+              </a>
+              <PhoneShot
+                src="/images/ellison-reyes/mobile-start.jpg"
+                className="absolute end-0 bottom-0 w-[26%] max-w-[150px]"
+              />
+            </div>
 
             <div className="flex flex-col items-start gap-4">
               <a
@@ -142,8 +154,24 @@ export function Showcase({
           </div>
         </div>
 
+        <dl className="m-0 grid grid-cols-2 gap-x-6 gap-y-5 sm:grid-cols-4">
+          {copy.facts.map((f, i) => (
+            <div
+              key={f.label}
+              data-reveal="rise"
+              style={{ '--d': `${i * 60}ms` } as CSSProperties}
+              className="flex flex-col gap-1.5 border-t border-line pt-3"
+            >
+              <dt className="order-2 text-[13px] leading-snug text-ink-muted">{f.label}</dt>
+              <dd className="order-1 m-0 font-mono text-[clamp(1.25rem,1.05rem+0.6vw,1.6rem)] font-medium leading-none tracking-[-0.03em]">
+                {f.value}
+              </dd>
+            </div>
+          ))}
+        </dl>
+
         {/* What it does: four live pieces of the product, the rest in the case study. */}
-        <div className="flex flex-col gap-6 border-t border-line pt-10">
+        <div className="flex flex-col gap-6 pt-2">
           <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
             <Reveal as="h3" className="heading-2 m-0">
               {copy.featuresTitle}

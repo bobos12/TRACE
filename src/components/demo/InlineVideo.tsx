@@ -71,15 +71,21 @@ export function InlineVideo({
         sizes="(max-width: 1024px) 92vw, 720px"
         className="object-cover transition-transform duration-[600ms] ease-mark group-hover/poster:scale-[1.02]"
       />
-      {/* A ring that swells once around the artwork's own "Watch" pill. */}
-      <span
-        aria-hidden="true"
-        data-reveal="fade"
-        className="absolute top-[66%] left-[4.7%] h-[11%] w-[33%] rounded-full"
-      >
-        <span className="at-ring absolute inset-0 rounded-full ring-2 ring-nuqta" />
+      {/* The play button: unmistakably a video, with a ring that swells once. */}
+      <span aria-hidden="true" className="absolute inset-0 grid place-items-center bg-carbon/10 transition-colors duration-[300ms] group-hover/poster:bg-carbon/0">
+        <span data-reveal="fade" className="relative grid size-[clamp(3.5rem,2.5rem+4vw,5.5rem)] place-items-center">
+          <span className="at-ring at-ring-round absolute inset-0 rounded-full ring-2 ring-nuqta" />
+          <span className="grid size-full place-items-center rounded-full bg-nuqta text-on-nuqta shadow-float ring-4 ring-paper/20 transition-transform duration-[300ms] ease-mark group-hover/poster:scale-110 group-focus-visible/poster:scale-110">
+            <svg viewBox="0 0 10 10" className="ms-[6%] size-[38%]" fill="currentColor">
+              <path d="M2 1l7 4-7 4z" />
+            </svg>
+          </span>
+        </span>
       </span>
-      <span className="absolute top-3 right-3 rounded-sm bg-carbon/80 px-2 py-1 font-mono text-[12px] text-paper">
+      <span className="absolute top-3 right-3 flex items-center gap-1.5 rounded-sm bg-carbon/80 px-2 py-1 font-mono text-[12px] text-paper">
+        <svg aria-hidden="true" viewBox="0 0 10 10" className="size-2" fill="currentColor">
+          <path d="M2 1l7 4-7 4z" />
+        </svg>
         {duration}
       </span>
     </button>

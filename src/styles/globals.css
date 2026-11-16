@@ -586,6 +586,22 @@
     }
   }
 
+  /* The same, round — around a play button. */
+  html.js [data-reveal-in] .at-ring-round {
+    animation-name: at-ring-round;
+  }
+
+  @keyframes at-ring-round {
+    from {
+      opacity: 0.6;
+      transform: scale(1);
+    }
+    to {
+      opacity: 0;
+      transform: scale(1.7);
+    }
+  }
+
   @keyframes at-wipe {
     from {
       transform: scaleX(1);
