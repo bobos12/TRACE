@@ -208,6 +208,101 @@ const siteSchema = z.object({
     showMore: z.string().min(1),
     showLess: z.string().min(1),
   }),
+  /** The plans — on the home page after the products, and in full on /pricing. */
+  pricing: z.object({
+    _note: z.string().optional(),
+    eyebrow: z.string().min(1),
+    title: z.string().min(1),
+    lead: z.string().min(1),
+    /** The year-end offer; the banner hides itself once `ends` has passed. */
+    offer: z.object({
+      label: z.string().min(1),
+      text: z.string().min(1),
+      ends: z.iso.datetime({ offset: true }),
+      endsLabel: z.string().min(1),
+      /** {n} — whole days left. */
+      daysLeft: z.string().min(1),
+      oneDay: z.string().min(1),
+      lastDay: z.string().min(1),
+    }),
+    billing: z.object({
+      label: z.string().min(1),
+      monthly: z.string().min(1),
+      yearly: z.string().min(1),
+      save: z.string().min(1),
+      /** Months charged for a year paid up front. */
+      yearlyMonths: z.number().int().min(1).max(12),
+      perMonth: z.string().min(1),
+      billedMonthly: z.string().min(1),
+      /** {total}, {save} */
+      billedYearly: z.string().min(1),
+      saveBadge: z.string().min(1),
+      /** Beside the switch: the nudge on monthly, the confirmation on yearly. */
+      nudge: z.string().min(1),
+      applied: z.string().min(1),
+    }),
+    popular: z.string().min(1),
+    /** The bonus ticket: its tag, and the price it drops to. */
+    bonusTag: z.string().min(1),
+    free: z.string().min(1),
+    /** {diff}, {prev} */
+    upgradeNote: z.string().min(1),
+    emailCta: z.string().min(1),
+    /** {plan}, {billing} */
+    emailSubject: z.string().min(1),
+    emailBody: z.string().min(1),
+    plans: z
+      .array(
+        z.object({
+          id: z.string().min(1),
+          name: z.string().min(1),
+          /** The plan's mark, from the icon set. */
+          icon: z.string().min(1),
+          audience: z.string().min(1),
+          tagline: z.string().min(1),
+          /** USD per month, billed monthly. */
+          price: z.number().int().positive(),
+          featured: z.boolean().optional(),
+          cta: z.string().min(1),
+          includesTitle: z.string().min(1),
+          features: z.array(z.string().min(1)).min(1),
+          bonus: z.object({ label: z.string().min(1), value: z.string().min(1), tag: z.string().min(1) }),
+        }),
+      )
+      .length(3),
+    promises: z.array(z.object({ icon: z.string().min(1), text: z.string().min(1) })).min(1),
+    help: z.object({
+      title: z.string().min(1),
+      text: z.string().min(1),
+      cta: z.string().min(1),
+      email: z.string().min(1),
+    }),
+    homeMore: z.string().min(1),
+    page: z.object({
+      seo: pageSeo,
+      compareTitle: z.string().min(1),
+      compareFeature: z.string().min(1),
+      included: z.string().min(1),
+      notIncluded: z.string().min(1),
+      compare: z
+        .array(
+          z.object({
+            group: z.string().min(1),
+            rows: z
+              .array(
+                z.object({
+                  label: z.string().min(1),
+                  values: z.array(z.union([z.boolean(), z.string().min(1)])).length(3),
+                }),
+              )
+              .min(1),
+          }),
+        )
+        .min(1),
+      faqTitle: z.string().min(1),
+      faq: z.array(z.object({ q: z.string().min(1), a: z.string().min(1) })).min(1),
+    }),
+  }),
   /** Heading of the home page questions; the questions come from bail-bonds.json. */
   faq: z.object({ eyebrow: z.string().min(1), title: z.string().min(1) }),
   work: z.object({
@@ -1200,6 +1295,7 @@ export function listPlaceholders(): { area: string; detail: string }[] {
       ['pages.about', s.pages.about._note],
       ['pages.serviceDetail', s.pages.serviceDetail._note],
       ['pages.legal', s.pages.legal._note],
+      ['pricing', s.pricing._note],
     ];
     for (const [area, note] of notes) {
       if (note) out.push({ area: `content/site.${loc}.json → ${area}`, detail: note });

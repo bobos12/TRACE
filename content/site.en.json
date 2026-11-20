@@ -26,6 +26,10 @@
         ]
       },
       {
+        "label": "Pricing",
+        "href": "/pricing"
+      },
+      {
         "label": "How we work",
         "href": "/#process"
       },
@@ -876,6 +880,380 @@
     "detailsCta": "Product details",
     "detailsShow": "See details",
     "detailsHide": "Hide details"
+  },
+  "pricing": {
+    "_note": "Plans and prices set by the owner on 2026-11-21: Launch $300/mo + free AI agent until the end of the year; Growth $450/mo + TRACE Bail + unlimited TRACE Sign; Scale $800/mo with everything and custom build. PLACEHOLDERS to confirm before launch: the AI agent's $150/mo value after the offer, 2 months free on yearly billing, no setup fee / upfront payment and no hidden fees, month-to-month terms, 'live in 14 days', 10 custom-work hours on Scale, the support response times, office limits, and pass-through text/payment fees.",
+    "eyebrow": "Pricing",
+    "title": "One monthly price. Everything handled.",
+    "lead": "Your website, your software and the people who build it — on one simple plan. No setup fee, no upfront payment, no hidden fees, and you own everything.",
+    "offer": {
+      "label": "Year-end offer",
+      "text": "Start any plan before December 31 and the TRACE AI agent is free for the rest of the year.",
+      "ends": "2026-12-31T23:59:59-05:00",
+      "endsLabel": "Ends Dec 31",
+      "daysLeft": "{n} days left",
+      "oneDay": "1 day left",
+      "lastDay": "Ends today"
+    },
+    "billing": {
+      "label": "Billing",
+      "monthly": "Monthly",
+      "yearly": "Yearly",
+      "save": "2 months free",
+      "yearlyMonths": 10,
+      "perMonth": "/mo",
+      "billedMonthly": "Billed monthly · cancel anytime",
+      "billedYearly": "{total} billed yearly · save {save}",
+      "saveBadge": "Save {save}/yr",
+      "nudge": "Pay yearly and get 2 months free",
+      "applied": "2 months free, applied to every plan"
+    },
+    "popular": "Most popular",
+    "bonusTag": "Bonus",
+    "free": "$0",
+    "upgradeNote": "Only {diff}/mo more than {prev}",
+    "emailCta": "or email us about this plan",
+    "emailSubject": "Plan — TRACE {plan} ({billing})",
+    "emailBody": "Hi TRACE team,\n\nWe are interested in the {plan} plan, billed {billing}.\n\nAgency name:\nCity / state:\nNumber of offices:\nCurrent website (if any):\nBest time for a call:\n\nThanks,",
+    "plans": [
+      {
+        "id": "launch",
+        "name": "Launch",
+        "icon": "globe",
+        "badge": {
+          "label": "Fastest start",
+          "icon": "clock"
+        },
+        "audience": "For agencies getting online",
+        "tagline": "A website that brings in calls — and answers them, day and night.",
+        "price": 300,
+        "cta": "Start with Launch",
+        "includesTitle": "What’s included",
+        "features": [
+          "A custom website designed for your agency",
+          "English and Spanish pages",
+          "Hosting, security and daily backups",
+          "Google Business Profile and local SEO",
+          "Click-to-call and lead forms to your phone",
+          "Content updates whenever you ask",
+          "Monthly calls and leads report"
+        ],
+        "bonus": {
+          "label": "TRACE AI agent, answering 24/7",
+          "value": "$150/mo",
+          "tag": "Free until Dec 31"
+        }
+      },
+      {
+        "id": "growth",
+        "name": "Growth",
+        "icon": "dashboard",
+        "badge": {
+          "label": "Best value",
+          "icon": "success"
+        },
+        "audience": "For agencies ready to run on one system",
+        "tagline": "Everything in Launch, plus the software to run the whole agency.",
+        "price": 450,
+        "featured": true,
+        "cta": "Start with Growth",
+        "includesTitle": "Everything in Launch, plus",
+        "features": [
+          "TRACE Bail — the CRM for every bond",
+          "TRACE Sign — unlimited e-signatures",
+          "Online bail applications on your site",
+          "Court-date reminders by text",
+          "Card and Zelle payments, plans tracked",
+          "Agent mobile app",
+          "Data import and staff training"
+        ],
+        "bonus": {
+          "label": "TRACE AI agent, answering 24/7",
+          "value": "$150/mo",
+          "tag": "Free until Dec 31"
+        }
+      },
+      {
+        "id": "scale",
+        "name": "Scale",
+        "icon": "layers",
+        "badge": {
+          "label": "All-inclusive",
+          "icon": "shield"
+        },
+        "audience": "For multi-office and custom needs",
+        "tagline": "Everything in Growth, plus software built around how you work.",
+        "price": 800,
+        "cta": "Start with Scale",
+        "includesTitle": "Everything in Growth, plus",
+        "features": [
+          "Custom features built for your agency",
+          "Up to 10 hours of custom work every month",
+          "Integrations with the tools you already use",
+          "Unlimited offices and staff",
+          "A dedicated lead engineer",
+          "Monthly strategy call",
+          "Priority support within 4 business hours"
+        ],
+        "bonus": {
+          "label": "TRACE AI agent, answering 24/7",
+          "value": "$150/mo",
+          "tag": "Included — no end date"
+        }
+      }
+    ],
+    "promises": [
+      {
+        "icon": "shield",
+        "text": "No setup fee or upfront payment"
+      },
+      {
+        "icon": "card",
+        "text": "No hidden fees"
+      },
+      {
+        "icon": "calendar",
+        "text": "Month to month — cancel anytime"
+      },
+      {
+        "icon": "lock",
+        "text": "Your site, domain and data are yours"
+      },
+      {
+        "icon": "clock",
+        "text": "Live in as little as 14 days"
+      }
+    ],
+    "help": {
+      "title": "Not sure which plan fits?",
+      "text": "Book a free 30-minute call. We look at your agency and tell you honestly which plan pays for itself.",
+      "cta": "Book a free call",
+      "email": "Email us"
+    },
+    "homeMore": "Compare every feature",
+    "page": {
+      "seo": {
+        "title": "Pricing — plans for bail agencies from $300/mo",
+        "description": "Simple monthly plans: a custom agency website with a free AI agent, TRACE Bail and unlimited e-signatures, or everything with custom software. No setup fee, cancel anytime."
+      },
+      "compareTitle": "Compare every feature.",
+      "compareFeature": "Feature",
+      "included": "Included",
+      "notIncluded": "Not included",
+      "compare": [
+        {
+          "group": "Website",
+          "rows": [
+            {
+              "label": "Custom website designed for your agency",
+              "values": [
+                true,
+                true,
+                true
+              ]
+            },
+            {
+              "label": "English and Spanish pages",
+              "values": [
+                true,
+                true,
+                true
+              ]
+            },
+            {
+              "label": "Hosting, security and daily backups",
+              "values": [
+                true,
+                true,
+                true
+              ]
+            },
+            {
+              "label": "Google Business Profile and local SEO",
+              "values": [
+                true,
+                true,
+                true
+              ]
+            },
+            {
+              "label": "Content updates",
+              "values": [
+                "On request",
+                "On request",
+                "On request"
+              ]
+            },
+            {
+              "label": "Monthly calls and leads report",
+              "values": [
+                true,
+                true,
+                true
+              ]
+            }
+          ]
+        },
+        {
+          "group": "AI",
+          "rows": [
+            {
+              "label": "TRACE AI agent, answering 24/7",
+              "values": [
+                "Free until Dec 31",
+                "Free until Dec 31",
+                "Included"
+              ]
+            }
+          ]
+        },
+        {
+          "group": "Running the agency",
+          "rows": [
+            {
+              "label": "TRACE Bail CRM",
+              "values": [
+                false,
+                true,
+                true
+              ]
+            },
+            {
+              "label": "TRACE Sign e-signatures",
+              "values": [
+                false,
+                "Unlimited",
+                "Unlimited"
+              ]
+            },
+            {
+              "label": "Online bail applications",
+              "values": [
+                false,
+                true,
+                true
+              ]
+            },
+            {
+              "label": "Court-date reminders by text",
+              "values": [
+                false,
+                true,
+                true
+              ]
+            },
+            {
+              "label": "Card and Zelle payments",
+              "values": [
+                false,
+                true,
+                true
+              ]
+            },
+            {
+              "label": "Agent mobile app",
+              "values": [
+                false,
+                true,
+                true
+              ]
+            },
+            {
+              "label": "Data import and staff training",
+              "values": [
+                false,
+                true,
+                true
+              ]
+            }
+          ]
+        },
+        {
+          "group": "Built for you",
+          "rows": [
+            {
+              "label": "Custom features and integrations",
+              "values": [
+                false,
+                false,
+                true
+              ]
+            },
+            {
+              "label": "Custom work every month",
+              "values": [
+                false,
+                false,
+                "Up to 10 hours"
+              ]
+            },
+            {
+              "label": "Offices and staff",
+              "values": [
+                "1 office",
+                "1 office",
+                "Unlimited"
+              ]
+            },
+            {
+              "label": "Dedicated lead engineer",
+              "values": [
+                false,
+                false,
+                true
+              ]
+            },
+            {
+              "label": "Strategy call",
+              "values": [
+                false,
+                false,
+                "Monthly"
+              ]
+            },
+            {
+              "label": "Support response",
+              "values": [
+                "1 business day",
+                "Same business day",
+                "4 business hours"
+              ]
+            }
+          ]
+        }
+      ],
+      "faqTitle": "Questions about plans.",
+      "faq": [
+        {
+          "q": "Is there a contract?",
+          "a": "No. Every plan is month to month and you can cancel anytime. Pay yearly and you get two months free."
+        },
+        {
+          "q": "What happens to the AI agent after December 31?",
+          "a": "On Launch and Growth it keeps running at $150 a month only if you say yes — otherwise we switch it off and nothing changes on your bill. On Scale it stays included."
+        },
+        {
+          "q": "Who owns the website and the data?",
+          "a": "You do. Your domain, website, Google profile and every record in TRACE Bail and TRACE Sign are in your name from day one, and yours to export."
+        },
+        {
+          "q": "Can I change plans later?",
+          "a": "Yes. Move up or down at any time; the difference is prorated on your next bill."
+        },
+        {
+          "q": "How fast can we go live?",
+          "a": "Most agency websites launch in two to three weeks. TRACE Bail is set up, with your records imported and your staff trained, in the same window."
+        },
+        {
+          "q": "What does custom work on Scale cover?",
+          "a": "Anything that makes your agency run better: a new feature, a report, an integration with your accounting or phone system, an automation. We agree each piece with you in writing before we build it."
+        },
+        {
+          "q": "Are there any other costs?",
+          "a": "Text-message and card-processing fees are passed through at cost. We tell you before anything is added — no surprises on your bill."
+        }
+      ]
+    }
   },
   "aiSection": {
     "_note": "Home page AI section. The bot and its bubbles are an illustration — the facility, booking number and charge are made-up sample values, not a real case.",

@@ -9,6 +9,7 @@ import { Journey } from '@/components/bail/Journey';
 import { Showcase } from '@/components/sections/Showcase';
 import { AiSection } from '@/components/sections/AiSection';
 import { Products } from '@/components/sections/Products';
+import { Pricing } from '@/components/pricing/Pricing';
 import { Process } from '@/components/sections/Process';
 import { WhyTrace } from '@/components/sections/WhyTrace';
 import { Faq } from '@/components/sections/Faq';
@@ -30,7 +31,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
  * A bail agency owner's first visit, in the order they decide: who this is
  * for (hero); what an agency site does through the night (the night shift);
  * proof — a whole agency built online (Ellison & Reyes); the AI that answers
- * when they can't; the products (TRACE Bail, TRACE Sign); how we work, in one
+ * when they can't; the products (TRACE Bail, TRACE Sign); the plans and prices; how we work, in one
  * row; what they get in writing; the questions owners ask first; and the
  * call. Services and platforms live on their own pages; the bail-only story
  * (the 2 a.m. search, before and after) lives on /bail-bonds.
@@ -53,6 +54,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       <Showcase site={site} project={demo} estimator={bail.details.estimator} />
       <AiSection site={site} />
       <Products site={site} />
+      <Pricing site={site} />
       <Process site={site} compact />
       <WhyTrace site={site} />
       <Faq id="home-faq-title" title={site.faq.title} items={bail.faq.items} />
