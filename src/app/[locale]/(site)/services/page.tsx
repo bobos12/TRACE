@@ -42,7 +42,7 @@ export default async function ServicesPage({ params }: { params: Promise<{ local
   return (
     <>
       <Breadcrumbs
-        trail={[{ name: site.nav.links[1]?.label ?? copy.title, path: '/services' }]}
+        trail={[{ name: site.nav.links.find((l) => l.href === '/services')?.label ?? copy.title, path: '/services' }]}
       />
 
       <PageHero

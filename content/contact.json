@@ -4,8 +4,31 @@
   "email": "info@trace-studio.tech",
   "phone": "+17015189640",
   "phoneDisplay": "(701) 518-9640",
-  "hours": { "en": "Mon–Fri, 9am–6pm ET" },
-  "responseTime": { "en": "We reply within one business day." },
-  "cities": { "en": ["USA", "Cairo"] },
-  "social": { "facebook": "https://www.facebook.com/profile.php?id=61595217055560", "instagram": "https://www.instagram.com/tracestudio.tech/", "x": "https://x.com/TraceStudiotech", "linkedin": "", "behance": "" }
+  "hours": {
+    "en": "Mon–Fri, 9am–6pm ET"
+  },
+  "responseTime": {
+    "en": "We reply within one business day."
+  },
+  "address": {
+    "street": "1101 S Milliken Ave",
+    "suite": "Ste E #338",
+    "city": "Ontario",
+    "region": "CA",
+    "postalCode": "91761",
+    "country": "US"
+  },
+  "cities": {
+    "en": [
+      "USA",
+      "Cairo"
+    ]
+  },
+  "social": {
+    "facebook": "https://www.facebook.com/profile.php?id=61595217055560",
+    "instagram": "https://www.instagram.com/tracestudio.tech/",
+    "x": "https://x.com/TraceStudiotech",
+    "linkedin": "",
+    "behance": ""
+  }
 }

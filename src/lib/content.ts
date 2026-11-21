@@ -245,12 +245,11 @@ const siteSchema = z.object({
     /** The bonus ticket: its tag, and the price it drops to. */
     bonusTag: z.string().min(1),
     free: z.string().min(1),
-    /** {diff}, {prev} */
-    upgradeNote: z.string().min(1),
-    emailCta: z.string().min(1),
-    /** {plan}, {billing} */
-    emailSubject: z.string().min(1),
-    emailBody: z.string().min(1),
+    /** Under each plan's button: book a call instead. */
+    callCta: z.string().min(1),
+    /** "Start" opens the contact form with these filled in — {plan}, {price}, {billing}. */
+    formType: z.string().min(1),
+    formMessage: z.string().min(1),
     plans: z
       .array(
         z.object({
@@ -271,6 +270,8 @@ const siteSchema = z.object({
       )
       .length(3),
     promises: z.array(z.object({ icon: z.string().min(1), text: z.string().min(1) })).min(1),
+    /** The headline promise — no setup fee, nothing upfront — shown large above the cards. */
+    zero: z.object({ amount: z.string().min(1), title: z.string().min(1), text: z.string().min(1) }),
     help: z.object({
       title: z.string().min(1),
       text: z.string().min(1),
@@ -280,6 +281,8 @@ const siteSchema = z.object({
     homeMore: z.string().min(1),
     page: z.object({
       seo: pageSeo,
+      /** The page's own heading — short, so the plans show in the first view. */
+      title: z.string().min(1),
       compareTitle: z.string().min(1),
       compareFeature: z.string().min(1),
       included: z.string().min(1),
@@ -458,6 +461,7 @@ const siteSchema = z.object({
     filterKind: z.string().min(1),
     allKinds: z.string().min(1),
     hoursLabel: z.string().min(1),
+    addressLabel: z.string().min(1),
     orUseForm: z.string().min(1),
     viewProject: z.string().min(1),
     nextProject: z.string().min(1),
@@ -1024,6 +1028,14 @@ const contactSchema = z.object({
   phoneDisplay: z.string(),
   hours: localized,
   responseTime: localized,
+  address: z.object({
+    street: z.string().min(1),
+    suite: z.string(),
+    city: z.string().min(1),
+    region: z.string().min(1),
+    postalCode: z.string().min(1),
+    country: z.string().length(2),
+  }),
   cities: z.object({ en: z.array(z.string()).min(1) }),
   social: z.object({
     facebook: z.string(),

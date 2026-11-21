@@ -4,7 +4,8 @@ import { useState, type CSSProperties } from 'react';
 import { cn } from '@/lib/cn';
 import { Icon } from '@/components/ui/Icon';
 import { buttonClasses } from '@/components/ui/buttonStyles';
-import { bookingHref, bookingLinkProps, mailHref, track, trackContact } from '@/lib/contact';
+import { Link } from '@/i18n/navigation';
+import { bookingHref, bookingLinkProps, track, trackContact } from '@/lib/contact';
 import type { Site } from '@/lib/content';
 
 type Copy = Site['pricing'];
@@ -114,13 +115,11 @@ function BonusTicket({ bonus, copy, featured }: { bonus: Plan['bonus']; copy: Co
 
 function PlanCard({
   plan,
-  prev,
   copy,
   billing,
   swapped,
 }: {
   plan: Plan;
-  prev?: Plan;
   copy: Copy;
   billing: Billing;
   swapped: boolean;
@@ -129,7 +128,6 @@ function PlanCard({
   const months = copy.billing.yearlyMonths;
   const perMonth = yearly ? (plan.price * months) / 12 : plan.price;
   const save = usd(plan.price * (12 - months));
-  const billingLabel = yearly ? copy.billing.yearly.toLowerCase() : copy.billing.monthly.toLowerCase();
   const featured = Boolean(plan.featured);
   const placement = `landing:pricing-${plan.id}` as const;
 
@@ -203,23 +201,17 @@ function PlanCard({
               ? fill(copy.billing.billedYearly, { total: usd(plan.price * months), save })
               : copy.billing.billedMonthly}
           </p>
-          {featured && prev ? (
-            <p className="body-sm flex items-center gap-2 font-medium text-ink">
-              <Icon name="arrow-up-right" size={14} className="text-nuqta" />
-              {fill(copy.upgradeNote, { diff: usd(plan.price - prev.price), prev: prev.name })}
-            </p>
-          ) : null}
         </div>
 
         <BonusTicket bonus={plan.bonus} copy={copy} featured={featured} />
 
-        {/* The action: book the call that starts the plan; email as the quiet second way. */}
+        {/* The action: the contact form with the plan already filled in — they add
+            their name and details. Booking a call is the quiet second way. */}
         <div className="mt-6 flex flex-col items-center gap-3">
-          <a
-            href={bookingHref()}
-            {...bookingLinkProps}
+          <Link
+            href={`/contact?plan=${plan.id}&billing=${billing}#contact-form`}
             onClick={() => {
-              trackContact('booking', placement);
+              trackContact('form', placement);
               track('plan_select', { plan: plan.id, billing });
             }}
             className={buttonClasses({
@@ -237,16 +229,14 @@ function PlanCard({
               size={20}
               className="transition-transform duration-[160ms] ease-mark group-hover/plan:translate-x-1"
             />
-          </a>
+          </Link>
           <a
-            href={mailHref(
-              fill(copy.emailSubject, { plan: plan.name, billing: billingLabel }),
-              fill(copy.emailBody, { plan: plan.name, billing: billingLabel }),
-            )}
-            onClick={() => trackContact('email', placement)}
+            href={bookingHref()}
+            {...bookingLinkProps}
+            onClick={() => trackContact('booking', placement)}
             className="text-[13px] text-ink-muted underline decoration-line-strong underline-offset-4 hover:text-ink hover:decoration-nuqta"
           >
-            {copy.emailCta}
+            {copy.callCta}
           </a>
         </div>
 
@@ -284,15 +274,15 @@ export function PlanGrid({ copy }: { copy: Copy }) {
             track('pricing_billing', { billing: b });
           }}
         />
-        <p className="body-sm text-ink-muted" aria-live="polite">
+        <p className="body-sm hidden text-ink-muted sm:block" aria-live="polite">
           {billing === 'yearly' ? copy.billing.applied : copy.billing.nudge}
         </p>
       </div>
 
       <ul className="grid grid-cols-1 gap-5 md:grid-cols-3 md:items-stretch md:gap-4 lg:gap-6">
-        {copy.plans.map((plan, i) => (
+        {copy.plans.map((plan) => (
           <li key={plan.id} data-reveal="rise" className={cn(plan.featured && 'order-first md:order-none')}>
-            <PlanCard plan={plan} prev={copy.plans[i - 1]} copy={copy} billing={billing} swapped={swapped} />
+            <PlanCard plan={plan} copy={copy} billing={billing} swapped={swapped} />
           </li>
         ))}
       </ul>

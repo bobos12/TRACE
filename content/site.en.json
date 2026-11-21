@@ -11,21 +11,6 @@
         "href": "/work"
       },
       {
-        "label": "Services",
-        "href": "/services"
-      },
-      {
-        "label": "Industries",
-        "href": "/bail-bonds",
-        "children": [
-          {
-            "label": "Bail bond agencies",
-            "href": "/bail-bonds",
-            "text": "Websites and AI built for the 2 a.m. search."
-          }
-        ]
-      },
-      {
         "label": "Pricing",
         "href": "/pricing"
       },
@@ -36,6 +21,10 @@
       {
         "label": "About",
         "href": "/about"
+      },
+      {
+        "label": "Services",
+        "href": "/services"
       }
     ],
     "cta": "Book a call",
@@ -406,7 +395,8 @@
     "caseFull": "The whole page",
     "caseFullHint": "Hover — or swipe on a phone — to scroll through it.",
     "caseCtaTitle": "Want this for your business?",
-    "caseCtaText": "A free 30-minute call. We look at what you have today and tell you honestly what we would build."
+    "caseCtaText": "A free 30-minute call. We look at what you have today and tell you honestly what we would build.",
+    "addressLabel": "Office"
   },
   "pages": {
     "demoVideo": {
@@ -882,10 +872,10 @@
     "detailsHide": "Hide details"
   },
   "pricing": {
-    "_note": "Plans and prices set by the owner on 2026-11-21: Launch $300/mo + free AI agent until the end of the year; Growth $450/mo + TRACE Bail + unlimited TRACE Sign; Scale $800/mo with everything and custom build. PLACEHOLDERS to confirm before launch: the AI agent's $150/mo value after the offer, 2 months free on yearly billing, no setup fee / upfront payment and no hidden fees, month-to-month terms, 'live in 14 days', 10 custom-work hours on Scale, the support response times, office limits, and pass-through text/payment fees.",
+    "_note": "Plans and prices set by the owner on 2026-11-21: Launch $299/mo + free AI agent until the end of the year; Growth $450/mo + TRACE Bail + unlimited TRACE Sign; Scale $799/mo with everything and custom build. PLACEHOLDERS to confirm before launch: the AI agent's $150/mo value after the offer, 2 months free on yearly billing, no setup fee / upfront payment and no hidden fees, the 4-month minimum (owner, 2026-11-22), \"first month paid at go-live\", 'live in 14 days', 10 custom-work hours on Scale, the support response times, office limits, and pass-through text/payment fees.",
     "eyebrow": "Pricing",
     "title": "One monthly price. Everything handled.",
-    "lead": "Your website, your software and the people who build it — on one simple plan. No setup fee, no upfront payment, no hidden fees, and you own everything.",
+    "lead": "Your website, your software and the people who build it — on one simple plan. No setup fee, no upfront payment, no hidden fees.",
     "offer": {
       "label": "Year-end offer",
       "text": "Start any plan before December 31 and the TRACE AI agent is free for the rest of the year.",
@@ -902,7 +892,7 @@
       "save": "2 months free",
       "yearlyMonths": 10,
       "perMonth": "/mo",
-      "billedMonthly": "Billed monthly · cancel anytime",
+      "billedMonthly": "Billed monthly · 4-month minimum",
       "billedYearly": "{total} billed yearly · save {save}",
       "saveBadge": "Save {save}/yr",
       "nudge": "Pay yearly and get 2 months free",
@@ -911,10 +901,9 @@
     "popular": "Most popular",
     "bonusTag": "Bonus",
     "free": "$0",
-    "upgradeNote": "Only {diff}/mo more than {prev}",
-    "emailCta": "or email us about this plan",
-    "emailSubject": "Plan — TRACE {plan} ({billing})",
-    "emailBody": "Hi TRACE team,\n\nWe are interested in the {plan} plan, billed {billing}.\n\nAgency name:\nCity / state:\nNumber of offices:\nCurrent website (if any):\nBest time for a call:\n\nThanks,",
+    "callCta": "or book a free call first",
+    "formType": "{plan} plan — {price}/mo",
+    "formMessage": "Hi TRACE team, I would like to start the {plan} plan — {price}/mo, billed {billing}. Please get in touch to set us up.",
     "plans": [
       {
         "id": "launch",
@@ -926,7 +915,7 @@
         },
         "audience": "For agencies getting online",
         "tagline": "A website that brings in calls — and answers them, day and night.",
-        "price": 300,
+        "price": 299,
         "cta": "Start with Launch",
         "includesTitle": "What’s included",
         "features": [
@@ -983,7 +972,7 @@
         },
         "audience": "For multi-office and custom needs",
         "tagline": "Everything in Growth, plus software built around how you work.",
-        "price": 800,
+        "price": 799,
         "cta": "Start with Scale",
         "includesTitle": "Everything in Growth, plus",
         "features": [
@@ -1004,20 +993,12 @@
     ],
     "promises": [
       {
-        "icon": "shield",
-        "text": "No setup fee or upfront payment"
-      },
-      {
         "icon": "card",
         "text": "No hidden fees"
       },
       {
         "icon": "calendar",
-        "text": "Month to month — cancel anytime"
-      },
-      {
-        "icon": "lock",
-        "text": "Your site, domain and data are yours"
+        "text": "4-month minimum, then cancel anytime"
       },
       {
         "icon": "clock",
@@ -1033,8 +1014,8 @@
     "homeMore": "Compare every feature",
     "page": {
       "seo": {
-        "title": "Pricing — plans for bail agencies from $300/mo",
-        "description": "Simple monthly plans: a custom agency website with a free AI agent, TRACE Bail and unlimited e-signatures, or everything with custom software. No setup fee, cancel anytime."
+        "title": "Pricing — plans for bail agencies from $299/mo",
+        "description": "Simple monthly plans: a custom agency website with a free AI agent, TRACE Bail and unlimited e-signatures, or everything with custom software. No setup fee, no upfront payment."
       },
       "compareTitle": "Compare every feature.",
       "compareFeature": "Feature",
@@ -1225,8 +1206,8 @@
       "faqTitle": "Questions about plans.",
       "faq": [
         {
-          "q": "Is there a contract?",
-          "a": "No. Every plan is month to month and you can cancel anytime. Pay yearly and you get two months free."
+          "q": "Is there a minimum term?",
+          "a": "Yes — four months. That is the time it takes to see the effect on your calls and leads honestly. After that every plan is month to month and you can cancel anytime. Pay yearly and you get two months free."
         },
         {
           "q": "What happens to the AI agent after December 31?",
@@ -1252,7 +1233,13 @@
           "q": "Are there any other costs?",
           "a": "Text-message and card-processing fees are passed through at cost. We tell you before anything is added — no surprises on your bill."
         }
-      ]
+      ],
+      "title": "Plans & pricing."
+    },
+    "zero": {
+      "amount": "$0",
+      "title": "No setup fee. No upfront payment.",
+      "text": "You pay your first month when your site goes live — nothing before."
     }
   },
   "aiSection": {

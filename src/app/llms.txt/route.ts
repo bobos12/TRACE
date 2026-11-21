@@ -1,5 +1,5 @@
 import { routing } from '@/i18n/routing';
-import { contact } from '@/lib/contact-data';
+import { addressLines, contact } from '@/lib/contact-data';
 import { getBailBonds, getLocalProjects, getLocalServices, getSite } from '@/lib/content';
 import { siteUrl } from '@/lib/seo';
 import { BRAND_DESCRIPTION, BRAND_NAME, SOCIAL_PROFILES } from '@/lib/site';
@@ -31,6 +31,7 @@ export function GET() {
     ...(hasBooking ? [`- Book a free 30-minute call: ${contact.booking}`] : []),
     `- Email: ${contact.email}`,
     `- Hours: ${contact.hours.en}. ${contact.responseTime.en}`,
+    `- Office: ${addressLines().join(', ')}`,
     link('Contact page', '/contact', site.contactPage.lead),
     ...SOCIAL_PROFILES.map((url) => `- ${url}`),
     '',

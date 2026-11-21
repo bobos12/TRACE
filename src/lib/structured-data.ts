@@ -50,7 +50,15 @@ export function organizationNode(locale: Locale) {
       availableLanguage: ['English'],
     },
     ...(SOCIAL_PROFILES.length ? { sameAs: SOCIAL_PROFILES } : {}),
-    // TODO: legalName and address once the US entity is formed — the footer has the same TODO.
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: [contact.address.street, contact.address.suite].filter(Boolean).join(', '),
+      addressLocality: contact.address.city,
+      addressRegion: contact.address.region,
+      postalCode: contact.address.postalCode,
+      addressCountry: contact.address.country,
+    },
+    // TODO: legalName once the US entity is formed — the footer has the same TODO.
   };
 }
 

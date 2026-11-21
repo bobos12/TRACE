@@ -18,8 +18,15 @@ export interface ContactDetails {
   phoneDisplay: string;
   hours: { en: string };
   responseTime: { en: string };
+  address: { street: string; suite: string; city: string; region: string; postalCode: string; country: string };
   cities: { en: string[] };
   social: { facebook: string; linkedin: string; x: string; instagram: string; behance: string };
 }
 
 export const contact = contactJson as ContactDetails;
+
+/** The office address on two lines: street and suite, then city, state and ZIP. */
+export const addressLines = (a = contact.address): [string, string] => [
+  [a.street, a.suite].filter(Boolean).join(', '),
+  `${a.city}, ${a.region} ${a.postalCode}`,
+];

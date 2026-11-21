@@ -1,3 +1,4 @@
+import type { CSSProperties } from 'react';
 import { Link } from '@/i18n/navigation';
 import { Container } from '@/components/ui/Container';
 import { SectionHead } from '@/components/ui/SectionHead';
@@ -13,7 +14,7 @@ import type { Site } from '@/lib/content';
 /** What every plan promises, in one row under the cards. */
 function Promises({ items }: { items: Site['pricing']['promises'] }) {
   return (
-    <ul className="grid grid-cols-1 gap-x-6 gap-y-3 border-y border-line py-6 sm:grid-cols-2 lg:grid-cols-5">
+    <ul className="grid grid-cols-1 gap-x-6 gap-y-3 border-y border-line py-6 sm:grid-cols-3">
       {items.map((p) => (
         <li key={p.text} className="flex items-center gap-3 text-[15px] text-ink">
           <Icon name={p.icon} size={20} className="flex-none text-ink-muted" />
@@ -24,9 +25,31 @@ function Promises({ items }: { items: Site['pricing']['promises'] }) {
   );
 }
 
+/** The promise that matters most, set large: $0 to start. */
+function ZeroCallout({ zero }: { zero: Site['pricing']['zero'] }) {
+  return (
+    <div
+      data-reveal="rise"
+      className="at-cut flex h-full items-center gap-5 border-2 border-nuqta bg-nuqta-soft p-5 sm:gap-7 sm:p-6"
+      style={{ '--cut': '20px' } as CSSProperties}
+    >
+      <span className="flex-none text-[clamp(3.5rem,2.8rem+2.4vw,5rem)] font-semibold leading-[0.8] tracking-[-0.05em] text-nuqta">
+        {zero.amount}
+      </span>
+      <span className="flex flex-col gap-1.5">
+        <strong className="text-[clamp(1.25rem,1.1rem+0.6vw,1.6rem)] font-semibold leading-tight tracking-[-0.015em] text-ink">
+          {zero.title}
+        </strong>
+        <span className="text-[15px] leading-[22px] text-ink-muted">{zero.text}</span>
+      </span>
+    </div>
+  );
+}
+
 /**
  * The plans. On the home page it has its own heading and sends people on to
- * the full comparison; on /pricing the page hero carries the heading.
+ * the full comparison; on /pricing it opens the page with a one-line heading,
+ * so the cards are in the first view.
  */
 export function Pricing({ site, variant = 'home' }: { site: Site; variant?: 'home' | 'page' }) {
   const copy = site.pricing;
@@ -36,12 +59,22 @@ export function Pricing({ site, variant = 'home' }: { site: Site; variant?: 'hom
     <section
       id="pricing"
       aria-label={copy.eyebrow}
-      className={cn('border-b border-line bg-surface', home ? 'py-[var(--section-y)]' : 'pt-10 pb-[var(--section-y)] md:pt-14')}
+      className={cn('border-b border-line bg-surface', home ? 'py-[var(--section-y)]' : 'pt-24 pb-[var(--section-y)] md:pt-28')}
     >
-      <Container className="flex flex-col gap-10 md:gap-14">
-        {home ? <SectionHead title={<StopText>{copy.title}</StopText>} lead={copy.lead} /> : null}
+      <Container className={cn('flex flex-col', home ? 'gap-10 md:gap-14' : 'gap-8 md:gap-10')}>
+        {home ? (
+          <SectionHead title={<StopText>{copy.title}</StopText>} lead={copy.lead} />
+        ) : (
+          <h1 className="display-md m-0">
+            <StopText>{copy.page.title}</StopText>
+          </h1>
+        )}
 
-        <OfferBanner offer={copy.offer} />
+        <div className="flex flex-col gap-3">
+          <OfferBanner offer={copy.offer} />
+          <ZeroCallout zero={copy.zero} />
+        </div>
+
         <PlanGrid copy={copy} />
         <Promises items={copy.promises} />
 

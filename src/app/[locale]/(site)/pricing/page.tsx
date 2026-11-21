@@ -4,7 +4,6 @@ import { setRequestLocale } from 'next-intl/server';
 import { readLocale, routing } from '@/i18n/routing';
 import { getSite } from '@/lib/content';
 import { pageMetadata } from '@/lib/seo';
-import { PageHero } from '@/components/sections/PageHero';
 import { Pricing } from '@/components/pricing/Pricing';
 import { PricingCompare } from '@/components/pricing/PricingCompare';
 import { Faq } from '@/components/sections/Faq';
@@ -32,7 +31,6 @@ export default async function PricingPage({ params }: { params: Promise<{ locale
   return (
     <>
       <Breadcrumbs trail={[{ name: copy.eyebrow, path: '/pricing' }]} />
-      <PageHero eyebrow={copy.eyebrow} title={copy.title} lead={copy.lead} />
       <Pricing site={site} variant="page" />
       <PricingCompare site={site} />
       <Faq id="pricing-faq-title" title={copy.page.faqTitle} items={copy.page.faq} />

@@ -4,6 +4,7 @@ import { setRequestLocale } from 'next-intl/server';
 import { readLocale, routing } from '@/i18n/routing';
 import { getLocalServices, getSite } from '@/lib/content';
 import { contact } from '@/lib/contact';
+import { addressLines } from '@/lib/contact-data';
 import { hasLeadBackend } from '@/lib/leads';
 import { pageMetadata } from '@/lib/seo';
 
@@ -73,6 +74,16 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
                   <dd className="body text-ink-muted">{contact.hours[locale]}</dd>
                 </div>
                 <div className="flex flex-col gap-1">
+                  <dt className="eyebrow text-ink-faint">{site.ui.addressLabel}</dt>
+                  <dd className="body text-ink-muted">
+                    <address className="not-italic">
+                      {addressLines()[0]}
+                      <br />
+                      {addressLines()[1]}
+                    </address>
+                  </dd>
+                </div>
+                <div className="flex flex-col gap-1">
                   <dt className="eyebrow text-ink-faint">{contact.cities[locale].join(' · ')}</dt>
                   <dd className="body text-ink-muted">{contact.responseTime[locale]}</dd>
                 </div>
@@ -81,7 +92,7 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
           </div>
 
           {/* Right — the form. */}
-          <div className="lg:col-span-6 lg:col-start-7">
+          <div id="contact-form" className="scroll-mt-24 lg:col-span-6 lg:col-start-7">
             <Reveal delay={0.08} className="flex flex-col gap-8">
               <div className="flex items-center gap-3">
                 <Icon name="inbox" size={20} className="text-ink-muted" />

@@ -108,6 +108,7 @@ function knowledge(): string {
     `- Book a free 30-minute call: the [[book]] card${hasBooking ? ` (${contact.booking})` : ''}. This is always the first recommendation.`,
     `- Email: ${contact.email}. ${contact.responseTime.en}`,
     `- Hours: ${contact.hours.en}.`,
+    `- Office address: ${contact.address.street}, ${contact.address.suite}, ${contact.address.city}, ${contact.address.region} ${contact.address.postalCode}.`,
     contact.phoneDisplay
       ? `- Phone: ${contact.phoneDisplay} — give it only if asked; booking a call comes first. There is no WhatsApp.`
       : '- There is no phone line yet and no WhatsApp; offer the call booking or email instead.',

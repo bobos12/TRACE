@@ -2,6 +2,7 @@ import { Link } from '@/i18n/navigation';
 import type { Locale } from '@/i18n/routing';
 import { getLocalServices, getSite } from '@/lib/content';
 import { contact } from '@/lib/contact';
+import { addressLines } from '@/lib/contact-data';
 import { Logo } from '@/components/brand/Logo';
 import { Container } from '@/components/ui/Container';
 import { Icon, iconNames, type IconName } from '@/components/ui/Icon';
@@ -96,6 +97,13 @@ export function Footer({ locale }: { locale: Locale }) {
                 </li>
               ) : null}
               <li>{contact.hours[locale]}</li>
+              <li>
+                <address className="not-italic">
+                  {addressLines()[0]}
+                  <br />
+                  {addressLines()[1]}
+                </address>
+              </li>
               {site.footer.listings.map((l) => (
                 <li key={l.href}>
                   <a href={l.href} target="_blank" rel="noopener" className="inline-flex items-center gap-1 hover:text-ink">

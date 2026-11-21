@@ -1,7 +1,7 @@
 'use client';
 
 import { useLocale } from 'next-intl';
-import { useActionState, useEffect, useRef, useState } from 'react';
+import { useActionState, useEffect, useMemo, useRef, useState, useSyncExternalStore } from 'react';
 import { Field, Select, TextArea } from '@/components/ui/Field';
 import { Button } from '@/components/ui/Button';
 import { Nuqta } from '@/components/brand/Nuqta';
@@ -12,6 +12,29 @@ import { mailHref, track, trackContact } from '@/lib/contact';
 import { submitContact, type ContactState } from '@/app/[locale]/(site)/contact/actions';
 
 const initial: ContactState = { status: 'idle' };
+const noSubscribe = () => () => {};
+
+const usd = (n: number) => `$${Math.round(n).toLocaleString('en-US')}`;
+const fill = (t: string, vars: Record<string, string>) =>
+  t.replace(/\{(\w+)\}/g, (_, k: string) => vars[k] ?? `{${k}}`);
+
+/**
+ * The plan chosen on the pricing page (`?plan=growth&billing=yearly`), as the
+ * form's "What do you need?" and a ready-written message. Null when absent.
+ */
+function planPrefill(site: Site, search: string): { type: string; message: string } | null {
+  const params = new URLSearchParams(search);
+  const plan = site.pricing.plans.find((p) => p.id === params.get('plan'));
+  if (!plan) return null;
+  const yearly = params.get('billing') === 'yearly';
+  const b = site.pricing.billing;
+  const vars = {
+    plan: plan.name,
+    price: usd(yearly ? (plan.price * b.yearlyMonths) / 12 : plan.price),
+    billing: (yearly ? b.yearly : b.monthly).toLowerCase(),
+  };
+  return { type: fill(site.pricing.formType, vars), message: fill(site.pricing.formMessage, vars) };
+}
 
 /**
  * The contact form.
@@ -34,6 +57,15 @@ export function ContactForm({
   const [state, action, pending] = useActionState(submitContact, initial);
   const formRef = useRef<HTMLFormElement>(null);
   const [draft, setDraft] = useState<Record<string, string>>({});
+  // Arriving from a plan's "Start" button: fill in the plan and the message,
+  // and put the cursor in the name field — all that is left is their details.
+  // The query is read on the client only; the server render is the blank form.
+  const search = useSyncExternalStore(noSubscribe, () => window.location.search, () => '');
+  const prefill = useMemo(() => planPrefill(site, search), [site, search]);
+
+  useEffect(() => {
+    if (prefill) formRef.current?.querySelector<HTMLInputElement>('input[name="name"]')?.focus({ preventScroll: true });
+  }, [prefill]);
 
   const copy = site.contactPage.form;
   const ui = site.ui;
@@ -53,7 +85,7 @@ export function ContactForm({
    * is a pure function of state and can be computed during render.
    */
   const emailFallback = () => {
-    const values = draft;
+    const values: Record<string, string> = { ...(prefill ?? {}), ...draft };
     const lines = [
       values.name && `${copy.name}: ${values.name}`,
       values.company && `${copy.company}: ${values.company}`,
@@ -81,6 +113,7 @@ export function ContactForm({
 
   return (
     <form
+      key={prefill ? 'plan' : 'blank'}
       ref={formRef}
       action={action}
       onChange={(e) => {
@@ -143,9 +176,9 @@ export function ContactForm({
         <Select
           label={copy.type}
           name="type"
-          defaultValue={state.values?.type}
+          defaultValue={state.values?.type ?? prefill?.type}
           error={errors.type}
-          options={[ui.notSure, ...serviceTitles]}
+          options={[...(prefill ? [prefill.type] : []), ui.notSure, ...serviceTitles]}
         />
       </div>
 
@@ -154,7 +187,7 @@ export function ContactForm({
         name="message"
         rows={5}
         required
-        defaultValue={state.values?.message}
+        defaultValue={state.values?.message ?? prefill?.message}
         error={errors.message}
         placeholder={ui.messagePlaceholder}
       />
