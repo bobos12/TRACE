@@ -8,7 +8,7 @@ import { Logo } from '@/components/brand/Logo';
 import { Constellation } from '@/components/brand/Constellation';
 import { StopText } from '@/components/brand/Nuqta';
 import { BookingLink } from '@/components/contact/BookingLink';
-import { OrderButton } from '@/components/contact/OrderButton';
+import { StartLink } from '@/components/pricing/StartLink';
 import { Disclosure } from '@/components/ui/Disclosure';
 import { Browser } from '@/components/bail/Frames';
 import { SignDesktop, SignPhone } from '@/components/products/SignMock';
@@ -83,7 +83,6 @@ function ProductArt({ name }: { name: string }) {
  * order includes.
  */
 function Panel({ product, copy }: { product: Product; copy: Site['products'] }) {
-  const fill = (t: string) => t.replaceAll('{product}', product.name);
 
   return (
     <article
@@ -114,22 +113,17 @@ function Panel({ product, copy }: { product: Product; copy: Site['products'] }) 
       </div>
 
       {/* The price block. */}
-      <div className="flex items-end justify-between gap-4 border-y border-line py-5">
-        <div className="flex items-baseline gap-2">
-          <span className="text-[clamp(2.25rem,1.8rem+1.2vw,3rem)] font-semibold leading-none tracking-[-0.04em]">
-            {copy.priceLabel}
-          </span>
-          <span className="body-sm text-ink-muted">{product.price}</span>
-        </div>
-        <span className="hidden text-end font-mono text-[11px] uppercase tracking-[0.08em] text-ink-faint sm:block">
-          {copy.priceNote}
+      <div className="flex flex-wrap items-end justify-between gap-x-4 gap-y-2 border-y border-line py-5">
+        <span className="text-[clamp(2.25rem,1.8rem+1.2vw,3rem)] font-semibold leading-none tracking-[-0.04em]">
+          {product.price}
         </span>
+        <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-ink-muted">{copy.priceNote}</span>
       </div>
 
       <div className="mt-auto flex flex-col gap-3">
-        <OrderButton product={product.name} subject={fill(copy.orderSubject)} body={fill(copy.orderBody)} block>
+        <StartLink plan={product.plan} placement={`landing:product-${product.name.toLowerCase()}`}>
           {product.order}
-        </OrderButton>
+        </StartLink>
         <Disclosure more={copy.detailsShow} less={copy.detailsHide}>
           <ul className="grid grid-cols-1 gap-x-4 gap-y-2.5 sm:grid-cols-2">
             {product.includes.map((item) => (

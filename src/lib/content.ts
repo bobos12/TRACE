@@ -177,12 +177,14 @@ const siteSchema = z.object({
           name: z.string().min(1),
           tagline: z.string().min(1),
           text: z.string().min(1),
-          status: z.string().min(1).optional(),
+          /** Where "Pricing and features" goes. */
           href: z.string().min(1),
-          /** The order button and the line in the pricing panel. */
+          /** The start button. */
           order: z.string().min(1),
-          /** The unit beside the price, e.g. "per agency". */
+          /** The price line, e.g. "From $49/mo". */
           price: z.string().min(1),
+          /** The software plan the start button opens the form with (pricing.software.plans[].id). */
+          plan: z.string().min(1),
           /** Who it is for — the tag beside the lockup. */
           audience: z.string().min(1),
           /** What an order includes — the checklist. */
@@ -195,11 +197,8 @@ const siteSchema = z.object({
       .min(1),
     moreTitle: z.string().min(1),
     includedTitle: z.string().min(1),
-    priceLabel: z.string().min(1),
+    /** Beside the price: the terms in one line. */
     priceNote: z.string().min(1),
-    /** The order email — {product}. */
-    orderSubject: z.string().min(1),
-    orderBody: z.string().min(1),
     demoCta: z.string().min(1),
     detailsCta: z.string().min(1),
     detailsShow: z.string().min(1),
@@ -237,14 +236,21 @@ const siteSchema = z.object({
       /** {total}, {save} */
       billedYearly: z.string().min(1),
       saveBadge: z.string().min(1),
+      /** Under the monthly price: the yearly total — {total}. */
+      yearlyLine: z.string().min(1),
       /** Beside the switch: the nudge on monthly, the confirmation on yearly. */
       nudge: z.string().min(1),
       applied: z.string().min(1),
     }),
     popular: z.string().min(1),
+    /** Under the featured plan's price — {total}; and what it adds up — {launch}, {bail}, {sign}, {ai}. */
+    valueLine: z.string().min(1),
+    valueParts: z.string().min(1),
     /** The bonus ticket: its tag, and the price it drops to. */
     bonusTag: z.string().min(1),
     free: z.string().min(1),
+    /** USD per month for the TRACE AI agent on its own — struck on the tickets, counted in the value line. */
+    aiAgentPrice: z.number().int().positive(),
     /** Under each plan's button: book a call instead. */
     callCta: z.string().min(1),
     /** "Start" opens the contact form with these filled in — {plan}, {price}, {billing}. */
@@ -257,6 +263,8 @@ const siteSchema = z.object({
           name: z.string().min(1),
           /** The plan's mark, from the icon set. */
           icon: z.string().min(1),
+          /** The badge on the card's top corner. */
+          badge: z.object({ label: z.string().min(1), icon: z.string().min(1) }),
           audience: z.string().min(1),
           tagline: z.string().min(1),
           /** USD per month, billed monthly. */
@@ -265,7 +273,7 @@ const siteSchema = z.object({
           cta: z.string().min(1),
           includesTitle: z.string().min(1),
           features: z.array(z.string().min(1)).min(1),
-          bonus: z.object({ label: z.string().min(1), value: z.string().min(1), tag: z.string().min(1) }),
+          bonus: z.object({ label: z.string().min(1), tag: z.string().min(1) }),
         }),
       )
       .length(3),
@@ -279,6 +287,46 @@ const siteSchema = z.object({
       email: z.string().min(1),
     }),
     homeMore: z.string().min(1),
+    /** The founding-customer offer — shown on /pricing. No counter, no spots-left figure. */
+    founding: z.object({ label: z.string().min(1), text: z.string().min(1) }),
+    /** TRACE Bail and TRACE Sign on their own, for agencies that already have a website. */
+    software: z.object({
+      title: z.string().min(1),
+      lead: z.string().min(1),
+      homeTitle: z.string().min(1),
+      homeText: z.string().min(1),
+      homeCta: z.string().min(1),
+      firstMonth: z.string().min(1),
+      perMonth: z.string().min(1),
+      /** {total} */
+      yearlyLine: z.string().min(1),
+      cta: z.string().min(1),
+      callCta: z.string().min(1),
+      includesTitle: z.string().min(1),
+      terms: z.array(z.object({ icon: z.string().min(1), text: z.string().min(1) })).min(1),
+      smallPrint: z.string().min(1),
+      /** The contact form when "Start for $1" is pressed — {name}, {price}. */
+      formType: z.string().min(1),
+      formMessage: z.string().min(1),
+      plans: z
+        .array(
+          z.object({
+            id: z.enum(['sign', 'bail', 'bundle']),
+            name: z.string().min(1),
+            /** The product name after the TRACE wordmark, where it has one. */
+            product: z.string().min(1).optional(),
+            icon: z.string().min(1),
+            audience: z.string().min(1),
+            tagline: z.string().min(1),
+            /** USD per month; a year is billing.yearlyMonths of these. */
+            price: z.number().int().positive(),
+            featured: z.boolean().optional(),
+            badge: z.string().min(1).optional(),
+            features: z.array(z.string().min(1)).min(1),
+          }),
+        )
+        .length(3),
+    }),
     page: z.object({
       seo: pageSeo,
       /** The page's own heading — short, so the plans show in the first view. */

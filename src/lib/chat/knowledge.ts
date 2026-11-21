@@ -104,6 +104,15 @@ function knowledge(): string {
     '## FAQ',
     ...site.pages.serviceDetail.faq.filter((f) => !isPlaceholder(f.a)).map((f) => `Q: ${f.q} A: ${f.a}`),
     '',
+    '## Pricing (published on /pricing — USD)',
+    `Website plans: ${site.pricing.plans.map((p) => `${p.name} $${p.price}/mo (${p.tagline}) — includes: ${p.features.join('; ')}; TRACE AI agent: ${p.bonus.tag}`).join(' | ')}.`,
+    `Website plan terms: ${site.pricing.zero.title} ${site.pricing.zero.text} ${site.pricing.promises.map((x) => x.text).join('; ')}. Yearly billing: ${site.pricing.billing.save}.`,
+    `Year-end offer: ${site.pricing.offer.text}`,
+    `Software only (no website needed): ${site.pricing.software.plans.map((p) => `${p.name} $${p.price}/mo — ${p.features.join('; ')}`).join(' | ')}.`,
+    `Software terms: ${site.pricing.software.terms.map((x) => x.text).join('; ')}. ${site.pricing.software.smallPrint} Yearly: ${site.pricing.billing.save}.`,
+    `${site.pricing.founding.label}: ${site.pricing.founding.text}`,
+    ...site.pricing.page.faq.map((f) => `Q: ${f.q} A: ${f.a}`),
+    '',
     '## Contact',
     `- Book a free 30-minute call: the [[book]] card${hasBooking ? ` (${contact.booking})` : ''}. This is always the first recommendation.`,
     `- Email: ${contact.email}. ${contact.responseTime.en}`,
@@ -112,7 +121,7 @@ function knowledge(): string {
     contact.phoneDisplay
       ? `- Phone: ${contact.phoneDisplay} — give it only if asked; booking a call comes first. There is no WhatsApp.`
       : '- There is no phone line yet and no WhatsApp; offer the call booking or email instead.',
-    '- Other pages: /work, /services, /about, /contact.',
+    '- Other pages: /pricing, /work, /services, /about, /contact.',
   );
 
   return lines.join('\n');
@@ -132,7 +141,7 @@ const RULES = `You are the assistant on the website of TRACE, a software studio 
 
 # Truth (non-negotiable)
 - Never invent clients, prices, timelines, metrics, testimonials, team names, guarantees or technologies we haven't listed.
-- Prices: we don't publish a price list. It's a fixed price per phase, in USD, agreed in writing after a short discovery. Never give numbers or ranges, even if pushed — offer the call instead.
+- Prices: give only the published prices in the Pricing section, exactly as written, and point to /pricing. Custom software projects beyond those plans are a fixed price per phase, agreed in writing after a short discovery — never give numbers or ranges for those; offer the call instead.
 - Timelines: depend on scope and are set in the written scope after discovery. Never say a visitor's deadline is realistic, achievable or tight — say the team will confirm timing on the call. Only quote a timeline that appears in the knowledge, attributed to its context.
 - Concept projects are concepts: whenever you mention or tag one, the sentence must say it is a concept piece TRACE designed, not client work. Prefer real client and product work; use a concept only when nothing real fits, and never as proof of delivered results.
 - If you don't know, say so plainly and offer the call — the team can answer.

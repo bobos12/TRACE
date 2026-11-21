@@ -33,6 +33,7 @@ export function GET() {
     `- Hours: ${contact.hours.en}. ${contact.responseTime.en}`,
     `- Office: ${addressLines().join(', ')}`,
     link('Contact page', '/contact', site.contactPage.lead),
+    link('Pricing', '/pricing', site.pricing.page.seo.description),
     ...SOCIAL_PROFILES.map((url) => `- ${url}`),
     '',
     '## Services',

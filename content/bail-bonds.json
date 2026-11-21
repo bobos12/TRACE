@@ -693,7 +693,11 @@
       },
       {
         "q": "How much does it cost?",
-        "a": "It depends on the number of counties, languages and whether you want the assistant, so we don't publish a price list. After a free 30-minute call you get a written proposal with a fixed price."
+        "a": "Website plans start at $299 a month with no setup fee and a 4-month minimum. TRACE Bail on its own is $49 a month, TRACE Sign $25, or both for $65 — first month $1, no minimum. Every price is on our pricing page."
+      },
+      {
+        "q": "Can I buy TRACE Bail without a website?",
+        "a": "Yes. TRACE Bail is $49 a month on its own — 2 users, unlimited bonds, court-date texts and payment plans — with the first month for $1 and no minimum term."
       },
       {
         "q": "How long does it take?",

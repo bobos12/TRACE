@@ -757,13 +757,13 @@
     "eyebrow": "03 ◆ Our products",
     "title": "Software we make, ready for your agency.",
     "lead": "Alongside the websites we build, TRACE makes its own products — built for bail agencies first, and for any business that runs on clients and paperwork.",
-    "_note": "Features as described by the owner on 2026-10-13. The \"In development\" label was removed from the home page at the owner's request (2026-10-13); portfolio.json still marks TRACE Bail in development. Confirm TRACE Sign status before launch; no customers, counts or results are claimed.",
+    "_note": "Features as described by the owner on 2026-10-13; prices set 2026-11-22 (TRACE Bail from $49/mo, TRACE Sign $25/mo, first month $1). No customers, counts or results are claimed.",
     "items": [
       {
         "name": "Bail",
         "tagline": "The CRM for bail bond agencies.",
         "text": "Every bond, defendant and cosigner on one record. Court dates, check-ins, signatures and payments run themselves — for the office and the agent in the field.",
-        "href": "/work/trace-bail",
+        "href": "/pricing#trace-bail",
         "features": [
           {
             "icon": "folder",
@@ -796,8 +796,8 @@
             "text": "Court dates and clients in the field."
           }
         ],
-        "order": "Order TRACE Bail",
-        "price": "per agency",
+        "order": "Start for $1",
+        "price": "From $49/mo",
         "includes": [
           "Agency web portal",
           "Agent mobile app",
@@ -806,13 +806,14 @@
           "Setup, import & training",
           "English & Spanish"
         ],
-        "audience": "For bail bond agencies"
+        "audience": "For bail bond agencies",
+        "plan": "bail"
       },
       {
         "name": "Sign",
         "tagline": "Documents signed. Clients managed.",
         "text": "Send any document for signature, track every signer and keep every client, file and signature in one place — with a full audit trail.",
-        "href": "/contact",
+        "href": "/pricing#trace-sign",
         "features": [
           {
             "icon": "pen",
@@ -845,8 +846,8 @@
             "text": "Encrypted, and yours to export."
           }
         ],
-        "order": "Order TRACE Sign",
-        "price": "per team",
+        "order": "Start for $1",
+        "price": "$25/mo",
         "includes": [
           "E-signatures from any phone",
           "Reusable templates",
@@ -855,30 +856,28 @@
           "Full audit trail",
           "Setup & onboarding"
         ],
-        "audience": "For any business"
+        "audience": "For any business",
+        "plan": "sign"
       }
     ],
     "moreTitle": "Also built by TRACE",
     "showMore": "See all features",
     "showLess": "Hide features",
     "includedTitle": "What’s included",
-    "priceLabel": "Custom",
-    "priceNote": "Quote within one business day",
-    "orderSubject": "Order — TRACE {product}",
-    "orderBody": "Hi TRACE team,\n\nWe would like to order TRACE {product}.\n\nCompany:\nNumber of users:\nWhat we use today:\nBest time for a demo:\n\nThanks,",
-    "demoCta": "Book a free demo",
-    "detailsCta": "Product details",
+    "priceNote": "First month $1 · no minimum",
+    "demoCta": "Book a free walkthrough",
+    "detailsCta": "Pricing and features",
     "detailsShow": "See details",
     "detailsHide": "Hide details"
   },
   "pricing": {
-    "_note": "Plans and prices set by the owner on 2026-11-21: Launch $299/mo + free AI agent until the end of the year; Growth $450/mo + TRACE Bail + unlimited TRACE Sign; Scale $799/mo with everything and custom build. PLACEHOLDERS to confirm before launch: the AI agent's $150/mo value after the offer, 2 months free on yearly billing, no setup fee / upfront payment and no hidden fees, the 4-month minimum (owner, 2026-11-22), \"first month paid at go-live\", 'live in 14 days', 10 custom-work hours on Scale, the support response times, office limits, and pass-through text/payment fees.",
+    "_note": "Prices set by the owner (2026-11-22). Website plans: Launch $299/mo, Growth $450/mo (AI agent permanently included), Scale $799/mo; 4-month minimum, no setup fee, first month billed at go-live, yearly = 2 months free. Software only: TRACE Sign $25/mo, TRACE Bail $49/mo (2 users, extra users $15/mo, 500 texts/mo then $0.03), bundle $65/mo; first month $1, no minimum. Founding offer: the first 20 agencies lock today's price for life (no counter shown). PLACEHOLDERS to confirm: the AI agent's $150/mo price after the offer, \"live in 14 days\", 10 custom-work hours on Scale, support response times, office limits.",
     "eyebrow": "Pricing",
     "title": "One monthly price. Everything handled.",
     "lead": "Your website, your software and the people who build it — on one simple plan. No setup fee, no upfront payment, no hidden fees.",
     "offer": {
       "label": "Year-end offer",
-      "text": "Start any plan before December 31 and the TRACE AI agent is free for the rest of the year.",
+      "text": "Start Launch before December 31 and the TRACE AI agent is free for the rest of the year.",
       "ends": "2026-12-31T23:59:59-05:00",
       "endsLabel": "Ends Dec 31",
       "daysLeft": "{n} days left",
@@ -896,11 +895,15 @@
       "billedYearly": "{total} billed yearly · save {save}",
       "saveBadge": "Save {save}/yr",
       "nudge": "Pay yearly and get 2 months free",
-      "applied": "2 months free, applied to every plan"
+      "applied": "2 months free, applied to every plan",
+      "yearlyLine": "or {total}/yr — 2 months free"
     },
     "popular": "Most popular",
+    "valueLine": "Bought separately: {total}/mo",
+    "valueParts": "Launch {launch} + TRACE Bail {bail} + TRACE Sign {sign} + TRACE AI agent {ai}",
     "bonusTag": "Bonus",
     "free": "$0",
+    "aiAgentPrice": 150,
     "callCta": "or book a free call first",
     "formType": "{plan} plan — {price}/mo",
     "formMessage": "Hi TRACE team, I would like to start the {plan} plan — {price}/mo, billed {billing}. Please get in touch to set us up.",
@@ -929,7 +932,6 @@
         ],
         "bonus": {
           "label": "TRACE AI agent, answering 24/7",
-          "value": "$150/mo",
           "tag": "Free until Dec 31"
         }
       },
@@ -958,8 +960,7 @@
         ],
         "bonus": {
           "label": "TRACE AI agent, answering 24/7",
-          "value": "$150/mo",
-          "tag": "Free until Dec 31"
+          "tag": "Included — no end date"
         }
       },
       {
@@ -986,7 +987,6 @@
         ],
         "bonus": {
           "label": "TRACE AI agent, answering 24/7",
-          "value": "$150/mo",
           "tag": "Included — no end date"
         }
       }
@@ -1014,8 +1014,8 @@
     "homeMore": "Compare every feature",
     "page": {
       "seo": {
-        "title": "Pricing — plans for bail agencies from $299/mo",
-        "description": "Simple monthly plans: a custom agency website with a free AI agent, TRACE Bail and unlimited e-signatures, or everything with custom software. No setup fee, no upfront payment."
+        "title": "Pricing — websites from $299/mo, TRACE Bail $49/mo, TRACE Sign $25/mo",
+        "description": "Website plans for bail agencies from $299/mo with no setup fee. Software only: TRACE Sign $25/mo, TRACE Bail $49/mo, or both for $65/mo — first month $1, no minimum."
       },
       "compareTitle": "Compare every feature.",
       "compareFeature": "Feature",
@@ -1082,7 +1082,7 @@
               "label": "TRACE AI agent, answering 24/7",
               "values": [
                 "Free until Dec 31",
-                "Free until Dec 31",
+                "Included",
                 "Included"
               ]
             }
@@ -1206,12 +1206,20 @@
       "faqTitle": "Questions about plans.",
       "faq": [
         {
-          "q": "Is there a minimum term?",
-          "a": "Yes — four months. That is the time it takes to see the effect on your calls and leads honestly. After that every plan is month to month and you can cancel anytime. Pay yearly and you get two months free."
+          "q": "Can I buy TRACE Bail without a website?",
+          "a": "Yes. TRACE Bail is $49 a month on its own, TRACE Sign is $25, or get both for $65. The first month is $1 and there is no minimum term."
+        },
+        {
+          "q": "Is there a contract?",
+          "a": "Software plans (TRACE Bail and TRACE Sign) have no minimum — month to month, cancel anytime. Website plans have a 4-month minimum, the time it takes to measure the effect on your calls and leads honestly; after that they are month to month too. Pay yearly and you get two months free."
+        },
+        {
+          "q": "Are texts unlimited?",
+          "a": "TRACE Bail includes 500 texts a month for court-date reminders. After that, each text is $0.03."
         },
         {
           "q": "What happens to the AI agent after December 31?",
-          "a": "On Launch and Growth it keeps running at $150 a month only if you say yes — otherwise we switch it off and nothing changes on your bill. On Scale it stays included."
+          "a": "On Launch it keeps running at $150 a month only if you say yes — otherwise we switch it off and nothing changes on your bill. Growth and Scale include it with no end date."
         },
         {
           "q": "Who owns the website and the data?",
@@ -1231,7 +1239,7 @@
         },
         {
           "q": "Are there any other costs?",
-          "a": "Text-message and card-processing fees are passed through at cost. We tell you before anything is added — no surprises on your bill."
+          "a": "Card-processing fees for payments collected through TRACE Bail are passed through at cost, and texts beyond the 500 included each month are $0.03 each. Nothing else is added without telling you first."
         }
       ],
       "title": "Plans & pricing."
@@ -1240,6 +1248,88 @@
       "amount": "$0",
       "title": "No setup fee. No upfront payment.",
       "text": "You pay your first month when your site goes live — nothing before."
+    },
+    "founding": {
+      "label": "Founding agencies",
+      "text": "The first 20 agencies lock today’s price for life."
+    },
+    "software": {
+      "title": "Software only.",
+      "lead": "Already have a website? Run your agency on TRACE Bail and TRACE Sign on their own — no website plan needed.",
+      "homeTitle": "Already have a website?",
+      "homeText": "Get the software on its own — first month $1, no minimum.",
+      "homeCta": "See software plans",
+      "firstMonth": "First month $1",
+      "perMonth": "/mo",
+      "yearlyLine": "or {total}/yr — 2 months free",
+      "cta": "Start for $1",
+      "callCta": "or book a free walkthrough first",
+      "includesTitle": "What’s included",
+      "terms": [
+        {
+          "icon": "card",
+          "text": "First month $1, then the monthly price"
+        },
+        {
+          "icon": "calendar",
+          "text": "Month to month — no minimum, cancel anytime"
+        }
+      ],
+      "smallPrint": "Card-processing fees for payments collected through TRACE Bail are passed through to the agency at cost.",
+      "formType": "{name} — {price}/mo, first month $1",
+      "formMessage": "Hi TRACE team, I would like to start {name} at {price}/mo, with the first month for $1. Please get in touch to set us up.",
+      "plans": [
+        {
+          "id": "sign",
+          "name": "TRACE Sign",
+          "product": "Sign",
+          "icon": "pen",
+          "audience": "For any business",
+          "tagline": "Documents signed from any phone, with a full audit trail.",
+          "price": 25,
+          "features": [
+            "Unlimited e-signatures — no envelope limits",
+            "Up to 3 users",
+            "Reusable templates",
+            "Full audit trail with timestamps — sent, opened, viewed, signed",
+            "Signing links by email and text",
+            "Client records",
+            "Works for any business, not only bail"
+          ]
+        },
+        {
+          "id": "bail",
+          "name": "TRACE Bail",
+          "product": "Bail",
+          "icon": "folder",
+          "audience": "For bail bond agencies",
+          "tagline": "Every bond, court date and payment on one record.",
+          "price": 49,
+          "features": [
+            "Unlimited bonds, defendants and indemnitors",
+            "2 users included — extra users $15/mo each",
+            "Court-date reminders by text — 500 texts/mo included, then $0.03 each",
+            "Payment plans and autopay tracking",
+            "Mobile view for agents on the go",
+            "Free data import from your current system"
+          ]
+        },
+        {
+          "id": "bundle",
+          "name": "TRACE Bail + Sign",
+          "icon": "layers",
+          "audience": "For bail bond agencies",
+          "tagline": "Both products together, for less.",
+          "price": 65,
+          "featured": true,
+          "badge": "Save $9/mo",
+          "features": [
+            "Everything in TRACE Bail",
+            "Everything in TRACE Sign",
+            "Save $108 a year over buying them separately"
+          ]
+        }
+      ]
     }
   },
   "aiSection": {

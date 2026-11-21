@@ -19,11 +19,18 @@ const fill = (t: string, vars: Record<string, string>) =>
   t.replace(/\{(\w+)\}/g, (_, k: string) => vars[k] ?? `{${k}}`);
 
 /**
- * The plan chosen on the pricing page (`?plan=growth&billing=yearly`), as the
- * form's "What do you need?" and a ready-written message. Null when absent.
+ * The plan chosen on the pricing page, as the form's "What do you need?" and a
+ * ready-written message: a website plan (`?plan=growth&billing=yearly`) or a
+ * software plan (`?product=bail`). Null when absent.
  */
 function planPrefill(site: Site, search: string): { type: string; message: string } | null {
   const params = new URLSearchParams(search);
+  const sw = site.pricing.software;
+  const product = sw.plans.find((p) => p.id === params.get('product'));
+  if (product) {
+    const vars = { name: product.name, price: usd(product.price) };
+    return { type: fill(sw.formType, vars), message: fill(sw.formMessage, vars) };
+  }
   const plan = site.pricing.plans.find((p) => p.id === params.get('plan'));
   if (!plan) return null;
   const yearly = params.get('billing') === 'yearly';

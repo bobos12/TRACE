@@ -458,10 +458,10 @@
     {
       "slug": "trace-bail",
       "kind": "product",
-      "_note": "In development. The screens are product designs shown with Ironwood Bail Bonds, a fictional agency; no agency uses it yet.",
+      "_note": "TRACE product. The screens are shown with Ironwood Bail Bonds, a fictional agency.",
       "featured": true,
       "spotlight": true,
-      "inDevelopment": true,
+      "inDevelopment": false,
       "category": "saas",
       "year": 2026,
       "cover": "/images/portfolio/trace-bail-cover.jpg",
@@ -491,7 +491,7 @@
         "title": "One system for the whole bail agency",
         "summary": "An agency portal and agent app for US bail bond companies — bonds, court dates, check-ins, e-signature and payments in one place.",
         "challenge": "Most bail agencies still run on paper files, a shared inbox and a spreadsheet of court dates. One missed hearing can cost the full bond.",
-        "solution": "A portal for the office and an app for agents. Every bond, defendant and cosigner lives on one record; court-date reminders and check-ins go out by text in English and Spanish; cosigners sign and pay the premium from their phone. In development — shown here with a fictional agency.",
+        "solution": "A portal for the office and an app for agents. Every bond, defendant and cosigner lives on one record; court-date reminders and check-ins go out by text in English and Spanish; cosigners sign and pay the premium from their phone. Shown here with a fictional agency.",
         "capabilities": [
           "Bond & case management",
           "Court-date reminders by SMS",
