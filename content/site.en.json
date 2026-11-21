@@ -864,7 +864,6 @@
     "showMore": "See all features",
     "showLess": "Hide features",
     "includedTitle": "What’s included",
-    "priceNote": "First month $1 · no minimum",
     "demoCta": "Book a free walkthrough",
     "detailsCta": "Pricing and features",
     "detailsShow": "See details",
@@ -992,10 +991,6 @@
       }
     ],
     "promises": [
-      {
-        "icon": "card",
-        "text": "No hidden fees"
-      },
       {
         "icon": "calendar",
         "text": "4-month minimum, then cancel anytime"
@@ -1245,9 +1240,23 @@
       "title": "Plans & pricing."
     },
     "zero": {
-      "amount": "$0",
-      "title": "No setup fee. No upfront payment.",
-      "text": "You pay your first month when your site goes live — nothing before."
+      "label": "$0 to start",
+      "title": "Nothing to pay until your site is live.",
+      "text": "Your first month is billed the day your site goes live — not a dollar before.",
+      "items": [
+        {
+          "amount": "$0",
+          "label": "Setup fee"
+        },
+        {
+          "amount": "$0",
+          "label": "Upfront"
+        },
+        {
+          "amount": "$0",
+          "label": "Hidden fees"
+        }
+      ]
     },
     "founding": {
       "label": "Founding agencies",

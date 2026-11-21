@@ -106,7 +106,7 @@ function knowledge(): string {
     '',
     '## Pricing (published on /pricing — USD)',
     `Website plans: ${site.pricing.plans.map((p) => `${p.name} $${p.price}/mo (${p.tagline}) — includes: ${p.features.join('; ')}; TRACE AI agent: ${p.bonus.tag}`).join(' | ')}.`,
-    `Website plan terms: ${site.pricing.zero.title} ${site.pricing.zero.text} ${site.pricing.promises.map((x) => x.text).join('; ')}. Yearly billing: ${site.pricing.billing.save}.`,
+    `Website plan terms: ${site.pricing.zero.items.map((x) => `${x.amount} ${x.label.toLowerCase()}`).join(", ")}. ${site.pricing.zero.text} ${site.pricing.promises.map((x) => x.text).join('; ')}. Yearly billing: ${site.pricing.billing.save}.`,
     `Year-end offer: ${site.pricing.offer.text}`,
     `Software only (no website needed): ${site.pricing.software.plans.map((p) => `${p.name} $${p.price}/mo — ${p.features.join('; ')}`).join(' | ')}.`,
     `Software terms: ${site.pricing.software.terms.map((x) => x.text).join('; ')}. ${site.pricing.software.smallPrint} Yearly: ${site.pricing.billing.save}.`,

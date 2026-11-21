@@ -117,7 +117,6 @@ function Panel({ product, copy }: { product: Product; copy: Site['products'] }) 
         <span className="text-[clamp(2.25rem,1.8rem+1.2vw,3rem)] font-semibold leading-none tracking-[-0.04em]">
           {product.price}
         </span>
-        <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-ink-muted">{copy.priceNote}</span>
       </div>
 
       <div className="mt-auto flex flex-col gap-3">

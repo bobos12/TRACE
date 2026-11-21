@@ -15,7 +15,7 @@ import type { Site } from '@/lib/content';
 /** What every plan promises, in one row under the cards. */
 function Promises({ items }: { items: Site['pricing']['promises'] }) {
   return (
-    <ul className="grid grid-cols-1 gap-x-6 gap-y-3 border-y border-line py-6 sm:grid-cols-3">
+    <ul className="flex flex-col items-center gap-x-12 gap-y-3 border-y border-line py-6 sm:flex-row sm:flex-wrap sm:justify-center">
       {items.map((p) => (
         <li key={p.text} className="flex items-center gap-3 text-[15px] text-ink">
           <Icon name={p.icon} size={20} className="flex-none text-ink-muted" />
@@ -26,23 +26,38 @@ function Promises({ items }: { items: Site['pricing']['promises'] }) {
   );
 }
 
-/** The promise that matters most, set large: $0 to start. */
-function ZeroCallout({ zero }: { zero: Site['pricing']['zero'] }) {
+/**
+ * The promise that matters most, under the cards where the decision is made:
+ * a carbon band with three big $0 figures — setup, upfront, hidden fees.
+ */
+function ZeroBand({ zero }: { zero: Site['pricing']['zero'] }) {
   return (
     <div
       data-reveal="rise"
-      className="at-cut flex h-full items-center gap-5 border-2 border-nuqta bg-nuqta-soft p-5 sm:gap-7 sm:p-6"
-      style={{ '--cut': '20px' } as CSSProperties}
+      className="band-carbon at-cut grid grid-cols-1 items-center gap-8 border border-nuqta/40 p-6 sm:p-8 lg:grid-cols-[1fr_auto] lg:gap-12 lg:p-10"
+      style={{ '--cut': '28px' } as CSSProperties}
     >
-      <span className="flex-none text-[clamp(3.5rem,2.8rem+2.4vw,5rem)] font-semibold leading-[0.8] tracking-[-0.05em] text-nuqta">
-        {zero.amount}
-      </span>
-      <span className="flex flex-col gap-1.5">
-        <strong className="text-[clamp(1.25rem,1.1rem+0.6vw,1.6rem)] font-semibold leading-tight tracking-[-0.015em] text-ink">
+      <div className="flex flex-col gap-3">
+        <p className="m-0 flex items-center gap-2.5">
+          <Nuqta size={9} />
+          <span className="eyebrow text-nuqta">{zero.label}</span>
+        </p>
+        <h3 className="m-0 text-[clamp(1.6rem,1.3rem+1vw,2.25rem)] font-semibold leading-[1.1] tracking-[-0.02em]">
           {zero.title}
-        </strong>
-        <span className="text-[15px] leading-[22px] text-ink-muted">{zero.text}</span>
-      </span>
+        </h3>
+        <p className="body max-w-[44ch] text-ink-muted">{zero.text}</p>
+      </div>
+      <ul className="grid grid-cols-3 divide-x divide-line">
+        {zero.items.map((item) => (
+          <li key={item.label} className="flex flex-col items-center gap-2 px-3 text-center sm:px-8">
+            <span className="text-[clamp(2.75rem,2rem+2.6vw,4.5rem)] font-semibold leading-[0.85] tracking-[-0.05em]">
+              <span className="text-nuqta">$</span>
+              {item.amount.replace('$', '')}
+            </span>
+            <span className="whitespace-nowrap font-mono text-[10px] uppercase tracking-[0.06em] text-ink-muted sm:text-[11px] sm:tracking-[0.1em]">{item.label}</span>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
@@ -162,13 +177,13 @@ export function Pricing({ site, variant = 'home' }: { site: Site; variant?: 'hom
           </div>
         )}
 
-        <div className="flex flex-col gap-3">
-          <OfferBanner offer={copy.offer} />
-          <ZeroCallout zero={copy.zero} />
-        </div>
+        <OfferBanner offer={copy.offer} />
 
         <PlanGrid copy={copy} />
-        <Promises items={copy.promises} />
+        <div className="flex flex-col gap-6 md:mt-8">
+          <ZeroBand zero={copy.zero} />
+          <Promises items={copy.promises} />
+        </div>
         {home ? <SoftwareTeaser copy={copy} /> : null}
 
         {/* Still deciding: the call, then email. */}

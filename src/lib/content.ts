@@ -197,8 +197,6 @@ const siteSchema = z.object({
       .min(1),
     moreTitle: z.string().min(1),
     includedTitle: z.string().min(1),
-    /** Beside the price: the terms in one line. */
-    priceNote: z.string().min(1),
     demoCta: z.string().min(1),
     detailsCta: z.string().min(1),
     detailsShow: z.string().min(1),
@@ -279,7 +277,12 @@ const siteSchema = z.object({
       .length(3),
     promises: z.array(z.object({ icon: z.string().min(1), text: z.string().min(1) })).min(1),
     /** The headline promise — no setup fee, nothing upfront — shown large above the cards. */
-    zero: z.object({ amount: z.string().min(1), title: z.string().min(1), text: z.string().min(1) }),
+    zero: z.object({
+      label: z.string().min(1),
+      title: z.string().min(1),
+      text: z.string().min(1),
+      items: z.array(z.object({ amount: z.string().min(1), label: z.string().min(1) })).min(1),
+    }),
     help: z.object({
       title: z.string().min(1),
       text: z.string().min(1),
