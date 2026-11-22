@@ -57,6 +57,7 @@ export default async function WorkPage({
       <Breadcrumbs trail={[{ name: site.work.cta, path: '/work' }]} />
 
       <PageHero
+        compact
         eyebrow={copy.eyebrow}
         title={copy.title}
         lead={copy.lead}

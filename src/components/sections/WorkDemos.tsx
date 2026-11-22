@@ -28,8 +28,8 @@ export function WorkDemos({ copy, projects }: { copy: Demos; projects: LocalProj
   if (!demos.length) return null;
 
   return (
-    <section className="band-carbon border-b border-line bg-surface py-[var(--section-y)] text-ink" aria-labelledby="work-demos-title">
-      <Container className="flex flex-col gap-12 md:gap-14">
+    <section className="band-carbon border-b border-line bg-surface pt-12 pb-[var(--section-y)] text-ink md:pt-14" aria-labelledby="work-demos-title">
+      <Container className="flex flex-col gap-8 md:gap-10">
         <SectionHead title={<span id="work-demos-title"><StopText>{copy.title}</StopText></span>} lead={copy.lead} size="md" />
 
         <ul className="grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-5">

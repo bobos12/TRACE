@@ -1,4 +1,3 @@
-import type { CSSProperties } from 'react';
 import { Link } from '@/i18n/navigation';
 import { Container } from '@/components/ui/Container';
 import { SectionHead } from '@/components/ui/SectionHead';
@@ -23,42 +22,6 @@ function Promises({ items }: { items: Site['pricing']['promises'] }) {
         </li>
       ))}
     </ul>
-  );
-}
-
-/**
- * The promise that matters most, under the cards where the decision is made:
- * a carbon band with three big $0 figures — setup, upfront, hidden fees.
- */
-function ZeroBand({ zero }: { zero: Site['pricing']['zero'] }) {
-  return (
-    <div
-      data-reveal="rise"
-      className="band-carbon at-cut grid grid-cols-1 items-center gap-8 border border-nuqta/40 p-6 sm:p-8 lg:grid-cols-[1fr_auto] lg:gap-12 lg:p-10"
-      style={{ '--cut': '28px' } as CSSProperties}
-    >
-      <div className="flex flex-col gap-3">
-        <p className="m-0 flex items-center gap-2.5">
-          <Nuqta size={9} />
-          <span className="eyebrow text-nuqta">{zero.label}</span>
-        </p>
-        <h3 className="m-0 text-[clamp(1.6rem,1.3rem+1vw,2.25rem)] font-semibold leading-[1.1] tracking-[-0.02em]">
-          {zero.title}
-        </h3>
-        <p className="body max-w-[44ch] text-ink-muted">{zero.text}</p>
-      </div>
-      <ul className="grid grid-cols-3 divide-x divide-line">
-        {zero.items.map((item) => (
-          <li key={item.label} className="flex flex-col items-center gap-2 px-3 text-center sm:px-8">
-            <span className="text-[clamp(2.75rem,2rem+2.6vw,4.5rem)] font-semibold leading-[0.85] tracking-[-0.05em]">
-              <span className="text-nuqta">$</span>
-              {item.amount.replace('$', '')}
-            </span>
-            <span className="whitespace-nowrap font-mono text-[10px] uppercase tracking-[0.06em] text-ink-muted sm:text-[11px] sm:tracking-[0.1em]">{item.label}</span>
-          </li>
-        ))}
-      </ul>
-    </div>
   );
 }
 
@@ -180,8 +143,7 @@ export function Pricing({ site, variant = 'home' }: { site: Site; variant?: 'hom
         <OfferBanner offer={copy.offer} />
 
         <PlanGrid copy={copy} />
-        <div className="flex flex-col gap-6 md:mt-8">
-          <ZeroBand zero={copy.zero} />
+        <div className="md:mt-8">
           <Promises items={copy.promises} />
         </div>
         {home ? <SoftwareTeaser copy={copy} /> : null}

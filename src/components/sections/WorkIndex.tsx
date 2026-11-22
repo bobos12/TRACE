@@ -1,7 +1,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { Container } from '@/components/ui/Container';
 import { Chip } from '@/components/ui/Chip';
 import { ProjectCard } from '@/components/sections/ProjectCard';
@@ -66,16 +66,11 @@ function FilterRow({
  * filter is on, every card is equal — a filtered view is a search result, not
  * an edit.
  */
-export function WorkIndex({ ui, projects, services, initial }: WorkIndexProps) {
+export function WorkIndex({ ui, projects, initial }: WorkIndexProps) {
   const router = useRouter();
   const [kind, setKind] = useState(initial.kind);
   const [service, setService] = useState(initial.service);
   const [sector, setSector] = useState(initial.sector);
-
-  const sectors = useMemo(
-    () => [...new Set(projects.map((p) => p.sector))].sort((a, b) => a.localeCompare(b)),
-    [projects],
-  );
 
   const syncUrl = useCallback(
     (next: { kind: string; service: string; sector: string }) => {
@@ -124,20 +119,6 @@ export function WorkIndex({ ui, projects, services, initial }: WorkIndexProps) {
             value={kind}
             options={projectKinds.map((k) => ({ value: k, label: kindLabel(k, ui) }))}
             onPick={pick('kind')}
-          />
-          <FilterRow
-            label={ui.filterService}
-            allLabel={ui.allServices}
-            value={service}
-            options={services.map((s) => ({ value: s.slug, label: s.title }))}
-            onPick={pick('service')}
-          />
-          <FilterRow
-            label={ui.filterSector}
-            allLabel={ui.allSectors}
-            value={sector}
-            options={sectors.map((s) => ({ value: s, label: s }))}
-            onPick={pick('sector')}
           />
 
           {filtered ? (

@@ -46,7 +46,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
 
       {/* Hero — the name, made. */}
       <section className="border-b border-line bg-surface">
-        <Container className="grid grid-cols-1 items-center gap-14 pt-32 pb-[var(--section-y)] lg:grid-cols-12 lg:gap-8">
+        <Container className="grid grid-cols-1 items-center gap-8 pt-24 pb-10 md:pb-12 lg:grid-cols-12 lg:gap-8">
           {/* The first screenful never animates in — see PageHero. */}
           <div className="flex flex-col gap-6 lg:col-span-7">
             <p className="eyebrow text-ink-muted">{about.eyebrow}</p>
@@ -63,8 +63,8 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
       </section>
 
       {/* Team — a constellation stands in for anyone without a photo. */}
-      <section className="border-b border-line bg-surface py-[var(--section-y)]">
-        <Container className="flex flex-col gap-12">
+      <section className="border-b border-line bg-surface pt-12 pb-[var(--section-y)] md:pt-14">
+        <Container className="flex flex-col gap-8 md:gap-10">
           <Reveal as="h2" className="display-md">
             {about.teamTitle}
           </Reveal>
